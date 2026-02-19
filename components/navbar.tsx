@@ -12,8 +12,8 @@ export default function Navbar() {
 
     return (
         <>
-            <AnimatedContent reverse>
-                <nav className='fixed w-full top-0 z-50 px-4 md:px-16 lg:px-24 xl:px-32 py-4 transition-all duration-300'>
+            <AnimatedContent reverse className="fixed w-full top-0 z-50 bg-white/70 backdrop-blur-md border-b border-[#edf9f8]">
+                <nav className='w-full px-4 md:px-16 lg:px-24 xl:px-32 py-4 transition-all duration-300'>
                     <div className="max-w-7xl mx-auto flex items-center justify-between">
                         <Link href="#!" className="flex items-center gap-2">
                             <Image src="/assets/auto-factory.png" alt="Logo" width={28} height={28} className="h-7 w-7" />
