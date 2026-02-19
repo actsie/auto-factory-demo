@@ -1,3 +1,4 @@
+import CtaSection from "@/sections/cta-section";
 import FaqSection from "@/sections/faq-section";
 import FeaturesSection from "@/sections/features-section";
 import HeroSection from "@/sections/hero-section";
@@ -14,6 +15,7 @@ export default function Page() {
             <PricingSection />
             <FaqSection />
             <OurTeamSection />
+            <CtaSection />
         </main>
     );
 }
