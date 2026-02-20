@@ -40,7 +40,7 @@ export default function FixYourPage() {
                 <div className="max-w-7xl mx-auto flex flex-col items-center justify-center h-screen">
                     <AnimatedContent reverse distance={30} className="flex items-center gap-2 bg-white/50 backdrop-blur px-4 py-1.5 rounded-full text-sm text-gray-600">
                         <span className="size-2 rounded-full bg-green-500 inline-block" />
-                        One page per day · $150
+                        One-Day Page Rebuild · $150
                     </AnimatedContent>
 
                     <AnimatedContent distance={30} delay={0.1}>
