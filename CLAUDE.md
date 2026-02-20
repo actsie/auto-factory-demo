@@ -1,4 +1,4 @@
-# Automation Factory — Project Notes
+# Fountain of Scale — Project Notes
 
 ## Stack
 - Next.js (App Router), TypeScript, Tailwind CSS v4, GSAP animations, lucide-react

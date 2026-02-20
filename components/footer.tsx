@@ -16,12 +16,12 @@ export default function Footer() {
                                 height={36}
                                 className="h-9 w-9"
                             />
-                            <span className="font-urbanist font-semibold text-gray-800">Automation Factory</span>
+                            <span className="font-urbanist font-semibold text-gray-800">Fountain of Scale</span>
                         </div>
                         <p className="text-zinc-500 mt-4">Automating roles before companies hire for them. Built by people who learned the hard way.</p>
                     </AnimatedContent>
                     <div className="flex flex-col-reverse md:flex-row items-center md:justify-between gap-4 mt-12">
-                        <p className="text-gray-500 text-sm">© 2026 Automation Factory. All rights reserved.</p>
+                        <p className="text-gray-500 text-sm">© 2026 Fountain of Scale. All rights reserved.</p>
                         <div className="flex items-center gap-4">
                             <a href="#!" className="text-purple-500 hover:text-purple-600">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-label="X (formerly Twitter)">

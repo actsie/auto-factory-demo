@@ -4,24 +4,24 @@
 
 export const pitchConfig = {
     // The company you're pitching (for your reference only, not shown on page)
-    company: "Default",
+    company: "Jaimeson — SDR pitch",
 
     hero: {
-        badge: "Available for new sprints",
-        headlineLine1: "You're scaling.",
-        headlineLine2: "Half of it should be",
+        badge: "Built for SDR teams",
+        headlineLine1: "You're hiring an SDR.",
+        headlineLine2: "Half the workflow should be",
         headlineAccent: "automated.",
-        subtext: `The role you're hiring for has real judgment work at the center. Around it is prep, cleanup, and repetition that buries whoever you hire. We automate that layer in 30 days and hand it off.`,
+        subtext: `Account research, CRM cleanup, personalization drafts, and follow-up sequencing — these repeat every day and bury whoever you hire. We automate that layer in 30 days so your SDR ships faster and spends their time on the relationships that actually close.`,
         subtextTagline: "Faster ramp. Tighter execution. Less busywork.",
-        ctaPrimary: "Send us a job posting",
+        ctaPrimary: "Send us the SDR job posting",
         ctaSecondary: "See how it works",
     },
 
     cta: {
-        headlineLine1: "Find out what's",
-        headlineAccent: "automatable",
+        headlineLine1: "See what we'd automate in your",
+        headlineAccent: "SDR workflow",
         headlineLine2: "before you hire",
-        subtext: `Send us the job posting. We'll map what can be automated and what can't — free, no commitment.`,
+        subtext: `Send us the job posting. We'll map what's automatable and what needs a human — free, no commitment.`,
         ctaPrimary: "Book a free scoping call",
         ctaSecondary: "See how it works",
     },
