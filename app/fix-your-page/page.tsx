@@ -8,14 +8,14 @@ const whatsIncluded = [
     "Cleaner layout using your existing copy — no rewriting needed",
     "Better section order so visitors know what to do next",
     "A clear path to booking or contacting you",
-    "Mobile-friendly and ready to publish",
+    "Mobile-friendly and live on your site",
 ];
 
 const steps = [
     {
         icon: ClipboardIcon,
-        title: "Send us your URL",
-        description: "Fill out the form with your current page and a bit of context about your business.",
+        title: "Send your URL + login",
+        description: "Fill out the form with your current page and invite us as admin (or just share your login). We handle the rest.",
         iconBg: "bg-purple-500",
     },
     {
@@ -27,7 +27,7 @@ const steps = [
     {
         icon: RocketIcon,
         title: "You get the new page",
-        description: "Delivered the same day. We host it under your domain, or hand it off — your call.",
+        description: "We put it live on your site (or host it for you if you want zero hassle).",
         iconBg: "bg-[#c98dc0]",
     },
 ];
@@ -40,12 +40,12 @@ export default function FixYourPage() {
                 <div className="max-w-7xl mx-auto flex flex-col items-center justify-center h-screen">
                     <AnimatedContent reverse distance={30} className="flex items-center gap-2 bg-white/50 backdrop-blur px-4 py-1.5 rounded-full text-sm text-gray-600">
                         <span className="size-2 rounded-full bg-green-500 inline-block" />
-                        One page per day · $100–$200
+                        One page per day · $150
                     </AnimatedContent>
 
                     <AnimatedContent distance={30} delay={0.1}>
                         <h1 className="text-center font-urbanist text-5xl/15 md:text-6xl/18 mt-4 font-bold max-w-2xl">
-                            <span style={{ color: "#eef9f8" }}>Your page isn&apos;t working.</span>
+                            <span style={{ color: "#eef9f8" }}>Your page should be getting you bookings.</span>
                             <br />
                             <span className="text-gray-800">Let&apos;s <span className="underline decoration-2 underline-offset-4">fix it.</span></span>
                         </h1>
@@ -53,7 +53,9 @@ export default function FixYourPage() {
 
                     <AnimatedContent distance={30} delay={0.2}>
                         <p className="text-center text-base/7 text-zinc-700 max-w-xl mt-4">
-                            We take your existing page and rebuild it with a cleaner layout, better section order, and a more obvious path to booking. Same copy, done in a day.
+                            We take your existing page and rebuild it with a cleaner layout, better section order, and a more obvious path to booking.
+                            <br /><br />
+                            Same words. Cleaner layout. More bookings.
                         </p>
                     </AnimatedContent>
 
@@ -145,9 +147,9 @@ export default function FixYourPage() {
                                     <span className="font-urbanist font-bold text-4xl text-gray-800">$150</span>
                                     <span className="text-zinc-400 text-sm mb-1.5">one-time</span>
                                 </div>
-                                <p className="text-zinc-500 text-sm/6 mt-3">We rebuild your page in one day. You get the files — host it wherever you like.</p>
+                                <p className="text-zinc-500 text-sm/6 mt-3">We rebuild your page inside your existing site (Wix, Squarespace, GoDaddy, WordPress). Live the same day. No tech handoff.</p>
                                 <ul className="mt-6 flex flex-col gap-3 flex-1">
-                                    {["Same-day delivery", "Cleaner layout + section order", "Clear path to booking", "Mobile-friendly"].map((f, i) => (
+                                    {["Same-day delivery", "Rebuilt inside your existing site", "Clear path to booking", "Mobile-friendly"].map((f, i) => (
                                         <li key={i} className="flex items-center gap-2 text-sm text-zinc-600">
                                             <div className="p-0.5 rounded-full bg-purple-500 shrink-0">
                                                 <CheckIcon size={10} className="text-white" strokeWidth={3} />
