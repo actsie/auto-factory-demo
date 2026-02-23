@@ -6,10 +6,16 @@ const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1475381110736162990/5A
 const SHEET_NAME = "Sheet1";
 
 function getSheets() {
+    let privateKey = (process.env.GOOGLE_PRIVATE_KEY ?? "").trim();
+    if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
+        privateKey = privateKey.slice(1, -1);
+    }
+    privateKey = privateKey.replace(/\\n/g, "\n");
+
     const auth = new google.auth.GoogleAuth({
         credentials: {
             client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-            private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+            private_key: privateKey,
         },
         scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
@@ -31,8 +37,9 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Submission failed" }, { status: 500 });
     }
 
-    // 2. Google Sheets — read existing emails
-    const sheets = getSheets();
+    // 2. Google Sheets + Discord
+    try {
+const sheets = getSheets();
     const sheetId = process.env.GOOGLE_SHEET_ID;
 
     const readRes = await sheets.spreadsheets.values.get({
@@ -41,7 +48,7 @@ export async function POST(req: NextRequest) {
     });
     const existingEmails: string[] = (readRes.data.values ?? []).flat().map((e: string) => e.toLowerCase());
     const isDuplicate = existingEmails.includes(email.toLowerCase());
-    const timestamp = new Date().toISOString();
+    const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles", dateStyle: "medium", timeStyle: "short" }) + " PST";
     const jd = jdMode === "url" ? jdUrl : jdText ? `[pasted] ${jdText.slice(0, 300)}${jdText.length > 300 ? "..." : ""}` : "";
 
     // 3. Write new row if not duplicate
@@ -73,11 +80,11 @@ export async function POST(req: NextRequest) {
         `📧 Email: ${email}${isDuplicate ? " *(already in sheet)*" : ""}`,
         `👤 Name: ${name}`,
         `🏢 Company: ${company}`,
-        website ? `🌐 Website: ${website}` : null,
-        linkedin ? `💼 LinkedIn: ${linkedin}` : null,
-        jd ? `📄 JD: ${jd}` : null,
-        techStack ? `🛠️ Tech Stack: ${techStack}` : null,
-        notes ? `📝 Notes: ${notes}` : null,
+        website ? `Website: ${website}` : null,
+        linkedin ? `LinkedIn: ${linkedin}` : null,
+        jd ? `JD: ${jd}` : null,
+        techStack ? `Tech Stack: ${techStack}` : null,
+        notes ? `Notes: ${notes}` : null,
         `⏰ Time: ${timestamp}`,
         `📊 Total Requests: ${totalCount}`,
         divider,
@@ -89,6 +96,10 @@ export async function POST(req: NextRequest) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: lines }),
     });
+
+    } catch (err) {
+        console.error("[discord-notify error]", err);
+    }
 
     return NextResponse.json({ ok: true });
 }
