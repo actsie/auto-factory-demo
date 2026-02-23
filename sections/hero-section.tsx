@@ -1,10 +1,13 @@
+"use client";
 import AnimatedContent from "@/components/animated-content";
 import Link from "next/link";
 import { pitchConfig } from "@/pitch-config";
 import type { PitchConfig } from "@/pitches";
+import { useModal } from "@/contexts/modal-context";
 
 export default function HeroSection({ config }: { config?: PitchConfig["hero"] }) {
     const hero = config ?? pitchConfig.hero;
+    const { openModal } = useModal();
     return (
         <section className="bg-[url('/assets/hero-gradient-bg.png')] bg-cover bg-center bg-no-repeat px-4 md:px-16 lg:px-24 xl:px-32">
             <div className="max-w-7xl mx-auto flex flex-col items-center justify-center h-screen">
@@ -30,12 +33,12 @@ export default function HeroSection({ config }: { config?: PitchConfig["hero"] }
                 </AnimatedContent>
 
                 <AnimatedContent className="flex flex-col md:flex-row items-center gap-4 mt-8 w-full md:w-auto" delay={0.3}>
-                    <Link
-                        href="#pricing"
+                    <button
+                        onClick={openModal}
                         className="py-3 md:py-2.5 w-full md:w-auto px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white text-center rounded-full"
                     >
                         {hero.ctaPrimary}
-                    </Link>
+                    </button>
                     <Link
                         href="#features"
                         className="py-3 md:py-2.5 w-full md:w-auto px-8 bg-white/50 text-gray-600 font-medium text-center border border-white rounded-full"

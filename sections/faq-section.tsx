@@ -1,9 +1,12 @@
+"use client";
 import AnimatedContent from "@/components/animated-content";
 import SectionTitle from "@/components/section-title";
 import { faqs } from "@/data/faqs";
+import { useModal } from "@/contexts/modal-context";
 import { ChevronDownIcon, HelpCircleIcon } from "lucide-react";
 
 export default function FaqSection() {
+    const { openModal } = useModal();
     return (
         <section className="border-y border-[#edf9f8]">
             <div className="px-4 md:px-16 lg:px-24 xl:px-32">
@@ -38,12 +41,12 @@ export default function FaqSection() {
                                 Still not sure? Send us the posting — we&apos;ll tell you what&apos;s automatable.
                             </h3>
 
-                            <a
-                                href="#pricing"
+                            <button
+                                onClick={openModal}
                                 className="bg-white w-max shrink-0 hover:bg-gray-100 px-5 py-2 rounded-full text-sm"
                             >
                                 Book the call
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>

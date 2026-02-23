@@ -4,8 +4,10 @@ import AnimatedContent from "@/components/animated-content";
 import SectionTitle from "@/components/section-title";
 import { pricing } from "@/data/pricing";
 import { CheckIcon, CoinsIcon } from "lucide-react";
+import { useModal } from "@/contexts/modal-context";
 
 export default function PricingSection() {
+    const { openModal } = useModal();
     return (
         <section id="pricing" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
             <div className="p-4 pt-20 flex flex-col items-center max-w-7xl mx-auto justify-center border-x border-[#edf9f8]">
@@ -45,16 +47,16 @@ export default function PricingSection() {
                                     </span>
                                 )}
                             </div>
-                            <a
-                                href={plan.linkUrl}
-                                className={`block text-center py-2.5 rounded-full mt-6 border ${
+                            <button
+                                onClick={openModal}
+                                className={`block w-full text-center py-2.5 rounded-full mt-6 border ${
                                     plan.type === 'enterprise'
                                         ? 'bg-white text-purple-500 border-white'
                                         : 'text-zinc-600 bg-gray-50 border-[#edf9f8]'
                                 }`}
                             >
                                 {plan.linkText}
-                            </a>
+                            </button>
                             <div className="space-y-2 mt-6">
                                 {plan.features.map((feature, i) => (
                                     <div key={i} className="flex items-center gap-2">

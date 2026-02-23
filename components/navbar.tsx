@@ -6,9 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import AnimatedContent from "./animated-content";
+import { useModal } from "@/contexts/modal-context";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { openModal } = useModal();
 
     return (
         <>
@@ -32,9 +34,9 @@ export default function Navbar() {
                             <MenuIcon className="size-6.5" />
                         </button>
 
-                        <Link href="#pricing" className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-purple-500 text-white rounded-full">
+                        <button onClick={openModal} className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-purple-500 text-white rounded-full">
                             Book a call
-                        </Link>
+                        </button>
                     </div>
                 </nav>
             </AnimatedContent>
@@ -52,9 +54,9 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
-                    <Link href="#pricing" className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full">
+                    <button onClick={() => { openModal(); setIsMenuOpen(false); }} className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full">
                         Book a call
-                    </Link>
+                    </button>
                 </div>
             </div>
         </>

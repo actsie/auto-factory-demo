@@ -2,11 +2,13 @@
 import AnimatedContent from "@/components/animated-content";
 import { pitchConfig } from "@/pitch-config";
 import type { PitchConfig } from "@/pitches";
+import { useModal } from "@/contexts/modal-context";
 import { ArrowUpRightIcon, ChevronUpIcon } from "lucide-react";
 import Image from "next/image";
 
 export default function CtaSection({ config }: { config?: PitchConfig["cta"] }) {
     const cta = config ?? pitchConfig.cta;
+    const { openModal } = useModal();
     return (
         <section className="relative border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
             <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
@@ -20,13 +22,13 @@ export default function CtaSection({ config }: { config?: PitchConfig["cta"] }) 
                         {cta.subtext}
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-                        <a
-                            href="#pricing"
+                        <button
+                            onClick={openModal}
                             className="flex items-center gap-1.5 py-2.5 px-6 bg-purple-500 text-white rounded-full shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] hover:bg-purple-600 transition-colors"
                         >
                             {cta.ctaPrimary}
                             <ArrowUpRightIcon size={16} />
-                        </a>
+                        </button>
                         <a
                             href="#features"
                             className="py-2.5 px-6 border border-[#edf9f8] bg-white text-zinc-600 rounded-full hover:bg-gray-50 transition-colors"
