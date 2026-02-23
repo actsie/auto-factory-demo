@@ -22,6 +22,9 @@
 
 # misc
 .DS_Store
+
+# local reference/inspiration files (never commit)
+/reference
 *.pem
 
 # debug
