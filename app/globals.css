@@ -15,4 +15,7 @@
     body {
         @apply bg-white text-sm text-gray-800 antialiased;
     }
+    button, [role="button"] {
+        cursor: pointer;
+    }
 }
