@@ -14,10 +14,10 @@ const qrImages = [
 ];
 
 const whatsIncluded = [
-    "Cleaner layout using your existing copy — no rewriting needed",
-    "Better section order so visitors know what to do next",
-    "A clear path to booking or contacting you",
-    "Hosted and live — we walk you through pointing your domain",
+    "A layout that builds trust within the first few seconds",
+    "Sections ordered around how visitors actually make decisions",
+    "One clear, obvious next step — no guessing where to go",
+    "Built to work on any device — phone, tablet, desktop",
 ];
 
 const steps = [
@@ -26,18 +26,21 @@ const steps = [
         title: "Send us your site",
         description: "Share your URL and a bit about your business. That's all we need to get started.",
         iconBg: "bg-purple-500",
+        cardBg: "bg-[#dbd2ff]/40",
     },
     {
         icon: PencilIcon,
         title: "We rebuild in one day",
         description: "We rebuild the layout from scratch around what converts — right order, right emphasis, one clear action. By end of day, it's done.",
         iconBg: "bg-[#5bbfba]",
+        cardBg: "bg-[#edf9f8]/40",
     },
     {
         icon: RocketIcon,
         title: "You get the new page",
         description: "Tech-savvy? We hand it over and you integrate it however you like. Prefer to just have it work? We host it under your domain for $20/mo.",
         iconBg: "bg-[#c98dc0]",
+        cardBg: "bg-[#ede8f6]/40",
     },
 ];
 
@@ -139,7 +142,7 @@ export default function FixYourPage() {
                                     Everything your page needs. Nothing it doesn&apos;t.
                                 </h2>
                                 <p className="text-zinc-500 text-base/7 mt-4">
-                                    You don&apos;t need new copy. You don&apos;t need a rebrand. You need the same message delivered clearly — with a layout that actually converts.
+                                    Great pages aren&apos;t built on great copy alone — they&apos;re built on structure. We give yours the layout, flow, and clarity it needs to turn visitors into bookings.
                                 </p>
                             </AnimatedContent>
                             <AnimatedContent className="flex flex-col gap-4">
@@ -158,26 +161,40 @@ export default function FixYourPage() {
 
                 {/* How it works */}
                 <section id="how-it-works" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
-                    <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
-                        <div className="p-8 md:p-16">
-                            <AnimatedContent className="text-center mb-12">
-                                <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">How it works</h2>
-                                <p className="text-zinc-500 text-base/7 mt-3 max-w-md mx-auto">Three steps. One day. Done.</p>
-                            </AnimatedContent>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                {steps.map((step, i) => (
-                                    <AnimatedContent key={i} className="bg-[#f7fcfb] border border-[#edf9f8] rounded-xl p-6">
-                                        <div className={`${step.iconBg} p-2 text-white rounded-full w-fit`}>
-                                            <step.icon size={18} />
-                                        </div>
-                                        <p className="text-base font-medium mt-4">
-                                            <span className="text-gray-400 mr-2">{String(i + 1).padStart(2, "0")}</span>
-                                            {step.title}
-                                        </p>
-                                        <p className="text-sm text-gray-600 mt-2">{step.description}</p>
-                                    </AnimatedContent>
-                                ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 border-x md:divide-x border-[#edf9f8] divide-[#edf9f8] max-w-7xl mx-auto">
+                        <div>
+                            <div className="p-4 pt-16 md:p-16 flex flex-col items-start md:sticky md:top-26">
+                                <AnimatedContent>
+                                    <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">How it works</h2>
+                                    <p className="text-zinc-500 text-base/7 mt-3 max-w-xs">Three steps. One day. Done.</p>
+                                </AnimatedContent>
+                                <AnimatedContent className="p-4 md:p-6 bg-purple-500 w-full rounded-xl mt-12">
+                                    <p className="text-lg text-white">
+                                        If your page isn&apos;t converting visitors, it&apos;s not a content problem. It&apos;s a layout problem.
+                                    </p>
+                                    <button
+                                        onClick={() => openModal("Fix Your Page — How It Works CTA")}
+                                        className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full mt-6 flex items-center gap-1 text-sm font-medium"
+                                    >
+                                        Send us your page
+                                        <ArrowUpRightIcon size={16} />
+                                    </button>
+                                </AnimatedContent>
                             </div>
+                        </div>
+                        <div className="p-4 pt-16 md:p-16 space-y-6">
+                            {steps.map((step, i) => (
+                                <AnimatedContent key={i} className={`${step.cardBg} backdrop-blur-md border border-white/60 shadow-sm flex flex-col items-start p-6 rounded-xl w-full md:sticky md:top-26`}>
+                                    <div className={`${step.iconBg} p-2 text-white rounded-full w-fit`}>
+                                        <step.icon size={18} />
+                                    </div>
+                                    <p className="text-base font-medium mt-4">
+                                        <span className="text-gray-400 mr-2">{String(i + 1).padStart(2, "0")}</span>
+                                        {step.title}
+                                    </p>
+                                    <p className="text-sm text-gray-600 mt-2">{step.description}</p>
+                                </AnimatedContent>
+                            ))}
                         </div>
                     </div>
                 </section>
