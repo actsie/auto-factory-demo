@@ -3,7 +3,7 @@ import { google } from "googleapis";
 
 const FORMSPREE_URL = "https://formspree.io/f/maqdlqvy";
 const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1475381110736162990/5A1g6AgVl8srYSHrgygtNgIKSG2Z0gIec9um20XBKgUVJbSBmCn4lSehpuozDowRJ2Wa";
-const SHEET_NAME = "Sheet1";
+const SHEET_NAME = "fountain-of-scale";
 
 function getSheets() {
     let privateKey = (process.env.GOOGLE_PRIVATE_KEY ?? "").trim();
