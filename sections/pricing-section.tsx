@@ -48,7 +48,7 @@ export default function PricingSection() {
                                 )}
                             </div>
                             <button
-                                onClick={openModal}
+                                onClick={() => openModal(`Pricing — ${plan.name}`)}
                                 className={`block w-full text-center py-2.5 rounded-full mt-6 border ${
                                     plan.type === 'enterprise'
                                         ? 'bg-white text-purple-500 border-white'

@@ -23,7 +23,7 @@ export default function CtaSection({ config }: { config?: PitchConfig["cta"] }) 
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
                         <button
-                            onClick={openModal}
+                            onClick={() => openModal("CTA Section")}
                             className="flex items-center gap-1.5 py-2.5 px-6 bg-purple-500 text-white rounded-full shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] hover:bg-purple-600 transition-colors"
                         >
                             {cta.ctaPrimary}

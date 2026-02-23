@@ -34,7 +34,7 @@ export default function Navbar() {
                             <MenuIcon className="size-6.5" />
                         </button>
 
-                        <button onClick={openModal} className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-purple-500 text-white rounded-full">
+                        <button onClick={() => openModal("Navbar")} className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-purple-500 text-white rounded-full">
                             Book a call
                         </button>
                     </div>
@@ -54,7 +54,7 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
-                    <button onClick={() => { openModal(); setIsMenuOpen(false); }} className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full">
+                    <button onClick={() => { openModal("Navbar"); setIsMenuOpen(false); }} className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full">
                         Book a call
                     </button>
                 </div>

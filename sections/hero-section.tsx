@@ -34,7 +34,7 @@ export default function HeroSection({ config }: { config?: PitchConfig["hero"] }
 
                 <AnimatedContent className="flex flex-col md:flex-row items-center gap-4 mt-8 w-full md:w-auto" delay={0.3}>
                     <button
-                        onClick={openModal}
+                        onClick={() => openModal("Hero")}
                         className="py-3 md:py-2.5 w-full md:w-auto px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white text-center rounded-full"
                     >
                         {hero.ctaPrimary}

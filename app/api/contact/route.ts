@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
 
     // Post to Discord
     const lines = [
-        `**New scoping call request**`,
+        `**New scoping call request**${body.source ? ` · via ${body.source}` : ""}`,
         `**Name:** ${body.name}`,
         `**Email:** ${body.email}`,
         `**Company:** ${body.company}`,

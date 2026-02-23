@@ -42,7 +42,7 @@ export default function FaqSection() {
                             </h3>
 
                             <button
-                                onClick={openModal}
+                                onClick={() => openModal("FAQ")}
                                 className="bg-white w-max shrink-0 hover:bg-gray-100 px-5 py-2 rounded-full text-sm"
                             >
                                 Book the call
