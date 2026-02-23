@@ -1,7 +1,7 @@
 "use client";
 import AnimatedContent from "@/components/animated-content";
 import FypModal from "@/components/fyp-modal";
-import { ArrowUpRightIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, ClipboardIcon, PencilIcon, RocketIcon } from "lucide-react";
+import { ArrowUpRightIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, ClipboardIcon, LinkedinIcon, PencilIcon, RocketIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -351,7 +351,7 @@ export default function FixYourPage() {
                                         <div className="flex items-center gap-2 mt-4">
                                             <h3 className="text-lg font-medium text-gray-800">{person.name}</h3>
                                             <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:text-purple-600">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                                <LinkedinIcon size={16} />
                                             </a>
                                         </div>
                                         <p className="text-purple-500 text-sm font-medium">{person.role}</p>

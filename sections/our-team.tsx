@@ -1,7 +1,7 @@
 import AnimatedContent from "@/components/animated-content";
 import SectionTitle from "@/components/section-title";
 import { team } from "@/data/team";
-import { LinkedinIcon, UsersIcon } from "lucide-react";
+import { UsersIcon } from "lucide-react";
 
 export default function OurTeamSection() {
     const bios: Record<string, string> = {
@@ -27,11 +27,7 @@ export default function OurTeamSection() {
                             />
                             <div className="flex items-center gap-2 mt-4">
                                 <h3 className="text-lg font-medium">{member.name}</h3>
-                                {member.linkedin && (
-                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:text-purple-600">
-                                        <LinkedinIcon size={16} />
-                                    </a>
-                                )}
+                                {/* social links hidden until ready */}
                             </div>
                             <p className="text-purple-500 text-sm font-medium">{member.role}</p>
                             {bios[member.name] && (
