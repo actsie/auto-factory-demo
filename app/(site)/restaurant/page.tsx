@@ -1,6 +1,6 @@
 "use client";
 import AnimatedContent from "@/components/animated-content";
-import { ArrowUpRightIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, FacebookIcon, GlobeIcon, InstagramIcon, LinkedinIcon, MessageSquareIcon, PhoneCallIcon, XIcon } from "lucide-react";
+import { ArrowUpRightIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, FacebookIcon, InstagramIcon, LinkedinIcon, MessageSquareIcon, PhoneCallIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import CountUp from "@/components/count-number";
 import { useAiModal } from "@/contexts/ai-modal-context";
@@ -327,7 +327,6 @@ export default function Restaurant() {
                                             <div className="flex items-center gap-1.5">
                                                 {c.channelType === "phone" && <PhoneCallIcon size={12} className="text-zinc-400" />}
                                                 {c.channelType === "instagram" && <InstagramIcon size={12} className="text-zinc-400" />}
-                                                {c.channelType === "globe" && <GlobeIcon size={12} className="text-zinc-400" />}
                                                 {c.channelType === "sms" && <MessageSquareIcon size={12} className="text-zinc-400" />}
                                                 {c.channelType === "facebook" && <FacebookIcon size={12} className="text-zinc-400" />}
                                                 {c.channelType === "twitter" && (
