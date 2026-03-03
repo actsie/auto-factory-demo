@@ -408,7 +408,7 @@ export default function HomeServicesPage() {
             <div className="text-center text-xs py-2 px-4" style={{ backgroundColor: "#1e3a5f", color: "rgba(255,255,255,0.6)" }}>
                 Sample page built by{" "}
                 <a href="/fix-your-page" className="underline font-medium" style={{ color: "rgba(255,255,255,0.85)" }}>
-                    Fountain of Profit
+                    Fountain of Scale
                 </a>
                 {" "}· Want one like this for your business?{" "}
                 <a href="/fix-your-page" className="underline font-medium" style={{ color: "#fb923c" }}>
@@ -1052,7 +1052,7 @@ export default function HomeServicesPage() {
                         <span>© 2025 AllPro Home Services · Austin, TX</span>
                         <span>
                             Sample page built by{" "}
-                            <a href="/fix-your-page" style={{ color: "#fb923c", textDecoration: "none" }}>Fountain of Profit</a>
+                            <a href="/fix-your-page" style={{ color: "#fb923c", textDecoration: "none" }}>Fountain of Scale</a>
                         </span>
                     </div>
                 </div>
