@@ -3,59 +3,10 @@ import AnimatedContent from "@/components/animated-content";
 import { ArrowUpRightIcon, CalendarIcon, ChevronUpIcon, ClockIcon, LinkedinIcon, MessageSquareIcon } from "lucide-react";
 import Image from "next/image";
 import CountUp from "@/components/count-number";
-import { CheckIcon, PhoneCallIcon, RepeatIcon, ZapIcon } from "lucide-react";
+import { PhoneCallIcon } from "lucide-react";
 import AiModal from "@/components/ai-modal";
 import { useState } from "react";
 
-const aiPricing = [
-    {
-        icon: PhoneCallIcon,
-        name: "Scoping Call",
-        description: "Free 45-minute call. We map the after-hours gap and tell you exactly what can be automated.",
-        price: 0 as const,
-        linkText: "Book the call",
-        features: [
-            "Review your current after-hours coverage",
-            "Identify which gaps AI can close",
-            "No pitch, no pressure",
-            "Honest assessment upfront",
-        ],
-        style: "default" as const,
-    },
-    {
-        icon: ZapIcon,
-        name: "The Sprint",
-        description: "Two weeks. We build the voice agent, social automation, and customer service layer — then hand it off.",
-        price: 500 as const,
-        priceLabel: " flat",
-        linkText: "Start the sprint",
-        features: [
-            "Full after-hours gap audit",
-            "Voice agent setup & configuration",
-            "Social media scheduling automation",
-            "Customer service AI setup",
-            "Documentation and handoff",
-            "You own everything we build",
-        ],
-        style: "popular" as const,
-    },
-    {
-        icon: RepeatIcon,
-        name: "Ongoing Ops",
-        description: "We run the automation, keep it sharp, and expand it as your business grows.",
-        price: 299 as const,
-        priceLabel: "/mo",
-        linkText: "Talk to us",
-        features: [
-            "Everything in The Sprint",
-            "Monthly performance review",
-            "Add new automations as needed",
-            "Slack access for quick questions",
-            "We handle maintenance and updates",
-        ],
-        style: "enterprise" as const,
-    },
-];
 
 const problemStats = [
     {
@@ -399,56 +350,34 @@ export default function AiAutomation() {
                 </div>
             </section>
 
-            {/* Pricing */}
-            <section id="pricing" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
-                <div className="p-4 pt-20 flex flex-col items-center max-w-7xl mx-auto justify-center border-x border-[#edf9f8]">
-                    <AnimatedContent className="text-center mb-12">
-                        <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Pricing</p>
-                        <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Cheaper than the gap it closes</h2>
-                        <p className="text-zinc-500 text-base/7 mt-3 max-w-md mx-auto">Every unanswered inquiry after hours has a cost. The automation that fixes it costs a fraction of what you're losing.</p>
-                    </AnimatedContent>
-                    <div className="flex flex-wrap items-stretch justify-center gap-10 md:gap-4 px-4 pb-20">
-                        {aiPricing.map((plan, i) => (
-                            <AnimatedContent delay={i * 0.1} key={i} className={`p-5 pb-8 w-full sm:max-w-64 rounded-xl border border-[#edf9f8] flex flex-col ${
-                                plan.style === "enterprise" ? "bg-purple-500 text-white"
-                                : plan.style === "popular" ? "bg-linear-to-br from-purple-50 to-purple-100"
-                                : "bg-white"
-                            }`}>
-                                <div className={`w-max border border-[#edf9f8] p-2 aspect-square rounded-full ${plan.style === "enterprise" ? "text-white" : "text-purple-500 bg-white"}`}>
-                                    <plan.icon size={24} />
-                                </div>
-                                <h3 className="text-lg font-medium mt-6">{plan.name}</h3>
-                                <p className={`min-h-[6rem] text-sm/6 mt-2 ${plan.style === "enterprise" ? "text-white/80" : "text-zinc-500"}`}>{plan.description}</p>
-                                <div className="mt-4">
-                                    {plan.price === 0 ? (
-                                        <span className="text-3xl font-semibold">Free</span>
-                                    ) : (
-                                        <span className="text-3xl font-semibold">
-                                            ${plan.price.toLocaleString()}
-                                            <span className="text-base font-normal">{plan.priceLabel}</span>
-                                        </span>
-                                    )}
-                                </div>
-                                <button
-                                    onClick={() => openAiModal(`AI Automation Pricing — ${plan.name}`)}
-                                    className={`block w-full text-center py-2.5 rounded-full mt-6 border ${
-                                        plan.style === "enterprise" ? "bg-white text-purple-500 border-white"
-                                        : plan.style === "default" ? "border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white"
-                                        : "text-zinc-600 bg-gray-50 border-[#edf9f8]"
-                                    }`}
-                                >
-                                    {plan.linkText}
-                                </button>
-                                <div className="space-y-2 mt-6">
-                                    {plan.features.map((feature, j) => (
-                                        <div key={j} className="flex items-center gap-2">
-                                            <CheckIcon className={`size-4 shrink-0 ${plan.style === "enterprise" ? "text-white" : "text-purple-500"}`} />
-                                            <p className={`text-sm ${plan.style === "enterprise" ? "text-white/90" : "text-zinc-500"}`}>{feature}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </AnimatedContent>
-                        ))}
+            {/* Scoping Call */}
+            <section className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
+                <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
+                    <div className="py-20 px-4 flex flex-col items-center text-center">
+                        <AnimatedContent className="w-max border border-[#edf9f8] p-3 rounded-full text-purple-500 bg-white mb-6">
+                            <PhoneCallIcon size={24} />
+                        </AnimatedContent>
+                        <AnimatedContent delay={0.05}>
+                            <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Where to start</p>
+                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Free scoping call</h2>
+                            <p className="text-zinc-500 text-base/7 mt-3 max-w-sm mx-auto">45 minutes. We map your after-hours gap and tell you exactly what can be automated — no pitch, no pressure.</p>
+                        </AnimatedContent>
+                        <AnimatedContent delay={0.1} className="flex flex-col sm:flex-row items-center gap-3 mt-8 text-sm text-zinc-500">
+                            <span>Review your current setup</span>
+                            <span className="hidden sm:inline text-zinc-300">·</span>
+                            <span>Identify which gaps AI can close</span>
+                            <span className="hidden sm:inline text-zinc-300">·</span>
+                            <span>Honest assessment, no obligations</span>
+                        </AnimatedContent>
+                        <AnimatedContent delay={0.15} className="mt-8">
+                            <button
+                                onClick={() => openAiModal("AI Automation — Scoping Call")}
+                                className="flex items-center gap-1.5 py-2.5 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm font-medium"
+                            >
+                                Book the call
+                                <ArrowUpRightIcon size={14} />
+                            </button>
+                        </AnimatedContent>
                     </div>
                 </div>
             </section>
