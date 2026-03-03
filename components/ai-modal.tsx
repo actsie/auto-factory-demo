@@ -1,4 +1,5 @@
 "use client";
+import { useAiModal } from "@/contexts/ai-modal-context";
 import { XIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -13,13 +14,8 @@ const GAP_OPTIONS = [
     "All of the above",
 ];
 
-type Props = {
-    open: boolean;
-    source: string;
-    onClose: () => void;
-};
-
-export default function AiModal({ open, source, onClose }: Props) {
+export default function AiModal() {
+    const { open, source, closeAiModal } = useAiModal();
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<Record<string, string>>({});
@@ -62,7 +58,7 @@ export default function AiModal({ open, source, onClose }: Props) {
     }
 
     function handleClose() {
-        onClose();
+        closeAiModal();
         setTimeout(() => setSubmitted(false), 300);
     }
 

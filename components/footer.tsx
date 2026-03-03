@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LinkedinIcon } from "lucide-react";
 import AnimatedContent from "./animated-content";
 
 export default function Footer() {
@@ -17,11 +18,13 @@ export default function Footer() {
                             />
                             <span className="font-urbanist font-semibold text-gray-800">Fountain of Scale</span>
                         </div>
-                        <p className="text-zinc-500 mt-4">Automating roles before companies hire for them. Built by people who learned the hard way.</p>
+                        <p className="text-zinc-500 mt-4">Igniting small business AI transformation, founded by two co-founders who built a service used by over 1 million users.</p>
                     </AnimatedContent>
                     <div className="flex flex-col-reverse md:flex-row items-center md:justify-between gap-4 mt-12">
                         <p className="text-gray-500 text-sm">© 2026 Fountain of Scale. All rights reserved.</p>
-                        {/* social links hidden until ready */}
+                        <a href="https://www.linkedin.com/company/fountain-of-scale/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-purple-500 transition-colors">
+                            <LinkedinIcon size={18} />
+                        </a>
                     </div>
                 </div>
             </div>

@@ -4,8 +4,7 @@ import { ArrowUpRightIcon, CalendarIcon, ChevronUpIcon, ClockIcon, LinkedinIcon,
 import Image from "next/image";
 import CountUp from "@/components/count-number";
 import { PhoneCallIcon } from "lucide-react";
-import AiModal from "@/components/ai-modal";
-import { useState } from "react";
+import { useAiModal } from "@/contexts/ai-modal-context";
 
 
 const problemStats = [
@@ -83,13 +82,7 @@ const serviceStats = [
 ];
 
 export default function AiAutomation() {
-    const [modalOpen, setModalOpen] = useState(false);
-    const [modalSource, setModalSource] = useState("");
-
-    function openAiModal(source: string) {
-        setModalSource(source);
-        setModalOpen(true);
-    }
+    const { openAiModal } = useAiModal();
 
     return (
         <main>
@@ -479,7 +472,6 @@ export default function AiAutomation() {
                 </button>
             </section>
 
-            <AiModal open={modalOpen} source={modalSource} onClose={() => setModalOpen(false)} />
         </main>
     );
 }
