@@ -1,6 +1,6 @@
 "use client";
 import AnimatedContent from "@/components/animated-content";
-import { ArrowUpRightIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, LinkedinIcon, PhoneCallIcon, XIcon } from "lucide-react";
+import { ArrowUpRightIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, FacebookIcon, GlobeIcon, InstagramIcon, LinkedinIcon, MessageSquareIcon, PhoneCallIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import CountUp from "@/components/count-number";
 import { useAiModal } from "@/contexts/ai-modal-context";
@@ -9,6 +9,49 @@ import { useState, useEffect, useRef } from "react";
 const heroStats = [
     { value: 43, suffix: "%", label: "of restaurant calls go unanswered" },
     { value: 69, suffix: "%", label: "won't call again if they don't reach someone the first time" },
+];
+
+const missedCases = [
+    {
+        time: "9:07 pm",
+        channel: "Phone call",
+        channelType: "phone" as const,
+        inquiry: "Bachelorette dinner for 12",
+        missed: "→ Voicemail",
+        outcome: "Booked elsewhere",
+    },
+    {
+        time: "Sun 10:12 am",
+        channel: "Instagram DM",
+        channelType: "instagram" as const,
+        inquiry: "Corkage fee + private dining?",
+        missed: "→ Seen Tuesday",
+        outcome: "Inquiry lost",
+    },
+    {
+        time: "10:34 pm",
+        channel: "SMS",
+        channelType: "sms" as const,
+        inquiry: "Walk-ins tonight?",
+        missed: "→ No reply",
+        outcome: "They drive elsewhere",
+    },
+    {
+        time: "Sun 7:30 pm",
+        channel: "Facebook DM",
+        channelType: "facebook" as const,
+        inquiry: "Do you host rehearsal dinners?",
+        missed: "→ No reply",
+        outcome: "Booked elsewhere",
+    },
+    {
+        time: "11:22 pm",
+        channel: "X DM",
+        channelType: "twitter" as const,
+        inquiry: "Still open? Can we walk in?",
+        missed: "→ No reply",
+        outcome: "They went elsewhere",
+    },
 ];
 
 const telegramSummaries = [
@@ -69,7 +112,7 @@ const telegramSummaries = [
 
 const comparisons = [
     {
-        without: "Call at 9pm goes to voicemail. Diner books elsewhere.",
+        without: "Call at 9pm goes to voicemail.\nDiner books elsewhere.",
         with: "Call answered instantly. Reservation confirmed automatically.",
     },
     {
@@ -78,7 +121,7 @@ const comparisons = [
     },
     {
         without: "Allergen or menu question after close goes unanswered.",
-        with: "Instant reply, 24/7 — routed to your team if it needs a human.",
+        with: "Instant reply, 24/7 — routed to your team if it needs human judgement.",
     },
 ];
 
@@ -276,21 +319,39 @@ export default function Restaurant() {
                             </AnimatedContent>
                         </div>
 
-                        <div className="flex flex-col gap-6">
-                            <AnimatedContent className="border border-[#edf9f8] rounded-xl p-6 bg-[#f7fcfb]">
-                                <p className="text-zinc-500 text-sm/6">
-                                    A diner calls on a Saturday night to ask about your private dining room. Your host is slammed. It goes to voicemail. They hang up and book somewhere else in 90 seconds.
-                                </p>
-                            </AnimatedContent>
-                            <AnimatedContent delay={0.1} className="border border-[#edf9f8] rounded-xl p-6 bg-[#f7fcfb]">
-                                <p className="text-zinc-500 text-sm/6">
-                                    A group texts your Instagram DM asking about the chef&apos;s tasting menu on Sunday morning. Nobody&apos;s monitoring it. By Monday, they&apos;ve already made a reservation at a competitor.
-                                </p>
-                            </AnimatedContent>
-                            <AnimatedContent delay={0.2} className="border border-[#edf9f8] rounded-xl p-6 bg-[#f7fcfb]">
-                                <p className="text-zinc-500 text-sm/6">
-                                    Someone Googles your restaurant at 10pm to check if you take walk-ins. They call. Voicemail. They drive somewhere else.
-                                </p>
+                        <div className="flex flex-col gap-4">
+                            {missedCases.map((c, i) => (
+                                <AnimatedContent key={i} delay={i * 0.1} className="border border-gray-200/60 rounded-xl p-5 bg-gray-50/80 backdrop-blur-sm">
+                                    <div className="grid grid-cols-3 items-center">
+                                        <div className="flex flex-col gap-1 pr-4">
+                                            <div className="flex items-center gap-1.5">
+                                                {c.channelType === "phone" && <PhoneCallIcon size={12} className="text-zinc-400" />}
+                                                {c.channelType === "instagram" && <InstagramIcon size={12} className="text-zinc-400" />}
+                                                {c.channelType === "globe" && <GlobeIcon size={12} className="text-zinc-400" />}
+                                                {c.channelType === "sms" && <MessageSquareIcon size={12} className="text-zinc-400" />}
+                                                {c.channelType === "facebook" && <FacebookIcon size={12} className="text-zinc-400" />}
+                                                {c.channelType === "twitter" && (
+                                                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" className="text-zinc-400 shrink-0">
+                                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                                    </svg>
+                                                )}
+                                                <span className="text-xs text-zinc-500 font-medium">{c.channel}</span>
+                                            </div>
+                                            <span className="text-xs text-zinc-400">{c.time}</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1.5 px-4 border-l border-[#edf9f8]">
+                                            <p className="text-sm text-gray-700">&ldquo;{c.inquiry}&rdquo;</p>
+                                            <span className="text-xs text-zinc-400">{c.missed}</span>
+                                            <span className="w-max text-xs font-medium px-2 py-0.5 rounded-full bg-red-50 text-red-400">Missed</span>
+                                        </div>
+                                        <div className="pl-4 border-l border-[#edf9f8]">
+                                            <span className="text-xs text-zinc-400">{c.outcome}</span>
+                                        </div>
+                                    </div>
+                                </AnimatedContent>
+                            ))}
+                            <AnimatedContent delay={0.35}>
+                                <p className="text-sm text-zinc-400 px-1">It&apos;s not staff effort. It&apos;s timing. People decide when you&apos;re not at the phone.</p>
                             </AnimatedContent>
                         </div>
                     </div>
@@ -445,22 +506,22 @@ export default function Restaurant() {
                         </AnimatedContent>
 
                         <div className="mx-auto grid max-w-lg grid-cols-1 items-center gap-y-6 sm:gap-y-0 lg:max-w-3xl lg:grid-cols-2">
-                            {/* Without AI — plain, left */}
-                            <AnimatedContent className="bg-white/60 rounded-t-3xl sm:rounded-b-none lg:rounded-bl-3xl lg:rounded-tr-none rounded-3xl p-8 sm:p-10 sm:mx-8 lg:mx-0">
+                            {/* Without AI — light, left */}
+                            <AnimatedContent className="rounded-3xl bg-white/60 p-8 ring-1 ring-gray-900/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl">
                                 <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-400">Without AI</h3>
                                 <ul className="mt-8 space-y-5">
                                     {comparisons.map((pair, i) => (
                                         <li key={i} className="flex gap-x-3">
                                             <XIcon className="h-5 w-5 shrink-0 text-zinc-300 mt-0.5" aria-hidden="true" />
-                                            <span className="text-zinc-500 text-sm/6">{pair.without}</span>
+                                            <span className="text-zinc-500 text-sm/6 whitespace-pre-line">{pair.without}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </AnimatedContent>
 
-                            {/* With AI — glass, right */}
-                            <AnimatedContent delay={0.1} className="relative bg-[#dbd2ff]/30 backdrop-blur-md border border-white/60 shadow-sm rounded-b-3xl sm:rounded-t-none lg:rounded-tr-3xl lg:rounded-bl-none rounded-3xl p-8 sm:p-10">
-                                <h3 className="text-xs font-semibold uppercase tracking-widest text-purple-400">With AI</h3>
+                            {/* With AI — dark, elevated, right */}
+                            <AnimatedContent delay={0.1} className="relative rounded-3xl bg-white p-8 shadow-lg shadow-gray-200/80 ring-1 ring-gray-900/5 sm:p-10 lg:-ml-6 lg:px-12 lg:py-14">
+                                <h3 className="text-xs font-semibold uppercase tracking-widest text-purple-500">With AI</h3>
                                 <ul className="mt-8 space-y-5">
                                     {comparisons.map((pair, i) => (
                                         <li key={i} className="flex gap-x-3">
@@ -469,6 +530,12 @@ export default function Restaurant() {
                                         </li>
                                     ))}
                                 </ul>
+                                <button
+                                    onClick={() => openAiModal("Restaurant — Before & After CTA")}
+                                    className="mt-10 w-full rounded-full bg-purple-500 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-purple-400 transition-colors"
+                                >
+                                    Schedule a call
+                                </button>
                             </AnimatedContent>
                         </div>
                     </div>
@@ -574,7 +641,6 @@ export default function Restaurant() {
                         {/* Right — inline form */}
                         <div className="p-8 md:p-16">
                             <AnimatedContent className="mb-8">
-                                <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Let&apos;s talk</p>
                                 <h2 className="font-urbanist font-semibold text-2xl text-gray-800">Let&apos;s talk</h2>
                                 <p className="text-zinc-500 text-sm/6 mt-2">We&apos;ll review your setup and get back to you within 24 hours.</p>
                             </AnimatedContent>
@@ -711,7 +777,7 @@ export default function Restaurant() {
                     <div className="p-8 md:p-16 pb-24 md:pb-32 flex flex-col items-center text-center">
                         <AnimatedContent>
                             <h2 className="font-urbanist font-bold text-4xl md:text-5xl text-gray-800 max-w-xl">
-                                Ready to stop missing the shift?
+                                Someone&apos;s calling right now. Nobody&apos;s there.
                             </h2>
                             <p className="text-zinc-500 text-base/7 mt-4 max-w-md mx-auto">
                                 We review what&apos;s falling through, build the automation in 2 weeks, and hand it off — or run it for you.
@@ -737,7 +803,7 @@ export default function Restaurant() {
                                     onClick={() => openAiModal("Restaurant — Final CTA")}
                                     className="flex items-center justify-center gap-1.5 py-3 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
                                 >
-                                    Start the build
+                                    Let&apos;s fix that
                                     <ArrowUpRightIcon size={16} />
                                 </button>
                             </div>
