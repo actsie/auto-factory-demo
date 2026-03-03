@@ -2,9 +2,10 @@
 import AnimatedContent from "@/components/animated-content";
 import { ArrowUpRightIcon, CalendarIcon, ChevronUpIcon, ClockIcon, LinkedinIcon, MessageSquareIcon } from "lucide-react";
 import Image from "next/image";
-import { useModal } from "@/contexts/modal-context";
 import CountUp from "@/components/count-number";
 import { CheckIcon, PhoneCallIcon, RepeatIcon, ZapIcon } from "lucide-react";
+import AiModal from "@/components/ai-modal";
+import { useState } from "react";
 
 const aiPricing = [
     {
@@ -131,7 +132,13 @@ const serviceStats = [
 ];
 
 export default function AiAutomation() {
-    const { openModal } = useModal();
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalSource, setModalSource] = useState("");
+
+    function openAiModal(source: string) {
+        setModalSource(source);
+        setModalOpen(true);
+    }
 
     return (
         <main>
@@ -157,7 +164,7 @@ export default function AiAutomation() {
 
                     <AnimatedContent className="flex flex-col md:flex-row items-center gap-4 mt-8 w-full md:w-auto" delay={0.3}>
                         <button
-                            onClick={() => openModal("AI Automation — Hero")}
+                            onClick={() => openAiModal("AI Automation — Hero")}
                             className="flex items-center justify-center gap-1.5 py-3 md:py-2.5 w-full md:w-auto px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
                         >
                             Get started
@@ -195,7 +202,7 @@ export default function AiAutomation() {
                                     We close the gap — without adding to your headcount.
                                 </p>
                                 <button
-                                    onClick={() => openModal("AI Automation — Problem CTA")}
+                                    onClick={() => openAiModal("AI Automation — Problem CTA")}
                                     className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full mt-6 flex items-center gap-1 text-sm font-medium w-max"
                                 >
                                     Get started
@@ -268,7 +275,7 @@ export default function AiAutomation() {
                                     Missed calls don&apos;t usually call back.
                                 </p>
                                 <button
-                                    onClick={() => openModal("AI Automation — Voice Agent CTA")}
+                                    onClick={() => openAiModal("AI Automation — Voice Agent CTA")}
                                     className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full mt-6 flex items-center gap-1 text-sm font-medium w-max"
                                 >
                                     Get started
@@ -423,7 +430,7 @@ export default function AiAutomation() {
                                     )}
                                 </div>
                                 <button
-                                    onClick={() => openModal(`AI Automation Pricing — ${plan.name}`)}
+                                    onClick={() => openAiModal(`AI Automation Pricing — ${plan.name}`)}
                                     className={`block w-full text-center py-2.5 rounded-full mt-6 border ${
                                         plan.style === "enterprise" ? "bg-white text-purple-500 border-white"
                                         : plan.style === "default" ? "border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white"
@@ -517,7 +524,7 @@ export default function AiAutomation() {
                             </AnimatedContent>
                             <div className="flex items-center justify-center mt-10">
                                 <button
-                                    onClick={() => openModal("AI Automation — Final CTA")}
+                                    onClick={() => openAiModal("AI Automation — Final CTA")}
                                     className="flex items-center justify-center gap-1.5 py-3 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
                                 >
                                     Get started
@@ -542,6 +549,8 @@ export default function AiAutomation() {
                     <ChevronUpIcon size={14} strokeWidth={3} className="absolute inset-0 m-auto text-white" />
                 </button>
             </section>
+
+            <AiModal open={modalOpen} source={modalSource} onClose={() => setModalOpen(false)} />
         </main>
     );
 }
