@@ -10,7 +10,7 @@ import AnimatedContent from "./animated-content";
 import { useModal } from "@/contexts/modal-context";
 import { useAiModal } from "@/contexts/ai-modal-context";
 
-const AI_ROUTES = ["/restaurant", "/ai-automation"];
+const AI_ROUTES = ["/restaurant", "/ai-automation", "/contractors"];
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
