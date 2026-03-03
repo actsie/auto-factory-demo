@@ -25,6 +25,9 @@
 
 # local reference/inspiration files (never commit)
 /reference
+
+# local-only screenshot/content pages (never commit)
+/app/local
 *.pem
 
 # debug
