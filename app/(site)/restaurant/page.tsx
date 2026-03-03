@@ -13,12 +13,28 @@ const heroStats = [
 
 const missedCases = [
     {
-        time: "9:07 pm",
+        time: "Sat 9:07 pm",
         channel: "Phone call",
         channelType: "phone" as const,
         inquiry: "Bachelorette dinner for 12",
         missed: "→ Voicemail",
         outcome: "Booked elsewhere",
+    },
+    {
+        time: "Sat 10:34 pm",
+        channel: "SMS",
+        channelType: "sms" as const,
+        inquiry: "Walk-ins tonight?",
+        missed: "→ No reply",
+        outcome: "They drive elsewhere",
+    },
+    {
+        time: "Sat 11:22 pm",
+        channel: "X DM",
+        channelType: "twitter" as const,
+        inquiry: "Still open? Can we walk in?",
+        missed: "→ No reply",
+        outcome: "They went elsewhere",
     },
     {
         time: "Sun 10:12 am",
@@ -29,28 +45,12 @@ const missedCases = [
         outcome: "Inquiry lost",
     },
     {
-        time: "10:34 pm",
-        channel: "SMS",
-        channelType: "sms" as const,
-        inquiry: "Walk-ins tonight?",
-        missed: "→ No reply",
-        outcome: "They drive elsewhere",
-    },
-    {
         time: "Sun 7:30 pm",
         channel: "Facebook DM",
         channelType: "facebook" as const,
         inquiry: "Do you host rehearsal dinners?",
         missed: "→ No reply",
         outcome: "Booked elsewhere",
-    },
-    {
-        time: "11:22 pm",
-        channel: "X DM",
-        channelType: "twitter" as const,
-        inquiry: "Still open? Can we walk in?",
-        missed: "→ No reply",
-        outcome: "They went elsewhere",
     },
 ];
 
@@ -548,7 +548,7 @@ export default function Restaurant() {
                     <div className="p-8 md:p-16">
                         <AnimatedContent className="text-center mb-12">
                             <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Results</p>
-                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Restaurants use this to capture more bookings</h2>
+                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">What restaurants are seeing with AI phone and booking tools</h2>
                         </AnimatedContent>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {results.map((stat, i) => (
@@ -598,7 +598,7 @@ export default function Restaurant() {
                     <div className="p-4 pt-16 md:p-16 flex flex-col gap-4">
                         {steps.map((step, i) => (
                             <AnimatedContent key={i} delay={i * 0.1} className="border border-[#edf9f8] rounded-xl p-6 bg-[#f7fcfb]">
-                                <p className="text-purple-400 text-xs font-semibold tracking-widest mb-2">{step.n}</p>
+                                <p className="text-purple-500 text-xs font-semibold tracking-widest mb-2">{step.n}</p>
                                 <p className="font-medium text-gray-800">{step.title}</p>
                                 <p className="text-zinc-500 text-sm/6 mt-2">{step.body}</p>
                             </AnimatedContent>
