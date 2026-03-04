@@ -60,11 +60,11 @@ const telegramSummaries = [
         title: "Instagram Activity",
         date: "Monday, March 2",
         entries: [
-            { time: "8:12 AM", handle: "@saffronkitchensf", type: "💬 comment+like", text: "the brisket slider just looks perfect. gotta try this place this weekend." },
-            { time: "11:34 AM", handle: "@saltandboardsf", type: "💬 comment+like", text: "ok that salmon plating is gorgeous. serious date night energy right there" },
-            { time: "1:06 PM", handle: "@harborvieweats", type: "💬 comment+like", text: "that pizza dough pull is everything. haven't seen a crust that good in a while" },
-            { time: "3:48 PM", handle: "@theolive_branch", type: "💬 comment+like", text: "outdoor seating looking like that all summer? already planning my next visit" },
-            { time: "6:22 PM", handle: "@elmaliarestaurant", type: "💬 comment+like", text: "ok that lemon tart is something. the torching on the meringue is satisfying every time" },
+            { time: "8:12 AM", handle: "@saffronkitchensf", type: "💬 comment+like", text: "that marbling is everything. come see what we're pulling out this weekend 🔥" },
+            { time: "11:34 AM", handle: "@saltandboardsf", type: "💬 comment+like", text: "ok that plating is genuinely inspiring us rn. serious date night energy" },
+            { time: "1:06 PM", handle: "@harborvieweats", type: "💬 comment+like", text: "a good dough pull never gets old. we respect it" },
+            { time: "3:48 PM", handle: "@theolive_branch", type: "💬 comment+like", text: "outdoor season is fully here. see you out there 🌿" },
+            { time: "6:22 PM", handle: "@elmaliarestaurant", type: "💬 comment+like", text: "the torching on that meringue is satisfying. tart people understand" },
         ],
         totals: [
             { label: "Comments posted", value: "5" },
