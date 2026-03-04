@@ -1,6 +1,6 @@
 "use client";
 import AnimatedContent from "@/components/animated-content";
-import { ArrowUpRightIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, FacebookIcon, InstagramIcon, LinkedinIcon, MessageSquareIcon, PhoneCallIcon, XIcon } from "lucide-react";
+import { ArrowUpRightIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, FacebookIcon, InstagramIcon, MessageSquareIcon, PhoneCallIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import CountUp from "@/components/count-number";
 import { useAiModal } from "@/contexts/ai-modal-context";
@@ -741,6 +741,7 @@ export default function Restaurant() {
                                     image: "/assets/mai.jpeg",
                                     role: "Co-founder",
                                     linkedin: "https://www.linkedin.com/in/mai-akiyoshi/",
+                                    x: "https://x.com/mai_on_chain",
                                     bio: "At Gusto, she built the internal tool that let non-technical marketers ship landing pages in days instead of a month — the same problem she's solving here, just directly for small businesses. She later founded HeyMint, growing it to over a million users before it was acquired. She's a software engineer who knows how to make pages that convert, not just look good.",
                                 },
                                 {
@@ -748,18 +749,32 @@ export default function Restaurant() {
                                     image: "/assets/ben.jpeg",
                                     role: "Co-founder",
                                     linkedin: "https://www.linkedin.com/in/intenex/",
+                                    x: "https://x.com/intenex",
                                     bio: "Thiel Fellow, Harvard dropout, and co-founder of Stream, which raised $20M from investors including Pantera Capital. He's spent years as a backend and full-stack engineer at YC-backed startups before moving into operations — he brings both technical depth and practical business judgment to what a company needs online.",
+                                },
+                                {
+                                    name: "Stacy",
+                                    image: "/assets/stacy.jpg",
+                                    role: "Head of Marketing & Customer Success",
+                                    linkedin: "https://www.linkedin.com/in/stacydonnaj/",
+                                    x: "https://x.com/stacydj0x",
+                                    bio: "Stacy began her career in Customer Success and quickly rose through the ranks to become CS Manager, then expanded her scope to social media and marketing. Her talent and work ethic propelled her to Head of Marketing at a Silicon Valley startup, where she drove growth and brand presence across multiple channels.",
                                 },
                             ].map((person, i) => (
                                 <AnimatedContent key={i} delay={i * 0.15} className="flex flex-col max-w-xs">
                                     <img src={person.image} alt={person.name} className="w-52 h-64 object-cover rounded-lg" />
-                                    <div className="flex items-center gap-2 mt-4">
-                                        <h3 className="text-lg font-medium text-gray-800">{person.name}</h3>
-                                        <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:text-purple-600">
-                                            <LinkedinIcon size={16} />
+                                    <h3 className="text-lg font-medium text-gray-800 mt-4">{person.name}</h3>
+                                    <div className="flex items-center gap-2 mt-2">
+                                        <a href={person.x} target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:text-purple-600 transition-colors">
+                                            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                            </svg>
+                                        </a>
+                                        <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+                                            <img src="/assets/linkedin.png" alt="LinkedIn" width={18} height={18} />
                                         </a>
                                     </div>
-                                    <p className="text-purple-500 text-sm font-medium">{person.role}</p>
+                                    <p className="text-purple-500 text-sm font-medium mt-1">{person.role}</p>
                                     <p className="text-zinc-500 text-sm mt-3 leading-6">{person.bio}</p>
                                 </AnimatedContent>
                             ))}

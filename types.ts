@@ -35,6 +35,7 @@ export interface ITeamMember {
     image: string;
     role: string;
     linkedin?: string;
+    x?: string;
 };
 
 export interface IPricingPlan {
