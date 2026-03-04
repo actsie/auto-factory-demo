@@ -375,15 +375,13 @@ export default function Restaurant() {
                                 <div key={idx} className={`absolute inset-0 transition-opacity duration-300 ${idx === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
                                     <div className="bg-[#f0f2f5] rounded-2xl overflow-hidden shadow-xl border border-zinc-200 flex flex-col h-full">
                                         {/* Window chrome */}
-                                        <div className="flex items-center gap-3 px-4 py-3 bg-white border-b border-zinc-100 shrink-0">
+                                        <div className="relative flex items-center px-4 py-3 bg-white border-b border-zinc-100 shrink-0">
                                             <div className="flex gap-1.5">
                                                 <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
                                                 <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
                                                 <div className="w-3 h-3 rounded-full bg-[#28ca41]" />
                                             </div>
-                                            <div className="flex-1 text-center">
-                                                <p className="text-zinc-500 text-xs">AI Daily Summary</p>
-                                            </div>
+                                            <p className="absolute inset-0 flex items-center justify-center text-zinc-500 text-xs pointer-events-none">AI Daily Summary</p>
                                         </div>
 
                                         {/* Chat area */}
