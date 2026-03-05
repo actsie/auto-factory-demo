@@ -6,49 +6,45 @@ import CountUp from "@/components/count-number";
 import { useAiModal } from "@/contexts/ai-modal-context";
 import { useState, useEffect, useRef } from "react";
 
-const heroStats = [
-    { value: 43, suffix: "%", label: "of restaurant calls go unanswered" },
-    { value: 69, suffix: "%", label: "won't call again if they don't reach someone the first time" },
-];
 
 const missedCases = [
     {
-        time: "Sat 9:07 pm",
+        time: "Fri 9:58 pm",
+        channel: "SMS",
+        channelType: "sms" as const,
+        inquiry: "Still open? Can we walk in?",
+        missed: "→ No reply",
+        outcome: "They go elsewhere",
+    },
+    {
+        time: "Sat 7:42 pm",
         channel: "Phone call",
         channelType: "phone" as const,
-        inquiry: "Bachelorette dinner for 12",
-        missed: "→ Voicemail",
+        inquiry: "Do you have a table for 6 tonight?",
+        missed: "→ No one can pick up",
         outcome: "Booked elsewhere",
     },
     {
-        time: "Sat 10:34 pm",
-        channel: "SMS",
-        channelType: "sms" as const,
-        inquiry: "Walk-ins tonight?",
-        missed: "→ No reply",
-        outcome: "They drive elsewhere",
-    },
-    {
-        time: "Sat 11:22 pm",
+        time: "Sat 10:55 pm",
         channel: "X DM",
         channelType: "twitter" as const,
-        inquiry: "Still open? Can we walk in?",
+        inquiry: "Still doing brunch tomorrow?",
         missed: "→ No reply",
-        outcome: "They went elsewhere",
+        outcome: "Made other plans",
     },
     {
         time: "Sun 10:12 am",
         channel: "Instagram DM",
         channelType: "instagram" as const,
-        inquiry: "Corkage fee + private dining?",
-        missed: "→ Seen Tuesday",
+        inquiry: "Do you do private dining for 12?",
+        missed: "→ Seen later",
         outcome: "Inquiry lost",
     },
     {
-        time: "Sun 7:30 pm",
+        time: "Sun 4:45 pm",
         channel: "Facebook DM",
         channelType: "facebook" as const,
-        inquiry: "Do you host rehearsal dinners?",
+        inquiry: "Do you accommodate birthdays? Party of 8",
         missed: "→ No reply",
         outcome: "Booked elsewhere",
     },
@@ -112,16 +108,16 @@ const telegramSummaries = [
 
 const comparisons = [
     {
-        without: "Call at 9pm goes to voicemail.\nDiner books elsewhere.",
-        with: "Call answered instantly. Reservation confirmed automatically.",
+        without: "Calls go to voicemail during rush.\nDiner books elsewhere.",
+        with: "Call answered instantly. Details captured automatically.",
     },
     {
-        without: "Private dining DM sits until Monday.",
-        with: "Instant reply + info + link to book.",
+        without: "DMs sit overnight. Event inquiries arrive when nobody's watching.",
+        with: "Instant reply with the basics. Important ones routed to your team.",
     },
     {
-        without: "Allergen or menu question after close goes unanswered.",
-        with: "Instant reply, 24/7 — routed to your team if it needs human judgement.",
+        without: "Large party and private dining inquiries slip through.",
+        with: "Captured and flagged. Your team sees only what needs a personal touch.",
     },
 ];
 
@@ -134,23 +130,23 @@ const results = [
 const steps = [
     {
         n: "01",
-        title: "We map your calls and questions",
-        body: "We document your most common requests — reservations, hours, parking, allergens, events — so the AI knows how to handle them correctly.",
+        title: "We map your workflow",
+        body: "Common questions, booking flow, policies, private dining, catering, edge cases.",
     },
     {
         n: "02",
-        title: "We connect your booking flow",
-        body: "We integrate with your booking system so the AI can confirm, capture, and route reservations — not just take a message.",
+        title: "We set up your dedicated AI assistant",
+        body: "Dedicated configuration tuned to your menu, hours, and operations.",
     },
     {
         n: "03",
-        title: "It runs automatically",
-        body: "The AI answers calls, replies to DMs, and posts on schedule during rush, after hours, and on off days.",
+        title: "We launch the first set of automations",
+        body: "Calls, DMs, inquiries, follow-ups — starting small and useful.",
     },
     {
         n: "04",
-        title: "Your team gets a daily summary",
-        body: "A clean log of what happened: confirmed bookings, captured leads, and only the messages that actually need a human.",
+        title: "We maintain and improve it",
+        body: "We monitor, update, and add capabilities over time.",
     },
 ];
 
@@ -232,18 +228,26 @@ export default function Restaurant() {
                 <div className="max-w-7xl mx-auto flex flex-col items-center justify-center h-screen">
                     <AnimatedContent reverse distance={30} className="flex items-center gap-2 bg-white/50 backdrop-blur px-4 py-1.5 rounded-full text-sm text-gray-600">
                         <span className="size-2 rounded-full bg-green-500 inline-block animate-pulse" />
-                        Always-on automation · Built in 2 weeks
+                        Free pilot · 1 SF restaurant
                     </AnimatedContent>
 
                     <AnimatedContent distance={30} delay={0.1}>
                         <h1 className="text-center font-urbanist text-5xl/15 md:text-6xl/18 mt-4 font-bold max-w-3xl">
-                            <span className="text-gray-800">Capture bookings even when nobody can pick up.</span>
+                            <span className="text-gray-800">A dedicated AI assistant for your restaurant.</span>
                         </h1>
+                    </AnimatedContent>
+
+                    <AnimatedContent distance={30} delay={0.15} className="w-full max-w-sm mt-4 overflow-hidden marquee-fade">
+                        <div className="flex gap-2 animate-marquee-loop">
+                            {["Discord", "WhatsApp", "Twitch", "Slack", "Telegram", "Line", "Google Chat", "Discord", "WhatsApp", "Twitch", "Slack", "Telegram", "Line", "Google Chat"].map((app, i) => (
+                                <span key={i} className="text-xs bg-white/20 border border-white/30 text-zinc-500 backdrop-blur-sm px-3 py-1 rounded-full shrink-0">{app}</span>
+                            ))}
+                        </div>
                     </AnimatedContent>
 
                     <AnimatedContent distance={30} delay={0.2}>
                         <p className="text-center text-base/7 text-zinc-500 max-w-xl mt-3">
-                            A front-desk layer that runs in the background: fast answers, booking capture, and clean handoffs for anything that needs a personal touch.
+                            Set up for your workflow. Maintained by us. Starts with the tasks that steal time and bookings.
                         </p>
                     </AnimatedContent>
 
@@ -252,39 +256,58 @@ export default function Restaurant() {
                             onClick={() => openAiModal("Restaurant — Hero")}
                             className="flex items-center justify-center gap-1.5 py-3 md:py-2.5 w-full md:w-auto px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
                         >
-                            Book a 15-min walkthrough
+                            Apply for the free pilot
                             <ArrowUpRightIcon size={16} />
                         </button>
                         <a
                             href="#handles"
                             className="py-3 md:py-2.5 w-full md:w-auto px-8 bg-white/50 text-gray-600 font-medium text-center border border-white rounded-full"
                         >
-                            See what it handles
+                            See what it would handle first
                         </a>
+                    </AnimatedContent>
+                    <AnimatedContent distance={30} delay={0.4}>
+                        <p className="text-center text-xs text-zinc-400 mt-3">
+                            Free setup and free during the pilot. We&apos;re looking for 1 SF restaurant to partner with.
+                        </p>
                     </AnimatedContent>
                 </div>
             </section>
 
-            {/* Stats strip */}
+            {/* Offer */}
             <section className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
                 <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
-                    <div className="p-8 md:p-16 grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-                        {heroStats.map((stat, i) => (
-                            <AnimatedContent key={i} delay={i * 0.1} className="border border-[#edf9f8] rounded-xl p-6 bg-[#f7fcfb]">
-                                <p className="font-urbanist font-bold text-4xl text-gray-800">
-                                    <CountUp to={stat.value} duration={1.5} delay={i * 0.15} />{stat.suffix}
-                                </p>
-                                <p className="text-zinc-600 text-sm/6 mt-2 min-h-[4.5rem]">{stat.label}</p>
-                            </AnimatedContent>
-                        ))}
-                        <AnimatedContent delay={0.2} className="border border-[#edf9f8] rounded-xl p-6 bg-[#f7fcfb]">
-                            <p className="font-urbanist font-bold text-4xl text-gray-800">$3K – $18K</p>
-                            <p className="text-zinc-600 text-sm/6 mt-2 min-h-[4.5rem]">monthly revenue lift reported from AI reservation and phone automation</p>
+                    <div className="p-8 md:p-16 max-w-xl">
+                        <AnimatedContent>
+                            <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Free Pilot</p>
+                            <h2 className="font-urbanist font-semibold text-2xl md:text-3xl text-gray-800">
+                                We&apos;ll set up a dedicated AI assistant for your restaurant for free.
+                            </h2>
+                            <p className="text-zinc-500 text-base/7 mt-4">In exchange, we ask for:</p>
+                            <ul className="mt-3 space-y-2">
+                                {[
+                                    "Feedback as we tune it",
+                                    "Time to understand your workflow",
+                                    "Permission to use results in future pitches (we can anonymize)",
+                                ].map((item, i) => (
+                                    <li key={i} className="flex gap-3 text-sm text-zinc-600">
+                                        <CheckIcon className="h-4 w-4 shrink-0 text-purple-500 mt-0.5" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                            <p className="text-zinc-400 text-sm mt-5">Keep it low pressure. We&apos;re learning as much as you are.</p>
+                        </AnimatedContent>
+                        <AnimatedContent delay={0.1} className="mt-6">
+                            <button
+                                onClick={() => openAiModal("Restaurant — Offer")}
+                                className="flex items-center gap-1.5 py-2.5 px-7 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm font-medium"
+                            >
+                                Apply for the free pilot
+                                <ArrowUpRightIcon size={15} />
+                            </button>
                         </AnimatedContent>
                     </div>
-                    <p className="text-zinc-400 text-xs px-8 md:px-16 pb-8 -mt-6">
-                        Sources: Hostie AI, Popmenu Restaurant Technology Survey, Toast Restaurant Trends
-                    </p>
                 </div>
             </section>
 
@@ -296,13 +319,13 @@ export default function Restaurant() {
                             <AnimatedContent>
                                 <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">The Problem</p>
                                 <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">
-                                    Missed calls don&apos;t just disappear. They go to the restaurant down the street.
+                                    The problem isn&apos;t effort. It&apos;s timing.
                                 </h2>
                                 <p className="text-zinc-500 text-base/7 mt-4">
-                                    Someone calls at 9pm about a bachelorette dinner for 12. Another DMs Sunday morning asking about corkage fees. Your host doesn&apos;t see either until Tuesday. Both parties are already booked somewhere else.
+                                    Calls and messages come in while your team is slammed or you&apos;re closed. So even good restaurants miss inquiries — especially for large parties, events, and simple questions.
                                 </p>
                                 <p className="text-zinc-500 text-base/7 mt-3">
-                                    Your team isn&apos;t dropping the ball. The hours just don&apos;t match when people actually decide.
+                                    A dedicated AI assistant covers the gap and sends you a clean summary. We handle the buildout. You don&apos;t change how you work.
                                 </p>
                             </AnimatedContent>
                             <AnimatedContent className="p-4 md:p-6 bg-purple-500 w-full rounded-xl">
@@ -313,7 +336,7 @@ export default function Restaurant() {
                                     onClick={() => openAiModal("Restaurant — Problem CTA")}
                                     className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full mt-6 flex items-center gap-1 text-sm font-medium w-max"
                                 >
-                                    See what we&apos;d automate first
+                                    See what it would handle first
                                     <ArrowUpRightIcon size={16} />
                                 </button>
                             </AnimatedContent>
@@ -322,7 +345,7 @@ export default function Restaurant() {
                         <div className="flex flex-col gap-4">
                             {missedCases.map((c, i) => (
                                 <AnimatedContent key={i} delay={i * 0.1} className="border border-gray-200/60 rounded-xl p-5 bg-gray-50/80 backdrop-blur-sm">
-                                    <div className="grid grid-cols-3 items-center">
+                                    <div className="grid grid-cols-[1fr_2fr_1fr] items-center">
                                         <div className="flex flex-col gap-1 pr-4">
                                             <div className="flex items-center gap-1.5">
                                                 {c.channelType === "phone" && <PhoneCallIcon size={12} className="text-zinc-400" />}
@@ -469,13 +492,28 @@ export default function Restaurant() {
                     <div>
                         <div className="p-4 pt-16 md:p-16 flex flex-col items-start md:sticky md:top-26">
                             <AnimatedContent>
-                                <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">What AI Handles</p>
+                                <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">What Your Dedicated AI Assistant Handles</p>
                                 <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">
-                                    While your team is in service or offline
+                                    Covers the shift when nobody can answer
                                 </h2>
                                 <p className="text-zinc-500 text-base/7 mt-4 max-w-sm">
-                                    AI doesn&apos;t replace your people — it covers the shift when no one is there. Every missed call, unanswered DM, and weekend social window.
+                                    It doesn&apos;t replace your staff. It handles what falls through when your team is in service or offline.
                                 </p>
+                                <ul className="mt-6 space-y-3">
+                                    {[
+                                        "Answers common calls (hours, location, parking, policies)",
+                                        "Captures reservation requests and large party inquiries",
+                                        "Collects details for private dining and catering leads",
+                                        "Replies to DMs with the basics + routes the important ones",
+                                        "Sends a daily summary (bookings captured, leads captured, follow-ups needed)",
+                                        "You manage it through Telegram, WhatsApp, Slack, or any chat app you already use",
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex gap-3 text-sm text-zinc-600">
+                                            <CheckIcon className="h-4 w-4 shrink-0 text-purple-500 mt-0.5" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </AnimatedContent>
                             <AnimatedContent delay={0.1} className="mt-8 flex items-center justify-between gap-5 p-6 bg-[#5bbfba] w-full rounded-xl">
                                 <h3 className="text-base text-white text-balance">
@@ -485,7 +523,7 @@ export default function Restaurant() {
                                     onClick={() => openAiModal("Restaurant — What AI Handles CTA")}
                                     className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full text-sm font-medium w-max shrink-0"
                                 >
-                                    Get a setup plan
+                                    See what it would handle for you
                                 </button>
                             </AnimatedContent>
                         </div>
@@ -499,7 +537,7 @@ export default function Restaurant() {
                     <div className="p-8 md:p-16">
                         <AnimatedContent className="text-center mb-12">
                             <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Before & After</p>
-                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">What changes when AI covers the gap</h2>
+                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">What changes when you have a dedicated AI assistant</h2>
                         </AnimatedContent>
 
                         <div className="mx-auto grid max-w-lg grid-cols-1 items-center gap-y-6 sm:gap-y-0 lg:max-w-3xl lg:grid-cols-2">
@@ -531,7 +569,7 @@ export default function Restaurant() {
                                     onClick={() => openAiModal("Restaurant — Before & After CTA")}
                                     className="mt-10 w-full rounded-full bg-purple-500 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-purple-400 transition-colors"
                                 >
-                                    Schedule a call
+                                    Apply for the free pilot
                                 </button>
                             </AnimatedContent>
                         </div>
@@ -545,7 +583,7 @@ export default function Restaurant() {
                     <div className="p-8 md:p-16">
                         <AnimatedContent className="text-center mb-12">
                             <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Results</p>
-                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">What restaurants are seeing with AI phone and booking tools</h2>
+                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Numbers from restaurants using AI phone and booking tools</h2>
                         </AnimatedContent>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {results.map((stat, i) => (
@@ -558,7 +596,7 @@ export default function Restaurant() {
                             ))}
                         </div>
                         <p className="text-zinc-400 text-xs mt-6">
-                            Sources: iovox (Mitchells & Butlers), Popmenu (Locals Pub), Hostie AI (Burma Food Group)
+                            Sources: iovox (Mitchells & Butlers), Popmenu (Locals Pub), Hostie AI (Burma Food Group). These are published figures from other tools — not a guarantee of results.
                         </p>
                     </div>
                 </div>
@@ -572,7 +610,7 @@ export default function Restaurant() {
                             <AnimatedContent>
                                 <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">How It Works</p>
                                 <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">
-                                    A simple setup, then it runs in the background
+                                    A simple setup, then it runs quietly in the background
                                 </h2>
                                 <p className="text-zinc-500 text-base/7 mt-4 max-w-sm">
                                     We handle the buildout. Your team doesn&apos;t need to learn new software or change how they work.
@@ -586,7 +624,7 @@ export default function Restaurant() {
                                     onClick={() => openAiModal("Restaurant — How It Works CTA")}
                                     className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full mt-6 flex items-center gap-1 text-sm font-medium w-max"
                                 >
-                                    Schedule a call
+                                    Apply for the free pilot
                                     <ArrowUpRightIcon size={16} />
                                 </button>
                             </AnimatedContent>
@@ -704,21 +742,21 @@ export default function Restaurant() {
                         </AnimatedContent>
                         <AnimatedContent delay={0.05}>
                             <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Where to start</p>
-                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Want to see what this looks like for your restaurant?</h2>
+                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Want to see what we&apos;d set up for your restaurant?</h2>
                         </AnimatedContent>
                         <AnimatedContent delay={0.1} className="flex flex-col sm:flex-row items-center gap-3 mt-8 text-sm text-zinc-500">
-                            <span>We&apos;ll show you the gaps we&apos;d cover</span>
+                            <span>We&apos;ll map what&apos;s falling through</span>
                             <span className="hidden sm:inline text-zinc-300">·</span>
-                            <span>What we&apos;d automate first</span>
+                            <span>Show you what we&apos;d handle first</span>
                             <span className="hidden sm:inline text-zinc-300">·</span>
-                            <span>No pitch, no pressure</span>
+                            <span>No pressure</span>
                         </AnimatedContent>
                         <AnimatedContent delay={0.15} className="mt-8">
                             <button
                                 onClick={() => openAiModal("Restaurant — Scoping Call")}
                                 className="flex items-center gap-1.5 py-2.5 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm font-medium"
                             >
-                                Show me my gaps
+                                See if your restaurant is a fit
                                 <ArrowUpRightIcon size={14} />
                             </button>
                         </AnimatedContent>
@@ -792,32 +830,17 @@ export default function Restaurant() {
                                 Someone&apos;s calling right now. Nobody&apos;s there.
                             </h2>
                             <p className="text-zinc-500 text-base/7 mt-4 max-w-md mx-auto">
-                                We review what&apos;s falling through, build the automation in 2 weeks, and hand it off — or run it for you.
+                                We&apos;re looking for 1 SF restaurant to run a free pilot with. Free setup and free during the pilot. In exchange, we&apos;ll learn your workflow and use the results to shape the next version.
                             </p>
-                            <AnimatedContent className="flex flex-wrap justify-center gap-6 mt-10">
-                                <div className="flex flex-col items-center gap-1">
-                                    <span className="font-urbanist font-bold text-2xl text-gray-800">2 weeks</span>
-                                    <span className="text-zinc-400 text-xs">to build & hand off</span>
-                                </div>
-                                <div className="w-px bg-[#edf9f8] hidden md:block" />
-                                <div className="flex flex-col items-center gap-1">
-                                    <span className="font-urbanist font-bold text-2xl text-gray-800">Week 1</span>
-                                    <span className="text-zinc-400 text-xs">gap audit & setup</span>
-                                </div>
-                                <div className="w-px bg-[#edf9f8] hidden md:block" />
-                                <div className="flex flex-col items-center gap-1">
-                                    <span className="font-urbanist font-bold text-2xl text-gray-800">Week 2</span>
-                                    <span className="text-zinc-400 text-xs">build, test, hand off</span>
-                                </div>
-                            </AnimatedContent>
-                            <div className="flex items-center justify-center mt-10">
+                            <div className="flex flex-col items-center gap-3 mt-10">
                                 <button
                                     onClick={() => openAiModal("Restaurant — Final CTA")}
                                     className="flex items-center justify-center gap-1.5 py-3 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
                                 >
-                                    Let&apos;s fix that
+                                    Apply for the free pilot
                                     <ArrowUpRightIcon size={16} />
                                 </button>
+                                <p className="text-xs text-zinc-400">No pressure. If it&apos;s not useful, you can stop anytime.</p>
                             </div>
                         </AnimatedContent>
                     </div>

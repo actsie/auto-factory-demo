@@ -107,6 +107,20 @@ html {
     animation: marquee 60s linear infinite;
 }
 
+@keyframes marquee-loop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-loop {
+    animation: marquee-loop 18s linear infinite;
+}
+
+.marquee-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
+}
+
 .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
