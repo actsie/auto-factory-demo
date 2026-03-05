@@ -170,9 +170,9 @@ const comparisons = [
 ];
 
 const results = [
-    { value: 87, suffix: "%", label: "reduction in missed calls" },
-    { value: 91, suffix: "%", label: "drop in hold time" },
-    { value: 128, prefix: "+", suffix: "", label: "bookings per month per location in a pilot" },
+    { value: 3, suffix: "%", label: "missed call rate after AI — down from 36% across SF restaurants" },
+    { value: 1237, suffix: "", label: "hours/year saved per restaurant on phone handling" },
+    { value: 141, suffix: "%", label: "increase in over-the-phone covers after deploying an AI concierge" },
 ];
 
 const steps = [
@@ -535,6 +535,21 @@ export default function Restaurant() {
                                 <p className="text-zinc-500 text-base/7 mt-3">
                                     A dedicated AI assistant covers the gap and sends you a clean summary. We handle the buildout. You don&apos;t change how you work.
                                 </p>
+                                <div className="flex gap-8 mt-6 pt-6 border-t border-[#edf9f8]">
+                                    <div>
+                                        <p className="font-urbanist font-bold text-3xl text-gray-800"><CountUp to={43} duration={1.5} />%</p>
+                                        <p className="text-xs text-zinc-500 mt-1 max-w-[120px]">of restaurant calls go unanswered on average</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-urbanist font-bold text-3xl text-gray-800"><CountUp to={69} duration={1.5} delay={0.1} />%</p>
+                                        <p className="text-xs text-zinc-500 mt-1 max-w-[120px]">of those diners won&apos;t try the restaurant again</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-urbanist font-bold text-3xl text-gray-800"><CountUp to={60} duration={1.5} delay={0.2} />%</p>
+                                        <p className="text-xs text-zinc-500 mt-1 max-w-[120px]">won&apos;t call back at all</p>
+                                    </div>
+                                </div>
+                                <p className="text-[11px] text-zinc-400 mt-3">Sources: Hostie AI · ReachifyAI · industry research</p>
                             </AnimatedContent>
                             <AnimatedContent className="p-4 md:p-6 bg-purple-500 w-full rounded-xl">
                                 <p className="text-base text-white">
@@ -792,7 +807,7 @@ export default function Restaurant() {
                     <div className="p-8 md:p-16">
                         <AnimatedContent className="text-center mb-12">
                             <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Results</p>
-                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Numbers from restaurants using AI phone and booking tools</h2>
+                            <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Numbers from restaurants that have deployed AI phone and booking tools</h2>
                         </AnimatedContent>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {results.map((stat, i) => (
@@ -805,7 +820,7 @@ export default function Restaurant() {
                             ))}
                         </div>
                         <p className="text-zinc-400 text-xs mt-6">
-                            Sources: iovox (Mitchells & Butlers), Popmenu (Locals Pub), Hostie AI (Burma Food Group). These are published figures from other tools — not a guarantee of results.
+                            Sources: Hostie AI 500k-call study (2024–2025), Slang.ai 50-restaurant study, Hostie AI Burma Food Group case study. Published figures from third-party tools — not a guarantee of results.
                         </p>
                     </div>
                 </div>
