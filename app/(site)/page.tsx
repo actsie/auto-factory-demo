@@ -325,14 +325,6 @@ export default function Restaurant() {
                         </h1>
                     </AnimatedContent>
 
-                    <AnimatedContent distance={30} delay={0.15} className="w-full max-w-sm mt-4 overflow-hidden marquee-fade">
-                        <div className="flex gap-2 animate-marquee-loop">
-                            {["Discord", "WhatsApp", "Twitch", "Slack", "Telegram", "Line", "Google Chat", "Discord", "WhatsApp", "Twitch", "Slack", "Telegram", "Line", "Google Chat"].map((app, i) => (
-                                <span key={i} className="text-xs bg-white/20 border border-white/30 text-zinc-500 backdrop-blur-sm px-3 py-1 rounded-full shrink-0">{app}</span>
-                            ))}
-                        </div>
-                    </AnimatedContent>
-
                     <AnimatedContent distance={30} delay={0.2}>
                         <p className="text-center text-base/7 text-zinc-500 max-w-xl mt-3">
                             Set up for your workflow. Maintained by us. Starts with the tasks that steal time and bookings.
@@ -480,6 +472,13 @@ export default function Restaurant() {
                                 <button onClick={() => setOfferSlide(prev => (prev + 1) % pilotChats.length)} className="p-1.5 rounded-full border border-[#edf9f8] text-zinc-400 hover:text-zinc-600 transition-colors">
                                     <ChevronRightIcon size={16} />
                                 </button>
+                            </div>
+                            <div className="mt-6 overflow-hidden marquee-fade">
+                                <div className="flex gap-2 animate-marquee-loop">
+                                    {["Discord", "WhatsApp", "Twitch", "Slack", "Telegram", "Line", "Google Chat", "Discord", "WhatsApp", "Twitch", "Slack", "Telegram", "Line", "Google Chat"].map((app, i) => (
+                                        <span key={i} className="text-xs bg-[#f7fcfb] border border-[#edf9f8] text-zinc-500 px-3 py-1 rounded-full shrink-0">{app}</span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
@@ -980,7 +979,7 @@ export default function Restaurant() {
                     <div className="p-8 md:p-16">
                         <AnimatedContent className="text-center mb-16">
                             <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">You&apos;re working with us directly</h2>
-                            <p className="text-zinc-500 text-base/7 mt-3 max-w-md mx-auto">The automation never clocks out. Neither do we.</p>
+                            <p className="text-zinc-500 text-base/7 mt-3 max-w-md mx-auto">You&apos;ll have direct access to the people building it.</p>
                         </AnimatedContent>
                         <div className="flex flex-wrap justify-center gap-12 md:gap-20">
                             {[
