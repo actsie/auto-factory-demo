@@ -813,7 +813,7 @@ export default function Restaurant() {
                             {results.map((stat, i) => (
                                 <AnimatedContent key={i} delay={i * 0.1} className="border border-[#edf9f8] rounded-xl p-6 bg-[#f7fcfb] text-center">
                                     <p className="font-urbanist font-bold text-5xl text-gray-800">
-                                        {stat.prefix}<CountUp to={stat.value} duration={1.5} delay={i * 0.15} />{stat.suffix}
+                                        <CountUp to={stat.value} duration={1.5} delay={i * 0.15} />{stat.suffix}
                                     </p>
                                     <p className="text-zinc-500 text-sm/6 mt-3">{stat.label}</p>
                                 </AnimatedContent>
