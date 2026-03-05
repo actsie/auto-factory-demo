@@ -10,14 +10,14 @@ import AnimatedContent from "./animated-content";
 import { useModal } from "@/contexts/modal-context";
 import { useAiModal } from "@/contexts/ai-modal-context";
 
-const AI_ROUTES = ["/restaurant", "/ai-automation", "/contractors"];
+const AI_ROUTES = ["/", "/ai-automation", "/contractors"];
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
     const { openModal } = useModal();
     const { openAiModal } = useAiModal();
-    const isAiPage = AI_ROUTES.some(r => pathname.startsWith(r));
+    const isAiPage = AI_ROUTES.some(r => r === "/" ? pathname === "/" : pathname.startsWith(r));
     const handleBookCall = () => isAiPage ? openAiModal("Navbar") : openModal("Navbar");
 
     return (
