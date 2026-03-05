@@ -121,6 +121,14 @@ html {
     mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
 }
 
+.scrollbar-dark::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.15);
+    border-radius: 9999px;
+}
+.scrollbar-dark::-webkit-scrollbar {
+    width: 4px;
+}
+
 .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

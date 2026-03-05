@@ -7,6 +7,54 @@ import { useAiModal } from "@/contexts/ai-modal-context";
 import { useState, useEffect, useRef } from "react";
 
 
+type PilotMessage = { from: string; text: string; time?: string; ticks?: string; name?: string; avatar?: string; avatarColor?: string; };
+type PilotChat = { platform: string; chatBg: string; incomingBg?: string; outgoingBg?: string; header?: { bg: string; name: string }; channel?: string; messages: PilotMessage[]; };
+
+const pilotChats: PilotChat[] = [
+    {
+        platform: "Telegram",
+        chatBg: "#f0f2f5",
+        incomingBg: "#ffffff",
+        outgoingBg: "#e9e4ff",
+        messages: [
+            { from: "guest", text: "Do you have a table for 8 tomorrow night?", time: "9:07 PM" },
+            { from: "ai", text: "Yes! We have availability at 7pm and 8:30pm. Which works better for your group?", time: "9:07 PM" },
+            { from: "guest", text: "7pm please, it's a birthday dinner", time: "9:08 PM" },
+            { from: "ai", text: "Perfect. What name should I put the reservation under?", time: "9:08 PM" },
+            { from: "guest", text: "Sarah Chen", time: "9:09 PM" },
+            { from: "ai", text: "Done! Table for 8 at 7pm tomorrow under Sarah Chen. We'll see you then 🎉", time: "9:09 PM" },
+        ],
+    },
+    {
+        platform: "WhatsApp",
+        chatBg: "#ECE5DD",
+        incomingBg: "#ffffff",
+        outgoingBg: "#e9e4ff",
+        header: { bg: "#6c5dd3", name: "Fountain of Scale" },
+        messages: [
+            { from: "guest", text: "Still open? We're nearby and starving 😅", time: "10:34 PM" },
+            { from: "ai", text: "Yes open until 10pm tonight! How many in your group?", time: "10:34 PM", ticks: "✓✓" },
+            { from: "guest", text: "Just 2 of us", time: "10:35 PM" },
+            { from: "ai", text: "Come on in, we have tables available. Should take you about 5 mins to get seated.", time: "10:35 PM", ticks: "✓✓" },
+            { from: "guest", text: "Amazing, on our way!", time: "10:35 PM" },
+            { from: "ai", text: "See you soon 🙌", time: "10:36 PM", ticks: "✓✓" },
+        ],
+    },
+    {
+        platform: "Slack",
+        chatBg: "#ffffff",
+        channel: "#inquiries",
+        messages: [
+            { from: "guest", name: "James", avatar: "J", avatarColor: "#E01E5A", text: "Hi, planning a team lunch for about 20 people next Friday", time: "11:02 AM" },
+            { from: "ai", name: "AI Assistant", avatar: "AI", avatarColor: "#6c5dd3", text: "Hey James! We would love to host. Are you thinking private dining or open floor?", time: "11:02 AM" },
+            { from: "guest", name: "James", avatar: "J", avatarColor: "#E01E5A", text: "Private would be great if you have it", time: "11:03 AM" },
+            { from: "ai", name: "AI Assistant", avatar: "AI", avatarColor: "#6c5dd3", text: "We do! Private room fits up to 25. Do you have a budget per head in mind?", time: "11:03 AM" },
+            { from: "guest", name: "James", avatar: "J", avatarColor: "#E01E5A", text: "Around $60 per person works", time: "11:04 AM" },
+            { from: "ai", name: "AI Assistant", avatar: "AI", avatarColor: "#6c5dd3", text: "That works well with our lunch menu. I'll flag this for the team to follow up with a full proposal today.", time: "11:04 AM" },
+        ],
+    },
+];
+
 const missedCases = [
     {
         time: "Fri 9:58 pm",
@@ -175,14 +223,54 @@ export default function Restaurant() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [carouselHovered, setCarouselHovered] = useState(false);
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const mainScrollRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
         if (carouselHovered) return;
         intervalRef.current = setInterval(() => {
             setCurrentSlide(prev => (prev + 1) % telegramSummaries.length);
-        }, 3500);
+        }, 6000);
         return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
     }, [carouselHovered]);
+
+    useEffect(() => {
+        mainScrollRefs.current.forEach((el, i) => {
+            if (i !== currentSlide && el) el.scrollTop = 0;
+        });
+        const el = mainScrollRefs.current[currentSlide];
+        if (!el) return;
+        const timer = setTimeout(() => {
+            el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [currentSlide]);
+
+    const [offerSlide, setOfferSlide] = useState(0);
+    const [offerHovered, setOfferHovered] = useState(false);
+    const offerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const offerScrollRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        if (offerHovered) return;
+        offerIntervalRef.current = setInterval(() => {
+            setOfferSlide(prev => (prev + 1) % pilotChats.length);
+        }, 6000);
+        return () => { if (offerIntervalRef.current) clearInterval(offerIntervalRef.current); };
+    }, [offerHovered]);
+
+    useEffect(() => {
+        // Reset non-active slides to top
+        offerScrollRefs.current.forEach((el, i) => {
+            if (i !== offerSlide && el) el.scrollTop = 0;
+        });
+        // Smooth scroll active slide to bottom after a short pause
+        const el = offerScrollRefs.current[offerSlide];
+        if (!el) return;
+        const timer = setTimeout(() => {
+            el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [offerSlide]);
     const [faqForm, setFaqForm] = useState({ name: "", email: "", business: "", website: "", gap: "", notes: "" });
     const [faqErrors, setFaqErrors] = useState<Record<string, string>>({});
     const [faqLoading, setFaqLoading] = useState(false);
@@ -277,36 +365,157 @@ export default function Restaurant() {
             {/* Offer */}
             <section className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
                 <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
-                    <div className="p-8 md:p-16 max-w-xl">
-                        <AnimatedContent>
-                            <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Free Pilot</p>
-                            <h2 className="font-urbanist font-semibold text-2xl md:text-3xl text-gray-800">
-                                We&apos;ll set up a dedicated AI assistant for your restaurant for free.
-                            </h2>
-                            <p className="text-zinc-500 text-base/7 mt-4">In exchange, we ask for:</p>
-                            <ul className="mt-3 space-y-2">
-                                {[
-                                    "Feedback as we tune it",
-                                    "Time to understand your workflow",
-                                    "Permission to use results in future pitches (we can anonymize)",
-                                ].map((item, i) => (
-                                    <li key={i} className="flex gap-3 text-sm text-zinc-600">
-                                        <CheckIcon className="h-4 w-4 shrink-0 text-purple-500 mt-0.5" />
-                                        {item}
-                                    </li>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:divide-x divide-[#edf9f8] items-center">
+
+                        {/* Left — chat carousel */}
+                        <div className="p-8 md:p-16 pt-8 md:pt-16"
+                            onMouseEnter={() => setOfferHovered(true)}
+                            onMouseLeave={() => setOfferHovered(false)}
+                        >
+                            <p className="text-sm font-medium text-zinc-500 mb-6">Compatible with</p>
+                            <AnimatedContent className="relative h-[480px]">
+                                {pilotChats.map((chat, idx) => (
+                                    <div key={idx} className={`absolute inset-0 transition-opacity duration-300 ${idx === offerSlide ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+                                        <div className="rounded-2xl overflow-hidden shadow-xl border border-zinc-200 flex flex-col h-full" style={{ background: chat.chatBg }}>
+
+                                            {/* macOS chrome */}
+                                            <div className="relative flex items-center px-4 py-3 bg-white border-b border-zinc-100 shrink-0">
+                                                <div className="flex gap-1.5">
+                                                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                                                    <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                                                    <div className="w-3 h-3 rounded-full bg-[#28ca41]" />
+                                                </div>
+                                                <p className="absolute inset-0 flex items-center justify-center text-zinc-500 text-xs pointer-events-none">{chat.platform}</p>
+                                            </div>
+
+                                            {/* WhatsApp contact header */}
+                                            {chat.platform === "WhatsApp" && chat.header && (
+                                                <div className="flex items-center gap-3 px-4 py-2.5 shrink-0" style={{ background: chat.header.bg }}>
+                                                    <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white text-[10px] font-bold shrink-0">F</div>
+                                                    <div>
+                                                        <p className="text-white text-xs font-semibold leading-none">{chat.header.name}</p>
+                                                        <p className="text-white/70 text-[10px] mt-0.5">online</p>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {/* Slack channel header */}
+                                            {chat.platform === "Slack" && (
+                                                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-zinc-100 shrink-0">
+                                                    <span className="text-xs font-semibold text-zinc-800">{chat.channel}</span>
+                                                    <span className="text-zinc-300 text-xs">·</span>
+                                                    <span className="text-zinc-400 text-xs">Restaurant inquiries</span>
+                                                </div>
+                                            )}
+
+                                            {/* Messages */}
+                                            <div ref={(el) => { offerScrollRefs.current[idx] = el; }} className={`px-4 py-4 space-y-3 flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full ${chat.platform === "Slack" ? "scrollbar-dark" : "[&::-webkit-scrollbar-thumb]:bg-white/60"}`} style={{ scrollbarWidth: "thin", scrollbarColor: chat.platform === "Slack" ? "rgba(0,0,0,0.15) transparent" : "rgba(255,255,255,0.6) transparent" }}>
+                                                {chat.platform === "Slack" ? (
+                                                    // Slack flat message style
+                                                    chat.messages.map((msg, i) => (
+                                                        <div key={i} className="flex items-start gap-2.5">
+                                                            <div className="w-7 h-7 rounded-md flex items-center justify-center text-white text-[10px] font-bold shrink-0 mt-0.5" style={{ background: msg.avatarColor }}>
+                                                                {msg.avatar}
+                                                            </div>
+                                                            <div>
+                                                                <div className="flex items-baseline gap-1.5">
+                                                                    <span className="text-xs font-semibold text-zinc-800">{msg.name}</span>
+                                                                    <span className="text-[10px] text-zinc-400">Today {msg.time}</span>
+                                                                </div>
+                                                                <p className="text-zinc-700 text-xs leading-relaxed mt-0.5">{msg.text}</p>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    // Telegram / WhatsApp bubble style
+                                                    chat.messages.map((msg, i) => (
+                                                        msg.from === "guest" ? (
+                                                            <div key={i} className="flex items-end max-w-[82%]">
+                                                                <div className="shadow-sm rounded-2xl rounded-tl-sm px-3.5 py-2" style={{ background: chat.incomingBg }}>
+                                                                    <p className="text-zinc-700 text-xs leading-relaxed">{msg.text}</p>
+                                                                    {msg.time && <p className="text-[10px] text-zinc-400 text-right mt-0.5">{msg.time}</p>}
+                                                                </div>
+                                                            </div>
+                                                        ) : (
+                                                            <div key={i} className="flex justify-end">
+                                                                <div className="rounded-2xl rounded-tr-sm px-3.5 py-2 max-w-[82%]" style={{ background: chat.outgoingBg }}>
+                                                                    <p className="text-zinc-700 text-xs leading-relaxed">{msg.text}</p>
+                                                                    <div className="flex items-center justify-end gap-1 mt-0.5">
+                                                                        {msg.time && <span className="text-[10px] text-zinc-400">{msg.time}</span>}
+                                                                        {msg.ticks && <span className="text-[10px] text-purple-400">{msg.ticks}</span>}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    ))
+                                                )}
+                                            </div>
+
+                                            {/* Compose bar */}
+                                            <div className="shrink-0 flex items-center gap-2 px-3 py-3 bg-white border-t border-zinc-100">
+                                                <div className="flex-1 bg-zinc-100 rounded-full px-4 py-2">
+                                                    <p className="text-zinc-400 text-xs">Message...</p>
+                                                </div>
+                                                <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center shrink-0">
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-white translate-x-0.5">
+                                                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 ))}
-                            </ul>
-                            <p className="text-zinc-400 text-sm mt-5">Keep it low pressure. We&apos;re learning as much as you are.</p>
-                        </AnimatedContent>
-                        <AnimatedContent delay={0.1} className="mt-6">
-                            <button
-                                onClick={() => openAiModal("Restaurant — Offer")}
-                                className="flex items-center gap-1.5 py-2.5 px-7 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm font-medium"
-                            >
-                                Apply for the free pilot
-                                <ArrowUpRightIcon size={15} />
-                            </button>
-                        </AnimatedContent>
+                            </AnimatedContent>
+
+                            {/* Navigation */}
+                            <div className="flex items-center justify-between mt-4">
+                                <button onClick={() => setOfferSlide(prev => (prev - 1 + pilotChats.length) % pilotChats.length)} className="p-1.5 rounded-full border border-[#edf9f8] text-zinc-400 hover:text-zinc-600 transition-colors">
+                                    <ChevronLeftIcon size={16} />
+                                </button>
+                                <div className="flex gap-1.5">
+                                    {pilotChats.map((_, i) => (
+                                        <button key={i} onClick={() => setOfferSlide(i)} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === offerSlide ? "bg-purple-500" : "bg-zinc-200"}`} />
+                                    ))}
+                                </div>
+                                <button onClick={() => setOfferSlide(prev => (prev + 1) % pilotChats.length)} className="p-1.5 rounded-full border border-[#edf9f8] text-zinc-400 hover:text-zinc-600 transition-colors">
+                                    <ChevronRightIcon size={16} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Right — offer content */}
+                        <div className="p-8 md:p-16">
+                            <AnimatedContent>
+                                <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Free Pilot</p>
+                                <h2 className="font-urbanist font-semibold text-2xl md:text-3xl text-gray-800">
+                                    We&apos;ll set up a dedicated AI assistant for your restaurant for free.
+                                </h2>
+                                <p className="text-zinc-500 text-base/7 mt-4">In exchange, we ask for:</p>
+                                <ul className="mt-3 space-y-2">
+                                    {[
+                                        "Feedback as we tune it",
+                                        "Time to understand your workflow",
+                                        "Permission to use results in future pitches (we can anonymize)",
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex gap-3 text-sm text-zinc-600">
+                                            <CheckIcon className="h-4 w-4 shrink-0 text-purple-500 mt-0.5" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <p className="text-zinc-400 text-sm mt-5">Keep it low pressure. We&apos;re learning as much as you are.</p>
+                            </AnimatedContent>
+                            <AnimatedContent delay={0.1} className="mt-6">
+                                <button
+                                    onClick={() => openAiModal("Restaurant — Offer")}
+                                    className="flex items-center gap-1.5 py-2.5 px-7 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm font-medium"
+                                >
+                                    Apply for the free pilot
+                                    <ArrowUpRightIcon size={15} />
+                                </button>
+                            </AnimatedContent>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -408,7 +617,7 @@ export default function Restaurant() {
                                         </div>
 
                                         {/* Chat area */}
-                                        <div className="px-4 py-4 space-y-2.5 flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white [&::-webkit-scrollbar-thumb]:rounded-full" style={{ scrollbarWidth: "thin", scrollbarColor: "#ffffff transparent" }}>
+                                        <div ref={(el) => { mainScrollRefs.current[idx] = el; }} className="px-4 py-4 space-y-2.5 flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white [&::-webkit-scrollbar-thumb]:rounded-full" style={{ scrollbarWidth: "thin", scrollbarColor: "#ffffff transparent" }}>
                                             {/* Date pill */}
                                             <div className="flex justify-center mb-3">
                                                 <span className="text-zinc-400 text-[10px] bg-zinc-200/70 px-3 py-1 rounded-full">
@@ -421,12 +630,13 @@ export default function Restaurant() {
                                                 <div key={i} className="flex items-end gap-2 max-w-[88%]">
                                                     <div className="bg-white shadow-sm rounded-2xl rounded-tl-sm px-3.5 py-2.5 w-full">
                                                         <p className="text-zinc-400 text-[10px] font-mono mb-1">
-                                                            {entry.time} · {entry.handle.startsWith("@")
+                                                            {entry.handle.startsWith("@")
                                                                 ? <span className="blur-[3px] select-none">{entry.handle}</span>
                                                                 : <span>{entry.handle}</span>
                                                             } · {entry.type}
                                                         </p>
                                                         <p className="text-zinc-700 text-xs leading-relaxed">{entry.text}</p>
+                                                        <p className="text-zinc-400 text-[10px] text-right mt-0.5">{entry.time}</p>
                                                     </div>
                                                 </div>
                                             ))}
