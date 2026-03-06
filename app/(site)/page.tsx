@@ -334,7 +334,7 @@ export default function Restaurant() {
                     <AnimatedContent className="flex flex-col md:flex-row items-center gap-4 mt-8 w-full md:w-auto" delay={0.3}>
                         <button
                             onClick={() => openAiModal("Restaurant — Hero")}
-                            className="flex items-center justify-center gap-1.5 py-3 md:py-2.5 w-full md:w-auto px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
+                            className="flex items-center justify-center gap-1.5 py-3 md:py-2.5 w-full md:w-auto px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full hover:opacity-90 transition-opacity"
                         >
                             Apply for the free pilot
                             <ArrowUpRightIcon size={16} />
@@ -1059,7 +1059,7 @@ export default function Restaurant() {
                             <div className="flex flex-col items-center gap-3 mt-10">
                                 <button
                                     onClick={() => openAiModal("Restaurant — Final CTA")}
-                                    className="flex items-center justify-center gap-1.5 py-3 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
+                                    className="flex items-center justify-center gap-1.5 py-3 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full hover:opacity-90 transition-opacity"
                                 >
                                     Apply for the free pilot
                                     <ArrowUpRightIcon size={16} />
