@@ -747,7 +747,7 @@ export default function Restaurant() {
                                     onClick={() => openAiModal("Restaurant — What AI Handles CTA")}
                                     className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full text-sm font-medium w-max shrink-0"
                                 >
-                                    See what it would handle for you
+                                    Get started
                                 </button>
                             </AnimatedContent>
                         </div>
