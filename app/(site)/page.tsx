@@ -355,7 +355,7 @@ export default function Restaurant() {
                             onClick={() => openAiModal("Restaurant — Hero")}
                             className="flex items-center justify-center gap-1.5 py-3 md:py-2.5 w-full md:w-auto px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full hover:opacity-90 transition-opacity"
                         >
-                            Apply for the free pilot
+                            Get in touch
                             <ArrowUpRightIcon size={16} />
                         </button>
                         <a
@@ -521,15 +521,6 @@ export default function Restaurant() {
                                     We&apos;re running a free pilot with a small number of SF restaurants we actually care about. Setup is free, and we handle everything on the technical side. All we ask for is honest feedback as we go.
                                 </p>
                             </blockquote>
-                            <AnimatedContent delay={0.1} className="mt-6">
-                                <button
-                                    onClick={() => openAiModal("Restaurant — Offer")}
-                                    className="flex items-center gap-1.5 py-2.5 px-7 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm font-medium"
-                                >
-                                    Apply for the free pilot
-                                    <ArrowUpRightIcon size={15} />
-                                </button>
-                            </AnimatedContent>
                         </div>
 
                     </div>
@@ -572,13 +563,6 @@ export default function Restaurant() {
                                 <p className="text-base text-white">
                                     We handle the buildout. You don&apos;t change how you work.
                                 </p>
-                                <button
-                                    onClick={() => openAiModal("Restaurant — Problem CTA")}
-                                    className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full mt-6 flex items-center gap-1 text-sm font-medium w-max"
-                                >
-                                    See what it would handle first
-                                    <ArrowUpRightIcon size={16} />
-                                </button>
                             </AnimatedContent>
                         </div>
 
@@ -756,16 +740,10 @@ export default function Restaurant() {
                                     ))}
                                 </ul>
                             </AnimatedContent>
-                            <AnimatedContent delay={0.1} className="mt-8 flex items-center justify-between gap-5 p-6 bg-[#5bbfba] w-full rounded-xl">
+                            <AnimatedContent delay={0.1} className="mt-8 flex items-center p-6 bg-[#5bbfba] w-full rounded-xl">
                                 <h3 className="text-base text-white text-balance">
                                     What your team gets — confirmed bookings, captured leads, and only the messages that need a human.
                                 </h3>
-                                <button
-                                    onClick={() => openAiModal("Restaurant — What AI Handles CTA")}
-                                    className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full text-sm font-medium w-max shrink-0"
-                                >
-                                    Get started
-                                </button>
                             </AnimatedContent>
                         </div>
                     </div>
@@ -810,7 +788,7 @@ export default function Restaurant() {
                                     onClick={() => openAiModal("Restaurant — Before & After CTA")}
                                     className="mt-10 w-full rounded-full bg-purple-500 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-purple-400 transition-colors"
                                 >
-                                    Apply for the free pilot
+                                    See if it&apos;s a fit
                                 </button>
                             </AnimatedContent>
                         </div>
@@ -856,18 +834,6 @@ export default function Restaurant() {
                                 <p className="text-zinc-500 text-base/7 mt-4 max-w-sm">
                                     We handle the buildout. Your team doesn&apos;t need to learn new software or change how they work.
                                 </p>
-                            </AnimatedContent>
-                            <AnimatedContent delay={0.1} className="p-4 md:p-6 bg-purple-500 w-full rounded-xl mt-8">
-                                <p className="text-base text-white">
-                                    We handle the buildout. You don&apos;t change how you work.
-                                </p>
-                                <button
-                                    onClick={() => openAiModal("Restaurant — How It Works CTA")}
-                                    className="bg-white hover:bg-gray-100 transition-colors px-5 py-2 rounded-full mt-6 flex items-center gap-1 text-sm font-medium w-max"
-                                >
-                                    Apply for the free pilot
-                                    <ArrowUpRightIcon size={16} />
-                                </button>
                             </AnimatedContent>
                         </div>
                     </div>
@@ -997,7 +963,7 @@ export default function Restaurant() {
                                 onClick={() => openAiModal("Restaurant — Scoping Call")}
                                 className="flex items-center gap-1.5 py-2.5 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm font-medium"
                             >
-                                See if your restaurant is a fit
+                                See if it&apos;s a fit
                                 <ArrowUpRightIcon size={14} />
                             </button>
                         </AnimatedContent>
@@ -1078,7 +1044,7 @@ export default function Restaurant() {
                                     onClick={() => openAiModal("Restaurant — Final CTA")}
                                     className="flex items-center justify-center gap-1.5 py-3 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full hover:opacity-90 transition-opacity"
                                 >
-                                    Apply for the free pilot
+                                    Get in touch
                                     <ArrowUpRightIcon size={16} />
                                 </button>
                                 <p className="text-xs text-zinc-400">No pressure. If it&apos;s not useful, you can stop anytime.</p>
