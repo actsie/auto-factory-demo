@@ -271,6 +271,25 @@ export default function Restaurant() {
         }, 3000);
         return () => clearTimeout(timer);
     }, [offerSlide]);
+    const quoteRef = useRef<HTMLQuoteElement>(null);
+    const [quoteAnimated, setQuoteAnimated] = useState(false);
+
+    useEffect(() => {
+        const el = quoteRef.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setQuoteAnimated(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0, rootMargin: "0px 0px -50px 0px" }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     const [faqForm, setFaqForm] = useState({ name: "", email: "", business: "", website: "", gap: "", notes: "" });
     const [faqErrors, setFaqErrors] = useState<Record<string, string>>({});
     const [faqLoading, setFaqLoading] = useState(false);
@@ -489,21 +508,19 @@ export default function Restaurant() {
                                 <h2 className="font-urbanist font-semibold text-2xl md:text-3xl text-gray-800">
                                     We&apos;ll set up a dedicated AI assistant for your restaurant for free.
                                 </h2>
-                                <p className="text-zinc-500 text-base/7 mt-4">In exchange, we ask for:</p>
-                                <ul className="mt-3 space-y-2">
-                                    {[
-                                        "Feedback as we tune it",
-                                        "Time to understand your workflow",
-                                        "Permission to use results in future pitches (we can anonymize)",
-                                    ].map((item, i) => (
-                                        <li key={i} className="flex gap-3 text-sm text-zinc-600">
-                                            <CheckIcon className="h-4 w-4 shrink-0 text-purple-500 mt-0.5" />
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <p className="text-zinc-400 text-sm mt-5">Keep it low pressure. We&apos;re learning as much as you are.</p>
                             </AnimatedContent>
+                            <blockquote
+                                ref={quoteRef}
+                                className="mt-5 border-l-2 border-purple-200 bg-[#f7fcfb] rounded-r-xl px-5 py-4"
+                                style={{
+                                    clipPath: quoteAnimated ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
+                                    transition: "clip-path 1s cubic-bezier(0.4, 0, 0.2, 1)",
+                                }}
+                            >
+                                <p className="text-zinc-600 text-sm/7">
+                                    We&apos;re running a free pilot with a small number of SF restaurants we actually care about. Setup is free, and we handle everything on the technical side. All we ask for is honest feedback as we go.
+                                </p>
+                            </blockquote>
                             <AnimatedContent delay={0.1} className="mt-6">
                                 <button
                                     onClick={() => openAiModal("Restaurant — Offer")}
