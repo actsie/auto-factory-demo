@@ -318,11 +318,11 @@ export default function IndieHackers() {
                                             { time: "9:00 AM",  title: "Deep work",           detail: "Auth system refactor",                     type: "dev" },
                                             { time: "10:30 AM", title: "Cold email outreach",  detail: "Pushed to later",                          type: "skipped" },
                                             { time: "11:00 AM", title: "X engagement",         detail: "Pushed to later",                          type: "skipped", icon: "x" },
-                                            { time: "12:00 PM", title: "Feature build",        detail: "Pricing page + checkout. Went 3 hrs over.", type: "dev-tall" },
-                                            { time: "3:30 PM",  title: "LinkedIn post",        detail: "Still a draft",                            type: "skipped", icon: "li" },
-                                            { time: "4:00 PM",  title: "LinkedIn outreach",    detail: "Didn't get to it",                         type: "skipped", icon: "li" },
-                                            { time: "5:00 PM",  title: "Reddit engagement",    detail: "Too tired. Tomorrow.",                     type: "skipped", icon: "reddit" },
-                                            { time: "6:00 PM",  title: "Deploy",               detail: "Finally shipped",                          type: "dev" },
+                                            { time: "12:00 PM", title: "Feature build",        detail: "Pricing page + checkout. Scheduled until 3. Ran until 6.", type: "dev-tall" },
+                                            { time: "3:30 PM",  title: "LinkedIn post",        detail: "Skipped — still deep in the build",        type: "skipped", icon: "li" },
+                                            { time: "4:00 PM",  title: "LinkedIn outreach",    detail: "Skipped — still building",                 type: "skipped", icon: "li" },
+                                            { time: "5:00 PM",  title: "Reddit engagement",    detail: "Skipped — almost done",                    type: "skipped", icon: "reddit" },
+                                            { time: "6:30 PM",  title: "Deploy",               detail: "Finally shipped",                          type: "dev" },
                                         ].map((item, i) => (
                                             <div key={i} className={`grid grid-cols-[72px_1fr] border-b border-[#edf9f8] last:border-0 ${item.type === "dev-tall" ? "bg-purple-50/30" : ""}`}>
                                                 <div className="py-2.5 px-3 border-r border-[#edf9f8]">
