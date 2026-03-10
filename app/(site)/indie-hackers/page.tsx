@@ -774,7 +774,7 @@ export default function IndieHackers() {
                     <div className="p-8 md:p-16 pb-24 md:pb-32 flex flex-col items-center text-center">
                         <AnimatedContent>
                             <h2 className="font-urbanist font-bold text-4xl md:text-5xl text-gray-800 max-w-xl">
-                                Your account is quiet right now. It doesn&apos;t have to be.
+                                What you&apos;re building deserves a stronger presence.
                             </h2>
                             <p className="text-zinc-500 text-base/7 mt-4 max-w-md mx-auto">
                                 Free setup for a small number of indie hackers. You get a fully managed presence. We get feedback and a case study if it works.
