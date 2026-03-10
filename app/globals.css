@@ -116,6 +116,14 @@ html {
     animation: marquee-loop 18s linear infinite;
 }
 
+@keyframes unfurl-right {
+    0% { clip-path: inset(0 100% 0 0); }
+    100% { clip-path: inset(0 0% 0 0); }
+}
+.animate-unfurl {
+    animation: unfurl-right 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
 .marquee-fade {
     -webkit-mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
     mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
