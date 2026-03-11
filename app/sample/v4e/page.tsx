@@ -169,6 +169,8 @@ export default function V4ESample() {
                 @keyframes typingBounce { 0%, 80%, 100% { transform: translateY(0); opacity: 0.4; } 40% { transform: translateY(-4px); opacity: 1; } }
                 .service-card:hover .service-overlay { opacity: 1; }
                 .service-overlay { transition: opacity 0.4s ease; }
+                .team-card-wave { opacity: 0; transition: opacity 0.4s ease; }
+                .team-card:hover .team-card-wave { opacity: 1; }
 
                 /* Horizontal soundwave animation */
                 .v4e-soundwave {
@@ -628,14 +630,14 @@ export default function V4ESample() {
                             { name: "Mai", role: "Co-founder", image: "/assets/mai.jpeg", linkedin: "https://www.linkedin.com/in/mai-akiyoshi/", x: "https://x.com/mai_on_chain", bio: "Former software engineer turned founder. Built HeyMint from zero to acquisition by Alchemy — 1M+ users, $3.4M raised, Stanford StartX. At Gusto, she built a no-code tool that compressed landing page delivery from a month to a few days. Same pattern, applied now to entire roles: find what repeats, build the system, free up the humans for work that actually needs them." },
                             { name: "Ben", role: "Co-founder", image: "/assets/ben.jpeg", linkedin: "https://www.linkedin.com/in/intenex/", x: "https://x.com/intenex", bio: "Thiel Fellow. Harvard dropout. Co-founded Stream, raising $20M from Pantera Capital. Then worked as a backend and full-stack engineer before becoming COO — which means he's seen the same problem from both sides: operators buried in repeatable work that should have been automated months ago." },
                         ].map((member, i) => (
-                            <div key={member.name} data-animate data-delay={i * 150} style={{ backgroundColor: "#000", padding: "10px", borderRadius: "20px" }}>
+                            <div key={member.name} data-animate data-delay={i * 150} className="team-card" style={{ backgroundColor: "#000", padding: "10px", borderRadius: "20px", position: "relative", overflow: "hidden" }}>
                                 <img src={member.image} alt={member.name}
                                     className="w-full h-72 object-cover object-top"
                                     style={{ borderRadius: "12px" }} />
-                                <div className="p-4 pt-3">
+                                <div className="p-4 pt-3" style={{ paddingBottom: "56px" }}>
                                     <div className="flex items-start justify-between mb-3">
                                         <div>
-                                            <p className="text-white font-semibold text-xl">{member.name}</p>
+                                            <p className="text-white font-bold text-2xl" style={{ fontFamily: "'Unna', serif" }}>{member.name}</p>
                                             <p className="text-white/50 text-sm mt-0.5">{member.role}</p>
                                         </div>
                                         <div className="flex gap-3 items-center">
@@ -648,6 +650,11 @@ export default function V4ESample() {
                                         </div>
                                     </div>
                                     <p className="text-white/50 text-sm leading-relaxed">{member.bio}</p>
+                                </div>
+                                {/* Soundwave strip — pinned to bottom of card */}
+                                <div className="team-card-wave" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "48px", overflow: "hidden", borderRadius: "0 0 12px 12px" }}>
+                                    <div className="v4e-soundwave absolute inset-0" style={{ opacity: 0.6 }} />
+                                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, #000 0%, transparent 60%)" }} />
                                 </div>
                             </div>
                         ))}
@@ -756,11 +763,11 @@ export default function V4ESample() {
             </section>
 
             {/* Footer */}
-            <footer style={{ backgroundColor: "#252525", borderRadius: "2rem", margin: "0 8px 8px 8px", overflow: "hidden" }} className="pb-14 px-6">
+            <footer style={{ backgroundColor: "#000", borderRadius: "2rem", margin: "0 8px 8px 8px", overflow: "hidden" }} className="pb-14 px-6">
                 {/* Soundwave strip */}
-                <div style={{ height: "72px", position: "relative", marginLeft: "-24px", marginRight: "-24px", marginBottom: "40px" }}>
+                <div style={{ height: "72px", position: "relative", marginLeft: "-32px", marginRight: "-32px", marginBottom: "40px" }}>
                     <div className="v4e-soundwave absolute inset-0" style={{ opacity: 0.55 }} />
-                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 0%, #252525 100%)" }} />
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 0%, #000 100%)" }} />
                 </div>
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div>
@@ -790,7 +797,7 @@ export default function V4ESample() {
                     </div>
                 </div>
                 <div className="max-w-7xl mx-auto border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-white/30 text-xs">© 2025 V4E · Voice for Everything. All rights reserved.</p>
+                    <p className="text-white/30 text-xs">© 2026 Voice for Everything. All rights reserved.</p>
                 </div>
             </footer>
         </div>
