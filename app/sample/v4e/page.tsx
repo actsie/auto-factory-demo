@@ -755,7 +755,12 @@ export default function V4ESample() {
             </section>
 
             {/* Footer */}
-            <footer style={{ backgroundColor: "#252525", borderRadius: "2rem", margin: "0 8px 8px 8px" }} className="py-14 px-6">
+            <footer style={{ backgroundColor: "#252525", borderRadius: "2rem", margin: "0 8px 8px 8px", overflow: "hidden" }} className="pb-14 px-6">
+                {/* Soundwave strip */}
+                <div style={{ height: "72px", position: "relative", marginLeft: "-24px", marginRight: "-24px", marginBottom: "40px" }}>
+                    <div className="v4e-soundwave absolute inset-0" style={{ opacity: 0.55 }} />
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 0%, #252525 100%)" }} />
+                </div>
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div>
                         <p className="text-white font-bold text-2xl mb-4">V4E</p>
