@@ -34,7 +34,7 @@ export default function Navbar() {
                         </Link>
 
                         <div className="hidden md:flex gap-1 bg-white/50 backdrop-blur border border-[#edf9f8] rounded-full px-2 py-1.5">
-                            {links.map((link: ILink) => (
+                            {links.filter(l => !(isIndiePage && l.name === "Pricing")).map((link: ILink) => (
                                 <Link key={link.name} href={link.href} className="py-1 px-4 rounded-full hover:bg-white/70 transition-colors text-gray-700 text-sm">
                                     {link.name}
                                 </Link>
@@ -60,7 +60,7 @@ export default function Navbar() {
                     <XIcon className="size-6.5" onClick={() => setIsMenuOpen(false)} />
                 </div>
                 <div className="flex flex-col gap-4 p-4 text-base">
-                    {links.map((link: ILink) => (
+                    {links.filter(l => !(isIndiePage && l.name === "Pricing")).map((link: ILink) => (
                         <Link key={link.name} href={link.href} className="py-1 px-3" onClick={() => setIsMenuOpen(false)}>
                             {link.name}
                         </Link>
