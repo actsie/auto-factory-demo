@@ -89,6 +89,7 @@ export default function V4ESample() {
     ];
     const [liveIdx, setLiveIdx] = useState(0);
     const [livePhase, setLivePhase] = useState<"question" | "typing" | "response">("question");
+    const orbActive = (idx: number, phase: string) => liveScenarios[idx].outbound ? phase !== "response" : phase === "response";
 
     useEffect(() => {
         intervalRef.current = setInterval(() => {
@@ -301,7 +302,7 @@ export default function V4ESample() {
 
                         <a href="#contact"
                             className="hidden md:inline-block bg-white text-black font-semibold text-sm px-5 py-2 rounded-full hover:bg-gray-100 transition-colors">
-                            Get Started
+                            Start Free Trial
                         </a>
 
                         <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
@@ -320,7 +321,7 @@ export default function V4ESample() {
                             ))}
                             <a href="#contact"
                                 className="w-max bg-black text-white font-semibold text-sm px-5 py-2 rounded-full">
-                                Get Started
+                                Start Free Trial
                             </a>
                         </div>
                     )}
@@ -332,7 +333,7 @@ export default function V4ESample() {
                 <div className="v4e-soundwave absolute inset-0" style={{ opacity: 0.5 }} />
                 <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex flex-col items-start justify-center min-h-[90vh]">
                     <span data-animate data-delay="0" className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">
-                        AI Voice Agent Platform
+                        Voice for Everything
                     </span>
                     <h1 data-animate data-delay="100" className="text-white font-extrabold text-6xl md:text-8xl leading-tight max-w-3xl">
                         Answers every call.<br />Misses none.
@@ -453,14 +454,14 @@ export default function V4ESample() {
                                 {/* Footer */}
                                 <div className="relative px-5 pt-8 pb-5 border-t border-gray-100">
                                     {/* Hovering orb */}
-                                    <div className={(liveScenarios[liveIdx].outbound ? livePhase === "question" : livePhase === "response") ? "orb-talking" : ""} style={{
+                                    <div className={orbActive(liveIdx, livePhase) ? "orb-talking" : ""} style={{
                                         position: "absolute",
                                         top: "-8px",
                                         left: "50%",
-                                        transform: (liveScenarios[liveIdx].outbound ? livePhase === "question" : livePhase === "response") ? undefined : `translateX(-50%) scale(${livePhase === "typing" ? 1.1 : 1})`,
+                                        transform: orbActive(liveIdx, livePhase) ? undefined : "translateX(-50%) scale(1)",
                                         width: "64px", height: "64px", borderRadius: "50%",
                                         overflow: "hidden",
-                                        boxShadow: (liveScenarios[liveIdx].outbound ? livePhase === "question" : livePhase === "response")
+                                        boxShadow: orbActive(liveIdx, livePhase)
                                             ? "0 8px 32px rgba(0,0,0,0.25), 0 0 48px rgba(180,120,210,0.3)"
                                             : "0 4px 16px rgba(0,0,0,0.15)",
                                         transitionProperty: "box-shadow",
@@ -468,7 +469,7 @@ export default function V4ESample() {
                                         transitionTimingFunction: "ease",
                                         border: "2px solid rgba(255,255,255,0.8)",
                                     }}>
-                                        <div className="v4e-soundwave absolute inset-0" style={{ opacity: (liveScenarios[liveIdx].outbound ? livePhase === "question" : livePhase === "response") ? 0.9 : 0.45, transition: "opacity 0.5s ease" }} />
+                                        <div className="v4e-soundwave absolute inset-0" style={{ opacity: orbActive(liveIdx, livePhase) ? 0.9 : 0.45, transition: "opacity 0.5s ease" }} />
                                     </div>
                                     <div className="flex items-center justify-between">
                                         <span className="text-xs text-gray-400">Powered by V4E</span>
@@ -600,7 +601,7 @@ export default function V4ESample() {
                                     {i === 2 && (
                                         <a href="#contact"
                                             className="inline-block mt-6 bg-black text-white font-semibold text-sm px-7 py-3 rounded-full hover:bg-gray-1000 transition-colors">
-                                            Get Started
+                                            Start Free Trial
                                         </a>
                                     )}
                                 </div>
@@ -696,7 +697,7 @@ export default function V4ESample() {
             <section id="contact" className="py-24 px-6 bg-white">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
                     <div>
-                        <span data-animate className="text-gray-400 text-xs font-semibold uppercase tracking-widest">Get Started</span>
+                        <span data-animate className="text-gray-400 text-xs font-semibold uppercase tracking-widest">Start Free Trial</span>
                         <h2 data-animate data-delay="100" className="text-gray-900 font-bold text-4xl mt-3 mb-6">Hear it live.<br />Then decide.</h2>
                         <p data-animate data-delay="200" className="text-gray-500 text-base leading-relaxed mb-10">
                             Tell us about your business. We'll show you exactly what a voice agent built for you sounds like — before you commit to anything.
