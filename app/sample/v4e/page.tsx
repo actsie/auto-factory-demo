@@ -5,10 +5,10 @@ import { MenuIcon, XIcon, PhoneIcon, PhoneCallIcon, MailIcon, MapPinIcon, Chevro
 const navLinks = ["Home", "About", "Services", "How It Works", "Contact"];
 
 const stats = [
-    { value: "2M+", label: "Calls Handled" },
-    { value: "< 800ms", label: "Avg. Response Time" },
-    { value: "99.9%", label: "Uptime SLA" },
-    { value: "0", label: "Missed Calls" },
+    { countTo: 2000000, format: (n: number) => `${(n / 1000000).toFixed(n >= 2000000 ? 0 : 1)}M+`, label: "Calls Handled" },
+    { countTo: null, display: "< 800ms", label: "Avg. Response Time" },
+    { countTo: 99.9, format: (n: number) => `${n.toFixed(1)}%`, label: "Uptime SLA" },
+    { countTo: 0, format: () => "0", label: "Missed Calls" },
 ];
 
 const services = [
@@ -73,6 +73,10 @@ const testimonials = [
 
 export default function V4ESample() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [statValues, setStatValues] = useState([0, null, 0, 0]);
+    const statsRef = useRef<HTMLElement>(null);
+    const statsAnimated = useRef(false);
     const [testimonialIdx, setTestimonialIdx] = useState(0);
     const [stackExpanded, setStackExpanded] = useState(false);
     const stackRef = useRef<HTMLDivElement>(null);
@@ -131,6 +135,84 @@ export default function V4ESample() {
         );
         observer.observe(el);
         return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    useEffect(() => {
+        const el = statsRef.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting && !statsAnimated.current) {
+                statsAnimated.current = true;
+                const duration = 1800;
+                const fps = 60;
+                const steps = Math.round(duration / (1000 / fps));
+                let step = 0;
+                const timer = setInterval(() => {
+                    step++;
+                    const p = step / steps;
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    setStatValues([
+                        Math.round(ease * 2000000),
+                        null,
+                        parseFloat((ease * 99.9).toFixed(1)),
+                        0,
+                    ]);
+                    if (step >= steps) clearInterval(timer);
+                }, 1000 / fps);
+            }
+        }, { threshold: 0.3 });
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        const container = document.getElementById("v4e-stacking-cards");
+        if (!container) return;
+        const cards = Array.from(container.querySelectorAll<HTMLElement>(".v4e-stack-card"));
+        if (cards.length === 0) return;
+
+        const marginY = 12;
+        let scrolling = false;
+        let scrollListener: (() => void) | null = null;
+
+        function animate() {
+            const top = container!.getBoundingClientRect().top;
+            cards.forEach((card, i) => {
+                const cardHeight = card.offsetHeight;
+                const offset = 80 - top - i * (cardHeight + marginY);
+                if (offset > 0) {
+                    const scale = (cardHeight - offset * 0.05) / cardHeight;
+                    card.style.transform = `translateY(${marginY * i}px) scale(${Math.max(scale, 0.85)})`;
+                } else {
+                    card.style.transform = `translateY(${marginY * i}px)`;
+                }
+            });
+            scrolling = false;
+        }
+
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                if (scrollListener) return;
+                scrollListener = () => { if (!scrolling) { scrolling = true; requestAnimationFrame(animate); } };
+                window.addEventListener("scroll", scrollListener, { passive: true });
+            } else {
+                if (!scrollListener) return;
+                window.removeEventListener("scroll", scrollListener);
+                scrollListener = null;
+            }
+        });
+        observer.observe(container);
+
+        return () => {
+            observer.disconnect();
+            if (scrollListener) window.removeEventListener("scroll", scrollListener);
+        };
     }, []);
 
     useEffect(() => {
@@ -277,52 +359,56 @@ export default function V4ESample() {
                       6375px 275px, 6375px 278px, 6480px 426.5px;
                   }
                 }
+                .v4e-stack-card {
+                    position: sticky;
+                    top: 80px;
+                    transform-origin: center top;
+                }
             `}</style>
 
             {/* Navbar */}
-            <div className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 pb-1 flex justify-center">
+            <div className={`fixed left-0 right-0 z-50 flex justify-center transition-all duration-300 ease-in-out ${scrolled ? "top-0 px-0 pt-0 pb-0" : "top-0 px-4 pt-3 pb-1"}`}>
                 <header style={{
-                    width: "100%", maxWidth: "900px",
-                    background: "rgba(10,10,10,0.55)",
-                    backdropFilter: "blur(24px) saturate(180%)",
-                    WebkitBackdropFilter: "blur(24px) saturate(180%)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    borderRadius: "1.5rem",
-                    boxShadow: "0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15)",
+                    width: "100%", maxWidth: scrolled ? "100%" : "900px",
+                    background: scrolled ? "#fff" : "rgba(10,10,10,0.55)",
+                    border: scrolled ? "none" : "1px solid rgba(255,255,255,0.12)",
+                    borderRadius: scrolled ? "0" : "1.5rem",
+                    boxShadow: scrolled ? "none" : "0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15)",
+                    transition: "all 0.3s ease",
                 }}>
-                    <div className="px-6 py-3.5 flex items-center justify-between">
-                        <div className="text-white font-bold text-2xl tracking-tight">V4E</div>
+                    <div className={`px-6 flex items-center justify-between transition-all duration-300 ${scrolled ? "py-2" : "py-3.5"}`}>
+                        <div className={`font-bold tracking-tight transition-all duration-300 ${scrolled ? "text-xl text-black" : "text-2xl text-white"}`}>V4E</div>
 
                         <nav className="hidden md:flex items-center gap-8">
                             {navLinks.map(link => (
                                 <a key={link} href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                                    className="text-white/80 hover:text-white text-sm font-medium transition-colors">
+                                    className={`text-sm font-medium transition-colors ${scrolled ? "text-black/70 hover:text-black" : "text-white/80 hover:text-white"}`}>
                                     {link}
                                 </a>
                             ))}
                         </nav>
 
                         <a href="#contact"
-                            className="hidden md:inline-block bg-white text-black font-semibold text-sm px-5 py-2 rounded-full hover:bg-gray-100 transition-colors">
+                            className={`hidden md:inline-block font-semibold text-sm px-5 py-2 rounded-full transition-colors ${scrolled ? "bg-black text-white hover:bg-gray-800" : "bg-white text-black hover:bg-gray-100"}`}>
                             Start Free Trial
                         </a>
 
-                        <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <button className={`md:hidden transition-colors ${scrolled ? "text-black" : "text-white"}`} onClick={() => setMenuOpen(!menuOpen)}>
                             {menuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
                         </button>
                     </div>
 
                     {menuOpen && (
-                        <div className="md:hidden border-t border-white/20 px-6 py-4 flex flex-col gap-4">
+                        <div className={`md:hidden border-t px-6 py-4 flex flex-col gap-4 ${scrolled ? "border-black/10" : "border-white/20"}`}>
                             {navLinks.map(link => (
                                 <a key={link} href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                                    className="text-white/80 text-sm font-medium"
+                                    className={`text-sm font-medium ${scrolled ? "text-black/70" : "text-white/80"}`}
                                     onClick={() => setMenuOpen(false)}>
                                     {link}
                                 </a>
                             ))}
                             <a href="#contact"
-                                className="w-max bg-black text-white font-semibold text-sm px-5 py-2 rounded-full">
+                                className={`w-max font-semibold text-sm px-5 py-2 rounded-full ${scrolled ? "bg-black text-white" : "bg-white text-black"}`}>
                                 Start Free Trial
                             </a>
                         </div>
@@ -357,11 +443,15 @@ export default function V4ESample() {
             </section>
 
             {/* Stats strip */}
-            <section style={{ backgroundColor: "#000", borderRadius: "2rem", margin: "0 8px 8px 8px" }}>
+            <section ref={statsRef} style={{ backgroundColor: "#000", borderRadius: "2rem", margin: "0 8px 8px 8px" }}>
                 <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
                     {stats.map((s, i) => (
                         <div key={i} data-animate data-delay={i * 100} className="text-center">
-                            <p className="text-white font-bold text-4xl md:text-5xl">{s.value}</p>
+                            <p className="text-white font-bold text-4xl md:text-5xl tabular-nums">
+                                {s.countTo === null
+                                    ? s.display
+                                    : s.format(statValues[i] as number)}
+                            </p>
                             <p className="text-white/80 text-base mt-1">{s.label}</p>
                         </div>
                     ))}
@@ -559,62 +649,61 @@ export default function V4ESample() {
             </section>
 
             {/* Services */}
-            <section id="services" className="py-24 px-6 bg-white">
-                <div className="max-w-7xl mx-auto">
+            <section id="services" className="py-24 bg-white overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6">
                     <div data-animate className="text-center mb-14">
                         <span className="text-gray-400 text-xs font-semibold uppercase tracking-widest">What We Handle</span>
                         <h2 className="text-gray-900 font-bold text-4xl md:text-5xl mt-3">Built for every conversation.</h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {services.map((s, i) => (
-                            <div key={i} data-animate data-delay={i * 120} className="service-card cursor-pointer group" style={{ backgroundColor: "#000", padding: "10px", borderRadius: "20px" }}>
-                                <div className="relative overflow-hidden" style={{ borderRadius: "12px" }}>
-                                <img src={s.image} alt={s.title} className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
-                                <div className="service-overlay absolute inset-0 opacity-0 flex flex-col items-center justify-center p-6 text-center"
-                                    style={{ backgroundColor: "rgba(0,0,0,0.85)" }}>
-                                    <h3 className="text-white font-bold text-lg mb-3">{s.title}</h3>
-                                    <p className="text-white/90 text-sm leading-relaxed">{s.description}</p>
-                                </div>
-                                </div>
-                                <div className="p-4 pt-3">
-                                    <h3 className="text-white font-semibold text-xl">{s.title}</h3>
-                                    <p className="text-white/50 text-sm mt-1 line-clamp-2">{s.description}</p>
-                                </div>
+                </div>
+                <div className="flex gap-4 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide" style={{ scrollbarWidth: "none" }}>
+                    {services.map((s, i) => (
+                        <div key={i} data-animate data-delay={i * 120}
+                            className="snap-start shrink-0 relative group overflow-hidden cursor-pointer"
+                            style={{ width: "clamp(280px, 60vw, 700px)", borderRadius: "20px" }}>
+                            <img src={s.image} alt={s.title}
+                                className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                style={{ height: "420px" }} />
+                            <div className="absolute inset-0" style={{
+                                background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)"
+                            }} />
+                            <div className="absolute bottom-0 left-0 right-0 p-7">
+                                <h3 className="text-white font-bold text-2xl mb-2">{s.title}</h3>
+                                <p className="text-white/75 text-sm leading-relaxed">{s.description}</p>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
             </section>
 
             {/* How It Works */}
-            <section id="how-it-works" style={{ backgroundColor: "#fff" }} className="py-24 px-6">
+            <section id="how-it-works" className="py-24 px-6" style={{ backgroundColor: "#fff" }}>
                 <div className="max-w-7xl mx-auto">
                     <div data-animate className="text-center mb-16">
                         <span className="text-gray-400 text-xs font-semibold uppercase tracking-widest">The Process</span>
                         <h2 className="text-gray-900 font-bold text-4xl md:text-5xl mt-3">Live in days, not months.</h2>
                     </div>
-                    <div className="flex flex-col gap-24">
+                    <ul id="v4e-stacking-cards" className="flex flex-col gap-[20vh] max-w-4xl mx-auto" style={{ listStyle: "none", padding: 0, margin: "0 auto" }}>
                         {howItWorks.map((step, i) => (
-                            <div data-animate key={i} className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${step.reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
-                                <div>
-                                    <span className="text-white font-bold text-5xl">{step.n}</span>
-                                    <h3 className="text-gray-900 font-bold text-3xl mt-3 mb-4">{step.title}</h3>
-                                    <p className="text-gray-500 text-base leading-relaxed">{step.description}</p>
+                            <li key={i} className="v4e-stack-card" style={{ backgroundColor: "#000", borderRadius: "20px", overflow: "hidden" }}>
+                                <img src={step.image} alt={step.title}
+                                    className="w-full object-cover"
+                                    style={{ height: "360px" }} />
+                                <div className="p-6">
+                                    <h3 className="text-white font-bold text-2xl mb-2">{step.title}</h3>
+                                    <p className="text-white/50 text-sm leading-relaxed">{step.description}</p>
                                     {i === 2 && (
-                                        <a href="#contact"
-                                            className="inline-block mt-6 bg-black text-white font-semibold text-sm px-7 py-3 rounded-full hover:bg-gray-1000 transition-colors">
-                                            Start Free Trial
-                                        </a>
+                                        <div className="flex justify-end mt-5">
+                                            <a href="#contact"
+                                                className="inline-block bg-white text-black font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-gray-100 transition-colors">
+                                                Start Free Trial
+                                            </a>
+                                        </div>
                                     )}
                                 </div>
-                                <div style={{ backgroundColor: "#000", padding: "10px", borderRadius: "20px" }}>
-                                    <img src={step.image} alt={step.title}
-                                        className="w-full h-[480px] object-cover"
-                                        style={{ borderRadius: "12px" }} />
-                                </div>
-                            </div>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             </section>
 
