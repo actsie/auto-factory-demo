@@ -11,7 +11,7 @@ import { useModal } from "@/contexts/modal-context";
 import { useAiModal } from "@/contexts/ai-modal-context";
 import { useIndieModal } from "@/contexts/indie-modal-context";
 
-const AI_ROUTES = ["/", "/ai-automation", "/contractors"];
+const AI_ROUTES = ["/", "/ai-automation", "/contractors", "/restaurant"];
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
