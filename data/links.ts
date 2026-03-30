@@ -7,11 +7,7 @@ export const links: ILink[] = [
     },
     {
         name: "How It Works",
-        href: "#features",
-    },
-    {
-        name: "Pricing",
-        href: "#pricing",
+        href: "#how-it-works",
     },
     {
         name: "About",
