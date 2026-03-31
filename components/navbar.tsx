@@ -11,7 +11,7 @@ import { useModal } from "@/contexts/modal-context";
 import { useAiModal } from "@/contexts/ai-modal-context";
 import { useIndieModal } from "@/contexts/indie-modal-context";
 
-const AI_ROUTES = ["/", "/ai-automation", "/contractors", "/restaurant"];
+const AI_ROUTES = ["/", "/ai-automation", "/contractors", "/restaurant", "/beverage"];
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,9 +45,11 @@ export default function Navbar() {
                             <MenuIcon className="size-6.5" />
                         </button>
 
-                        <button onClick={handleBookCall} className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-purple-500 text-white rounded-full">
-                            {isIndiePage ? "Apply for free setup" : "Book a call"}
-                        </button>
+                        {!pathname.startsWith("/review-reply") && (
+                            <button onClick={handleBookCall} className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-purple-500 text-white rounded-full">
+                                {isIndiePage ? "Apply for free setup" : "Book a call"}
+                            </button>
+                        )}
                     </div>
                 </nav>
             </AnimatedContent>
@@ -65,9 +67,11 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
-                    <button onClick={() => { handleBookCall(); setIsMenuOpen(false); }} className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full">
-                        {isIndiePage ? "Apply for free setup" : "Book a call"}
-                    </button>
+                    {!pathname.startsWith("/review-reply") && (
+                        <button onClick={() => { handleBookCall(); setIsMenuOpen(false); }} className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full">
+                            {isIndiePage ? "Apply for free setup" : "Book a call"}
+                        </button>
+                    )}
                 </div>
             </div>
         </>
