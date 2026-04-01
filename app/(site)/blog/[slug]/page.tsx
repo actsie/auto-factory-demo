@@ -7,8 +7,12 @@ import ReactMarkdown from "react-markdown";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-    const posts = await getBlogPosts();
-    return posts.map(p => ({ slug: p.slug }));
+    try {
+        const posts = await getBlogPosts();
+        return posts.map(p => ({ slug: p.slug }));
+    } catch {
+        return [];
+    }
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {

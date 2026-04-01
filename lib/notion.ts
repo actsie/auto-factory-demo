@@ -16,8 +16,8 @@ export interface BlogPost {
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
     const db = process.env.NOTION_BLOG_DB!;
-    const response = await notion.databases.query({
-        database_id: db,
+    const response = await notion.dataSources.query({
+        data_source_id: db,
         filter: { property: "Status", select: { equals: "Published" } },
         sorts: [{ property: "Published", direction: "descending" }],
     });
@@ -38,8 +38,8 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 
 export async function getBlogPost(slug: string): Promise<{ post: BlogPost; markdown: string } | null> {
     const db = process.env.NOTION_BLOG_DB!;
-    const response = await notion.databases.query({
-        database_id: db,
+    const response = await notion.dataSources.query({
+        data_source_id: db,
         filter: { property: "Slug", rich_text: { equals: slug } },
     });
 

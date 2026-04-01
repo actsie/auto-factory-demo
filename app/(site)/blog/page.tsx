@@ -5,7 +5,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 export const revalidate = 3600; // re-fetch every hour
 
 export default async function BlogPage() {
-    const posts = await getBlogPosts();
+    const posts = await getBlogPosts().catch(() => []);
 
     return (
         <main>
