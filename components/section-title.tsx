@@ -6,7 +6,7 @@ export default function SectionTitle({ icon, title, subtitle, dir = 'center' }: 
     return (
         <div className={`flex flex-col gap-6 ${dir === 'center' ? 'items-center text-center' : 'md:items-start items-center'}`}>
             <AnimatedContent className="flex flex-col md:flex-row items-center gap-4">
-                <CustomIcon icon={icon} />
+                {icon && <CustomIcon icon={icon} />}
                 <h2 className="text-4xl font-semibold font-urbanist">{title}</h2>
             </AnimatedContent>
             <AnimatedContent>

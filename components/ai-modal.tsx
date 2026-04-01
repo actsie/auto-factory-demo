@@ -8,10 +8,11 @@ const inputNormal = `${inputBase} border-[#edf9f8] focus:border-purple-300`;
 const inputError = `${inputBase} border-red-300 focus:border-red-400`;
 
 const GAP_OPTIONS = [
-    "Voice / missed calls",
-    "Social media DMs",
-    "Customer service inquiries",
-    "All of the above",
+    "Follow-up / lead response",
+    "Review replies",
+    "Appointment reminders",
+    "Inventory tracking",
+    "Something else",
 ];
 
 export default function AiModal() {
@@ -72,7 +73,7 @@ export default function AiModal() {
             <div className="relative bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto z-10">
                 <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#edf9f8]">
                     <div>
-                        <h2 className="font-urbanist font-semibold text-lg text-gray-800">Let&apos;s talk</h2>
+                        <h2 className="font-urbanist font-semibold text-lg text-gray-800">Get started for free</h2>
                         <p className="text-zinc-500 text-sm mt-0.5">We&apos;ll review your setup and get back to you within 24 hours.</p>
                     </div>
                     <button onClick={handleClose} className="text-zinc-400 hover:text-zinc-600 transition-colors">
@@ -121,7 +122,7 @@ export default function AiModal() {
                         </div>
 
                         <div className="flex flex-col gap-1.5">
-                            <label className="text-sm font-medium text-gray-700">Biggest after-hours gap <span className="text-zinc-400 font-normal">(optional)</span></label>
+                            <label className="text-sm font-medium text-gray-700">What would you like automated? <span className="text-zinc-400 font-normal">(optional)</span></label>
                             <select name="gap" value={formData.gap} onChange={handleChange} className={`${inputNormal} appearance-none`}>
                                 <option value="">Select one...</option>
                                 {GAP_OPTIONS.map(opt => (
@@ -136,7 +137,7 @@ export default function AiModal() {
                         </div>
 
                         <button type="submit" disabled={loading} className="mt-2 w-full py-2.5 bg-purple-500 hover:bg-purple-600 disabled:opacity-60 text-white rounded-full text-sm font-medium transition-colors">
-                            {loading ? "Sending..." : "Let's talk"}
+                            {loading ? "Sending..." : "Get started for free"}
                         </button>
                     </form>
                 )}

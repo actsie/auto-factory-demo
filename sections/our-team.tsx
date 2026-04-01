@@ -1,7 +1,6 @@
 import AnimatedContent from "@/components/animated-content";
 import SectionTitle from "@/components/section-title";
 import { team } from "@/data/team";
-import { UsersIcon } from "lucide-react";
 
 export default function OurTeamSection() {
     const bios: Record<string, string> = {
@@ -14,7 +13,6 @@ export default function OurTeamSection() {
         <section id="team" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
             <div className="pt-20 pb-32 flex flex-col items-center max-w-7xl mx-auto justify-center border-x border-[#edf9f8]">
                 <SectionTitle
-                    icon={UsersIcon}
                     title="We've been on the inside"
                     subtitle="We learned the hard way what should be automated vs. staffed. Now we apply that playbook for other companies."
                 />
