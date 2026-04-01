@@ -2,6 +2,8 @@
 import AnimatedContent from "@/components/animated-content";
 import { ArrowUpRightIcon, HomeIcon, ThermometerIcon, HammerIcon, UtensilsIcon, Building2Icon, CupSodaIcon, TrendingUpIcon } from "lucide-react";
 import { useAiModal } from "@/contexts/ai-modal-context";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import Link from "next/link";
 import OurTeamSection from "@/sections/our-team";
 
@@ -17,6 +19,62 @@ const verticals = [
 
 export default function OptionD() {
     const { openAiModal } = useAiModal();
+
+    // Decorative animation refs
+    const g1Ref = useRef<HTMLDivElement>(null);
+    const g2Ref = useRef<HTMLDivElement>(null);
+    const g3Ref = useRef<HTMLDivElement>(null);
+    const g4Ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        // g1 — Command Path (how-it-works, center above)
+        if (g1Ref.current) {
+            const r1 = g1Ref.current.querySelector(".od-g1-ring-1");
+            const r2 = g1Ref.current.querySelector(".od-g1-ring-2");
+            const r3 = g1Ref.current.querySelector(".od-g1-ring-3");
+            const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
+            tl.set([r1,r2,r3],{xPercent:-50,yPercent:-50,left:"50%",top:"50%",rotateY:117})
+              .set(r2,{x:-80},0).set(r1,{x:80},0).set(r3,{x:0},0)
+              .to([r2,r1],{x:0,duration:0.6,ease:"expo.in"},0.2)
+              .to([r1,r2,r3],{rotateY:0,duration:0.5,ease:"expo.in"},0.5)
+              .to([r1,r2,r3],{rotateY:117,duration:0.5,ease:"expo"},1)
+              .to(r2,{x:-80,duration:1,ease:"elastic.out(1,0.25)"},1.3)
+              .to(r1,{x:80,duration:1,ease:"elastic.out(1,0.25)"},1.3);
+        }
+
+        // g2 — Data Signals (why-us, bottom right of left col)
+        if (g2Ref.current) {
+            const wrap = g2Ref.current.querySelector(".od-g2-inner-wrap");
+            const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
+            tl.to(wrap,{rotate:360,duration:2.5,ease:"expo.inOut"},0.3);
+        }
+
+        // g3 — Build Systems (bento, right side above)
+        if (g3Ref.current) {
+            const s2 = g3Ref.current.querySelector(".od-g3-shape-2");
+            const s3 = g3Ref.current.querySelector(".od-g3-shape-3");
+            gsap.set(s2,{scale:1});gsap.set(s3,{rotation:0});
+            const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
+            tl.to(s3,{rotation:45,duration:0.9,ease:"power2.inOut"},0.3)
+              .to(s2,{scale:0.75,duration:1,ease:"power2.inOut"},0.4)
+              .to(s3,{rotation:0,duration:1,ease:"elastic.out(1,0.25)"},1.4)
+              .to(s2,{scale:1,duration:1,ease:"elastic.out(1,0.25)"},1.4);
+        }
+
+        // g4 — Discovery Map (team, right side)
+        if (g4Ref.current) {
+            const outer = g4Ref.current.querySelector(".od-g4-outer");
+            const left  = g4Ref.current.querySelector(".od-g4-left");
+            const center= g4Ref.current.querySelector(".od-g4-center");
+            const right = g4Ref.current.querySelector(".od-g4-right");
+            const rings = [left, center, right];
+            const size  = 180;
+            gsap.set([outer,...rings],{xPercent:-50,yPercent:-50,left:"50%",top:"50%",width:size,height:size});
+            gsap.set(left,{rotateY:60});gsap.set(center,{rotateY:75});gsap.set(right,{rotateY:40});
+            const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
+            tl.to([center,left,right],{rotateY:"+=360",duration:3,ease:"expo.inOut",stagger:0.3});
+        }
+    }, []);
 
     return (
         <main>
@@ -55,9 +113,15 @@ export default function OptionD() {
             </section>
 
             {/* What we do */}
-            <section className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
+            <section className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32 overflow-hidden">
                 <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
-                    <div className="p-8 md:p-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="relative p-8 md:p-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* g1 decoration — center above */}
+                        <div ref={g1Ref} className="pointer-events-none absolute -left-16 top-1/2 -translate-y-1/2 w-[260px] h-[260px] opacity-[0.18]" style={{zIndex:0,overflow:"hidden"}}>
+                            <div className="od-g1-ring od-g1-ring-1" style={{position:"absolute",width:200,height:200,borderRadius:"50%",border:"3px dashed #5bbfba"}} />
+                            <div className="od-g1-ring od-g1-ring-2" style={{position:"absolute",width:200,height:200,borderRadius:"50%",border:"3px solid #5bbfba"}} />
+                            <div className="od-g1-ring od-g1-ring-3" style={{position:"absolute",width:200,height:200,borderRadius:"50%",border:"3px solid #7c3aed"}} />
+                        </div>
                         {[
                             {
                                 title: "We build it",
@@ -82,10 +146,16 @@ export default function OptionD() {
             </section>
 
             {/* Verticals — bento grid */}
-            <section id="who-we-help" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
+            <section id="who-we-help" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32 overflow-hidden">
                 <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
-                    <div className="p-8 md:p-16">
-                        <AnimatedContent className="mb-10">
+                    <div className="relative p-8 md:p-16">
+                        {/* g3 decoration — right side above title */}
+                        <div ref={g3Ref} className="pointer-events-none absolute -right-8 -top-8 w-[240px] h-[240px] opacity-[0.18]" style={{zIndex:0,overflow:"hidden"}}>
+                            <div className="od-g3-shape-1" style={{position:"absolute",width:150,height:150,border:"1.5px solid #5bbfba",left:35,top:50}} />
+                            <div className="od-g3-shape-2" style={{position:"absolute",width:150,height:150,borderRadius:"50%",border:"1.5px solid #7c3aed",left:35,top:50}} />
+                            <div className="od-g3-shape-3" style={{position:"absolute",width:150,height:150,borderRadius:"50%",border:"2px dashed #5bbfba",left:100,top:10}} />
+                        </div>
+                        <AnimatedContent className="mb-10 relative" style={{zIndex:1}}>
                             <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Who we work with</p>
                             <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">
                                 Find your industry
@@ -256,10 +326,10 @@ export default function OptionD() {
             </section>
 
             {/* Why us */}
-            <section id="how-it-works" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
+            <section id="how-it-works" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32 overflow-hidden">
                 <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
                     <div className="p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <AnimatedContent>
+                        <AnimatedContent className="relative">
                             <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Why Fountain of Scale</p>
                             <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">
                                 Not a platform. Not a chatbot.
@@ -279,6 +349,14 @@ export default function OptionD() {
                             >
                                 Get started — it&apos;s free <ArrowUpRightIcon size={14} />
                             </button>
+                            {/* g2 decoration — bottom right of left column */}
+                            <div ref={g2Ref} className="pointer-events-none absolute -bottom-16 -right-8 w-[200px] h-[200px] opacity-[0.18]" style={{zIndex:0,overflow:"hidden"}}>
+                                <div style={{position:"absolute",top:"50%",left:"50%",width:160,height:160,borderRadius:"50%",border:"2px solid #5bbfba",transform:"translate(-50%,-50%)"}} />
+                                <div className="od-g2-inner-wrap" style={{position:"absolute",width:160,height:160,top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}>
+                                    <div style={{position:"absolute",width:100,height:100,top:"50%",left:0,transform:"translateY(-50%)",borderRadius:"50%",border:"2px dashed #5bbfba"}} />
+                                    <div style={{position:"absolute",width:100,height:100,top:"50%",right:0,transform:"translateY(-50%)",borderRadius:"50%",border:"2px solid #7c3aed"}} />
+                                </div>
+                            </div>
                         </AnimatedContent>
                         <AnimatedContent delay={0.1} className="flex flex-col gap-4">
                             {[
@@ -299,7 +377,16 @@ export default function OptionD() {
                 </div>
             </section>
 
-            <OurTeamSection />
+            <div className="relative overflow-hidden">
+                {/* g4 decoration — right side of team section */}
+                <div ref={g4Ref} className="pointer-events-none absolute right-8 top-1/2 -translate-y-1/2 w-[200px] h-[200px] opacity-[0.18]" style={{zIndex:0,overflow:"hidden"}}>
+                    <div className="od-g4-outer" style={{position:"absolute",width:180,height:180,borderRadius:"50%",border:"1.5px solid #5bbfba"}} />
+                    <div className="od-g4-left"   style={{position:"absolute",width:180,height:180,borderRadius:"50%",border:"3px dashed #d1d5db"}} />
+                    <div className="od-g4-center" style={{position:"absolute",width:180,height:180,borderRadius:"50%",border:"3px solid #7c3aed"}} />
+                    <div className="od-g4-right"  style={{position:"absolute",width:180,height:180,borderRadius:"50%",border:"3px dashed #d1d5db"}} />
+                </div>
+                <OurTeamSection />
+            </div>
 
             {/* Final CTA */}
             <section className="px-4 md:px-16 lg:px-24 xl:px-32 py-24">

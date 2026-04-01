@@ -13,4 +13,8 @@ export const links: ILink[] = [
         name: "About",
         href: "#team",
     },
+    {
+        name: "Blog",
+        href: "/blog",
+    },
 ];
