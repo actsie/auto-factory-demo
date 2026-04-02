@@ -349,10 +349,10 @@ export default function HomePage() {
                 <div className="max-w-7xl mx-auto">
                     <AnimatedContent className="text-center flex flex-col items-center">
                         <h2 className="font-urbanist font-bold text-4xl md:text-5xl text-gray-800 max-w-2xl text-balance">
-                            Find your industry. We&apos;ll build the rest.
+                            Ready to stop doing this manually?
                         </h2>
                         <p className="text-zinc-500 text-base/7 mt-4 max-w-md">
-                            Free setup. You tell us how your business works. We build from there.
+                            Free to start. We build it, you approve it, it runs.
                         </p>
                         <div className="flex flex-col md:flex-row gap-4 mt-8">
                             <button
