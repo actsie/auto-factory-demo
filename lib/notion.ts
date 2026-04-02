@@ -29,7 +29,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
             title: props.Title?.title?.[0]?.plain_text ?? "Untitled",
             slug: props.Slug?.rich_text?.[0]?.plain_text ?? page.id,
             description: props.Description?.rich_text?.[0]?.plain_text ?? "",
-            published: props.Published?.date?.start ?? "",
+            published: props.Date?.date?.start ?? props.Published?.date?.start ?? "",
             tags: props.Tags?.multi_select?.map((t: any) => t.name) ?? [],
             status: props.Status?.select?.name ?? "Draft",
         };
@@ -52,7 +52,7 @@ export async function getBlogPost(slug: string): Promise<{ post: BlogPost; markd
         title: props.Title?.title?.[0]?.plain_text ?? "Untitled",
         slug: props.Slug?.rich_text?.[0]?.plain_text ?? page.id,
         description: props.Description?.rich_text?.[0]?.plain_text ?? "",
-        published: props.Published?.date?.start ?? "",
+        published: props.Date?.date?.start ?? props.Published?.date?.start ?? "",
         tags: props.Tags?.multi_select?.map((t: any) => t.name) ?? [],
         status: props.Status?.select?.name ?? "Draft",
     };
