@@ -305,7 +305,7 @@ export default function HomePage() {
                             <p className="text-zinc-400 text-xs mt-3">*Limited spots for first few partners</p>
                             <button
                                 onClick={() => openAiModal("Homepage — Why us CTA")}
-                                className="mt-8 flex items-center gap-1.5 py-2.5 px-6 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm w-max"
+                                className="relative z-10 mt-8 flex items-center gap-1.5 py-2.5 px-6 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm w-max"
                             >
                                 Get started — it&apos;s free <ArrowUpRightIcon size={14} />
                             </button>

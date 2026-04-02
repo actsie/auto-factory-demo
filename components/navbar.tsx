@@ -14,7 +14,7 @@ import { useIndieModal } from "@/contexts/indie-modal-context";
 const AI_ROUTES = ["/", "/ai-automation", "/contractors", "/restaurant", "/beverage"];
 
 const industries = [
-    { name: "Real estate agents", href: "/", icon: HomeIcon, color: "text-purple-500", bg: "bg-purple-50", hoverColor: "#f5f3ff", iconHex: "#a855f7", desc: "Follow-up system for every inquiry" },
+    { name: "Real estate agents", href: "/real-estate", icon: HomeIcon, color: "text-purple-500", bg: "bg-purple-50", hoverColor: "#f5f3ff", iconHex: "#a855f7", desc: "Follow-up system for every inquiry" },
     { name: "HVAC contractors", href: "/hvac", icon: ThermometerIcon, color: "text-teal-600", bg: "bg-teal-50", hoverColor: "#f0fdfa", iconHex: "#0d9488", desc: "Estimate & job follow-ups" },
     { name: "Home service contractors", href: "/contractors", icon: HammerIcon, color: "text-orange-500", bg: "bg-orange-50", hoverColor: "#fff7ed", iconHex: "#f97316", desc: "24/7 lead capture" },
     { name: "Restaurants", href: "/restaurant", icon: UtensilsIcon, color: "text-amber-600", bg: "bg-amber-50", hoverColor: "#fffbeb", iconHex: "#d97706", desc: "AI inquiry handling" },
@@ -49,7 +49,7 @@ export default function Navbar() {
             <AnimatedContent reverse className="fixed w-full top-0 z-50 bg-white/70 backdrop-blur-md border-b border-[#edf9f8]">
                 <nav className='w-full px-4 md:px-16 lg:px-24 xl:px-32 py-4 transition-all duration-300'>
                     <div className="max-w-7xl mx-auto flex items-center justify-between">
-                        <Link href="#!" className="flex items-center gap-2">
+                        <Link href="/" className="flex items-center gap-2">
                             <Image src="/assets/auto-factory.png" alt="Logo" width={28} height={28} className="h-7 w-7" />
                             <span className="font-urbanist font-semibold text-gray-800 text-sm">Fountain of Scale</span>
                         </Link>
@@ -135,10 +135,10 @@ export default function Navbar() {
             {/* Mobile menu */}
             <div className={`fixed top-0 right-0 z-60 w-full bg-white shadow-xl shadow-black/5 transition-all duration-300 ease-in-out ${isMenuOpen ? "h-auto overflow-hidden" : "h-0 overflow-hidden"}`}>
                 <div className="flex items-center justify-between p-4">
-                    <div className="flex items-center gap-2">
+                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
                         <Image src="/assets/auto-factory.png" alt="Logo" width={28} height={28} className="h-7 w-7" />
                         <span className="font-urbanist font-semibold text-gray-800 text-sm">Fountain of Scale</span>
-                    </div>
+                    </Link>
                     <XIcon className="size-6.5" onClick={() => setIsMenuOpen(false)} />
                 </div>
                 <div className="flex flex-col gap-4 p-4 text-base">
