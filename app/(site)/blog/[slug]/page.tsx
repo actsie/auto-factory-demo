@@ -15,8 +15,9 @@ export async function generateStaticParams() {
     }
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-    const result = await getBlogPost(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const result = await getBlogPost(slug);
     if (!result) return {};
     return {
         title: `${result.post.title} | Fountain of Scale`,
@@ -24,8 +25,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-    const result = await getBlogPost(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const result = await getBlogPost(slug);
     if (!result) notFound();
 
     const { post, markdown } = result;

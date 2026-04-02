@@ -19,7 +19,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     const response = await notion.dataSources.query({
         data_source_id: db,
         filter: { property: "Status", select: { equals: "Published" } },
-        sorts: [{ property: "Published", direction: "descending" }],
+        sorts: [{ property: "Date", direction: "descending" }],
     });
 
     return response.results.map((page: any) => {
