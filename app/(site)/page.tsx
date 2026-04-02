@@ -214,7 +214,7 @@ export default function HomePage() {
                             </AnimatedContent>
                             <AnimatedContent delay={0.1} className="col-span-1 row-span-1">
                                 <div className="bento-card bento-orange" style={{ animationDuration: "17s", animationDelay: "-4s" }}>
-                                    <Link href="/contractors" className="bento-card-inner group flex flex-col justify-between p-5 bg-[#f9fafb] hover:bg-orange-50 transition-all">
+                                    <Link href="/contractors" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-orange-50 transition-all">
                                         <div className="flex items-start justify-between">
                                             <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center"><HammerIcon size={20} className="text-orange-500 bento-icon" /></div>
                                             <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-orange-500 transition-colors" />
@@ -228,7 +228,7 @@ export default function HomePage() {
                             </AnimatedContent>
                             <AnimatedContent delay={0.15} className="col-span-1 row-span-1">
                                 <div className="bento-card bento-amber" style={{ animationDuration: "23s", animationDelay: "-12s" }}>
-                                    <Link href="/restaurant" className="bento-card-inner group flex flex-col justify-between p-5 bg-[#f9fafb] hover:bg-amber-50 transition-all">
+                                    <Link href="/restaurant" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-amber-50 transition-all">
                                         <div className="flex items-start justify-between">
                                             <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center"><UtensilsIcon size={20} className="text-amber-600 bento-icon" /></div>
                                             <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-amber-600 transition-colors" />
@@ -254,7 +254,7 @@ export default function HomePage() {
                             </AnimatedContent>
                             <AnimatedContent delay={0.25} className="col-span-1 row-span-1">
                                 <div className="bento-card bento-yellow" style={{ animationDuration: "25s", animationDelay: "-3s" }}>
-                                    <Link href="/beverage" className="bento-card-inner group flex flex-col justify-between p-5 bg-[#f9fafb] hover:bg-yellow-50 transition-all">
+                                    <Link href="/beverage" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-yellow-50 transition-all">
                                         <div className="flex items-start justify-between">
                                             <div className="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center"><CupSodaIcon size={20} className="text-yellow-600 bento-icon" /></div>
                                             <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-yellow-600 transition-colors" />
@@ -268,7 +268,7 @@ export default function HomePage() {
                             </AnimatedContent>
                             <AnimatedContent delay={0.3} className="col-span-1 row-span-1">
                                 <div className="bento-card bento-green" style={{ animationDuration: "21s", animationDelay: "-16s" }}>
-                                    <Link href="/sdr" className="bento-card-inner group flex flex-col justify-between p-5 bg-[#f9fafb] hover:bg-green-50 transition-all">
+                                    <Link href="/sdr" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-green-50 transition-all">
                                         <div className="flex items-start justify-between">
                                             <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center"><TrendingUpIcon size={20} className="text-green-600 bento-icon" /></div>
                                             <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-green-600 transition-colors" />
