@@ -94,5 +94,24 @@ export const reports: Report[] = [
       prompt3: "Update our CTA from 'Keep More' to something specific per service area",
       result3: "✓ 4 service-specific CTAs ready to test"
     }
+  },
+  {
+    id: "bocg-ventures",
+    company: "BoCG Ventures",
+    logo: "/assets/reports/bocg-ventures/bocg-ventures.png",
+    logoNeedsBg: true,
+    url: "https://bocgventures.com",
+    industry: "Venture Capital & Private Equity",
+    pages: 12,
+    hostingCost: 65,
+    waitDays: 4,
+    aiExamples: {
+      prompt1: "Replace 'A Leading Antifragile Firm' headline with language founders actually understand — focus on what we do, not philosophy",
+      result1: "✓ 3 founder-focused headlines emphasizing hands-on partnership",
+      prompt2: "Rewrite our value propositions section — replace 'antifragile' jargon with concrete founder benefits and examples",
+      result2: "✓ All 5 value props rewritten with founder context + 2 supporting case snippets",
+      prompt3: "Make our partnership model clearer — who we work with, what we actually provide, how founders reach us",
+      result3: "✓ Partnership overview rewritten + updated CTA + founder testimonial section ready"
+    }
   }
 ];
