@@ -204,15 +204,17 @@ export default async function ReportPage({ params }: Props) {
               </div>
             ))}
 
-            <form id="aiForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginTop: "20px", alignItems: "flex-end", width: "100%" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", flex: 1, minWidth: "280px" }}>
-                <input type="text" id="aiNameField" placeholder="Your name" style={{ padding: "14px 18px", borderRadius: "8px", border: "1px solid #333", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} required />
-                <div className="beam-wrapper" style={{ position: "relative", background: "conic-gradient(from var(--angle), transparent 65%, #2ee5d6 79%, #80f4f1 86%, transparent 93%)", borderRadius: "8px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
-                  <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "6px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} required />
+            <form id="aiForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginTop: "20px", alignItems: "center" }}>
+              <div style={{ display: "flex", gap: "10px", flex: 1 }}>
+                <div className="beam-wrapper" style={{ flex: 1, position: "relative", background: "conic-gradient(from var(--angle), transparent 65%, #2ee5d6 79%, #80f4f1 86%, transparent 93%)", borderRadius: "8px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
+                  <input type="text" id="aiChangeField" placeholder="What do you want changed on your website?" style={{ padding: "14px 18px", borderRadius: "6px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
+                </div>
+                <div className="beam-wrapper" style={{ flex: 1, position: "relative", background: "#2a2a2a", borderRadius: "8px", border: "1px solid #333" }} id="emailWrapper">
+                  <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
                 </div>
               </div>
               <button id="migrateBtn" type="submit" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
-                Get Report
+                Migrate for free
               </button>
             </form>
           </div>
@@ -259,12 +261,12 @@ export default async function ReportPage({ params }: Props) {
           <p style={{ color: "#aaa", fontSize: "15px", marginBottom: "28px", maxWidth: "440px", marginLeft: "auto", marginRight: "auto" }}>
             You might have questions on what running it looks like. Drop your email and we'll reach out within 24 hours.
           </p>
-          <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginBottom: "16px" }}>
-            <input type="email" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "280px", background: "#2a2a2a", color: "#fff", outline: "none" }} />
-            <button style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
+          <form id="ctaForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginBottom: "16px" }} onSubmit={(e) => e.preventDefault()}>
+            <input id="ctaEmailField" type="email" placeholder="Your email" required style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "280px", background: "#2a2a2a", color: "#fff", outline: "none" }} />
+            <button id="ctaBtn" type="submit" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
               Start my migration
             </button>
-          </div>
+          </form>
           <div style={{ fontSize: "12px", color: "#555" }}>(Limited Slots)</div>
         </div>
       </div>
@@ -275,6 +277,7 @@ export default async function ReportPage({ params }: Props) {
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
       <style>{`
         @property --angle {
           syntax: '<angle>';
@@ -363,20 +366,22 @@ export default async function ReportPage({ params }: Props) {
               });
 
               const form = document.getElementById('aiForm');
-              const nameField = document.getElementById('aiNameField');
+              const changeField = document.getElementById('aiChangeField');
               const emailField = document.getElementById('aiEmailField');
+              const emailWrapper = document.getElementById('emailWrapper');
               const aiBlock = document.getElementById('aiBlock');
               const button = document.getElementById('migrateBtn');
 
-              if (form && nameField && emailField && aiBlock && button) {
+              if (form && changeField && emailField && button) {
                 form.addEventListener('submit', async function(e) {
                   e.preventDefault();
 
-                  const name = nameField.value.trim();
+                  const change = changeField.value.trim();
                   const email = emailField.value.trim();
 
-                  if (!name || !email) {
+                  if (!email) {
                     gsap.to(aiBlock, { x: -10, duration: 0.1, repeat: 3, yoyo: true, ease: "power1.inOut" });
+                    if (emailWrapper) gsap.to(emailWrapper, { x: -8, duration: 0.1, repeat: 5, yoyo: true, ease: "power1.inOut" });
                     return;
                   }
 
@@ -388,19 +393,30 @@ export default async function ReportPage({ params }: Props) {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({
-                        name,
+                        name: change || 'No message',
                         email,
-                        company: '${report.company}'
+                        company: '${report.company}',
+                        url: window.location.href
                       })
                     });
 
                     if (response.ok) {
-                      button.textContent = '✓ Thanks! Check your email';
-                      nameField.value = '';
+                      button.textContent = '✓ Submitted';
+                      changeField.value = '';
                       emailField.value = '';
+
+                      // Trigger confetti
+                      if (window.confetti) {
+                        confetti({
+                          particleCount: 100,
+                          spread: 70,
+                          origin: { y: 0.6 }
+                        });
+                      }
+
                       setTimeout(() => {
                         button.disabled = false;
-                        button.textContent = 'Get Report';
+                        button.textContent = 'Migrate for free';
                       }, 3000);
                     } else {
                       button.textContent = 'Try again';
@@ -415,6 +431,66 @@ export default async function ReportPage({ params }: Props) {
 
                 emailField.addEventListener('focus', function() {
                   gsap.killTweensOf(aiBlock);
+                });
+              }
+
+              // CTA form handler
+              const ctaForm = document.getElementById('ctaForm');
+              const ctaEmailField = document.getElementById('ctaEmailField');
+              const ctaBtn = document.getElementById('ctaBtn');
+
+              if (ctaForm && ctaEmailField && ctaBtn) {
+                ctaForm.addEventListener('submit', async function(e) {
+                  e.preventDefault();
+
+                  const email = ctaEmailField.value.trim();
+
+                  if (!email) {
+                    gsap.to(ctaForm, { x: -10, duration: 0.1, repeat: 3, yoyo: true, ease: "power1.inOut" });
+                    return;
+                  }
+
+                  ctaBtn.disabled = true;
+                  ctaBtn.textContent = 'Sending...';
+
+                  try {
+                    const response = await fetch('/api/contact-insight-report', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        name: 'CTA signup',
+                        email,
+                        company: '${report.company}',
+                        url: window.location.href
+                      })
+                    });
+
+                    if (response.ok) {
+                      ctaBtn.textContent = '✓ Submitted';
+                      ctaEmailField.value = '';
+
+                      // Trigger confetti
+                      if (window.confetti) {
+                        confetti({
+                          particleCount: 100,
+                          spread: 70,
+                          origin: { y: 0.6 }
+                        });
+                      }
+
+                      setTimeout(() => {
+                        ctaBtn.disabled = false;
+                        ctaBtn.textContent = 'Start my migration';
+                      }, 3000);
+                    } else {
+                      ctaBtn.textContent = 'Try again';
+                      ctaBtn.disabled = false;
+                    }
+                  } catch (error) {
+                    console.error('Error:', error);
+                    ctaBtn.textContent = 'Error - try again';
+                    ctaBtn.disabled = false;
+                  }
                 });
               }
             });
