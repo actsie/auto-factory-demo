@@ -4,7 +4,7 @@ const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1492201148684173534/Sm
 
 export async function POST(req: Request) {
   try {
-    const { email, name, company } = await req.json();
+    const { email, name, company, url } = await req.json();
 
     if (!email || !name || !company) {
       return Response.json(
@@ -57,6 +57,7 @@ export async function POST(req: Request) {
                   { name: "Name", value: name, inline: true },
                   { name: "Email", value: email, inline: true },
                   { name: "Report", value: company, inline: false },
+                  { name: "URL", value: url || "N/A", inline: false },
                   {
                     name: "Time",
                     value: new Date().toLocaleString(),
