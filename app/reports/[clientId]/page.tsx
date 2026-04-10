@@ -204,19 +204,17 @@ export default async function ReportPage({ params }: Props) {
               </div>
             ))}
 
-            <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginTop: "20px", alignItems: "center" }}>
-              <div style={{ display: "flex", gap: "10px", flex: 1 }}>
-                <div className="beam-wrapper" style={{ flex: 1, position: "relative", background: "conic-gradient(from var(--angle), transparent 65%, #2ee5d6 79%, #80f4f1 86%, transparent 93%)", borderRadius: "8px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
-                  <input type="text" placeholder="What do you want changed on your website?" style={{ padding: "14px 18px", borderRadius: "6px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
-                </div>
-                <div className="beam-wrapper" style={{ flex: 1, position: "relative", background: "#2a2a2a", borderRadius: "8px", border: "1px solid #333" }} id="emailWrapper">
-                  <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
+            <form id="aiForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginTop: "20px", alignItems: "flex-end", width: "100%" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px", flex: 1, minWidth: "280px" }}>
+                <input type="text" id="aiNameField" placeholder="Your name" style={{ padding: "14px 18px", borderRadius: "8px", border: "1px solid #333", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} required />
+                <div className="beam-wrapper" style={{ position: "relative", background: "conic-gradient(from var(--angle), transparent 65%, #2ee5d6 79%, #80f4f1 86%, transparent 93%)", borderRadius: "8px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
+                  <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "6px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} required />
                 </div>
               </div>
-              <button id="migrateBtn" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
-                Migrate for free
+              <button id="migrateBtn" type="submit" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
+                Get Report
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -364,21 +362,59 @@ export default async function ReportPage({ params }: Props) {
                 }
               });
 
-              const button = document.getElementById('migrateBtn');
+              const form = document.getElementById('aiForm');
+              const nameField = document.getElementById('aiNameField');
               const emailField = document.getElementById('aiEmailField');
-              const emailWrapper = document.getElementById('emailWrapper');
               const aiBlock = document.getElementById('aiBlock');
+              const button = document.getElementById('migrateBtn');
 
-              if (button && emailField && emailWrapper && aiBlock) {
-                button.addEventListener('click', function(e) {
-                  if (!emailField.value.trim()) {
+              if (form && nameField && emailField && aiBlock && button) {
+                form.addEventListener('submit', async function(e) {
+                  e.preventDefault();
+
+                  const name = nameField.value.trim();
+                  const email = emailField.value.trim();
+
+                  if (!name || !email) {
                     gsap.to(aiBlock, { x: -10, duration: 0.1, repeat: 3, yoyo: true, ease: "power1.inOut" });
-                    gsap.to(emailWrapper, { x: -8, duration: 0.1, repeat: 5, yoyo: true, ease: "power1.inOut" });
+                    return;
+                  }
+
+                  button.disabled = true;
+                  button.textContent = 'Sending...';
+
+                  try {
+                    const response = await fetch('/api/contact-insight-report', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        name,
+                        email,
+                        company: '${report.company}'
+                      })
+                    });
+
+                    if (response.ok) {
+                      button.textContent = '✓ Thanks! Check your email';
+                      nameField.value = '';
+                      emailField.value = '';
+                      setTimeout(() => {
+                        button.disabled = false;
+                        button.textContent = 'Get Report';
+                      }, 3000);
+                    } else {
+                      button.textContent = 'Try again';
+                      button.disabled = false;
+                    }
+                  } catch (error) {
+                    console.error('Error:', error);
+                    button.textContent = 'Error - try again';
+                    button.disabled = false;
                   }
                 });
 
                 emailField.addEventListener('focus', function() {
-                  gsap.killTweensOf(emailWrapper);
+                  gsap.killTweensOf(aiBlock);
                 });
               }
             });
