@@ -124,7 +124,7 @@ export default async function ReportPage({ params }: Props) {
           <h2 style={{ fontSize: "20px", fontWeight: 700 }}>Every time you want to change something, it becomes a project</h2>
           <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>Where manual website management slows you down.</p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", margin: "16px 0" }}>
+          <div id="frictionCardsGrid">
             {[
               { scenario: "Update homepage hero copy", should: "5 min", actually: "2–5 days", why: "Designer queue" },
               { scenario: "Add a new landing page", should: "1 day", actually: "1–2 weeks", why: "Brief → build → approve" },
@@ -205,11 +205,11 @@ export default async function ReportPage({ params }: Props) {
             ))}
 
             <form id="aiForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginTop: "20px", alignItems: "center" }}>
-              <div style={{ display: "flex", gap: "10px", flex: 1 }}>
-                <div className="beam-wrapper" style={{ flex: 1, position: "relative", background: "conic-gradient(from var(--angle), transparent 65%, #2ee5d6 79%, #80f4f1 86%, transparent 93%)", borderRadius: "8px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
+              <div id="aiFormInputs">
+                <div className="form-input-wrapper beam-wrapper" style={{ position: "relative", background: "conic-gradient(from var(--angle), transparent 65%, #2ee5d6 79%, #80f4f1 86%, transparent 93%)", borderRadius: "8px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
                   <input type="text" id="aiChangeField" placeholder="What do you want changed on your website?" style={{ padding: "14px 18px", borderRadius: "6px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
                 </div>
-                <div className="beam-wrapper" style={{ flex: 1, position: "relative", background: "#2a2a2a", borderRadius: "8px", border: "1px solid #333" }} id="emailWrapper">
+                <div className="form-input-wrapper beam-wrapper" style={{ position: "relative", background: "#2a2a2a", borderRadius: "8px", border: "1px solid #333" }} id="emailWrapper">
                   <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
                 </div>
               </div>
@@ -324,6 +324,48 @@ export default async function ReportPage({ params }: Props) {
 
         .beam-wrapper:has(input:focus) {
           opacity: 1;
+        }
+
+        #frictionCardsGrid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+          margin: 16px 0;
+        }
+
+        #aiFormInputs {
+          display: flex;
+          gap: 10px;
+          flex: 1;
+        }
+
+        .form-input-wrapper {
+          flex: 1;
+          min-width: 0;
+        }
+
+        @media (max-width: 768px) {
+          #frictionCardsGrid {
+            grid-template-columns: 1fr;
+          }
+
+          #aiFormInputs {
+            flex-direction: column;
+            gap: 12px;
+          }
+
+          .form-input-wrapper {
+            width: 100%;
+          }
+
+          #aiForm {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          #migrateBtn {
+            width: 100%;
+          }
         }
       `}</style>
       <script
