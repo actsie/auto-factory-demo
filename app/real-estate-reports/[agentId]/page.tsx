@@ -69,8 +69,17 @@ export default async function RealEstateReportPage({ params }: Props) {
     .replace(/value: 25,/g, `value: ${tamValue},`) // TAM counter
     .replace(/value: 72,/g, `value: ${hoursValue},`); // Hours counter
 
+  // Add agentId to a data attribute for form submission
+  htmlContent = htmlContent.replace(
+    '<form class="email-form" id="contact-form">',
+    `<form class="email-form" id="contact-form" data-agent-id="${report.id}">`
+  );
+
   // Add scripts at the end before closing the content
   htmlContent += `
+    <script>
+      window.AGENT_ID = '${report.id}';
+    <\/script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"><\/script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"><\/script>
     <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"><\/script>
