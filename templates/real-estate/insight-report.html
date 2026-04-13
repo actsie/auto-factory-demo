@@ -1272,6 +1272,10 @@
         <input id="email-input" type="email" placeholder="Your email" required />
         <button type="submit">Get Started</button>
       </form>
+      <div id="success-message" style="display:none; text-align:center;">
+        <h3 style="font-size:24px; margin-bottom:8px;">✓ Submitted</h3>
+        <p style="color:#666; margin-bottom:16px;">Thank you! We'll be in touch soon.</p>
+      </div>
       <div class="fine">Limited spots</div>
     </div>
 
@@ -1468,8 +1472,23 @@
             });
 
             if (res.ok) {
-              document.getElementById('email-input').value = '';
-              alert('Thanks! We\'ll be in touch within 24 hours.');
+              // Load and play confetti
+              const script = document.createElement('script');
+              script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js';
+              script.onload = () => {
+                if (typeof confetti !== 'undefined') {
+                  confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                  });
+                }
+              };
+              document.head.appendChild(script);
+
+              // Hide form and show success message
+              form.style.display = 'none';
+              document.getElementById('success-message').style.display = 'block';
             } else {
               alert('Error submitting form. Please try again.');
             }
