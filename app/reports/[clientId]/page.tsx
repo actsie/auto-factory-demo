@@ -214,7 +214,7 @@ export default async function ReportPage({ params }: Props) {
                 </div>
               </div>
               <button id="migrateBtn" type="submit" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
-                Migrate for free
+                Get started
               </button>
             </form>
           </div>
@@ -226,7 +226,7 @@ export default async function ReportPage({ params }: Props) {
             <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", background: "#1a1a1a", color: "#fff", padding: "3px 8px", borderRadius: "4px" }}>What's Included</span>
           </div>
           <h2 style={{ fontSize: "20px", fontWeight: 700 }}>Everything in the migration</h2>
-          <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>Free migration. First week we're hands-on. Then it's yours.</p>
+          <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>Your migration. First week we're hands-on. Then it's yours.</p>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px", margin: "16px 0" }}>
             {[
@@ -255,7 +255,7 @@ export default async function ReportPage({ params }: Props) {
         {/* CTA */}
         <div style={{ background: "#1a1a1a", borderRadius: "14px", padding: "48px 40px", marginTop: "40px", textAlign: "center", color: "#fff" }} id="cta">
           <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "12px" }}>
-            Free Migration · Your Code to Keep
+            Website Migration · Your Code to Keep
           </div>
           <h2 style={{ fontSize: "26px", fontWeight: 800, marginBottom: "10px", lineHeight: "1.2" }}>Ready to own your website?</h2>
           <p style={{ color: "#aaa", fontSize: "15px", marginBottom: "28px", maxWidth: "440px", marginLeft: "auto", marginRight: "auto" }}>
@@ -267,7 +267,7 @@ export default async function ReportPage({ params }: Props) {
               Start my migration
             </button>
           </form>
-          <div style={{ fontSize: "12px", color: "#555" }}>(Limited Slots)</div>
+          <div style={{ fontSize: "12px", color: "#555" }}>Limited spots</div>
         </div>
       </div>
 
@@ -462,7 +462,7 @@ export default async function ReportPage({ params }: Props) {
 
                       setTimeout(() => {
                         button.disabled = false;
-                        button.textContent = 'Migrate for free';
+                        button.textContent = 'Get started';
                       }, 3000);
                     } else {
                       button.textContent = 'Try again';
