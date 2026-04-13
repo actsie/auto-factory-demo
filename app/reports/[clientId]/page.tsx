@@ -349,18 +349,22 @@ export default async function ReportPage({ params }: Props) {
             grid-template-columns: 1fr;
           }
 
+          #aiForm {
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+          }
+
           #aiFormInputs {
             flex-direction: column;
             gap: 12px;
+            flex: unset;
+            width: 100%;
           }
 
           .form-input-wrapper {
             width: 100%;
-          }
-
-          #aiForm {
-            flex-direction: column;
-            align-items: stretch;
+            flex: unset;
           }
 
           #migrateBtn {
