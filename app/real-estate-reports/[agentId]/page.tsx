@@ -1,8 +1,5 @@
-'use client';
-
 import { realEstateReports } from "@/data/real-estate-reports";
 import { notFound } from "next/navigation";
-import { useEffect } from "react";
 
 interface Props {
   params: Promise<{ agentId: string }>;
