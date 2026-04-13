@@ -33,8 +33,8 @@ export default async function RealEstateReportPage({ params }: Props) {
     notFound();
   }
 
-  // Read the reference template and substitute data
-  const templatePath = join(process.cwd(), "reference/insight-reports/real-estate-insight-report.html");
+  // Read the template and substitute data
+  const templatePath = join(process.cwd(), "templates/real-estate/insight-report.html");
   let template = readFileSync(templatePath, "utf-8");
 
   // Extract just the body content (remove DOCTYPE, html, head tags)

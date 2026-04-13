@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>California's Hidden Inventory Gap — [AGENT NAME]</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <style>
+    @property --angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f7f7f5;
+      color: #1a1a1a;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      background: #1a1a1a;
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .topbar .brand {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    .topbar .cta-top {
+      background: #2ee5d6;
+      color: #1a1a1a;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 56px 32px 48px;
+      text-align: center;
+    }
+
+    .hero .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2ee5d6;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 span {
+      color: #2ee5d6;
+    }
+
+    .hero .sub {
+      font-size: 16px;
+      color: #aaa;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    .agent-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: #2a2a2a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 16px 24px;
+      text-align: left;
+    }
+
+    .agent-avatar {
+      width: 44px;
+      height: 44px;
+      background: #2ee5d6;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+
+    .agent-info .label {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .agent-info .name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .agent-meta {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .agent-meta-item { text-align: center; }
+
+    .agent-meta-item .meta-label {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .agent-meta-item .meta-val {
+      font-size: 13px;
+      color: #ccc;
+      font-weight: 500;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Hook strip ── */
+    .hook-strip {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 32px;
+      margin: 32px 0;
+      text-align: center;
+    }
+
+    .hook-strip .strip-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .hook-strip h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .hook-strip .strip-sub {
+      font-size: 14px;
+      color: #666;
+      max-width: 520px;
+      margin: 0 auto 8px;
+    }
+
+    .hook-strip .strip-caveat {
+      font-size: 12px;
+      color: #999;
+      font-style: italic;
+    }
+
+    /* ── Stat row ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: #e8e8e8;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+
+    .stat-cell {
+      background: #fff;
+      padding: 28px 16px;
+      text-align: center;
+    }
+
+    .stat-cell .stat-num {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+
+    .stat-cell .stat-num.accent { color: #2ee5d6; }
+    .stat-cell .stat-num.red { color: #dc2626; }
+
+    .counter-value { display: inline; }
+
+    .counter-suffix {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .stat-cell .stat-label {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin: 36px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .section-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .section-tag.amber {
+      background: #2ee5d6;
+      color: #1a1a1a;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .section .section-sub {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    /* ── Lead source table ── */
+    .source-table {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+
+    .source-table-row {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1fr;
+      align-items: center;
+      padding: 14px 20px;
+      border-bottom: 1px solid #f0f0ee;
+      font-size: 14px;
+    }
+
+    .source-table-row.header {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      background: #f9f9f8;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .source-table-row:last-child { border-bottom: none; }
+
+    .source-name {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .source-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .source-icon.cl { background: #9ca3af; color: #fff; }
+    .source-icon.fb { background: #9ca3af; color: #fff; }
+    .source-icon.fsbo { background: #9ca3af; color: #fff; }
+    .source-icon.prob { background: #9ca3af; color: #fff; }
+
+    .source-volume { font-weight: 700; color: #1a1a1a; }
+    .source-quality {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .source-quality.high { background: #1ecab3; color: #fff; }
+    .source-quality.med { background: #80f4f1; color: #1a1a1a; }
+
+    /* ── FSBO snippet ── */
+    .proof-block {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 16px 0;
+    }
+
+    .proof-block .pb-source {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .proof-block .pb-source .pb-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #1ecab3;
+      display: inline-block;
+    }
+
+    .proof-block .pb-listing {
+      background: #f9f9f8;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .proof-block .pb-listing strong {
+      font-style: normal;
+      color: #1a1a1a;
+    }
+
+    .insight-callout {
+      background: #e0f9f8;
+      border: 1px solid #80f4f1;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: #1a5f5b;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .insight-callout .ic-icon {
+      color: #2ee5d6;
+      font-size: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Keyword grid ── */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .keyword-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .keyword-card .kc-icon {
+      width: 34px;
+      height: 34px;
+      background: #1a1a1a;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2ee5d6;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .keyword-card .kc-text {
+      font-weight: 600;
+      color: #1a1a1a;
+      line-height: 1.3;
+    }
+
+    .keyword-card .kc-sub {
+      font-size: 12px;
+      color: #888;
+      font-weight: 400;
+    }
+
+    /* ── AI Intel block ── */
+    .ai-block {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 28px;
+      margin: 20px 0;
+    }
+
+    .ai-block .ai-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2ee5d6;
+      margin-bottom: 14px;
+    }
+
+    .ai-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #2a2a2a;
+      font-size: 14px;
+    }
+
+    .ai-row:last-child { border-bottom: none; }
+
+    .ai-row .ar-keyword {
+      color: #e5e7eb;
+      font-style: italic;
+    }
+
+    .ai-row .ar-signal {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .ar-signal.hot { background: #dc2626; color: #fff; }
+    .ar-signal.warm { background: #1ecab3; color: #fff; }
+
+    /* ── CTA footer ── */
+    .cta-footer {
+      background: #1a1a1a;
+      border-radius: 14px;
+      padding: 48px 40px;
+      margin-top: 40px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .cta-footer .cta-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2ee5d6;
+      margin-bottom: 12px;
+    }
+
+    .cta-footer h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .cta-footer p {
+      color: #aaa;
+      font-size: 15px;
+      margin-bottom: 28px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn-large {
+      display: inline-block;
+      background: #2ee5d6;
+      color: #1a1a1a;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .cta-footer .fine {
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* ── Lead preview + blur ── */
+    .lead-preview-wrapper {
+      position: relative;
+      margin-top: 12px;
+      margin-bottom: 32px;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .lead-preview-list {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .lead-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      border-bottom: 1px solid #f0f0ee;
+      text-align: left;
+    }
+
+    .lead-row:last-child { border-bottom: none; }
+
+    .blurred-row {
+      filter: blur(4px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .lead-signal {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .hot-signal  { background: #dc2626; color: #fff; border: 1px solid #dc2626; }
+    .warm-signal { background: #1ecab3; color: #fff; border: 1px solid #1ecab3; }
+
+    .lead-body { flex: 1; min-width: 0; }
+
+    .lead-title {
+      font-size: 13px;
+      color: #374151;
+      line-height: 1.45;
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+
+    .lead-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .lead-meta span:last-child {
+      color: #2ee5d6;
+      font-weight: 700;
+    }
+
+    .lead-below-cta {
+      border-radius: 0 0 12px 12px;
+      border-top: 1px solid #f0f0ee;
+      opacity: 0.35;
+    }
+
+    .lead-below-cta .blurred-row {
+      filter: blur(6px);
+    }
+
+    .lead-blur-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.88) 28%, #fff 48%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 40px;
+      z-index: 2;
+    }
+
+    .overlay-content {
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .overlay-count {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a5f5b;
+      margin-bottom: 10px;
+    }
+
+    .overlay-content h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .overlay-content p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    /* ── Suite grid ── */
+    .suite-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .suite-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 24px 20px;
+      position: relative;
+    }
+
+    .suite-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: #e8e8e8;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .suite-icon {
+      font-size: 22px;
+      color: #2ee5d6;
+      margin-bottom: 12px;
+    }
+
+    .suite-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .suite-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .suite-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Email form ── */
+    .email-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .email-form input[type="email"] {
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;
+      width: 260px;
+      background: #2a2a2a;
+      color: #fff;
+      outline: none;
+    }
+
+    .email-form input[type="email"]::placeholder { color: #666; }
+
+    .email-form button {
+      background: #2ee5d6;
+      color: #1a1a1a;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* ── Page footer ── */
+    .page-footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    /* ── Map ── */
+    .map-wrapper {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .map-inner {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    #ca-map {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .ca-outline {
+      fill: #f3f4f6;
+      stroke: #d1d5db;
+      stroke-width: 1.5;
+    }
+
+    .heat-dot {
+      opacity: 0.92;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .heat-dot.hot  { fill: #2ee5d6; }
+    .heat-dot.warm { fill: #1ecab3; }
+    .heat-dot.cool { fill: #80f4f1; }
+    .heat-dot.low  { fill: #e0f9f8; stroke: #2ee5d6; stroke-width: 1; }
+
+    .heat-dot:hover { opacity: 1; }
+
+    .pulse-ring {
+      fill: none;
+      stroke: #2ee5d6;
+      stroke-width: 1.5;
+      opacity: 0;
+      animation: pulse-out 2.4s ease-out infinite;
+    }
+
+    .pulse-ring.delay1 {
+      animation-delay: 1.2s;
+    }
+
+    @keyframes pulse-out {
+      0%   { r: 0; opacity: 0.7; }
+      100% { opacity: 0; }
+    }
+
+    .map-label {
+      fill: #1a1a1a;
+      font-size: 9px;
+      font-weight: 800;
+      pointer-events: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .map-sublabel {
+      fill: #555;
+      font-size: 7px;
+      pointer-events: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .map-tooltip {
+      display: none;
+      position: absolute;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      min-width: 190px;
+      pointer-events: none;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+
+    .map-tooltip.visible { display: block; }
+
+    .tt-city {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #2ee5d6;
+    }
+
+    .tt-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 3px 0;
+      font-size: 12px;
+      color: #aaa;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .tt-row:last-child { border-bottom: none; }
+
+    .tt-val {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .map-legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .legend-dot.hot  { background: #2ee5d6; }
+    .legend-dot.warm { background: #1ecab3; }
+    .legend-dot.cool { background: #80f4f1; }
+    .legend-dot.low  { background: #e0f9f8; border: 1px solid #2ee5d6; }
+
+    @media (max-width: 640px) {
+      .stat-row { grid-template-columns: 1fr; }
+      .keyword-grid { grid-template-columns: 1fr; }
+      .agent-meta { gap: 16px; }
+      .hero h1 { font-size: 24px; }
+      .cta-footer { padding: 32px 20px; }
+      .source-table-row { grid-template-columns: 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <a href="https://fountainofscale.com" class="brand">
+      <img src="https://fountainofscale.com/assets/auto-factory.png" alt="Logo" style="width:24px; height:24px; display:inline-block; margin-right:8px;">
+      Fountain of Scale
+    </a>
+    <a href="#email-input" class="cta-top">Get Started</a>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="eyebrow">Pre-Listing Intelligence Report</div>
+    <h1>California's <span>Hidden Inventory Gap</span></h1>
+    <p class="sub">Someone in your market posted "must sell" this morning. They haven't signed with an agent yet. Here's how many you missed this week — and exactly where they are.</p>
+
+    <div class="agent-card">
+      <div class="agent-avatar">[I]</div>
+      <div class="agent-info">
+        <div class="label">Report prepared for</div>
+        <div class="name">[AGENT NAME] · [BROKERAGE]</div>
+      </div>
+    </div>
+
+    <div class="agent-meta">
+      <div class="agent-meta-item">
+        <div class="meta-label">Target Market</div>
+        <div class="meta-val">[ZIP CODES / CITY]</div>
+      </div>
+      <div class="agent-meta-item">
+        <div class="meta-label">Report Period</div>
+        <div class="meta-val">Last 7 Days</div>
+      </div>
+      <div class="agent-meta-item">
+        <div class="meta-label">Sources Scanned</div>
+        <div class="meta-val">15+ Channels</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Hook strip -->
+    <div class="hook-strip">
+      <div class="strip-label">Active Pre-Listing Leads You Missed This Week</div>
+      <h2>
+        <span id="oppCounter" style="font-size:48px; color:#2ee5d6;">0</span>
+        <span style="font-size:32px; font-weight:800;">+ Opportunities Found</span>
+      </h2>
+      <p class="strip-sub">These aren't just "listings" — these are real homeowners on FSBO sites, Craigslist, and local Probate filings who haven't signed with an agent yet. Every day these sit untouched, another agent gets the listing.</p>
+      <p class="strip-caveat">Estimated for [ZIP CODES / CITY] over the past 7 days.</p>
+    </div>
+
+    <!-- California Heatmap -->
+    <div class="section" style="margin-top:0;">
+      <div class="section-header">
+        <span class="section-tag amber">Market Overview</span>
+      </div>
+      <h2>Where the inventory gap is biggest</h2>
+      <p class="section-sub">Lead density across California's major markets this week. Bubble size = lead volume. Glow = activity level.</p>
+
+      <div class="map-wrapper">
+        <div class="map-inner">
+          <svg id="ca-map"></svg>
+          <div class="map-tooltip" id="mapTooltip">
+            <div class="tt-city" id="ttCity">—</div>
+            <div class="tt-row"><span>Leads this week</span><span id="ttLeads" class="tt-val">—</span></div>
+            <div class="tt-row"><span>Est. listing volume</span><span id="ttVol" class="tt-val">—</span></div>
+            <div class="tt-row"><span>Target zips</span><span id="ttZip" class="tt-val">—</span></div>
+          </div>
+        </div>
+        <div class="map-legend">
+          <div class="legend-item"><span class="legend-dot hot"></span> High activity (50+)</div>
+          <div class="legend-item"><span class="legend-dot warm"></span> Active (25–50)</div>
+          <div class="legend-item"><span class="legend-dot cool"></span> Emerging (15–25)</div>
+          <div class="legend-item"><span class="legend-dot low"></span> Low (&lt;15)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead preview + blur CTA -->
+    <div class="lead-preview-wrapper">
+        <div class="lead-preview-list">
+
+          <div class="lead-row blurred-row">
+            <div class="lead-signal hot-signal">Urgent</div>
+            <div class="lead-body">
+              <div class="lead-title">"Job relocation, must sell 3/2 in Torrance within 30 days. Already packed."</div>
+              <div class="lead-meta"><span>Craigslist · FSBO</span><span>Torrance, CA</span><span>$820,000</span></div>
+            </div>
+          </div>
+
+          <div class="lead-row blurred-row">
+            <div class="lead-signal warm-signal">High Intent</div>
+            <div class="lead-body">
+              <div class="lead-title">"Probate sale — 1960s home in Arcadia. Executor motivated to close Q1."</div>
+              <div class="lead-meta"><span>County Probate</span><span>Arcadia, CA</span><span>$980,000</span></div>
+            </div>
+          </div>
+
+          <div class="lead-row blurred-row">
+            <div class="lead-signal hot-signal">Urgent</div>
+            <div class="lead-body">
+              <div class="lead-title">"Must sell. Going through divorce. 4/3 in Northridge. Any reasonable offer."</div>
+              <div class="lead-meta"><span>FSBO Network</span><span>Northridge, CA</span><span>$910,000</span></div>
+            </div>
+          </div>
+
+          <div class="lead-row blurred-row">
+            <div class="lead-signal warm-signal">High Intent</div>
+            <div class="lead-body">
+              <div class="lead-title">"Cash only, fixer upper in Compton. Owner needs to close fast. No contingencies."</div>
+              <div class="lead-meta"><span>Craigslist · FSBO</span><span>Compton, CA</span><span>$498,000</span></div>
+            </div>
+          </div>
+
+          <div class="lead-row blurred-row">
+            <div class="lead-signal hot-signal">Urgent</div>
+            <div class="lead-body">
+              <div class="lead-title">"Relocating internationally. Selling 3/2 townhome in Culver City. Price negotiable."</div>
+              <div class="lead-meta"><span>FSBO Network</span><span>Culver City, CA</span><span>$1.05M</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA floated in the middle of the blur -->
+        <div class="lead-blur-overlay">
+          <div class="overlay-content">
+            <div class="overlay-count">+143 more leads in your market this week</div>
+            <h3>Get your full list every morning at 8am</h3>
+            <p>Delivered as a Google Sheet. Sorted by urgency. Ready to call.</p>
+            <p style="font-size:12px; color:#9ca3af; margin-bottom:16px;">We'll guide you through setup</p>
+            <a href="#email-input" class="cta-btn-large" style="margin-bottom:0; display:inline-block;">Get started</a>
+          </div>
+        </div>
+
+        <!-- More blurred rows below the CTA -->
+        <div class="lead-preview-list lead-below-cta">
+          <div class="lead-row blurred-row">
+            <div class="lead-signal hot-signal">Urgent</div>
+            <div class="lead-body">
+              <div class="lead-title">"Divorce sale — 3/2 in Van Nuys. Need to move fast, price flexible."</div>
+              <div class="lead-meta"><span>FSBO Network</span><span>Van Nuys, CA</span><span>$695,000</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Stats -->
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-num accent">
+          $<span class="counter-value" id="tamCounter">0</span><span class="counter-suffix">M+</span>
+        </div>
+        <div class="stat-label">Potential listing volume off-market<br>in your zip codes right now —<br>with no agent's name on it yet</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num red">
+          <span class="counter-value" id="hourCounter">0</span><span class="counter-suffix">hrs</span>
+        </div>
+        <div class="stat-label">Within this window, another agent<br>has usually already made contact<br>with an FSBO seller</div>
+      </div>
+    </div>
+
+    <!-- Section 1: Source breakdown -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-tag amber">Opportunity Breakdown</span>
+      </div>
+      <h2>Where these leads are hiding — and how many</h2>
+      <p class="section-sub">15+ public channels scanned. You don't pay for a list. You don't hand over credentials. It's all public data, found for you.</p>
+
+      <div class="source-table">
+        <div class="source-table-row header">
+          <div>Source</div>
+          <div>Monthly Posts Across CA</div>
+          <div>Lead Quality</div>
+        </div>
+        <div class="source-table-row">
+          <div class="source-name">
+            <div class="source-icon cl"><i class="fas fa-newspaper"></i></div>
+            Craigslist Real Estate
+          </div>
+          <div class="source-volume">12,500+</div>
+          <div><span class="source-quality high">High</span></div>
+        </div>
+        <div class="source-table-row">
+          <div class="source-name">
+            <div class="source-icon fb"><i class="fab fa-facebook-f"></i></div>
+            Facebook Marketplace
+          </div>
+          <div class="source-volume">25,400+</div>
+          <div><span class="source-quality med">Medium</span></div>
+        </div>
+        <div class="source-table-row">
+          <div class="source-name">
+            <div class="source-icon fsbo"><i class="fas fa-home"></i></div>
+            CA FSBO Networks
+          </div>
+          <div class="source-volume">4,200+</div>
+          <div><span class="source-quality high">High</span></div>
+        </div>
+        <div class="source-table-row">
+          <div class="source-name">
+            <div class="source-icon prob"><i class="fas fa-scale-balanced"></i></div>
+            County Probate Dockets
+          </div>
+          <div class="source-volume">1,800+</div>
+          <div><span class="source-quality high">High</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Proof of concept -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-tag">Live Example</span>
+      </div>
+      <h2>What a real lead looks like</h2>
+      <p class="section-sub">Found this week. Public posting. No data purchased.</p>
+
+      <div class="proof-block">
+        <div class="pb-source">
+          <span class="pb-dot"></span>
+          Source: Craigslist · FSBO · [TARGET CITY]
+        </div>
+        <div class="pb-listing">
+          <strong>"Moving to Texas next month, need to sell my 3-bed in Pasadena. No agents please."</strong>
+          <br><br>
+          Asking $680k, will negotiate. House needs some work but priced to move fast. Serious buyers only. We can close in 30 days.
+        </div>
+        <div class="insight-callout">
+          <span class="ic-icon"><i class="fas fa-lightbulb"></i></span>
+          <span>
+            <strong>The Insight:</strong> "No agents please" isn't a hard no — it's a cost objection. Industry data shows 80% of FSBO sellers end up listing with an agent anyway. This seller is time-pressured, has a hard deadline, and is already negotiating with themselves on price. That's a listing waiting to be claimed. Most agents never see it.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: AI keyword intelligence -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-tag amber">AI Intelligence</span>
+      </div>
+      <h2>The "motivated seller" signals your AI scans for</h2>
+      <p class="section-sub">These are the phrases that flag a lead as high-priority.</p>
+
+      <div class="keyword-grid">
+        <div class="keyword-card">
+          <div class="kc-icon"><i class="fas fa-briefcase"></i></div>
+          <div>
+            <div class="kc-text">"Moving due to job / relocating"</div>
+            <div class="kc-sub">Hard deadline. Motivated to close fast.</div>
+          </div>
+        </div>
+        <div class="keyword-card">
+          <div class="kc-icon"><i class="fas fa-file-signature"></i></div>
+          <div>
+            <div class="kc-text">"Inherited property"</div>
+            <div class="kc-sub">No emotional attachment. Price-flexible.</div>
+          </div>
+        </div>
+        <div class="keyword-card">
+          <div class="kc-icon"><i class="fas fa-calendar-xmark"></i></div>
+          <div>
+            <div class="kc-text">"Must sell by [date]"</div>
+            <div class="kc-sub">Urgency is stated. Act within 48 hours.</div>
+          </div>
+        </div>
+        <div class="keyword-card">
+          <div class="kc-icon"><i class="fas fa-hammer"></i></div>
+          <div>
+            <div class="kc-text">"Cash only / Fixer upper / As-is"</div>
+            <div class="kc-sub">Priced below market. High conversion rate.</div>
+          </div>
+        </div>
+        <div class="keyword-card">
+          <div class="kc-icon"><i class="fas fa-key"></i></div>
+          <div>
+            <div class="kc-text">"Tired of managing tenants"</div>
+            <div class="kc-sub">Landlord exit. Often multiple properties.</div>
+          </div>
+        </div>
+        <div class="keyword-card">
+          <div class="kc-icon"><i class="fas fa-dollar-sign"></i></div>
+          <div>
+            <div class="kc-text">"Price reduced / Need to sell fast"</div>
+            <div class="kc-sub">Already negotiating with themselves.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-block" style="margin-top: 20px;">
+        <div class="ai-label">How leads get ranked before they hit your sheet</div>
+        <div class="ai-row">
+          <span class="ar-keyword">"Moving to Texas next month, must sell"</span>
+          <span class="ar-signal hot">Urgent</span>
+        </div>
+        <div class="ai-row">
+          <span class="ar-keyword">"Inherited from parents, priced to move"</span>
+          <span class="ar-signal hot">Urgent</span>
+        </div>
+        <div class="ai-row">
+          <span class="ar-keyword">"Fixer upper, as-is, cash preferred"</span>
+          <span class="ar-signal warm">High Intent</span>
+        </div>
+        <div class="ai-row">
+          <span class="ar-keyword">"Tired landlord, selling rental portfolio"</span>
+          <span class="ar-signal warm">High Intent</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-tag amber">Your 3-in-1 AI Admin Suite</span>
+      </div>
+      <h2>We don't just find the data. Our automation does the work for you.</h2>
+      <p class="section-sub">Once you're set up, your AI assistant handles the entire backend — behind a secure Google Drive barrier. No logins shared. No passwords handed over.</p>
+
+      <div class="suite-grid">
+        <div class="suite-card">
+          <div class="suite-num">01</div>
+          <div class="suite-icon"><i class="fas fa-binoculars"></i></div>
+          <div class="suite-title">The Lead Scout</div>
+          <div class="suite-desc">Delivers your 8am list of off-market sellers — FSBO, Probate, Craigslist — straight to your Google Sheet. Sorted by urgency. Ready to call.</div>
+        </div>
+        <div class="suite-card">
+          <div class="suite-num">02</div>
+          <div class="suite-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <div class="suite-title">The 5-Minute Researcher</div>
+          <div class="suite-desc">Drop an address into a folder. The AI instantly drafts a summary of local school scores and neighborhood trends — ready for your listing presentation.</div>
+        </div>
+        <div class="suite-card">
+          <div class="suite-num">03</div>
+          <div class="suite-icon"><i class="fas fa-pen-nib"></i></div>
+          <div class="suite-title">The Content Autopilot</div>
+          <div class="suite-desc">Feed it property specs. It writes your MLS description, Facebook post, and email newsletter — so you stay top-of-mind without the burnout.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="cta-footer" id="cta">
+      <div class="cta-eyebrow">Takes 5 minutes to set up</div>
+      <h2>Stop manually hunting.<br>Get the list delivered.</h2>
+      <p>You might have questions on what running it looks like. Drop your email and we'll reach out within 24 hours.</p>
+      <form class="email-form" id="contact-form">
+        <input id="email-input" type="email" placeholder="Your email" required />
+        <button type="submit">Get Started</button>
+      </form>
+      <div class="fine">Limited spots</div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    Lead data estimated for [ZIP CODES / CITY] · Report prepared by Opportunity Radar · <a href="#" style="color:#bbb;">opportunityradar.io</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Opportunities found counter
+      gsap.to({ value: 0 }, {
+        value: 147,
+        duration: 2.8,
+        snap: { value: 1 },
+        ease: "power2.out",
+        onUpdate: function () {
+          document.getElementById('oppCounter').textContent = Math.floor(this.targets()[0].value);
+        }
+      });
+
+      // TAM counter ($25M)
+      gsap.to({ value: 0 }, {
+        value: 25,
+        duration: 2.6,
+        snap: { value: 1 },
+        ease: "power2.out",
+        onUpdate: function () {
+          document.getElementById('tamCounter').textContent = Math.floor(this.targets()[0].value);
+        }
+      });
+
+      // Hours counter (72 hours)
+      gsap.to({ value: 0 }, {
+        value: 72,
+        duration: 2.4,
+        snap: { value: 1 },
+        ease: "power2.out",
+        onUpdate: function () {
+          document.getElementById('hourCounter').textContent = Math.floor(this.targets()[0].value);
+        }
+      });
+
+      // ── D3 California county map ──
+      const metros = [
+        { city: 'Los Angeles',   leads: 84, vol: '$48M', zip: '90001–91609', lon: -118.24, lat: 34.05,  tier: 'hot'  },
+        { city: 'Bay Area',      leads: 52, vol: '$71M', zip: '94102–95035', lon: -122.42, lat: 37.77,  tier: 'hot'  },
+        { city: 'San Diego',     leads: 38, vol: '$29M', zip: '92101–92199', lon: -117.16, lat: 32.72,  tier: 'warm' },
+        { city: 'Inland Empire', leads: 31, vol: '$18M', zip: '92201–92599', lon: -117.37, lat: 33.98,  tier: 'warm' },
+        { city: 'Orange County', leads: 29, vol: '$22M', zip: '92602–92899', lon: -117.83, lat: 33.68,  tier: 'warm' },
+        { city: 'Sacramento',    leads: 24, vol: '$14M', zip: '94203–95899', lon: -121.49, lat: 38.58,  tier: 'cool' },
+        { city: 'Fresno',        leads: 18, vol: '$9M',  zip: '93650–93799', lon: -119.79, lat: 36.74,  tier: 'cool' },
+        { city: 'San Jose',      leads: 22, vol: '$31M', zip: '95101–95199', lon: -121.89, lat: 37.34,  tier: 'cool' },
+        { city: 'Ventura',       leads: 14, vol: '$11M', zip: '93001–93099', lon: -119.29, lat: 34.27,  tier: 'low'  },
+        { city: 'Bakersfield',   leads: 11, vol: '$7M',  zip: '93301–93399', lon: -119.02, lat: 35.37,  tier: 'low'  },
+      ];
+
+      const tierColor = { hot: '#2ee5d6', warm: '#1ecab3', cool: '#80f4f1', low: '#e0f9f8' };
+      const radiusScale = d3.scaleSqrt().domain([0, 84]).range([0, 26]);
+
+      const W = document.querySelector('.map-inner').clientWidth || 360;
+      const H = Math.round(W * 1.45);
+
+      const svg = d3.select('#ca-map')
+        .attr('width', W)
+        .attr('height', H)
+        .attr('viewBox', `0 0 ${W} ${H}`);
+
+      // Defs for glow filter
+      const defs = svg.append('defs');
+      const filter = defs.append('filter').attr('id', 'glow');
+      filter.append('feGaussianBlur').attr('stdDeviation', '4').attr('result', 'coloredBlur');
+      const feMerge = filter.append('feMerge');
+      feMerge.append('feMergeNode').attr('in', 'coloredBlur');
+      feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+
+      const projection = d3.geoAlbers()
+        .rotate([120, 0])
+        .center([0, 37.5])
+        .parallels([34, 40.5])
+        .scale(W * 4.8)
+        .translate([W / 2, H / 2]);
+
+      const path = d3.geoPath().projection(projection);
+
+      fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json')
+        .then(r => r.json())
+        .then(us => {
+          const counties = topojson.feature(us, us.objects.counties);
+          const caCounties = {
+            type: 'FeatureCollection',
+            features: counties.features.filter(d => d.id.toString().startsWith('06'))
+          };
+
+          const stateOutline = topojson.merge(us, us.objects.counties.geometries.filter(d => d.id.toString().startsWith('06')));
+
+          // County fills — base
+          svg.append('g').selectAll('path')
+            .data(caCounties.features)
+            .join('path')
+            .attr('d', path)
+            .attr('fill', '#f3f4f6')
+            .attr('stroke', '#d1d5db')
+            .attr('stroke-width', 0.5);
+
+          // State border
+          svg.append('path')
+            .datum(stateOutline)
+            .attr('d', path)
+            .attr('fill', 'none')
+            .attr('stroke', '#9ca3af')
+            .attr('stroke-width', 1.5);
+
+          // Pulse rings
+          const pulseG = svg.append('g');
+          metros.forEach(m => {
+            const [px, py] = projection([m.lon, m.lat]);
+            const r = radiusScale(m.leads);
+            [0, 1].forEach(i => {
+              pulseG.append('circle')
+                .attr('cx', px).attr('cy', py)
+                .attr('r', r)
+                .attr('fill', 'none')
+                .attr('stroke', tierColor[m.tier])
+                .attr('stroke-width', 1.5)
+                .style('animation', `pulse-out 2.4s ease-out ${i * 1.2}s infinite`);
+            });
+          });
+
+          // Hotspot dots
+          const tooltip   = document.getElementById('mapTooltip');
+          const mapInner  = document.querySelector('.map-inner');
+
+          const dotG = svg.append('g');
+          metros.forEach(m => {
+            const [px, py] = projection([m.lon, m.lat]);
+            const r = radiusScale(m.leads);
+
+            const g = dotG.append('g').style('cursor', 'pointer');
+
+            g.append('circle')
+              .attr('cx', px).attr('cy', py).attr('r', r)
+              .attr('fill', tierColor[m.tier])
+              .attr('opacity', 0.88)
+              .attr('filter', 'url(#glow)');
+
+            const label = m.city.length > 10 ? m.city.split(' ')[0] : m.city;
+            g.append('text')
+              .attr('x', px).attr('y', py - 1)
+              .attr('text-anchor', 'middle')
+              .attr('dominant-baseline', 'middle')
+              .attr('font-size', Math.max(7, r * 0.55))
+              .attr('font-weight', '800')
+              .attr('fill', '#1a1a1a')
+              .attr('pointer-events', 'none')
+              .text(label);
+
+            g.on('mouseenter', function(e) {
+              document.getElementById('ttCity').textContent  = m.city;
+              document.getElementById('ttLeads').textContent = m.leads + ' leads';
+              document.getElementById('ttVol').textContent   = m.vol;
+              document.getElementById('ttZip').textContent   = m.zip;
+              tooltip.classList.add('visible');
+            })
+            .on('mousemove', function(e) {
+              const rect = mapInner.getBoundingClientRect();
+              let x = e.clientX - rect.left + 14;
+              let y = e.clientY - rect.top + 14;
+              if (x + 210 > rect.width) x = e.clientX - rect.left - 220;
+              tooltip.style.left = x + 'px';
+              tooltip.style.top  = y + 'px';
+            })
+            .on('mouseleave', function() {
+              tooltip.classList.remove('visible');
+            });
+          });
+        });
+
+      // Form submission handler
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const email = document.getElementById('email-input').value;
+          const agentId = window.AGENT_ID || form.dataset.agentId;
+
+          try {
+            const res = await fetch('/api/contact-real-estate-report', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, agentId }),
+            });
+
+            if (res.ok) {
+              document.getElementById('email-input').value = '';
+              alert('Thanks! We\'ll be in touch within 24 hours.');
+            } else {
+              alert('Error submitting form. Please try again.');
+            }
+          } catch (error) {
+            console.error('Form submission error:', error);
+            alert('Error submitting form. Please try again.');
+          }
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>
