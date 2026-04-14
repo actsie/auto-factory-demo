@@ -59,7 +59,7 @@ export default async function ReportPage({ params }: Props) {
         </p>
 
         <div style={{ display: "inline-flex", alignItems: "center", gap: "16px", background: "#2a2a2a", border: "1px solid #333", borderRadius: "10px", padding: "16px 24px", textAlign: "left" }}>
-          <div style={{ minWidth: "44px", height: "44px", background: report.logoNeedsBg ? "#fff" : "transparent", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: 700, color: "#1a1a1a", padding: report.logoNeedsBg ? "8px 12px" : "0" }}>
+          <div style={{ minWidth: (clientId === "aethero" || clientId === "azalea-robotics") ? "60px" : "44px", height: (clientId === "aethero" || clientId === "azalea-robotics") ? "60px" : "44px", background: report.logoNeedsBg ? "#fff" : "transparent", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: 700, color: "#1a1a1a", padding: report.logoNeedsBg ? "8px 12px" : "0" }}>
             <img src={report.logo} alt={report.company} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
           </div>
           <div>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 547.32 91.57">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #88cde8;
+      }
+
+      .cls-2 {
+        fill: #344e59;
+      }
+
+      .cls-3 {
+        fill: #88cde9;
+      }
+
+      .cls-4 {
+        fill: #d2d2d2;
+      }
+    </style>
+  </defs>
+  <g id="O_color_redesign_" data-name="O (color redesign)">
+    <ellipse id="Shadow" class="cls-2" cx="505.05" cy="49.3" rx="41.01" ry="41.13"/>
+    <ellipse id="Inner_Elipse" data-name="Inner Elipse" class="cls-4" cx="535.67" cy="79.99" rx="11.39" ry="11.44"/>
+    <path id="Outer_Elipse" data-name="Outer Elipse" class="cls-3" d="M505.1,90.43c-22.63,0-40.97-18.41-40.97-41.13s18.34-41.13,40.97-41.13,40.97,18.41,40.97,41.13c0,8.4-2.52,16.2-6.82,22.7,5.09-7.35,8.08-16.27,8.08-25.9,0-25.11-20.28-45.47-45.29-45.47s-45.29,20.36-45.29,45.47,20.28,45.47,45.29,45.47c9.39,0,18.12-2.87,25.35-7.79-6.42,4.19-14.06,6.64-22.28,6.64Z"/>
+  </g>
+  <g id="R_black_" data-name="R (black)">
+    <polygon points="393.83 40.33 393.83 40.31 389.56 40.31 389.56 40.33 385.08 40.33 385.08 90.5 393.83 90.5 393.83 77.65 393.83 40.33"/>
+    <path d="M445.88,90.85l-19.59-42.95c1-.4,2.42-.98,3.33-1.52,3.49-2.09,5.77-4.43,7.72-8.19,1.96-3.76,2.94-8.14,2.94-13.15s-.97-9.44-2.91-13.18c-1.94-3.74-4.66-6.65-8.17-8.74-3.51-2.09-7.61-3.13-12.3-3.13h-31.83v8.67h4.32s.9,0,.9,0c0,0,17.97-.03,24.38.03,1.08.01,3.84-.18,6.86.43,4.11.83,6.5,4,7.37,5.25,1.96,2.81,2.69,6.15,2.69,10.76-.04,4.61-.73,8.46-3.19,11.31s-5.92,3.68-11.06,3.86h-14.86v8.7s14.53,0,14.53,0l19.31,41.85h9.55Z"/>
+  </g>
+  <g id="E2_color_" data-name="E2 (color)">
+    <rect id="bottom_bar" data-name="bottom bar" class="cls-1" x="316.16" y="82.04" width="52.61" height="8.71"/>
+    <rect id="middle_bar" data-name="middle bar" class="cls-1" x="316.11" y="41.23" width="52.61" height="8.71"/>
+    <rect id="top_bar" data-name="top bar" class="cls-1" x="316.16" y=".07" width="52.61" height="8.71"/>
+  </g>
+  <path id="H_black_" data-name="H (black)" d="M237.38,90.71V.12h8.71v90.59h-8.71ZM254.8,50.12v-8.85h38.03v8.85h-38.03ZM291.15,90.7V.12h8.65v90.59h-8.65Z"/>
+  <path id="T_black_" data-name="T (black)" d="M155.96,8.75V.04h65.14v8.71h-65.14ZM184.11,90.63V4.33h8.71v86.3h-8.71Z"/>
+  <g id="E1_color_" data-name="E1 (color)">
+    <rect id="bottom_bar-2" data-name="bottom bar" class="cls-1" x="87.08" y="82" width="52.61" height="8.71"/>
+    <rect id="middle_bar-2" data-name="middle bar" class="cls-1" x="87.04" y="41.19" width="52.61" height="8.71"/>
+    <rect id="top_bar-2" data-name="top bar" class="cls-1" x="87.08" y=".03" width="52.61" height="8.71"/>
+  </g>
+  <path id="A_black_" data-name="A (black)" d="M0,90.63L30.75.07h9.22l30.79,90.55h-9.22L35.35,13.52,9.16,90.63H0ZM15.66,61.31v-8.65h26.76v8.65H15.66Z"/>
+</svg>
