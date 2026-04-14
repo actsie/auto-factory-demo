@@ -259,7 +259,7 @@ export default async function ReportPage({ params }: Props) {
           </div>
           <h2 style={{ fontSize: "26px", fontWeight: 800, marginBottom: "10px", lineHeight: "1.2" }}>Ready to own your website?</h2>
           <p style={{ color: "#aaa", fontSize: "15px", marginBottom: "28px", maxWidth: "440px", marginLeft: "auto", marginRight: "auto" }}>
-            You might have questions on what running it looks like. Drop your email and we'll reach out within 24 hours.
+            After submitting, we'll ask you a few quick questions about your site. We use your answers to prep before we start.
           </p>
           <form id="ctaForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginBottom: "16px" }}>
             <input id="ctaEmailField" type="email" placeholder="Your email" required style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "280px", background: "#2a2a2a", color: "#fff", outline: "none" }} />
@@ -267,7 +267,7 @@ export default async function ReportPage({ params }: Props) {
               Start my migration
             </button>
           </form>
-          <div style={{ fontSize: "12px", color: "#555" }}>Limited spots</div>
+          <div style={{ fontSize: "12px", color: "#888", marginTop: "12px", lineHeight: "1.5" }}>After submitting, we'll ask you 5 quick questions about your site. We use your answers to prep before we start.</div>
         </div>
       </div>
 
@@ -523,6 +523,47 @@ export default async function ReportPage({ params }: Props) {
                           origin: { y: 0.6 }
                         });
                       }
+
+                      // Show modal after 500ms
+                      setTimeout(() => {
+                        const modal = document.createElement('div');
+                        modal.id = 'surveyModal';
+                        modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;';
+
+                        const modalContent = document.createElement('div');
+                        modalContent.style.cssText = 'background: #fff; border-radius: 12px; padding: 40px; max-width: 400px; text-align: center;';
+
+                        const checkmark = document.createElement('div');
+                        checkmark.style.cssText = 'font-size: 32px; margin-bottom: 16px;';
+                        checkmark.textContent = '✓';
+
+                        const title = document.createElement('h3');
+                        title.style.cssText = 'font-size: 20px; font-weight: 800; margin-bottom: 12px; color: #1a1a1a;';
+                        title.textContent = 'Thanks!';
+
+                        const desc = document.createElement('p');
+                        desc.style.cssText = 'font-size: 14px; color: #666; margin-bottom: 28px; line-height: 1.6;';
+                        desc.textContent = '8 quick questions about your site so we can prep before we start.';
+
+                        const link = document.createElement('a');
+                        link.href = 'https://forms.gle/Xr7CmjGEB1Hsmd6y5';
+                        link.target = '_blank';
+                        link.style.cssText = 'display: inline-block; background: #2ee5d6; color: #1a1a1a; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 14px; cursor: pointer;';
+                        link.textContent = 'Answer Questions →';
+
+                        modalContent.appendChild(checkmark);
+                        modalContent.appendChild(title);
+                        modalContent.appendChild(desc);
+                        modalContent.appendChild(link);
+                        modal.appendChild(modalContent);
+
+                        document.body.appendChild(modal);
+
+                        // Close modal on background click
+                        modal.addEventListener('click', function(e) {
+                          if (e.target === modal) modal.remove();
+                        });
+                      }, 500);
 
                       setTimeout(() => {
                         ctaBtn.disabled = false;
