@@ -125,12 +125,12 @@ export const reports: Report[] = [
     hostingCost: 75,
     waitDays: 3,
     aiExamples: {
-      prompt1: "Change the headline from 'Revenue health for a modern sales team' to something about fixing rep turnover or quota miss",
-      result1: "✓ Headline updated to 'Stop losing reps. Build teams that stay.'",
-      prompt2: "Group the 4 services (Bootcamps, Workshops, Consulting, Sales Media) by problem they solve instead of listing them equally",
-      result2: "✓ Services reorganized by buyer pain point + clear which service solves what",
-      prompt3: "Change the 'Learn more' and 'Take the first step' buttons to specific actions for each service type",
-      result3: "✓ CTAs updated per service ('See bootcamp demo', 'Book consulting call', 'View media sample')"
+      prompt1: "The headline 'Revenue health for a modern sales team' is vague. Make it about what we actually fix — rep turnover or quota miss",
+      result1: "✓ Headline changed from 'Revenue health for a modern sales team' to 'Stop losing reps. Build teams that stay.'",
+      prompt2: "The service section lists all 4 offerings equally. Group them by the problem they solve so it's clear which fixes turnover, quota, or rep confidence",
+      result2: "✓ Services reorganized into 3 problem-focused groups with subheadings ('Retention', 'Performance', 'Sales Acceleration')",
+      prompt3: "Each service card has a generic 'Learn more' button. Change them to show what the person will actually see, like 'See bootcamp demo' for Bootcamps",
+      result3: "✓ Button text updated per service card: Bootcamps → 'See bootcamp demo', Consulting → 'Get proposal', Media → 'View sample'"
     }
   },
   {
