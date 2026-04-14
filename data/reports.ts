@@ -113,5 +113,24 @@ export const reports: Report[] = [
       prompt3: "Make our partnership model clearer — who we work with, what we actually provide, how founders reach us",
       result3: "✓ Partnership overview rewritten + updated CTA + founder testimonial section ready"
     }
+  },
+  {
+    id: "the-sales-doctor",
+    company: "The Sales Doctor",
+    logo: "/assets/reports/the-sales-doctor/logo.svg",
+    logoNeedsBg: true,
+    url: "https://www.thesalesdocrx.com/",
+    industry: "Sales Training & Enablement",
+    pages: 9,
+    hostingCost: 75,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Our 'Revenue health for a modern sales team' headline is jargon-heavy — rewrite for VP Sales and Sales Ops pain points (turnover, quota, rep confidence)",
+      result1: "✓ 3 persona-specific headlines (VP Sales, Sales Ops Manager, Sales Director) with subheadings anchored to measurable outcomes",
+      prompt2: "We have 4 services (Bootcamps, Workshops, Consulting, Sales Media) but prospects don't know which solves their problem — clarify as Problem → Solution",
+      result2: "✓ Service descriptions rewritten as problem-solution pairs. 3 buyer personas mapped to services with use-case copy",
+      prompt3: "Our CTAs are vague ('Learn more', 'Take the first step') — make them specific and action-oriented per service",
+      result3: "✓ 6 service-specific CTAs ready ('Schedule bootcamp for your team', 'Book consulting intro call', 'Get sales media sample')"
+    }
   }
 ];
