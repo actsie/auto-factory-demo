@@ -132,5 +132,24 @@ export const reports: Report[] = [
       prompt3: "Our CTAs are vague ('Learn more', 'Take the first step') — make them specific and action-oriented per service",
       result3: "✓ 6 service-specific CTAs ready ('Schedule bootcamp for your team', 'Book consulting intro call', 'Get sales media sample')"
     }
+  },
+  {
+    id: "vom",
+    company: "Vom",
+    logo: "/assets/reports/vom/logo.png",
+    logoNeedsBg: false,
+    url: "https://www.vomdecision.com/",
+    industry: "FinTech / Decision Intelligence",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Our headline 'The decision platform for fast-moving risk strategies' is jargon-heavy for non-technical buyers. Make it clear what we solve without the industry lingo.",
+      result1: "✓ 3 buyer-focused headlines (Credit Leaders: 'Update risk policies in hours, not weeks', Ops Teams: 'Centralize decision logic across all systems', Compliance: 'Stay audit-ready while adapting policies')",
+      prompt2: "We have 5 use cases (Underwriting, KYC, Anti-fraud, AML, Pricing) but prospects don't know which applies to them. Organize by persona with recommended starting point.",
+      result2: "✓ Use cases restructured by 3 personas (Credit Teams, Compliance/Risk Teams, Operations). Entry point recommendations showing which use case to start with per role",
+      prompt3: "Our CTAs are generic ('Book a meeting', 'Book a demo'). Make them specific to pain points and clear on what the prospect will see.",
+      result3: "✓ 5 persona-specific CTAs ('See how policy updates went from weeks to hours', 'Watch live KYC automation demo', 'See fraud rules in action', 'Schedule compliance review call')"
+    }
   }
 ];
