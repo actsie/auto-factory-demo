@@ -125,12 +125,12 @@ export const reports: Report[] = [
     hostingCost: 75,
     waitDays: 3,
     aiExamples: {
-      prompt1: "Our 'Revenue health for a modern sales team' headline is jargon-heavy — rewrite for VP Sales and Sales Ops pain points (turnover, quota, rep confidence)",
-      result1: "✓ 3 persona-specific headlines (VP Sales, Sales Ops Manager, Sales Director) with subheadings anchored to measurable outcomes",
-      prompt2: "We have 4 services (Bootcamps, Workshops, Consulting, Sales Media) but prospects don't know which solves their problem — clarify as Problem → Solution",
-      result2: "✓ Service descriptions rewritten as problem-solution pairs. 3 buyer personas mapped to services with use-case copy",
-      prompt3: "Our CTAs are vague ('Learn more', 'Take the first step') — make them specific and action-oriented per service",
-      result3: "✓ 6 service-specific CTAs ready ('Schedule bootcamp for your team', 'Book consulting intro call', 'Get sales media sample')"
+      prompt1: "Change the headline from 'Revenue health for a modern sales team' to something about fixing rep turnover or quota miss",
+      result1: "✓ Headline updated to 'Stop losing reps. Build teams that stay.'",
+      prompt2: "Group the 4 services (Bootcamps, Workshops, Consulting, Sales Media) by problem they solve instead of listing them equally",
+      result2: "✓ Services reorganized by buyer pain point + clear which service solves what",
+      prompt3: "Change the 'Learn more' and 'Take the first step' buttons to specific actions for each service type",
+      result3: "✓ CTAs updated per service ('See bootcamp demo', 'Book consulting call', 'View media sample')"
     }
   },
   {
