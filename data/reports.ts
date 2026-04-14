@@ -121,7 +121,7 @@ export const reports: Report[] = [
     logoNeedsBg: true,
     url: "https://www.thesalesdocrx.com/",
     industry: "Sales Training & Enablement",
-    pages: 9,
+    pages: 18,
     hostingCost: 75,
     waitDays: 3,
     aiExamples: {
