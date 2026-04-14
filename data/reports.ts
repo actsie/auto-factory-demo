@@ -140,7 +140,7 @@ export const reports: Report[] = [
     logoNeedsBg: false,
     url: "https://www.vomdecision.com/",
     industry: "FinTech / Decision Intelligence",
-    pages: 8,
+    pages: 1,
     hostingCost: 50,
     waitDays: 3,
     aiExamples: {
