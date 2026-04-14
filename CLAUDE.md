@@ -47,3 +47,33 @@ To create a personalized version of the landing page for a new company:
 - `data/faqs.ts` — FAQ
 - `data/team.ts` — team bios + LinkedIn links
 - `app/opengraph-image.tsx` — dynamic OG image
+
+## Insight Reports — AI Examples Standard
+
+When creating insight reports, all 3 AI examples must follow this format:
+
+**Prompt (You say):**
+- Sounds like a founder talking to a developer
+- States the problem, then the specific action
+- Conversational, plain English, no jargon
+- One specific thing per example
+
+**Result (✓ outcome):**
+- Shows what actually changed (past tense)
+- Includes before → after, not just "updated"
+- Shows where it changed (section/component)
+- Specific enough to screenshot
+
+### ✅ Good Example
+```
+prompt: "The 'Book a meeting' button is generic. Change it to show what they'll actually see"
+result: "✓ Button text changed from 'Book a meeting' to 'See policy updates live' in hero and nav"
+```
+
+### ❌ Bad Example
+```
+prompt: "Create persona-based CTAs for each buyer type"
+result: "✓ CTAs updated for personas"
+```
+
+**Before pushing: Verify all 3 examples against the checklist in your memory.**
