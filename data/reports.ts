@@ -136,7 +136,7 @@ export const reports: Report[] = [
   {
     id: "vom",
     company: "Vom",
-    logo: "/assets/reports/vom/logo.png",
+    logo: "/assets/reports/vom/logo.jpeg",
     logoNeedsBg: false,
     url: "https://www.vomdecision.com/",
     industry: "FinTech / Decision Intelligence",
@@ -144,12 +144,12 @@ export const reports: Report[] = [
     hostingCost: 50,
     waitDays: 3,
     aiExamples: {
-      prompt1: "Our headline 'The decision platform for fast-moving risk strategies' is jargon-heavy for non-technical buyers. Make it clear what we solve without the industry lingo.",
-      result1: "✓ 3 buyer-focused headlines (Credit Leaders: 'Update risk policies in hours, not weeks', Ops Teams: 'Centralize decision logic across all systems', Compliance: 'Stay audit-ready while adapting policies')",
-      prompt2: "We have 5 use cases (Underwriting, KYC, Anti-fraud, AML, Pricing) but prospects don't know which applies to them. Organize by persona with recommended starting point.",
-      result2: "✓ Use cases restructured by 3 personas (Credit Teams, Compliance/Risk Teams, Operations). Entry point recommendations showing which use case to start with per role",
-      prompt3: "Our CTAs are generic ('Book a meeting', 'Book a demo'). Make them specific to pain points and clear on what the prospect will see.",
-      result3: "✓ 5 persona-specific CTAs ('See how policy updates went from weeks to hours', 'Watch live KYC automation demo', 'See fraud rules in action', 'Schedule compliance review call')"
+      prompt1: "Change the headline from 'The decision platform for fast-moving risk strategies' to something about updating policies faster",
+      result1: "✓ Headline updated to 'Update risk policies in hours, not weeks'",
+      prompt2: "Group the 5 use cases into 3 sections by persona instead of equal tabs",
+      result2: "✓ Use cases reorganized into 3 visible persona sections",
+      prompt3: "Change the 'Book a demo' button to 'See policy updates live' on the hero section",
+      result3: "✓ CTA updated across hero and use cases section"
     }
   }
 ];
