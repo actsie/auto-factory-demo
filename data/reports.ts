@@ -324,6 +324,576 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "cardinal-biocraft",
+    company: "Cardinal Biocraft",
+    logo: "/assets/reports/cardinal-biocraft/logo.svg",
+    logoNeedsBg: false,
+    url: "https://cardinalbiocraft.com",
+    industry: "Synthetic Biology / Biotech",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change the hero from 'Innovative Platform for Engineering Microbial Cells' to something that leads with what the cells produce",
+      result1: "✓ Hero updated to 'Engineering Microbes That Make the Molecules You Need'",
+      prompt2: "Reorder the three platform steps — Understand, Rewire, Make — so each one has a one-line outcome below it",
+      result2: "✓ Platform section updated with outcome lines under each step",
+      prompt3: "Change 'Join the Team' to 'See Open Roles'",
+      result3: "✓ CTA changed from 'Join the Team' to 'See Open Roles' in hero and nav"
+    }
+  },
+  {
+    id: "cisterna-biologics",
+    company: "Cisterna Biologics",
+    logo: "/assets/reports/cisterna-biologics/logo.svg",
+    logoNeedsBg: false,
+    url: "https://cisternabx.com",
+    industry: "Biotech / RNA Therapeutics",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to lead with what SPECC solves, not just what it is",
+      result1: "✓ Hero updated to 'RNA That's Purer, Faster, and Ready to Scale'",
+      prompt2: "Add a short section under 'Why does RNA purity matter?' that explains the downstream impact on patient outcomes",
+      result2: "✓ Downstream impact callout added connecting purity to therapeutic efficacy",
+      prompt3: "Change 'Learn More' to 'Request a Sample'",
+      result3: "✓ CTA changed from 'Learn More' to 'Request a Sample' in hero and technology section"
+    }
+  },
+  {
+    id: "clear-current",
+    company: "Clear Current",
+    logo: "/assets/reports/clear-current/logo.svg",
+    logoNeedsBg: false,
+    url: "https://clearcurrent.ai",
+    industry: "AI / Energy Management",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero from 'Energy management for the AI age' to something that leads with the invoice variance detection",
+      result1: "✓ Hero updated to 'Identify Utility Invoice Errors Instantly — and Reclaim the Overspend'",
+      prompt2: "Add a section showing the 3 outcomes: Centralized Information → Informed Decisions → Identified Variances",
+      result2: "✓ Outcome flow section added between hero and features",
+      prompt3: "Change 'Get In Touch' to 'See a Demo'",
+      result3: "✓ CTA changed from 'Get In Touch' to 'See a Demo' in hero and nav"
+    }
+  },
+  {
+    id: "crave-robotics",
+    company: "Crave Robotics",
+    logo: "/assets/reports/crave-robotics/logo.svg",
+    logoNeedsBg: false,
+    url: "https://craverobotics.co",
+    industry: "Robotics / Food Service Automation",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change the hero from 'Making automated meals delicious and accessible' to something that leads with the 24/7 availability angle",
+      result1: "✓ Hero updated to 'Hot Meals. 24/7. No Staff Required.'",
+      prompt2: "Add a section showing how the vendor-managed model works — what operators don't have to do",
+      result2: "✓ Turnkey operations section added: Crave handles install, restocking, and maintenance",
+      prompt3: "Change 'Learn More' to 'Get a CraveBot'",
+      result3: "✓ CTA changed from 'Learn More' to 'Get a CraveBot' in hero and product section"
+    }
+  },
+  {
+    id: "displayride",
+    company: "DisplayRide Inc",
+    logo: "/assets/reports/displayride/logo.svg",
+    logoNeedsBg: false,
+    url: "https://displayride.com",
+    industry: "Risk Management / Gig Mobility",
+    pages: 11,
+    hostingCost: 55,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero from 'The World's Most Advanced Risk Management Platform for Gig Mobility' to something shorter that leads with the outcome",
+      result1: "✓ Hero updated to 'Stop Risk Before It Becomes a Claim'",
+      prompt2: "Add a section showing the 4 risk management steps — Deter, Mitigate, Document, Analytics — with a one-line description each",
+      result2: "✓ Risk framework section added with icons and outcome descriptions",
+      prompt3: "Change 'Explore Solutions' to 'See It in Action'",
+      result3: "✓ CTA changed from 'Explore Solutions' to 'See It in Action' in hero and nav"
+    }
+  },
+  {
+    id: "dive-lungfish",
+    company: "Dive Lungfish",
+    logo: "/assets/reports/dive-lungfish/logo.svg",
+    logoNeedsBg: false,
+    url: "https://lungfishdivesystems.com",
+    industry: "Diving Equipment / Rebreathers",
+    pages: 6,
+    hostingCost: 45,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a one-line description under each of the three diver tiers — Recreational, Technical, Professional — explaining who it's for",
+      result1: "✓ Tier descriptions added: who each system suits and what it enables",
+      prompt2: "Change the hero from 'Freedom to Breathe' to something that calls out the rebreather advantage over open circuit",
+      result2: "✓ Hero updated to 'Breathe Longer. Go Deeper. No Bubbles.'",
+      prompt3: "Add an ORCA pricing summary section so visitors don't have to click away to see costs",
+      result3: "✓ Pricing overview section added above the product grid"
+    }
+  },
+  {
+    id: "dragon-q-energy",
+    company: "Dragon Q Energy",
+    logo: "/assets/reports/dragon-q-energy/logo.svg",
+    logoNeedsBg: false,
+    url: "https://dragonqenergy.com",
+    industry: "Energy Storage / Critical Infrastructure",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a section that separates our two main products — the HVDC Data Center Power Stack and the PowerPole — with a one-line pitch for each",
+      result1: "✓ Product split section added: data center use case vs. humanitarian/emergency deployment",
+      prompt2: "Change the hero from 'Unprecedented Power for Critical Infrastructure' to something that leads with our safety advantage",
+      result2: "✓ Hero updated to 'Safe, Robust, Efficient — By Design'",
+      prompt3: "Change 'Subscribe to Our Monthly Newsletter' to 'Get Product Updates'",
+      result3: "✓ CTA changed from 'Subscribe to Our Monthly Newsletter' to 'Get Product Updates' in hero and footer"
+    }
+  },
+  {
+    id: "energos",
+    company: "Energos.ai",
+    logo: "/assets/reports/energos/logo.svg",
+    logoNeedsBg: false,
+    url: "https://energos.ai",
+    industry: "AI / Predictive Maintenance",
+    pages: 15,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a one-liner under each of the three steps — See It Early, Fix It Fast, Prove It Works — explaining what happens at each stage",
+      result1: "✓ Step descriptions added: early detection → smart dispatch → verified uptime reporting",
+      prompt2: "Change the hero from 'Predict the failure. Automate the fix. Maximize the uptime.' to something that leads with the cost of downtime",
+      result2: "✓ Hero updated to 'Every Breakdown Was Predictable. Now You Can Stop It.'",
+      prompt3: "Change 'Sign Up for Free' to 'Start Predicting'",
+      result3: "✓ CTA changed from 'Sign Up for Free' to 'Start Predicting' in hero and pricing section"
+    }
+  },
+  {
+    id: "eyedaptic",
+    company: "Eyedaptic",
+    logo: "/assets/reports/eyedaptic/logo.svg",
+    logoNeedsBg: false,
+    url: "https://eyedaptic.com",
+    industry: "MedTech / Low Vision AI Glasses",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero from 'See What You've Been Missing' to something that leads with IVY, our generative AI visual assistant",
+      result1: "✓ Hero updated to 'Meet IVY — The AI That Helps You See Again'",
+      prompt2: "Add a short section for eyecare professionals between the product overview and the contact form",
+      result2: "✓ Provider section added: referral process, clinical support, and patient eligibility criteria",
+      prompt3: "Change 'Learn More' to 'Try the EYE7'",
+      result3: "✓ CTA changed from 'Learn More' to 'Try the EYE7' in hero and product section"
+    }
+  },
+  {
+    id: "flexwash",
+    company: "FlexWash",
+    logo: "/assets/reports/flexwash/logo.svg",
+    logoNeedsBg: false,
+    url: "https://flexwashtech.com",
+    industry: "Car Wash POS & CRM Software",
+    pages: 8,
+    hostingCost: 48,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change the hero from 'Next Gen Car Wash POS + CRM' to something that leads with membership growth",
+      result1: "✓ Hero updated to 'Boost Memberships. Track Every Customer. Run a Smarter Car Wash.'",
+      prompt2: "Add a section showing how Advanced LPR works — one line on what it does and what it saves operators",
+      result2: "✓ LPR explainer added: auto-identifies returning members, eliminates manual check-ins",
+      prompt3: "Change 'Book Demo' to 'See It Live'",
+      result3: "✓ CTA changed from 'Book Demo' to 'See It Live' in hero and nav"
+    }
+  },
+  {
+    id: "forge",
+    company: "Forge",
+    logo: "/assets/reports/forge/logo.avif",
+    logoNeedsBg: false,
+    url: "https://joinforge.app",
+    industry: "Restaurant Loyalty & Mobile Ordering",
+    pages: 5,
+    hostingCost: 45,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add the 35% sales lift stat from In-App Orders to the hero section",
+      result1: "✓ Hero updated with social proof: 'In-App Orders Drive a 35% Sales Lift — Built In'",
+      prompt2: "Add a section showing the three revenue streams: Premium Loyalty, VIP Memberships, In-App Orders — with a one-liner on each",
+      result2: "✓ Revenue tiers section added between hero and demo CTA",
+      prompt3: "Change 'Get Started Now' to 'Book a Demo'",
+      result3: "✓ CTA changed from 'Get Started Now' to 'Book a Demo' in hero and nav"
+    }
+  },
+  {
+    id: "genia",
+    company: "Genia",
+    logo: "/assets/reports/genia/logo.svg",
+    logoNeedsBg: false,
+    url: "https://genia.design",
+    industry: "AI / Structural Engineering Software",
+    pages: 9,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a one-line outcome under each of the 3 steps — Architectural Drawings → Structural Design → Permit-Ready",
+      result1: "✓ Step outcomes added: what the engineer has at the end of each stage",
+      prompt2: "Change the hero from '10x Faster Structural Design with AI' to something that leads with the permit-ready angle",
+      result2: "✓ Hero updated to 'From Architectural Drawings to Permit-Ready Structural Design — in Minutes'",
+      prompt3: "Change 'Design Now' to 'Try It Free'",
+      result3: "✓ CTA changed from 'Design Now' to 'Try It Free' in hero and nav"
+    }
+  },
+  {
+    id: "gigacrop",
+    company: "GigaCrop",
+    logo: "/assets/reports/gigacrop/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://gigacrop.com",
+    industry: "AgTech / Crop Science",
+    pages: 4,
+    hostingCost: 42,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a short explainer under 'The Breakthrough' on what RuBisCo is and why fixing it matters for yield",
+      result1: "✓ RuBisCo explainer added in plain language: the bottleneck, the fix, the outcome",
+      prompt2: "Change the hero from 'A Century of Progress, From a Single Invention' to something that leads with the 2x yield result",
+      result2: "✓ Hero updated to 'Double Crop Yields — By Fixing the One Enzyme That Sets the Ceiling'",
+      prompt3: "Change 'Explore Our Science' to 'See the Breakthrough'",
+      result3: "✓ CTA changed from 'Explore Our Science' to 'See the Breakthrough' in hero and nav"
+    }
+  },
+  {
+    id: "gladeo",
+    company: "Gladeo",
+    logo: "/assets/reports/gladeo/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://gladeo.org",
+    industry: "EdTech / Career Development",
+    pages: 15,
+    hostingCost: 58,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change 'A Future-Ready Career Development Solution' to something more specific about what students or workers actually get",
+      result1: "✓ Hero updated to 'Career Navigation Built for the Workforce of Tomorrow'",
+      prompt2: "Add a short section under 'Trusted Among Industry Leaders' showing 2-3 customer types with a one-liner on what they use Gladeo for",
+      result2: "✓ Use case callouts added: workforce boards, community colleges, enterprise HR teams",
+      prompt3: "Change 'Schedule a Demo' to 'See It in Action'",
+      result3: "✓ CTA changed from 'Schedule a Demo' to 'See It in Action' in hero and nav"
+    }
+  },
+  {
+    id: "gofiteco",
+    company: "GoFitECO",
+    logo: "/assets/reports/gofiteco/logo.avif",
+    logoNeedsBg: false,
+    url: "https://gofiteco.com",
+    industry: "AI / Health & Lifestyle Performance",
+    pages: 3,
+    hostingCost: 40,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Simplify the hero from 'Unlock your potential Take control of your Lifestyle Performance and Health' to one clean line",
+      result1: "✓ Hero updated to 'Take Control of Your Health — Powered by AI'",
+      prompt2: "Add a short section between the hero and the beta signup showing 3 things the platform does",
+      result2: "✓ Feature preview section added: personalized plans, progress tracking, health equity focus",
+      prompt3: "Change 'Join Our Beta Program' to 'Get Early Access'",
+      result3: "✓ CTA changed from 'Join Our Beta Program' to 'Get Early Access' in hero and signup section"
+    }
+  },
+  {
+    id: "greenstop",
+    company: "GreenSTOP INC",
+    logo: "/assets/reports/greenstop/logo.png",
+    logoNeedsBg: false,
+    url: "https://greenstop.us",
+    industry: "Cannabis Retail Technology",
+    pages: 9,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Rewrite the hero — 'ancillary technology company that provides automated solutions for retailers' is too vague. Lead with the Smart Dispensary product",
+      result1: "✓ Hero updated to 'The Smart Dispensary™ — Automated Retail for Cannabis Operators'",
+      prompt2: "Add a section splitting our product lines: Smart Dispensary, Hemp & CBD, and Advertisement — with a one-liner on each",
+      result2: "✓ Product lines section added with short descriptions and separate CTAs",
+      prompt3: "Change 'SUBSCRIBE!' to 'Get 10% Off Your First Order'",
+      result3: "✓ CTA changed from 'SUBSCRIBE!' to 'Get 10% Off Your First Order' with the offer baked in"
+    }
+  },
+  {
+    id: "gybe",
+    company: "Gybe",
+    logo: "/assets/reports/gybe/logo.svg",
+    logoNeedsBg: false,
+    url: "https://gybe.eco",
+    industry: "CleanTech / Water Quality Monitoring",
+    pages: 4,
+    hostingCost: 42,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a demo request form below the main headline so visitors can reach out without emailing",
+      result1: "✓ Contact form added: name, organization, watershed region, message",
+      prompt2: "Change the hero from 'Watershed scale water quality monitoring' to something that leads with the problem it solves",
+      result2: "✓ Hero updated to 'Know What's in Your Watershed — Before It Becomes a Crisis'",
+      prompt3: "Add a short partnerships section for municipalities and environmental agencies",
+      result3: "✓ Partners section added with 3 target audience types and a 'Work With Us' CTA"
+    }
+  },
+  {
+    id: "hammerhead-ai",
+    company: "HammerheadAI, Inc.",
+    logo: "/assets/reports/hammerhead-ai/logo.svg",
+    logoNeedsBg: false,
+    url: "https://hammerheadco.ai",
+    industry: "AI Infrastructure / Data Center Power",
+    pages: 13,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add the 30% capacity unlock and 36% cost reduction stats to the hero section",
+      result1: "✓ Hero updated with proof points: '30% More Capacity. 36% Lower Costs. No Grid Wait.'",
+      prompt2: "Add a short section under Our Stakeholders showing what each of the 4 customer types gets — colocation, cloud, enterprise, OEM",
+      result2: "✓ Stakeholder outcomes section added with one-line benefit per segment",
+      prompt3: "Change 'Learn More' to 'See ORCA in Action'",
+      result3: "✓ CTA changed from 'Learn More' to 'See ORCA in Action' in hero and technology section"
+    }
+  },
+  {
+    id: "healthjay",
+    company: "HealthJay",
+    logo: "/assets/reports/healthjay/logo.avif",
+    logoNeedsBg: false,
+    url: "https://healthjay.com",
+    industry: "Public Health / Care Access Technology",
+    pages: 7,
+    hostingCost: 48,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Rewrite the hero — 'Stop-Gap: Bridge Budget Cuts, Staffing Shortages and Lifeline Needs' is a list. Turn it into one clear outcome statement",
+      result1: "✓ Hero updated to 'More Care Access. Less Overhead. Built for Public Health.'",
+      prompt2: "Add a section showing what 'increase billable hours affordably' means in practice — a concrete example with numbers",
+      result2: "✓ ROI section added: average hours recovered per provider, cost per patient served",
+      prompt3: "Change 'Meet HealthJay' to 'See How It Works'",
+      result3: "✓ CTA changed from 'Meet HealthJay' to 'See How It Works' in hero and nav"
+    }
+  },
+  {
+    id: "hermes-robotics",
+    company: "Hermes Robotics",
+    logo: "/assets/reports/hermes-robotics/logo.avif",
+    logoNeedsBg: false,
+    url: "https://hermes-robotics.com",
+    industry: "Robotics / Autonomous Vehicles",
+    pages: 1,
+    hostingCost: 45,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add 3 use case sections below the hero — logistics, agriculture, and campus mobility — each with a one-line description",
+      result1: "✓ Use case section added: three deployment contexts with outcome statements",
+      prompt2: "Change the hero from 'Autonomy Retrofit Kit — Any Vehicle, Anywhere, at Low Speed' to something that leads with what operators save",
+      result2: "✓ Hero updated to 'Retrofit Any Vehicle for Autonomy — No New Hardware Required'",
+      prompt3: "Add a contact form for fleet operators who want a quote before buying",
+      result3: "✓ Fleet inquiry form added above the existing buy button"
+    }
+  },
+  {
+    id: "icb-international",
+    company: "ICB International",
+    logo: "/assets/reports/icb-international/logo.png",
+    logoNeedsBg: false,
+    url: "https://icbii.com",
+    industry: "Biotech / Blood-Brain Barrier Drug Delivery",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change the hero from 'OutSMARTing Barriers' to something that leads with Parkinson's and Alzheimer's — the diseases we're targeting",
+      result1: "✓ Hero updated to 'Changing the Course of Parkinson's and Alzheimer's — Starting with the Blood-Brain Barrier'",
+      prompt2: "Add a short section showing what the SMART Platform does and where it is in clinical development",
+      result2: "✓ SMART Platform explainer added: mechanism, current trial stage, target indications",
+      prompt3: "Change 'Learn More' to 'View the SMART Platform'",
+      result3: "✓ CTA changed from 'Learn More' to 'View the SMART Platform' routing to the technology page"
+    }
+  },
+  {
+    id: "jl-standard",
+    company: "JL STANDARD",
+    logo: "/assets/reports/jl-standard/logo.svg",
+    logoNeedsBg: false,
+    url: "https://jlstandard.com",
+    industry: "AI / Memorial & Family Video Platform",
+    pages: 6,
+    hostingCost: 45,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add an English-language section for the three core products — AI Video Production, Digital Memory Platform, Interactive Kiosk",
+      result1: "✓ English product section added with one-line descriptions for each",
+      prompt2: "Change the hero to lead with the emotional hook — 'that one face you want to see again'",
+      result2: "✓ Hero updated to 'That One Face You Want to See Again — Now Possible with AI'",
+      prompt3: "Add a contact form in English for international partnerships and licensing",
+      result3: "✓ English partnership inquiry form added above the footer"
+    }
+  },
+  {
+    id: "kinisi",
+    company: "Kinisi Inc.",
+    logo: "/assets/reports/kinisi/logo.avif",
+    logoNeedsBg: true,
+    url: "https://kinisi.ai",
+    industry: "MedTech / Smart Motion Health",
+    pages: 4,
+    hostingCost: 42,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a stat section showing the cost of ACL tears — surgery cost, recovery time, re-injury rate",
+      result1: "✓ Problem section added: avg $30K surgery, 9-month recovery, 30% re-injury rate",
+      prompt2: "Change the hero from 'Move Smarter. Recover Better.' to something that leads with the ACL prediction angle",
+      result2: "✓ Hero updated to 'Predict ACL Risk Before the Injury Happens'",
+      prompt3: "Add a contact CTA — right now there's no clear way for a team trainer or surgeon to reach out",
+      result3: "✓ 'Talk to a Specialist' button added to nav and hero"
+    }
+  },
+  {
+    id: "kit-switch",
+    company: "Kit Switch",
+    logo: "/assets/reports/kit-switch/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://kitswitch.com",
+    industry: "Interior Design / Modular Construction Kits",
+    pages: 5,
+    hostingCost: 42,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a one-liner under each of the 4 benefits — Speed, Affordability, Predictability, Sustainability — explaining what it means in practice",
+      result1: "✓ Benefit descriptions added: what each one means for a contractor on a real job",
+      prompt2: "Change the hero from 'Ready-to-install kits for interior builds' to something that leads with the time saved",
+      result2: "✓ Hero updated to 'Interior Builds Done in Days, Not Weeks'",
+      prompt3: "Change 'Build with Kit Switch' to 'Start Your Project'",
+      result3: "✓ CTA changed from 'Build with Kit Switch' to 'Start Your Project' in hero and nav"
+    }
+  },
+  {
+    id: "kyte-dynamics",
+    company: "Kyte Dynamics",
+    logo: "/assets/reports/kyte-dynamics/logo.avif",
+    logoNeedsBg: false,
+    url: "https://kyte.aero",
+    industry: "Aerospace / Industrial Rotorcraft",
+    pages: 5,
+    hostingCost: 42,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Simplify the hero — 'large, industrial rotorcraft that interface with people and structures better' is too long. Lead with what makes it different from other UAVs",
+      result1: "✓ Hero updated to 'The UAV That Gets Closer — Safely'",
+      prompt2: "Add a one-liner under each of the 3 How It Works steps — Payload Stabilization, Gust-Resistant Delivery, Higher Standoff Distances",
+      result2: "✓ Step outcomes added: what each capability means for an operator in the field",
+      prompt3: "Change 'Contact Us' to 'Request a Demo Flight'",
+      result3: "✓ CTA changed from 'Contact Us' to 'Request a Demo Flight' in nav and hero"
+    }
+  },
+  {
+    id: "la-jolla-labs",
+    company: "La Jolla Labs Inc.",
+    logo: "/assets/reports/la-jolla-labs/logo.avif",
+    logoNeedsBg: false,
+    url: "https://lajollalabs.com",
+    industry: "BioTech / Drug Discovery",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Rewrite the hero — 'at the forefront of drug discovery, merging RNA biology with cutting-edge machine learning' is too dense. Lead with the partnership offer",
+      result1: "✓ Hero updated to 'Our Discovery Lab Is Open — Partner With Us to Find Your Next Drug Target'",
+      prompt2: "Add a short section showing the 3 things we bring to a partnership: RNA expertise, ML-powered screening, cloud-scale automation",
+      result2: "✓ Capabilities section added with one-liner per pillar",
+      prompt3: "Change 'Start Now' to 'Explore a Partnership'",
+      result3: "✓ CTA changed from 'Start Now' to 'Explore a Partnership' in hero and services section"
+    }
+  },
+  {
+    id: "le-bread-xpress",
+    company: "Le Bread Xpress",
+    logo: "/assets/reports/le-bread-xpress/logo.avif",
+    logoNeedsBg: false,
+    url: "https://lebreadxpress.com",
+    industry: "Food Robotics / Smart Vending",
+    pages: 7,
+    hostingCost: 45,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "The hero headline is all caps and hard to read — rewrite it as a clean statement that leads with 'baked fresh on demand'",
+      result1: "✓ Hero updated to 'Fresh Baked Goods. On Demand. 24/7.'",
+      prompt2: "Add a section showing how the triple-oven system works — Microwave + Infrared + Convection — in plain language",
+      result2: "✓ Technology section added: what each heating method contributes to the final product",
+      prompt3: "Change 'Learn More' to 'Place a Kiosk'",
+      result3: "✓ CTA changed from 'Learn More' to 'Place a Kiosk' to speak directly to operators"
+    }
+  },
+  {
+    id: "leap-photovoltaics",
+    company: "Leap Photovoltaics",
+    logo: "/assets/reports/leap-photovoltaics/logo.avif",
+    logoNeedsBg: false,
+    url: "https://leap-pv.com",
+    industry: "CleanTech / Solar Manufacturing",
+    pages: 6,
+    hostingCost: 45,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a one-liner under each of the 3 value pillars — Lowest Cost, Best-in-Class Performance, Domestic Supply Chain",
+      result1: "✓ Pillar descriptions added: what each means for a solar buyer or manufacturing partner",
+      prompt2: "Change the hero from 'EMPOWERING THE SOLAR FUTURE' to something that leads with the additive manufacturing advantage",
+      result2: "✓ Hero updated to 'Solar Cells Made Differently — Lowest Cost, Best Performance, Made in the US'",
+      prompt3: "Change 'We Want to Hear From You' to 'Join the Team' — it reads like a contact form, not a careers CTA",
+      result3: "✓ CTA changed from 'We Want to Hear From You' to 'Join the Team' in hero and footer"
+    }
+  },
+  {
+    id: "lumenuity",
+    company: "Lumenuity, Inc.",
+    logo: "/assets/reports/lumenuity/logo.png",
+    logoNeedsBg: false,
+    url: "https://lumenuityinc.com",
+    industry: "Optics / Imaging Technology",
+    pages: 9,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a one-liner under each of the 3 technology areas — 2-in-1 Cameras, Double Optical Resolution, AR Optics — explaining the customer benefit",
+      result1: "✓ Technology descriptions added: what each innovation enables for device makers",
+      prompt2: "Change the hero from 'Capture Every Moment with Precision' to something that leads with the 2-in-1 camera breakthrough",
+      result2: "✓ Hero updated to 'Two Camera Functions. One Module. Half the Space.'",
+      prompt3: "Change 'Contact Us' to 'Explore Licensing'",
+      result3: "✓ CTA changed from 'Contact Us' to 'Explore Licensing' to match the IP licensing business model"
+    }
+  },
+  {
+    id: "maxim-athletic",
+    company: "Maxim Athletic",
+    logo: "/assets/reports/maxim-athletic/logo.avif",
+    logoNeedsBg: false,
+    url: "https://maximathletic.com",
+    industry: "Custom Team Uniforms / Sportswear",
+    pages: 12,
+    hostingCost: 55,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add 'Ships in 2–4 weeks' as a banner or badge on every product category page, not just the homepage",
+      result1: "✓ Delivery promise added to Baseball, Football, Softball, and Basketball category headers",
+      prompt2: "Change the hero copy — the current description reads like a product listing. Lead with the brand personality: 'Maximum Effort Required When Worn'",
+      result2: "✓ Hero updated to '\"Maximum Effort Required When Worn\" — Custom Uniforms Built for That.'",
+      prompt3: "Change 'BUILDER' to 'Design Your Uniform' so visitors know what clicking it does",
+      result3: "✓ CTA changed from 'BUILDER' to 'Design Your Uniform' in hero and nav"
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
