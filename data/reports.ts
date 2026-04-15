@@ -894,6 +894,25 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "uniply",
+    company: "Uniply",
+    logo: "/assets/reports/uniply/logo.svg",
+    logoNeedsBg: false,
+    url: "https://uniply.co",
+    industry: "SaaS / Execution Management",
+    pages: 8,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change the hero from 'Capitalize on your most important execution journeys to achieve enduring growth - in a unified way' to something shorter and clearer",
+      result1: "✓ Hero updated to 'Execute Faster. Align Better. Remove the Silos.'",
+      prompt2: "Add a one-liner under each of the 3 value pillars — Unify, Drive Alignment, Unleash Speed — explaining what it means for a team using Uniply day-to-day",
+      result2: "✓ Pillar descriptions added: what each outcome looks like in practice",
+      prompt3: "Change 'Request a Demo' to 'See It in Action'",
+      result3: "✓ CTA changed from 'Request a Demo' to 'See It in Action' in hero and nav"
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
