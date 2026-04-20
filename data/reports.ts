@@ -1331,6 +1331,25 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "poly-consulting",
+    company: "POLY Consulting",
+    logo: "/assets/reports/poly-consulting/logo.webp",
+    logoNeedsBg: false,
+    url: "https://poly-consulting.com",
+    industry: "Management Consulting / Market Research",
+    pages: 5,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to lead with our US population dynamics work instead of 'recalibrate to unlock new areas of growth'",
+      result1: "✓ Hero updated from 'recalibrate to unlock new areas of growth' to lead with US population dynamics work, in minutes",
+      prompt2: "Add a case studies section under 'What we do' with 2–3 client outcomes",
+      result2: "✓ New case studies section live same day under 'What we do' with real results and copy",
+      prompt3: "Create a landing page for our Our Focus initiative targeting enterprise HR and DEI teams",
+      result3: "✓ New landing page built and published before your next prospecting push"
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
