@@ -1350,6 +1350,25 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "battier",
+    company: "Battier",
+    logo: "/assets/reports/battier/logo.svg",
+    logoNeedsBg: false,
+    url: "https://battier.com",
+    industry: "Personal Brand / Speaking / Investing / Philanthropy",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new portfolio company to the Ventures section with a one-liner and logo",
+      result1: "✓ New investment added to Ventures section in minutes, no designer needed",
+      prompt2: "Update the Foundation section with this year's scholarship recipients and application deadline",
+      result2: "✓ Foundation page updated same day with recipients listed and deadline live",
+      prompt3: "Add a speaking topics page with video clips and a Request Availability form",
+      result3: "✓ New speaking topics page built and published before your next speaker bureau conversation"
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
