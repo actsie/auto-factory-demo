@@ -258,9 +258,6 @@ export default async function ReportPage({ params }: Props) {
             Website Migration · Your Code to Keep
           </div>
           <h2 style={{ fontSize: "26px", fontWeight: 800, marginBottom: "10px", lineHeight: "1.2" }}>Ready to own your website?</h2>
-          <p style={{ color: "#aaa", fontSize: "15px", marginBottom: "28px", maxWidth: "440px", marginLeft: "auto", marginRight: "auto" }}>
-            After submitting, we'll ask you a few quick questions about your site. We use your answers to prep before we start.
-          </p>
           <form id="ctaForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginBottom: "16px" }}>
             <input id="ctaEmailField" type="email" placeholder="Your email" required style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "280px", background: "#2a2a2a", color: "#fff", outline: "none" }} />
             <button id="ctaBtn" type="submit" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
