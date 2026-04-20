@@ -1333,7 +1333,7 @@ export const reports: Report[] = [
   {
     id: "poly-consulting",
     company: "POLY Consulting",
-    logo: "/assets/reports/poly-consulting/logo.webp",
+    logo: "/assets/reports/poly-consulting/logo.jpeg",
     logoNeedsBg: false,
     url: "https://poly-consulting.com",
     industry: "Management Consulting / Market Research",
