@@ -766,10 +766,17 @@ export default async function ReportPage({ params }: Props) {
     requestAnimationFrame(animateBeams);
   }
 
-  if (document.readyState === 'complete') {
+  function safeInitBeams() {
     initBeams();
+    // On mobile, layout may shift after load (fonts, dynamic heights) — redraw once settled
+    setTimeout(drawAllBeams, 300);
+    setTimeout(drawAllBeams, 800);
+  }
+
+  if (document.readyState === 'complete') {
+    safeInitBeams();
   } else {
-    window.addEventListener('load', initBeams);
+    window.addEventListener('load', safeInitBeams);
   }
 
   // ── Form handler ──────────────────────────────────────────────
@@ -869,7 +876,7 @@ export default async function ReportPage({ params }: Props) {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 })();
           `,
