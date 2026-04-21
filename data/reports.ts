@@ -2129,6 +2129,481 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "impel-consulting",
+    company: "Impel Consulting",
+    logo: "/assets/reports/impel-consulting/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://impel.consulting",
+    industry: "Salesforce Consulting",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a case study showing how we improved policyholder views for an insurance client",
+        result: "✓ Case study live same day, no designer needed"
+      },
+      {
+        prompt: "Add a Field Service Lightning landing page with a Get In Touch form for field ops teams",
+        result: "✓ Vertical page built and published before your next sales push"
+      },
+      {
+        prompt: "Update the hero from 'Your local Salesforce consultancy' to include our latest certification badge",
+        result: "✓ Hero updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "intersection-growth-partners",
+    company: "Intersection Growth Partners",
+    logo: "/assets/reports/intersection-growth-partners/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://intersectiongp.com",
+    industry: "Crypto Executive Search / Venture",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add this week's top crypto exec moves to the IGP Crypto Exec Moves section",
+        result: "✓ Updates live same day, newsletter and site in sync"
+      },
+      {
+        prompt: "Add a new portfolio company to the Investments section with their logo and one-liner",
+        result: "✓ Investment added in minutes, no designer needed"
+      },
+      {
+        prompt: "Create a landing page for DeFi founders looking to hire C-suite leadership",
+        result: "✓ Vertical page built and published before your next client conversation"
+      }
+    ]
+  },
+  {
+    id: "john-sanders",
+    company: "John Sanders",
+    logo: "/assets/reports/john-sanders/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://johnsanders.com",
+    industry: "Business Consulting / Investment / Entrepreneurship",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a new resource to GET RESOURCES — a framework I use for first-year entrepreneurs evaluating partnerships",
+        result: "✓ Resource live same day, no designer needed"
+      },
+      {
+        prompt: "Update the hero to reflect a recent advisory win or client outcome",
+        result: "✓ Hero updated in minutes"
+      },
+      {
+        prompt: "Add a new Parable for Entrepreneurs post on strategic planning and when to pivot",
+        result: "✓ Post published before your next speaking engagement or LinkedIn push"
+      }
+    ]
+  },
+  {
+    id: "knightsgate-ventures",
+    company: "Knightsgate Ventures",
+    logo: "/assets/reports/knightsgate-ventures/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://knightsgateventures.com",
+    industry: "Venture Capital / HealthTech / DeepTech",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add our newest portfolio company with their one-liner and Visit Website link",
+        result: "✓ Portfolio updated same day, no designer needed"
+      },
+      {
+        prompt: "Add a thesis page explaining our focus on underrepresented founders and precision health",
+        result: "✓ New page live before your next LP meeting"
+      },
+      {
+        prompt: "Update the hero to highlight our total portfolio count and sectors covered",
+        result: "✓ Hero updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "lisa-pepper-satkin",
+    company: "Lisa Pepper-Satkin",
+    logo: "/assets/reports/lisa-pepper-satkin/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://lisapeppersatkin.com",
+    industry: "Executive Coaching / Therapy / Leadership",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a new testimonial under Coaching that moves you forward from a recent executive client",
+        result: "✓ Testimonial live same day, no designer needed"
+      },
+      {
+        prompt: "Create a landing page for C-suite leaders with our Let's Work Together intake form",
+        result: "✓ Page built and published before your next speaking engagement"
+      },
+      {
+        prompt: "Update the hero from 'Own Your Impact' to include a specific outcome leaders experience",
+        result: "✓ Hero updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "neuvik",
+    company: "Neuvik",
+    logo: "/assets/reports/neuvik/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://neuvik.com",
+    industry: "Cybersecurity / AI Risk Management",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a case study under Advanced Assessments showing how we translated a vulnerability finding into a board-level decision",
+        result: "✓ Case study live same day, no designer needed"
+      },
+      {
+        prompt: "Create a landing page for financial services firms focused on our AI Risk Management offering",
+        result: "✓ Vertical page built and published before your next enterprise pitch"
+      },
+      {
+        prompt: "Update the hero from 'Understand risk to your business' to include our 25+ years expertise stat",
+        result: "✓ Hero updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "ops-designed",
+    company: "Ops Designed",
+    logo: "/assets/reports/ops-designed/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://opsdesigned.com",
+    industry: "Sales Operations / CRM / Pipedrive",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a new 5-star client testimonial to the Client testimonials section",
+        result: "✓ Testimonial live same day, no designer needed"
+      },
+      {
+        prompt: "Add Make.com and HubSpot to the Integrating With 30+ Services section",
+        result: "✓ Logos and links added in minutes"
+      },
+      {
+        prompt: "Create a landing page for real estate teams looking to automate their Pipedrive pipeline",
+        result: "✓ Vertical page built and published before your next outreach push"
+      }
+    ]
+  },
+  {
+    id: "over-j-consulting",
+    company: "Over J Consulting",
+    logo: "/assets/reports/over-j-consulting/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://overjconsulting.com",
+    industry: "Business Consulting / Strategy / Technology",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a case study under ANALYSIS showing how we identified a growth opportunity for a recent client",
+        result: "✓ Case study live same day, no designer needed"
+      },
+      {
+        prompt: "Add a WORK WITH US page with our engagement model and a contact form",
+        result: "✓ Page built and published before your next prospect conversation"
+      },
+      {
+        prompt: "Update the hero from 'ENGINEERING GREATER POSSIBILITIES' to highlight a specific client outcome",
+        result: "✓ Hero updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "panorama-strategy",
+    company: "Panorama Strategy",
+    logo: "/assets/reports/panorama-strategy/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://panoramastrategy.com",
+    industry: "Social Impact / Strategy Consulting",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a recent client project under Our Approach showing how we identified a creative solution to a housing policy challenge",
+        result: "✓ Case study live same day, no designer needed"
+      },
+      {
+        prompt: "Add a partner organizations section with logos and a Let's work together form",
+        result: "✓ Section built and published before your next stakeholder meeting"
+      },
+      {
+        prompt: "Update the hero from 'YOUR VISION. OUR PLATFORM. IMPACT.' to highlight a specific measurable outcome",
+        result: "✓ Hero updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "pisces-oceans",
+    company: "Pisces Oceans Inc.",
+    logo: "/assets/reports/pisces-oceans/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://piscesoceans.ca",
+    industry: "Ocean Conservation / Project Management",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a new project under Strengthen your Ocean project showing our latest coastal restoration engagement",
+        result: "✓ Project added same day, no designer needed"
+      },
+      {
+        prompt: "Update the Share the story of your work section with our most recent impact report",
+        result: "✓ Section updated in minutes with linked download"
+      },
+      {
+        prompt: "Add a funders page with grant opportunities and an Eliminate my barriers intake form",
+        result: "✓ Page built and published before your next funding cycle"
+      }
+    ]
+  },
+  {
+    id: "psblty",
+    company: "PSBLTY",
+    logo: "/assets/reports/psblty/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://psblty.com",
+    industry: "Brand Strategy / Financial Services",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a client results section showing how we repositioned a financial advisor firm ahead of the wealth transfer",
+        result: "✓ Case study live same day, no designer needed"
+      },
+      {
+        prompt: "Create a landing page for RIAs preparing for the greatest wealth transfer in history",
+        result: "✓ Vertical page built and published before your next outreach push"
+      },
+      {
+        prompt: "Test 'The Fortuned Favor The BOLD' vs 'Your brand is your untapped advantage' as the hero",
+        result: "✓ Both variants running in parallel within the hour"
+      }
+    ]
+  },
+  {
+    id: "resilient-markets",
+    company: "ResilientMarkets",
+    logo: "/assets/reports/resilient-markets/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://resilientmarkets.com",
+    industry: "Climate Strategy / Regenerative Design",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a case study under Climate Strategy and Analysis showing measurable impact for a recent government client",
+        result: "✓ Case study live same day, no designer needed"
+      },
+      {
+        prompt: "Create a landing page for nonprofits focused on our Regenerative Design Principles Workshops",
+        result: "✓ Vertical page built and published before your next outreach push"
+      },
+      {
+        prompt: "Update the hero from 'turbo charges entities that are making the world a better place' to include a specific outcome stat",
+        result: "✓ Hero updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "santa-barbara-it-group",
+    company: "Santa Barbara IT Group",
+    logo: "/assets/reports/santa-barbara-it-group/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://sbitgroup.com",
+    industry: "Managed IT / Cybersecurity / Luxury Residential",
+    pages: 7,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a Luxury Residential page explaining our white-glove IT setup and smart home integration",
+        result: "✓ New page live same day, no designer needed"
+      },
+      {
+        prompt: "Update the Enterprise-Grade Cybersecurity section with our latest AI-powered threat detection capability",
+        result: "✓ Section updated in minutes"
+      },
+      {
+        prompt: "Change 'GET IN TOUCH' to 'Schedule a Site Assessment' and add a calendar booking link",
+        result: "✓ CTA updated and calendar embedded before your next client call"
+      }
+    ]
+  },
+  {
+    id: "sterling-road",
+    company: "Sterling Road",
+    logo: "/assets/reports/sterling-road/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://sterlingroad.com",
+    industry: "Pre-Seed Venture Capital",
+    pages: 7,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a new company to the Portfolio section with their logo and one-liner",
+        result: "✓ Portfolio updated same day, no designer needed"
+      },
+      {
+        prompt: "Add a new resource to the Resources section — a guide on pricing for pre-seed founders",
+        result: "✓ Resource linked and live before your next newsletter goes out"
+      },
+      {
+        prompt: "Update the Apply Now CTA to include what founders can expect in the first 30 days after investment",
+        result: "✓ CTA copy updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "the-abbey-group",
+    company: "The Abbey Group",
+    logo: "/assets/reports/the-abbey-group/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://abbey-group.com",
+    industry: "Nonprofit Fundraising / Catholic Organizations",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a new partner apostolate to Our Partnerships with their mission and a link",
+        result: "✓ Partnership added same day, no designer needed"
+      },
+      {
+        prompt: "Add a campaign results page showing a recent fundraising outcome and what it funded",
+        result: "✓ Results page live before your next donor conversation"
+      },
+      {
+        prompt: "Update the Let's begin a conversation CTA to link directly to a scheduling page",
+        result: "✓ CTA updated and calendar embedded in minutes"
+      }
+    ]
+  },
+  {
+    id: "torch",
+    company: "Torch",
+    logo: "/assets/reports/torch/logo.svg",
+    logoNeedsBg: false,
+    url: "https://torchgrowth.com",
+    industry: "Digital Studio / Marketplace Growth",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Publish a new blog post on our Monthly Sprints process with a case study from a gig economy client",
+        result: "✓ Post live same day, no designer needed"
+      },
+      {
+        prompt: "Add a staffing marketplaces landing page under Our Markets with a READ MORE CTA",
+        result: "✓ Vertical page built and published before your next BD push"
+      },
+      {
+        prompt: "Update the hero from 'We are a digital studio that builds and grows marketplace businesses' to include a client result",
+        result: "✓ Hero updated in minutes"
+      }
+    ]
+  },
+  {
+    id: "tylt-ventures",
+    company: "TYLT Ventures",
+    logo: "/assets/reports/tylt-ventures/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://tyltventures.com",
+    industry: "Venture Capital / Startup Growth",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a new portfolio company under Select Investment Criteria with their stage and sector",
+        result: "✓ Investment added same day, no designer needed"
+      },
+      {
+        prompt: "Update Our Process to reflect our updated 4-step vetting approach",
+        result: "✓ Process section updated in minutes"
+      },
+      {
+        prompt: "Add a founder resources page with our Due Diligence checklist and an Apply Now form",
+        result: "✓ Page built and published before your next batch of applications"
+      }
+    ]
+  },
+  {
+    id: "webintensive-software",
+    company: "WebINTENSIVE Software",
+    logo: "/assets/reports/webintensive-software/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://webintensive.com",
+    industry: "Business Automation / Software Consulting",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Update the hero to include a specific client result — like 40% reduction in manual processing time",
+        result: "✓ Hero updated in minutes, no designer needed"
+      },
+      {
+        prompt: "Add a new Effectiveness Multiplier case study under Gain Quick Wins with a before/after breakdown",
+        result: "✓ Case study live same day, ready for your next prospect conversation"
+      },
+      {
+        prompt: "Add a separate landing page for Engineering for Optimal Outcomes targeting mid-size operations teams",
+        result: "✓ Page built and published before your next outbound push"
+      }
+    ]
+  },
+  {
+    id: "weill-media",
+    company: "Weill Media, LLC",
+    logo: "/assets/reports/weill-media/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://weillmedia.com",
+    industry: "Creative Studio / Video Production",
+    pages: 6,
+    hostingCost: 72,
+    waitDays: 3,
+    aiExamples: [
+      {
+        prompt: "Add a new project to the Filming section with an embed and one-line client description",
+        result: "✓ Project live same day, no designer needed"
+      },
+      {
+        prompt: "Update the Let's Chat CTA to link to a booking page with a short inquiry form",
+        result: "✓ CTA updated and booking flow live before your next client conversation"
+      },
+      {
+        prompt: "Add an Editorial showcase page with stills and a breakdown of the post-production process",
+        result: "✓ Page built and published before your next pitch"
+      }
+    ]
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
