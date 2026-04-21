@@ -2138,20 +2138,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a case study showing how we improved policyholder views for an insurance client",
-        result: "✓ Case study live same day, no designer needed"
-      },
-      {
-        prompt: "Add a Field Service Lightning landing page with a Get In Touch form for field ops teams",
-        result: "✓ Vertical page built and published before your next sales push"
-      },
-      {
-        prompt: "Update the hero from 'Your local Salesforce consultancy' to include our latest certification badge",
-        result: "✓ Hero updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a case study showing how we improved policyholder views for an insurance client",
+      result1: "✓ Case study live same day, no designer needed",
+      prompt2: "Add a Field Service Lightning landing page with a Get In Touch form for field ops teams",
+      result2: "✓ Vertical page built and published before your next sales push",
+      prompt3: "Update the hero from 'Your local Salesforce consultancy' to include our latest certification badge",
+      result3: "✓ Hero updated in minutes"
+    }
   },
   {
     id: "intersection-growth-partners",
@@ -2163,20 +2157,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add this week's top crypto exec moves to the IGP Crypto Exec Moves section",
-        result: "✓ Updates live same day, newsletter and site in sync"
-      },
-      {
-        prompt: "Add a new portfolio company to the Investments section with their logo and one-liner",
-        result: "✓ Investment added in minutes, no designer needed"
-      },
-      {
-        prompt: "Create a landing page for DeFi founders looking to hire C-suite leadership",
-        result: "✓ Vertical page built and published before your next client conversation"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add this week's top crypto exec moves to the IGP Crypto Exec Moves section",
+      result1: "✓ Updates live same day, newsletter and site in sync",
+      prompt2: "Add a new portfolio company to the Investments section with their logo and one-liner",
+      result2: "✓ Investment added in minutes, no designer needed",
+      prompt3: "Create a landing page for DeFi founders looking to hire C-suite leadership",
+      result3: "✓ Vertical page built and published before your next client conversation"
+    }
   },
   {
     id: "john-sanders",
@@ -2188,20 +2176,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a new resource to GET RESOURCES — a framework I use for first-year entrepreneurs evaluating partnerships",
-        result: "✓ Resource live same day, no designer needed"
-      },
-      {
-        prompt: "Update the hero to reflect a recent advisory win or client outcome",
-        result: "✓ Hero updated in minutes"
-      },
-      {
-        prompt: "Add a new Parable for Entrepreneurs post on strategic planning and when to pivot",
-        result: "✓ Post published before your next speaking engagement or LinkedIn push"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a new resource to GET RESOURCES — a framework I use for first-year entrepreneurs evaluating partnerships",
+      result1: "✓ Resource live same day, no designer needed",
+      prompt2: "Update the hero to reflect a recent advisory win or client outcome",
+      result2: "✓ Hero updated in minutes",
+      prompt3: "Add a new Parable for Entrepreneurs post on strategic planning and when to pivot",
+      result3: "✓ Post published before your next speaking engagement or LinkedIn push"
+    }
   },
   {
     id: "knightsgate-ventures",
@@ -2213,20 +2195,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add our newest portfolio company with their one-liner and Visit Website link",
-        result: "✓ Portfolio updated same day, no designer needed"
-      },
-      {
-        prompt: "Add a thesis page explaining our focus on underrepresented founders and precision health",
-        result: "✓ New page live before your next LP meeting"
-      },
-      {
-        prompt: "Update the hero to highlight our total portfolio count and sectors covered",
-        result: "✓ Hero updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add our newest portfolio company with their one-liner and Visit Website link",
+      result1: "✓ Portfolio updated same day, no designer needed",
+      prompt2: "Add a thesis page explaining our focus on underrepresented founders and precision health",
+      result2: "✓ New page live before your next LP meeting",
+      prompt3: "Update the hero to highlight our total portfolio count and sectors covered",
+      result3: "✓ Hero updated in minutes"
+    }
   },
   {
     id: "lisa-pepper-satkin",
@@ -2238,20 +2214,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a new testimonial under Coaching that moves you forward from a recent executive client",
-        result: "✓ Testimonial live same day, no designer needed"
-      },
-      {
-        prompt: "Create a landing page for C-suite leaders with our Let's Work Together intake form",
-        result: "✓ Page built and published before your next speaking engagement"
-      },
-      {
-        prompt: "Update the hero from 'Own Your Impact' to include a specific outcome leaders experience",
-        result: "✓ Hero updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a new testimonial under Coaching that moves you forward from a recent executive client",
+      result1: "✓ Testimonial live same day, no designer needed",
+      prompt2: "Create a landing page for C-suite leaders with our Let's Work Together intake form",
+      result2: "✓ Page built and published before your next speaking engagement",
+      prompt3: "Update the hero from 'Own Your Impact' to include a specific outcome leaders experience",
+      result3: "✓ Hero updated in minutes"
+    }
   },
   {
     id: "neuvik",
@@ -2263,20 +2233,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a case study under Advanced Assessments showing how we translated a vulnerability finding into a board-level decision",
-        result: "✓ Case study live same day, no designer needed"
-      },
-      {
-        prompt: "Create a landing page for financial services firms focused on our AI Risk Management offering",
-        result: "✓ Vertical page built and published before your next enterprise pitch"
-      },
-      {
-        prompt: "Update the hero from 'Understand risk to your business' to include our 25+ years expertise stat",
-        result: "✓ Hero updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a case study under Advanced Assessments showing how we translated a vulnerability finding into a board-level decision",
+      result1: "✓ Case study live same day, no designer needed",
+      prompt2: "Create a landing page for financial services firms focused on our AI Risk Management offering",
+      result2: "✓ Vertical page built and published before your next enterprise pitch",
+      prompt3: "Update the hero from 'Understand risk to your business' to include our 25+ years expertise stat",
+      result3: "✓ Hero updated in minutes"
+    }
   },
   {
     id: "ops-designed",
@@ -2288,20 +2252,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a new 5-star client testimonial to the Client testimonials section",
-        result: "✓ Testimonial live same day, no designer needed"
-      },
-      {
-        prompt: "Add Make.com and HubSpot to the Integrating With 30+ Services section",
-        result: "✓ Logos and links added in minutes"
-      },
-      {
-        prompt: "Create a landing page for real estate teams looking to automate their Pipedrive pipeline",
-        result: "✓ Vertical page built and published before your next outreach push"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a new 5-star client testimonial to the Client testimonials section",
+      result1: "✓ Testimonial live same day, no designer needed",
+      prompt2: "Add Make.com and HubSpot to the Integrating With 30+ Services section",
+      result2: "✓ Logos and links added in minutes",
+      prompt3: "Create a landing page for real estate teams looking to automate their Pipedrive pipeline",
+      result3: "✓ Vertical page built and published before your next outreach push"
+    }
   },
   {
     id: "over-j-consulting",
@@ -2313,20 +2271,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a case study under ANALYSIS showing how we identified a growth opportunity for a recent client",
-        result: "✓ Case study live same day, no designer needed"
-      },
-      {
-        prompt: "Add a WORK WITH US page with our engagement model and a contact form",
-        result: "✓ Page built and published before your next prospect conversation"
-      },
-      {
-        prompt: "Update the hero from 'ENGINEERING GREATER POSSIBILITIES' to highlight a specific client outcome",
-        result: "✓ Hero updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a case study under ANALYSIS showing how we identified a growth opportunity for a recent client",
+      result1: "✓ Case study live same day, no designer needed",
+      prompt2: "Add a WORK WITH US page with our engagement model and a contact form",
+      result2: "✓ Page built and published before your next prospect conversation",
+      prompt3: "Update the hero from 'ENGINEERING GREATER POSSIBILITIES' to highlight a specific client outcome",
+      result3: "✓ Hero updated in minutes"
+    }
   },
   {
     id: "panorama-strategy",
@@ -2338,20 +2290,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a recent client project under Our Approach showing how we identified a creative solution to a housing policy challenge",
-        result: "✓ Case study live same day, no designer needed"
-      },
-      {
-        prompt: "Add a partner organizations section with logos and a Let's work together form",
-        result: "✓ Section built and published before your next stakeholder meeting"
-      },
-      {
-        prompt: "Update the hero from 'YOUR VISION. OUR PLATFORM. IMPACT.' to highlight a specific measurable outcome",
-        result: "✓ Hero updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a recent client project under Our Approach showing how we identified a creative solution to a housing policy challenge",
+      result1: "✓ Case study live same day, no designer needed",
+      prompt2: "Add a partner organizations section with logos and a Let's work together form",
+      result2: "✓ Section built and published before your next stakeholder meeting",
+      prompt3: "Update the hero from 'YOUR VISION. OUR PLATFORM. IMPACT.' to highlight a specific measurable outcome",
+      result3: "✓ Hero updated in minutes"
+    }
   },
   {
     id: "pisces-oceans",
@@ -2363,20 +2309,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a new project under Strengthen your Ocean project showing our latest coastal restoration engagement",
-        result: "✓ Project added same day, no designer needed"
-      },
-      {
-        prompt: "Update the Share the story of your work section with our most recent impact report",
-        result: "✓ Section updated in minutes with linked download"
-      },
-      {
-        prompt: "Add a funders page with grant opportunities and an Eliminate my barriers intake form",
-        result: "✓ Page built and published before your next funding cycle"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a new project under Strengthen your Ocean project showing our latest coastal restoration engagement",
+      result1: "✓ Project added same day, no designer needed",
+      prompt2: "Update the Share the story of your work section with our most recent impact report",
+      result2: "✓ Section updated in minutes with linked download",
+      prompt3: "Add a funders page with grant opportunities and an Eliminate my barriers intake form",
+      result3: "✓ Page built and published before your next funding cycle"
+    }
   },
   {
     id: "psblty",
@@ -2388,20 +2328,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a client results section showing how we repositioned a financial advisor firm ahead of the wealth transfer",
-        result: "✓ Case study live same day, no designer needed"
-      },
-      {
-        prompt: "Create a landing page for RIAs preparing for the greatest wealth transfer in history",
-        result: "✓ Vertical page built and published before your next outreach push"
-      },
-      {
-        prompt: "Test 'The Fortuned Favor The BOLD' vs 'Your brand is your untapped advantage' as the hero",
-        result: "✓ Both variants running in parallel within the hour"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a client results section showing how we repositioned a financial advisor firm ahead of the wealth transfer",
+      result1: "✓ Case study live same day, no designer needed",
+      prompt2: "Create a landing page for RIAs preparing for the greatest wealth transfer in history",
+      result2: "✓ Vertical page built and published before your next outreach push",
+      prompt3: "Test 'The Fortuned Favor The BOLD' vs 'Your brand is your untapped advantage' as the hero",
+      result3: "✓ Both variants running in parallel within the hour"
+    }
   },
   {
     id: "resilient-markets",
@@ -2413,20 +2347,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a case study under Climate Strategy and Analysis showing measurable impact for a recent government client",
-        result: "✓ Case study live same day, no designer needed"
-      },
-      {
-        prompt: "Create a landing page for nonprofits focused on our Regenerative Design Principles Workshops",
-        result: "✓ Vertical page built and published before your next outreach push"
-      },
-      {
-        prompt: "Update the hero from 'turbo charges entities that are making the world a better place' to include a specific outcome stat",
-        result: "✓ Hero updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a case study under Climate Strategy and Analysis showing measurable impact for a recent government client",
+      result1: "✓ Case study live same day, no designer needed",
+      prompt2: "Create a landing page for nonprofits focused on our Regenerative Design Principles Workshops",
+      result2: "✓ Vertical page built and published before your next outreach push",
+      prompt3: "Update the hero from 'turbo charges entities that are making the world a better place' to include a specific outcome stat",
+      result3: "✓ Hero updated in minutes"
+    }
   },
   {
     id: "santa-barbara-it-group",
@@ -2438,20 +2366,14 @@ export const reports: Report[] = [
     pages: 7,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a Luxury Residential page explaining our white-glove IT setup and smart home integration",
-        result: "✓ New page live same day, no designer needed"
-      },
-      {
-        prompt: "Update the Enterprise-Grade Cybersecurity section with our latest AI-powered threat detection capability",
-        result: "✓ Section updated in minutes"
-      },
-      {
-        prompt: "Change 'GET IN TOUCH' to 'Schedule a Site Assessment' and add a calendar booking link",
-        result: "✓ CTA updated and calendar embedded before your next client call"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a Luxury Residential page explaining our white-glove IT setup and smart home integration",
+      result1: "✓ New page live same day, no designer needed",
+      prompt2: "Update the Enterprise-Grade Cybersecurity section with our latest AI-powered threat detection capability",
+      result2: "✓ Section updated in minutes",
+      prompt3: "Change 'GET IN TOUCH' to 'Schedule a Site Assessment' and add a calendar booking link",
+      result3: "✓ CTA updated and calendar embedded before your next client call"
+    }
   },
   {
     id: "sterling-road",
@@ -2463,20 +2385,14 @@ export const reports: Report[] = [
     pages: 7,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a new company to the Portfolio section with their logo and one-liner",
-        result: "✓ Portfolio updated same day, no designer needed"
-      },
-      {
-        prompt: "Add a new resource to the Resources section — a guide on pricing for pre-seed founders",
-        result: "✓ Resource linked and live before your next newsletter goes out"
-      },
-      {
-        prompt: "Update the Apply Now CTA to include what founders can expect in the first 30 days after investment",
-        result: "✓ CTA copy updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a new company to the Portfolio section with their logo and one-liner",
+      result1: "✓ Portfolio updated same day, no designer needed",
+      prompt2: "Add a new resource to the Resources section — a guide on pricing for pre-seed founders",
+      result2: "✓ Resource linked and live before your next newsletter goes out",
+      prompt3: "Update the Apply Now CTA to include what founders can expect in the first 30 days after investment",
+      result3: "✓ CTA copy updated in minutes"
+    }
   },
   {
     id: "the-abbey-group",
@@ -2488,20 +2404,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a new partner apostolate to Our Partnerships with their mission and a link",
-        result: "✓ Partnership added same day, no designer needed"
-      },
-      {
-        prompt: "Add a campaign results page showing a recent fundraising outcome and what it funded",
-        result: "✓ Results page live before your next donor conversation"
-      },
-      {
-        prompt: "Update the Let's begin a conversation CTA to link directly to a scheduling page",
-        result: "✓ CTA updated and calendar embedded in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a new partner apostolate to Our Partnerships with their mission and a link",
+      result1: "✓ Partnership added same day, no designer needed",
+      prompt2: "Add a campaign results page showing a recent fundraising outcome and what it funded",
+      result2: "✓ Results page live before your next donor conversation",
+      prompt3: "Update the Let's begin a conversation CTA to link directly to a scheduling page",
+      result3: "✓ CTA updated and calendar embedded in minutes"
+    }
   },
   {
     id: "torch",
@@ -2513,20 +2423,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Publish a new blog post on our Monthly Sprints process with a case study from a gig economy client",
-        result: "✓ Post live same day, no designer needed"
-      },
-      {
-        prompt: "Add a staffing marketplaces landing page under Our Markets with a READ MORE CTA",
-        result: "✓ Vertical page built and published before your next BD push"
-      },
-      {
-        prompt: "Update the hero from 'We are a digital studio that builds and grows marketplace businesses' to include a client result",
-        result: "✓ Hero updated in minutes"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Publish a new blog post on our Monthly Sprints process with a case study from a gig economy client",
+      result1: "✓ Post live same day, no designer needed",
+      prompt2: "Add a staffing marketplaces landing page under Our Markets with a READ MORE CTA",
+      result2: "✓ Vertical page built and published before your next BD push",
+      prompt3: "Update the hero from 'We are a digital studio that builds and grows marketplace businesses' to include a client result",
+      result3: "✓ Hero updated in minutes"
+    }
   },
   {
     id: "tylt-ventures",
@@ -2538,20 +2442,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a new portfolio company under Select Investment Criteria with their stage and sector",
-        result: "✓ Investment added same day, no designer needed"
-      },
-      {
-        prompt: "Update Our Process to reflect our updated 4-step vetting approach",
-        result: "✓ Process section updated in minutes"
-      },
-      {
-        prompt: "Add a founder resources page with our Due Diligence checklist and an Apply Now form",
-        result: "✓ Page built and published before your next batch of applications"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a new portfolio company under Select Investment Criteria with their stage and sector",
+      result1: "✓ Investment added same day, no designer needed",
+      prompt2: "Update Our Process to reflect our updated 4-step vetting approach",
+      result2: "✓ Process section updated in minutes",
+      prompt3: "Add a founder resources page with our Due Diligence checklist and an Apply Now form",
+      result3: "✓ Page built and published before your next batch of applications"
+    }
   },
   {
     id: "webintensive-software",
@@ -2563,20 +2461,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Update the hero to include a specific client result — like 40% reduction in manual processing time",
-        result: "✓ Hero updated in minutes, no designer needed"
-      },
-      {
-        prompt: "Add a new Effectiveness Multiplier case study under Gain Quick Wins with a before/after breakdown",
-        result: "✓ Case study live same day, ready for your next prospect conversation"
-      },
-      {
-        prompt: "Add a separate landing page for Engineering for Optimal Outcomes targeting mid-size operations teams",
-        result: "✓ Page built and published before your next outbound push"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Update the hero to include a specific client result — like 40% reduction in manual processing time",
+      result1: "✓ Hero updated in minutes, no designer needed",
+      prompt2: "Add a new Effectiveness Multiplier case study under Gain Quick Wins with a before/after breakdown",
+      result2: "✓ Case study live same day, ready for your next prospect conversation",
+      prompt3: "Add a separate landing page for Engineering for Optimal Outcomes targeting mid-size operations teams",
+      result3: "✓ Page built and published before your next outbound push"
+    }
   },
   {
     id: "weill-media",
@@ -2588,20 +2480,14 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: [
-      {
-        prompt: "Add a new project to the Filming section with an embed and one-line client description",
-        result: "✓ Project live same day, no designer needed"
-      },
-      {
-        prompt: "Update the Let's Chat CTA to link to a booking page with a short inquiry form",
-        result: "✓ CTA updated and booking flow live before your next client conversation"
-      },
-      {
-        prompt: "Add an Editorial showcase page with stills and a breakdown of the post-production process",
-        result: "✓ Page built and published before your next pitch"
-      }
-    ]
+    aiExamples: {
+      prompt1: "Add a new project to the Filming section with an embed and one-line client description",
+      result1: "✓ Project live same day, no designer needed",
+      prompt2: "Update the Let's Chat CTA to link to a booking page with a short inquiry form",
+      result2: "✓ CTA updated and booking flow live before your next client conversation",
+      prompt3: "Add an Editorial showcase page with stills and a breakdown of the post-production process",
+      result3: "✓ Page built and published before your next pitch"
+    }
   },
   {
     id: "capix",

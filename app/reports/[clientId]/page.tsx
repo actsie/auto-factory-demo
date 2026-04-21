@@ -14,9 +14,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { clientId } = await params;
   const report = reports.find((r) => r.id === clientId);
-
   if (!report) return {};
-
   return {
     title: `Website Insight Report — ${report.company}`,
     description: `Discover how ${report.company} can migrate from Webflow to a faster, more flexible stack.`,
@@ -26,104 +24,319 @@ export async function generateMetadata({ params }: Props) {
 export default async function ReportPage({ params }: Props) {
   const { clientId } = await params;
   const report = reports.find((r) => r.id === clientId);
+  if (!report) notFound();
 
-  if (!report) {
-    notFound();
-  }
+  const initials = report.company.split(" ").slice(0, 2).map((w: string) => w[0]).join("").toUpperCase();
 
   return (
     <>
-      {/* Top bar */}
-      <div style={{ background: "#1a1a1a", padding: "14px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+
+      <style>{`
+        @property --angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+        @keyframes beam-spin {
+          0% { --angle: 0deg; }
+          100% { --angle: 360deg; }
+        }
+        @keyframes twinkle {
+          0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+          25%       { opacity: 0.3; transform: scale(0.55) rotate(20deg); }
+          50%       { opacity: 1; transform: scale(1.15) rotate(0deg); }
+          75%       { opacity: 0.5; transform: scale(0.7) rotate(-15deg); }
+        }
+        @keyframes shake {
+          0%,100% { transform: translateX(0); }
+          25% { transform: translateX(-8px); }
+          75% { transform: translateX(8px); }
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #1a1a1a; color: #fff; }
+
+        input::placeholder { color: rgba(46,229,214,0.45); }
+        input:focus { outline: none; box-shadow: none; }
+        #ctaEmailField:focus { border: 1px solid #2ee5d6 !important; }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0 1000px #2a2a2a inset !important;
+          -webkit-text-fill-color: #fff !important;
+        }
+
+        .nav-cta {
+          background: #2ee5d6; color: #1a1a1a;
+          font-size: 13px; font-weight: 800;
+          padding: 9px 22px; border-radius: 50px;
+          text-decoration: none;
+          display: inline-flex; align-items: center; gap: 7px;
+          overflow: hidden;
+        }
+        .nav-arrow { transition: transform 0.25s cubic-bezier(0.4,0,0.2,1); flex-shrink: 0; }
+        .nav-cta:hover .nav-arrow { transform: translateX(4px); }
+
+        .cta-btn {
+          margin-top: 12px; width: 100%;
+          background: #2ee5d6; color: #1a1a1a;
+          font-size: 15px; font-weight: 800;
+          padding: 14px 28px; border-radius: 50px;
+          border: none; cursor: pointer;
+          display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .cta-arrow { transition: transform 0.25s cubic-bezier(0.4,0,0.2,1); flex-shrink: 0; }
+        .cta-btn:hover .cta-arrow { transform: translateX(4px); }
+
+        .beam-wrapper { opacity: 0.45; transition: opacity 0.3s ease; }
+        .beam-wrapper:has(input:focus) { opacity: 1; }
+
+        #frictionCardsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+        .fcard { background:#fff; border:1px solid rgba(0,0,0,0.07); border-radius:16px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+        .fcard-title { font-size:14px; font-weight:700; color:#1a1a1a; margin-bottom:16px; }
+        .frow { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid #f5f5f5; font-size:13px; }
+        .frow.last { border-bottom:none; }
+        .flabel { color:#999; }
+        .fgood { font-weight:600; color:#0d9e8e; }
+        .fbad { font-weight:600; color:#dc2626; }
+
+        .brow { display:grid; grid-template-columns:1fr 32px 1fr; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #f0eeea; font-size:14px; }
+        .brow.last { border-bottom:none; }
+        .before-col { color:#aaa; text-decoration:line-through; text-decoration-color:#ddd; }
+        .arrow-col { color:#ccc; text-align:center; font-size:18px; }
+        .after-col { color:#0d9e8e; font-weight:600; }
+
+        .aiex { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px 20px; margin-bottom:10px; }
+        .aiex-label { font-size:10px; color:rgba(255,255,255,0.4); margin-bottom:5px; text-transform:uppercase; letter-spacing:0.08em; }
+        .aiex-prompt { color:#e5e7eb; font-style:italic; font-size:14px; }
+        .aiex-result { margin-top:10px; font-size:13px; color:#2ee5d6; font-weight:600; }
+
+        .icard { background:#fff; border:1px solid rgba(0,0,0,0.07); border-radius:16px; padding:28px 24px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+        .iicon { font-size:28px; margin-bottom:14px; color:#1a1a1a; }
+        .ititle { font-size:15px; font-weight:700; color:#1a1a1a; margin-bottom:6px; }
+        .idesc { font-size:13px; color:rgba(26,5,51,0.55); line-height:1.55; }
+
+        .audit-pill {
+          display: inline-flex; align-items: center; gap: 7px;
+          background: rgba(30,30,30,0.85); border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 50px; padding: 8px 14px;
+          font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.85);
+          backdrop-filter: blur(4px); white-space: nowrap; overflow: hidden; width: 100%;
+        }
+        .pill-text { display: block; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease; }
+        .pill-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex-shrink: 0; transition: background 0.4s ease; }
+        .pill-dot--before { background: rgba(255,110,90,0.8); }
+        .pill-dot--after  { background: #2ee5d6; }
+        .audit-pill.is-after { border-color: rgba(46,229,214,0.25); background: rgba(20,60,60,0.6); }
+
+        @media (max-width: 1100px) {
+          .hero-diagram { flex-direction: column !important; align-items: center !important; gap: 24px !important; padding-bottom: 48px !important; }
+          #heroCard    { width: 100% !important; max-width: 340px; }
+          #pillsCol    { width: 100% !important; max-width: 340px; display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+          #pillsCol .audit-pill { white-space: normal !important; font-size: 11px !important; }
+          #migrateCta  { width: 100% !important; max-width: 340px; }
+          #migrateCta > div:last-child { width: 100% !important; }
+          .hero-diagram > div:nth-child(2) { align-items: center !important; width: 100%; max-width: 340px; }
+        }
+
+        @media (max-width: 768px) {
+          #frictionCardsGrid   { grid-template-columns: 1fr; }
+          .problem-grid        { grid-template-columns: 1fr !important; }
+          .included-grid       { grid-template-columns: repeat(2,1fr) !important; }
+          section, nav { padding-left: 20px !important; padding-right: 20px !important; }
+          #heroSection { padding-top: 60px !important; min-height: auto !important; }
+          nav { padding-top: 12px !important; padding-bottom: 12px !important; }
+          .brow { grid-template-columns: 1fr !important; gap: 4px !important; padding: 14px 0 !important; }
+          .arrow-col { display: none !important; }
+          .migration-card { padding: 28px 20px !important; }
+          #ctaEmailField { width: 100% !important; }
+          #ctaForm { flex-direction: column !important; align-items: stretch !important; }
+          #ctaForm input { width: 100% !important; }
+          #ctaForm .cta-btn { width: 100% !important; margin-top: 0 !important; }
+          #heroSection > div[style*="max-width:560px"] { max-width: 100% !important; text-align: center !important; }
+          #heroSparkle { display: none !important; }
+        }
+
+        @media (max-width: 480px) {
+          .included-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
+      {/* NAV */}
+      <nav style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(20,20,20,0.9)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "14px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <a href="https://fountainofscale.com" style={{ fontSize: "15px", fontWeight: 700, color: "#fff", letterSpacing: "-0.01em", textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-          <img
-            src="/assets/auto-factory.png"
-            alt="Logo"
-            style={{ width: "28px", height: "28px", display: "inline-block" }}
-          />
-          Fountain<span style={{ color: "#fff" }}>of Scale</span>
+          <img src="/assets/auto-factory.png" alt="Logo" style={{ width: "28px", height: "28px", borderRadius: "6px" }} />
+          Fountain<span style={{ color: "#2ee5d6" }}>of Scale</span>
         </a>
-        <a href="#cta" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "13px", fontWeight: 700, padding: "8px 18px", borderRadius: "6px", textDecoration: "none", cursor: "pointer", border: "none" }}>
+        <a href="#cta" className="nav-cta">
           Start my migration
+          <svg className="nav-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="#1a1a1a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </a>
-      </div>
+      </nav>
 
-      {/* Hero */}
-      <div style={{ background: "#1a1a1a", color: "#fff", padding: "56px 32px 48px", textAlign: "center" }}>
-        <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "16px" }}>Website Insight Report</div>
-        <h1 style={{ fontSize: "32px", fontWeight: 800, lineHeight: "1.2", marginBottom: "12px", maxWidth: "620px", margin: "0 auto 12px" }}>
-          Here's where you're losing time.
-        </h1>
-        <p style={{ fontSize: "16px", color: "#aaa", maxWidth: "500px", margin: "0 auto 32px" }}>
-          We analyzed {report.company}'s site. Here's what we'd fix first.
-        </p>
+      {/* HERO */}
+      <section id="heroSection" style={{ position: "relative", background: "#1a1a1a", backgroundImage: "linear-gradient(0deg, rgba(30,30,30,0) 40%, rgba(30,30,30,0.9) 100%), radial-gradient(ellipse 60% 50% at 85% 20%, rgba(46,229,214,0.18) 0%, rgba(46,229,214,0) 70%)", color: "#fff", padding: "80px 80px 0", minHeight: "88vh", display: "flex", flexDirection: "column" }}>
+        {/* Glow blobs */}
+        <div style={{ position: "absolute", top: "60px", right: "80px", width: "320px", height: "320px", borderRadius: "50%", background: "radial-gradient(circle,rgba(46,229,214,0.2),rgba(46,229,214,0))", pointerEvents: "none", filter: "blur(40px)" }}></div>
+        <div style={{ position: "absolute", top: "40px", right: "40px", width: "200px", height: "200px", borderRadius: "50%", background: "radial-gradient(circle at 30% 25%,rgba(46,229,214,0.3),rgba(46,229,214,0))", pointerEvents: "none", filter: "blur(30px)" }}></div>
 
-        <div style={{ display: "inline-flex", alignItems: "center", gap: "16px", background: "#2a2a2a", border: "1px solid #333", borderRadius: "10px", padding: "16px 24px", textAlign: "left" }}>
-          <div style={{ minWidth: (clientId === "aethero" || clientId === "azalea-robotics") ? "60px" : "44px", height: (clientId === "aethero" || clientId === "azalea-robotics") ? "60px" : "44px", background: report.logoNeedsBg ? "#fff" : "transparent", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: 700, color: "#1a1a1a", padding: report.logoNeedsBg ? "8px 12px" : "0" }}>
-            <img src={report.logo} alt={report.company} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
-          </div>
-          <div>
-            <div style={{ fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "2px" }}>Insight Report for</div>
-            <div style={{ fontSize: "16px", fontWeight: 700, color: "#fff" }}>{report.company}</div>
-          </div>
+        {/* Sparkle */}
+        <div id="heroSparkle" style={{ position: "absolute", top: "88px", right: "200px", width: "32px", height: "32px", pointerEvents: "none", animation: "twinkle 5s ease-in-out infinite" }}>
+          <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0 L17.5 14.5 L32 16 L17.5 17.5 L16 32 L14.5 17.5 L0 16 L14.5 14.5 Z" />
+          </svg>
         </div>
 
-        <div style={{ display: "flex", gap: "32px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" }}>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px" }}>Client URL</div>
-            <div style={{ fontSize: "13px", color: "#ccc", fontWeight: 500 }}>{report.url}</div>
+        {/* Hero content */}
+        <div style={{ maxWidth: "560px", position: "relative", zIndex: 2 }}>
+          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "20px" }}>
+            Website Insight Report
           </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px" }}>Industry</div>
-            <div style={{ fontSize: "13px", color: "#ccc", fontWeight: 500 }}>{report.industry}</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px" }}>Website Pages</div>
-            <div style={{ fontSize: "13px", color: "#ccc", fontWeight: 500 }}>{report.pages}</div>
-          </div>
-        </div>
-      </div>
-
-      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 24px 80px" }}>
-        {/* Opportunity strip */}
-        <div style={{ background: "#fff", border: "1px solid #e8e8e8", borderRadius: "12px", padding: "32px", margin: "32px 0", textAlign: "center" }}>
-          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#888", marginBottom: "8px" }}>Immediate Opportunity</div>
-          <h2 style={{ fontSize: "22px", fontWeight: 800, marginBottom: "6px" }}>Every change to your site goes through someone else first</h2>
-          <p style={{ fontSize: "14px", color: "#666", maxWidth: "480px", margin: "0 auto" }}>
-            Updates sitting in a queue. Designer availability. Briefs that take a week to turn around. Time you don't get back.
+          <h1 id="heroHeading" style={{ fontSize: "clamp(40px,5vw,68px)", fontWeight: 800, lineHeight: 1.06, marginBottom: "20px", letterSpacing: "-0.02em" }}>
+            Here's where you're losing time.
+          </h1>
+          <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.72)", lineHeight: 1.6, maxWidth: "460px", marginBottom: "36px" }}>
+            We analyzed {report.company}&apos;s site. Here&apos;s what we&apos;d fix first — and how fast it can change.
           </p>
-        </div>
 
-        {/* Stats with Counters */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1px", background: "#e8e8e8", border: "1px solid #e8e8e8", borderRadius: "12px", overflow: "hidden", margin: "24px 0" }}>
-          <div style={{ background: "#fff", padding: "24px 16px", textAlign: "center" }}>
-            <div style={{ fontSize: "36px", fontWeight: 800, lineHeight: "1", marginBottom: "6px", color: "#1a1a1a" }}>
-              <span id="waitCounter" suppressHydrationWarning>0</span>
-              <span style={{ fontSize: "28px", fontWeight: 600, marginLeft: "4px" }} suppressHydrationWarning>days</span>
+          {/* Company badge */}
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "14px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "12px", padding: "14px 20px", marginBottom: "36px" }}>
+            <div style={{ width: "40px", height: "40px", borderRadius: "8px", background: report.logoNeedsBg ? "#fff" : "rgba(46,229,214,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: report.logoNeedsBg ? "4px" : "0" }}>
+              <img src={report.logo} alt={report.company} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
             </div>
-            <div style={{ fontSize: "12px", color: "#888", lineHeight: "1.4" }}>
-              Average wait time<br />
-              per website change<br />
-              (website builders + designer + engineer)
+            <div>
+              <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "2px" }}>Insight Report for</div>
+              <div style={{ fontSize: "15px", fontWeight: 700 }}>{report.company}</div>
             </div>
-          </div>
-          <div style={{ background: "#fff", padding: "24px 16px", textAlign: "center" }}>
-            <div style={{ fontSize: "36px", fontWeight: 800, lineHeight: "1", marginBottom: "6px", color: "#1a1a1a" }} id="deployCounter">
-              <span suppressHydrationWarning>3</span>
-              <span style={{ fontSize: "28px", fontWeight: 600, marginLeft: "4px" }} suppressHydrationWarning>d</span>
-            </div>
-            <div style={{ fontSize: "12px", color: "#888", lineHeight: "1.4" }}>From 3 days down to 10min<br />after migration</div>
+            <div style={{ width: "1px", height: "32px", background: "rgba(255,255,255,0.1)", margin: "0 6px" }}></div>
+            <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>{report.url.replace("https://", "")}</div>
           </div>
         </div>
 
-        {/* Section 1: Friction breakdown */}
-        <div style={{ margin: "32px 0" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: "10px", marginBottom: "6px" }}>
-            <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", background: "#1a1a1a", color: "#fff", padding: "3px 8px", borderRadius: "4px" }}>The Problem</span>
-          </div>
-          <h2 style={{ fontSize: "20px", fontWeight: 700 }}>Every time you want to change something, it becomes a project</h2>
-          <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>Where manual website management slows you down.</p>
+        {/* Hero diagram */}
+        <svg id="heroSvg" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 2, overflow: "visible" }}></svg>
 
+        <div className="hero-diagram" style={{ position: "relative", zIndex: 3, marginTop: "48px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 0, paddingBottom: "72px" }}>
+
+          {/* Col 1: Company card */}
+          <div id="heroCard" style={{ position: "relative", flexShrink: 0, width: "200px" }}>
+            <div style={{ position: "absolute", inset: "-12px", borderRadius: "22px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}></div>
+            <div style={{ position: "relative", background: "#fff", borderRadius: "14px", padding: "16px 18px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+                <div style={{ width: "30px", height: "30px", borderRadius: "6px", background: report.logoNeedsBg ? "#fff" : "rgba(26,26,26,0.08)", border: report.logoNeedsBg ? "1px solid #eee" : "none", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: "3px" }}>
+                  <img src={report.logo} alt={report.company} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+                </div>
+                <div>
+                  <div style={{ fontSize: "12px", fontWeight: 700, color: "#1a1a1a" }}>{report.company}</div>
+                  <div style={{ fontSize: "10px", color: "#999" }}>{report.url.replace("https://", "")}</div>
+                </div>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", padding: "4px 0", borderBottom: "1px solid #f0f0f0", color: "#666" }}><span>Pages</span><span style={{ fontWeight: 600, color: "#1a1a1a" }}>{report.pages}</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", padding: "4px 0", borderBottom: "1px solid #f0f0f0", color: "#666" }}><span>Industry</span><span style={{ fontWeight: 600, color: "#1a1a1a", fontSize: "10px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "90px", display: "block" }}>{report.industry.split("/")[0].trim()}</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", padding: "4px 0", borderBottom: "1px solid #f0f0f0", color: "#666" }}><span>Website Builder</span><span id="cardStatBuilder" style={{ fontWeight: 600, color: "#1a1a1a", transition: "color 0.4s ease" }}>Webflow</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", padding: "4px 0", borderBottom: "1px solid #f0f0f0", color: "#666" }}><span>Deploy time</span><span id="cardStatDeploy" style={{ fontWeight: 600, color: "#dc2626", transition: "color 0.4s ease" }}>3–5 days</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", padding: "4px 0", color: "#666" }}><span>Designer + Dev</span><span id="cardStatCost" style={{ fontWeight: 600, color: "#dc2626", transition: "color 0.4s ease" }}>$$/hr</span></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Col 2: Pills */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "10px", flexShrink: 0 }}>
+            <div id="pillStateLabel" style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px", background: "rgba(255,100,80,0.15)", border: "1px solid rgba(255,100,80,0.3)", color: "rgba(255,130,110,0.9)", transition: "all 0.4s ease" }}>Before</div>
+            <div id="pillsCol" style={{ display: "flex", flexDirection: "column", gap: "8px", width: "220px" }}>
+              <div className="audit-pill" id="auditPill0"><span className="pill-dot pill-dot--before"></span><span className="pill-text">Designer queue</span></div>
+              <div className="audit-pill" id="auditPill1"><span className="pill-dot pill-dot--before"></span><span className="pill-text">Dev dependency</span></div>
+              <div className="audit-pill" id="auditPill2"><span className="pill-dot pill-dot--before"></span><span className="pill-text">Builder lock-in</span></div>
+              <div className="audit-pill" id="auditPill3"><span className="pill-dot pill-dot--before"></span><span className="pill-text">Every change = a brief</span></div>
+              <div className="audit-pill" id="auditPill4"><span className="pill-dot pill-dot--before"></span><span className="pill-text">Updates take days</span></div>
+              <div className="audit-pill" id="auditPill5"><span className="pill-dot pill-dot--before"></span><span className="pill-text">No site ownership</span></div>
+            </div>
+          </div>
+
+          {/* Col 3: Node */}
+          <div style={{ flexShrink: 0, position: "relative", width: "56px", height: "56px" }}>
+            <div id="blockedNode" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(60,10,10,0.6)", border: "2px solid rgba(255,80,60,0.35)", display: "flex", alignItems: "center", justifyContent: "center", transition: "opacity 0.4s ease,transform 0.4s ease" }}>
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="11" r="8" stroke="rgba(255,90,70,0.5)" strokeWidth="1.5"/>
+                <line x1="7" y1="7" x2="15" y2="15" stroke="rgba(255,100,80,0.8)" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="15" y1="7" x2="7" y2="15" stroke="rgba(255,100,80,0.8)" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <div id="fosLogo" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "linear-gradient(135deg,#2a2a2a,#111)", border: "2px solid rgba(46,229,214,0.4)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 24px rgba(46,229,214,0.2)", opacity: 0, transform: "scale(0.6)", transition: "opacity 0.5s ease,transform 0.5s cubic-bezier(0.34,1.56,0.64,1)" }}>
+              <img src="/assets/auto-factory.png" alt="FoS" style={{ width: "28px", height: "28px", borderRadius: "4px" }} />
+            </div>
+          </div>
+
+          {/* Col 4: Mini chat card */}
+          <div id="migrateCta" style={{ flexShrink: 0, opacity: 0, transform: "translateX(14px)", transition: "opacity 0.5s ease,transform 0.5s cubic-bezier(0.34,1.56,0.64,1)", position: "relative" }}>
+            <div style={{ position: "absolute", inset: "-12px", borderRadius: "22px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}></div>
+            <div style={{ position: "relative", background: "#fff", borderRadius: "14px", width: "188px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.12)" }}>
+              <div style={{ padding: "10px 14px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "7px" }}>
+                <div style={{ width: "24px", height: "24px", borderRadius: "5px", background: report.logoNeedsBg ? "#fff" : "#f5f5f5", border: "1px solid #eee", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: "3px" }}>
+                  <img src={report.logo} alt={report.company} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+                </div>
+                <div>
+                  <div style={{ fontSize: "11px", fontWeight: 700, color: "#1a1a1a" }}>{report.company}</div>
+                  <div style={{ fontSize: "9px", color: "#aaa" }}>{report.url.replace("https://", "")}</div>
+                </div>
+              </div>
+              <div style={{ padding: "10px 14px", height: "54px", display: "flex", flexDirection: "column", gap: "5px", overflow: "hidden" }}>
+                <div id="chatStatus" style={{ fontSize: "10px", color: "#aaa", lineHeight: 1.5 }}></div>
+              </div>
+              <div style={{ padding: "8px 10px", borderTop: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "6px", background: "#fafafa" }}>
+                <div style={{ flex: 1, background: "#fff", border: "1px solid #e8e8e8", borderRadius: "6px", padding: "5px 8px", fontSize: "10px", color: "#1a1a1a", height: "22px", display: "flex", alignItems: "center", overflow: "hidden" }}>
+                  <span id="chatTyping" style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}></span><span id="chatCursor" style={{ display: "inline-block", width: "1px", height: "10px", background: "#1a1a1a", marginLeft: "1px", flexShrink: 0, animation: "blink 0.8s step-end infinite" }}></span>
+                </div>
+                <div id="chatSendBtn" style={{ width: "22px", height: "22px", borderRadius: "5px", background: "#e8e8e8", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "background 0.3s ease" }}>
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="#aaa" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" id="chatSendIcon"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* PROBLEM */}
+      <section style={{ background: "#1a1a1a", color: "#fff", padding: "80px 40px" }}>
+        <div className="problem-grid" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
+          <div>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "16px" }}>The Problem</div>
+            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+              Every change to your site goes through someone else first.
+            </h2>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            {[
+              { title: "Designer in the loop", desc: "Even a one-line copy change means a brief, a queue, and a wait." },
+              { title: "No direct access", desc: "You can see the site. You can't touch it without involving a specialist." },
+              { title: "You know exactly what needs to change.", desc: "You just can't change it." },
+            ].map((item, idx) => (
+              <div key={idx} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: "14px", padding: "22px 24px" }}>
+                <div style={{ fontSize: "16px", fontWeight: 700, marginBottom: "6px" }}>{item.title}</div>
+                <div style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FRICTION BREAKDOWN */}
+      <section style={{ background: "#f5f4f1", padding: "80px 40px" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0d9e8e", marginBottom: "12px" }}>The Friction</div>
+          <h2 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#1a1a1a", lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "10px" }}>
+            Every time you want to change something, it becomes a project.
+          </h2>
+          <p style={{ fontSize: "16px", color: "rgba(26,5,51,0.55)", marginBottom: "36px" }}>Where manual website management slows {report.company} down.</p>
           <div id="frictionCardsGrid">
             {[
               { scenario: "Update homepage hero copy", should: "5 min", actually: "2–5 days", why: "Designer queue" },
@@ -131,494 +344,511 @@ export default async function ReportPage({ params }: Props) {
               { scenario: "Test a different CTA", should: "10 min", actually: "Blocked", why: "Need dev or platform expertise" },
               { scenario: "Respond to market feedback", should: "Same day", actually: "Next sprint", why: "No direct access" },
             ].map((item, idx) => (
-              <div key={idx} style={{ background: "#fff", border: "1px solid #e8e8e8", borderRadius: "10px", padding: "20px" }}>
-                <div style={{ fontSize: "13px", fontWeight: 700, color: "#1a1a1a", marginBottom: "12px" }}>{item.scenario}</div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: "1px solid #f5f5f5", fontSize: "13px" }}>
-                  <span style={{ color: "#888" }}>Should take</span>
-                  <span style={{ color: "#5bbfba", fontWeight: 600 }}>{item.should}</span>
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: "1px solid #f5f5f5", fontSize: "13px" }}>
-                  <span style={{ color: "#888" }}>Actually takes</span>
-                  <span style={{ color: "#dc2626", fontWeight: 600 }}>{item.actually}</span>
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", fontSize: "13px" }}>
-                  <span style={{ color: "#888" }}>Why</span>
-                  <span style={{ color: "#dc2626", fontWeight: 600 }}>{item.why}</span>
-                </div>
+              <div key={idx} className="fcard">
+                <div className="fcard-title">{item.scenario}</div>
+                <div className="frow"><span className="flabel">Should take</span><span className="fgood">{item.should}</span></div>
+                <div className="frow"><span className="flabel">Actually takes</span><span className="fbad">{item.actually}</span></div>
+                <div className="frow last"><span className="flabel">Why</span><span className="fbad">{item.why}</span></div>
               </div>
             ))}
           </div>
-
-          <p style={{ fontSize: "14px", color: "#666", marginTop: "8px" }}>
-            By the time it's live, the moment's passed. For a business that needs to move fast, that friction costs more than the subscription.
-          </p>
         </div>
+      </section>
 
-        {/* Section 2: What changes */}
-        <div style={{ margin: "32px 0" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: "10px", marginBottom: "6px" }}>
-            <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", background: "#1a1a1a", color: "#fff", padding: "3px 8px", borderRadius: "4px" }}>After Migration</span>
-          </div>
-          <h2 style={{ fontSize: "20px", fontWeight: 700 }}>What full control looks like</h2>
-          <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>The site moves at your speed, not a designer's schedule.</p>
-
-          <ul style={{ listStyle: "none", margin: "16px 0" }}>
-            {[
-              { before: "Update copy → wait on designer → days later", after: "Edit it yourself, live in minutes" },
-              { before: "New landing page → brief → build → approve → weeks", after: "Describe it to AI → review → ship same day" },
-              { before: "Test a new CTA → blocked without dev help", after: "Try it, revert it, try another — whenever you want" },
-              { before: "Respond to customer feedback → next sprint", after: "Change it now, while the insight is fresh" },
-              { before: `Current hosting → $${report.hostingCost}/mo and climbing`, after: "Your code to keep forever." },
-            ].map((item, idx) => (
-              <li key={idx} style={{ display: "flex", gap: "12px", padding: "14px 0", borderBottom: "1px solid #f0f0ee", fontSize: "14px" }}>
-                <span style={{ flex: 1, color: "#888", textDecoration: "line-through", textDecorationColor: "#ddd" }}>{item.before}</span>
-                <span style={{ color: "#ccc", flexShrink: 0 }}>→</span>
-                <span style={{ flex: 1, color: "#5bbfba", fontWeight: 500 }}>{item.after}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Section 3: AI */}
-        <div style={{ margin: "32px 0" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: "10px", marginBottom: "6px" }}>
-            <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", background: "#1a1a1a", color: "#fff", padding: "3px 8px", borderRadius: "4px" }}>AI-Powered</span>
-          </div>
-          <h2 style={{ fontSize: "20px", fontWeight: 700 }}>Make updates whenever inspiration strikes</h2>
-          <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>Full control. Change things whenever you want.</p>
-
-          <div style={{ background: "#1a1a1a", borderRadius: "12px", padding: "28px", margin: "20px 0" }} id="aiBlock">
-            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "12px" }}>
-              How it works for {report.company}
+      {/* AFTER MIGRATION */}
+      <section style={{ background: "#f5f4f1", padding: "0 40px 80px" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div className="migration-card" style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "20px", padding: "48px", boxShadow: "0 2px 24px rgba(0,0,0,0.05)" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "12px", opacity: 0.5 }}>After Migration</div>
+            <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em", marginBottom: "32px" }}>What full control looks like.</h2>
+            <div>
+              <div className="brow"><span className="before-col">Update copy → wait on designer → days later</span><span className="arrow-col">→</span><span className="after-col">Edit it yourself, live in minutes</span></div>
+              <div className="brow"><span className="before-col">New landing page → brief → build → approve → weeks</span><span className="arrow-col">→</span><span className="after-col">Describe it to AI → review → ship same day</span></div>
+              <div className="brow"><span className="before-col">Test a new CTA → blocked without dev help</span><span className="arrow-col">→</span><span className="after-col">Try it, revert it, try another — whenever you want</span></div>
+              <div className="brow"><span className="before-col">Respond to customer feedback → next sprint</span><span className="arrow-col">→</span><span className="after-col">Change it now, while the insight is fresh</span></div>
+              <div className="brow last"><span className="before-col">Current hosting → ${report.hostingCost}/yr and climbing</span><span className="arrow-col">→</span><span className="after-col">Your code to keep forever.</span></div>
             </div>
+          </div>
+        </div>
+      </section>
 
+      {/* AI SECTION */}
+      <section style={{ background: "#1a1a1a", backgroundImage: "radial-gradient(ellipse 80% 60% at 50% 100%,rgba(46,229,214,0.2) 0%,rgba(30,30,30,0.3) 45%,rgba(26,26,26,0) 80%)", padding: "80px 40px", color: "#fff" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "14px" }}>AI-Powered</div>
+            <h2 style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "14px" }}>Make updates whenever inspiration strikes.</h2>
+            <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.6)", maxWidth: "460px", margin: "0 auto" }}>Full control. Change things whenever you want.</p>
+          </div>
+
+          <div id="aiBlock" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "20px", padding: "32px", marginBottom: "24px" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "16px" }}>How it works for {report.company}</div>
             {[
               { prompt: report.aiExamples.prompt1, result: report.aiExamples.result1 },
               { prompt: report.aiExamples.prompt2, result: report.aiExamples.result2 },
               { prompt: report.aiExamples.prompt3, result: report.aiExamples.result3 },
             ].map((item, idx) => (
-              <div key={idx} style={{ background: "#2a2a2a", borderRadius: "8px", padding: "14px 18px", marginBottom: "10px", fontSize: "14px" }}>
-                <div style={{ fontSize: "11px", color: "#999", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.06em" }}>You say</div>
-                <div style={{ color: "#e5e7eb", fontStyle: "italic" }}>"{item.prompt}"</div>
-                <div style={{ marginTop: "8px", fontSize: "13px", color: "#2ee5d6", fontWeight: 600 }}>{item.result}</div>
+              <div key={idx} className="aiex">
+                <div className="aiex-label">You say</div>
+                <div className="aiex-prompt">&ldquo;{item.prompt}&rdquo;</div>
+                <div className="aiex-result">{item.result}</div>
               </div>
             ))}
 
-            <form id="aiForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginTop: "20px", alignItems: "center" }}>
+            <form id="aiForm" style={{ marginTop: "24px" }}>
               <div id="aiFormInputs">
-                <div className="form-input-wrapper beam-wrapper" style={{ position: "relative", background: "conic-gradient(from var(--angle), transparent 65%, #2ee5d6 79%, #80f4f1 86%, transparent 93%)", borderRadius: "8px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
-                  <input type="text" id="aiChangeField" placeholder="What do you want changed on your website?" style={{ padding: "14px 18px", borderRadius: "6px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
+                <div className="beam-wrapper" style={{ position: "relative", background: "conic-gradient(from var(--angle),transparent 65%,#2ee5d6 79%,#b0f4f8 86%,transparent 93%)", borderRadius: "10px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
+                  <input type="text" id="aiChangeField" placeholder="What do you want changed on your website?" style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
                 </div>
-                <div className="form-input-wrapper beam-wrapper" style={{ position: "relative", background: "#2a2a2a", borderRadius: "8px", border: "1px solid #333" }} id="emailWrapper">
-                  <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
+                <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: "10px", border: "1px solid rgba(255,255,255,0.1)", marginTop: "10px" }} id="emailWrapper">
+                  <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "10px", border: "none", fontSize: "15px", width: "100%", background: "transparent", color: "#fff" }} />
                 </div>
               </div>
-              <button id="migrateBtn" type="submit" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
+              <button id="migrateBtn" type="submit" className="cta-btn">
                 Get started
+                <svg className="cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="#1a1a1a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </button>
             </form>
           </div>
         </div>
+      </section>
 
-        {/* Section 4: What's included */}
-        <div style={{ margin: "32px 0" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: "10px", marginBottom: "6px" }}>
-            <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", background: "#1a1a1a", color: "#fff", padding: "3px 8px", borderRadius: "4px" }}>What's Included</span>
-          </div>
-          <h2 style={{ fontSize: "20px", fontWeight: 700 }}>Everything in the migration</h2>
-          <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>Your migration. First week we're hands-on. Then it's yours.</p>
-
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px", margin: "16px 0" }}>
+      {/* WHAT'S INCLUDED */}
+      <section style={{ background: "#f5f4f1", padding: "80px 40px" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "12px", opacity: 0.5 }}>What&apos;s Included</div>
+          <h2 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em", marginBottom: "10px" }}>Everything in the migration.</h2>
+          <p style={{ fontSize: "16px", color: "rgba(26,5,51,0.5)", marginBottom: "40px" }}>First week we&apos;re hands-on. Then it&apos;s yours.</p>
+          <div className="included-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "14px" }}>
             {[
-              { icon: "fa-magnifying-glass", title: "Full Audit", desc: "We map every page, form, and integration before touching anything" },
-              { icon: "fa-wrench", title: "Complete Rebuild", desc: "Same design, same URLs, cleaner code you actually own" },
-              { icon: "fa-flask-vial", title: "Full Testing", desc: "Every URL, form, and integration verified before go-live" },
-              { icon: "fa-rocket", title: "SEO-Safe Launch", desc: "301 redirects, DNS migration, Google Lighthouse verified" },
-              { icon: "fa-comments", title: "First Week Support", desc: "First week after launch is on us. Any issue, we're on it." },
-              { icon: "fa-infinity", title: "Yours Forever", desc: "After day 7, it's yours completely. No lock-in, no retainer required" },
+              { icon: "fa-magnifying-glass", title: "Full Audit", desc: "We map every page, form, and integration before touching anything." },
+              { icon: "fa-wrench", title: "Complete Rebuild", desc: "Same design, same URLs, cleaner code you actually own." },
+              { icon: "fa-flask-vial", title: "Full Testing", desc: "Every URL, form, and integration verified before go-live." },
+              { icon: "fa-rocket", title: "SEO-Safe Launch", desc: "301 redirects, DNS migration, Google Lighthouse verified." },
+              { icon: "fa-comments", title: "Hands-On Onboarding", desc: "We're in there with you making changes, not just fixing bugs." },
+              { icon: "fa-infinity", title: "No Lock-In", desc: "Your code, your site. No long-term contract required — we're here when you need us." },
             ].map((item, idx) => (
-              <div key={idx} style={{ background: "#fff", border: "1px solid #e8e8e8", borderRadius: "10px", padding: "20px 16px", textAlign: "center" }}>
-                <div style={{ fontSize: "32px", marginBottom: "10px", color: "#2ee5d6" }}>
-                  <i className={`fas ${item.icon}`}></i>
-                </div>
-                <div style={{ fontSize: "14px", fontWeight: 700, marginBottom: "4px" }}>{item.title}</div>
-                <div style={{ fontSize: "12px", color: "#888", lineHeight: "1.5" }}>{item.desc}</div>
+              <div key={idx} className="icard">
+                <div className="iicon"><i className={`fas ${item.icon}`}></i></div>
+                <div className="ititle">{item.title}</div>
+                <div className="idesc">{item.desc}</div>
               </div>
             ))}
           </div>
-
-          <p style={{ fontSize: "13px", color: "#888", marginTop: "12px", textAlign: "center" }}>
-            Timeline: 1–2 weeks start to finish.
-          </p>
+          <p style={{ fontSize: "13px", color: "rgba(26,5,51,0.4)", marginTop: "20px", textAlign: "center" }}>Timeline: 1–2 weeks start to finish.</p>
         </div>
+      </section>
 
-        {/* CTA */}
-        <div style={{ background: "#1a1a1a", borderRadius: "14px", padding: "48px 40px", marginTop: "40px", textAlign: "center", color: "#fff" }} id="cta">
-          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "12px" }}>
-            Website Migration · Your Code to Keep
-          </div>
-          <h2 style={{ fontSize: "26px", fontWeight: 800, marginBottom: "64px", lineHeight: "1.2" }}>Ready to own your website?</h2>
-          <form id="ctaForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginBottom: "16px" }}>
-            <input id="ctaEmailField" type="email" placeholder="Your email" required style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "280px", background: "#2a2a2a", color: "#fff", outline: "none" }} />
-            <button id="ctaBtn" type="submit" style={{ background: "#2ee5d6", color: "#1a1a1a", fontSize: "15px", fontWeight: 800, padding: "14px 28px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
+      {/* CTA */}
+      <section id="cta" style={{ background: "#1a1a1a", backgroundImage: "radial-gradient(ellipse 70% 60% at 50% 100%,rgba(46,229,214,0.15) 0%,rgba(30,30,30,0.2) 50%,rgba(26,26,26,0) 80%)", padding: "100px 40px", textAlign: "center", color: "#fff" }}>
+        <div style={{ maxWidth: "560px", margin: "0 auto" }}>
+          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "16px" }}>Website Migration · Your Code to Keep</div>
+          <h2 id="ctaHeading" style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "48px" }}>Ready to own your website?</h2>
+          <form id="ctaForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginBottom: "20px" }}>
+            <input id="ctaEmailField" type="email" placeholder="Your email" required style={{ padding: "14px 20px", borderRadius: "50px", border: "1px solid rgba(255,255,255,0.15)", fontSize: "15px", width: "260px", background: "rgba(255,255,255,0.07)", color: "#fff", outline: "none", transition: "border-color 0.2s ease" }} />
+            <button id="ctaBtn" type="submit" className="cta-btn" style={{ width: "auto", marginTop: 0 }}>
               Start my migration
+              <svg className="cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="#1a1a1a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
           </form>
-          <div style={{ fontSize: "12px", color: "#888", marginTop: "12px", lineHeight: "1.5" }}>After submitting, we'll ask you 5 quick questions about your site. We use your answers to prep before we start.</div>
+          <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", lineHeight: 1.6 }}>After submitting, we&apos;ll ask you a few quick questions about your site. We use your answers to prep before we start.</div>
         </div>
-      </div>
+      </section>
 
-      <div style={{ textAlign: "center", padding: "24px", fontSize: "12px", color: "#bbb" }}>
+      {/* FOOTER */}
+      <div style={{ background: "#1a1a1a", textAlign: "center", padding: "24px", fontSize: "12px", color: "rgba(255,255,255,0.25)" }}>
         Data based on site audit of {report.url} · Report prepared by Fountain of Scale
       </div>
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
-      <style>{`
-        @property --angle {
-          syntax: '<angle>';
-          initial-value: 0deg;
-          inherits: false;
-        }
-
-        @keyframes beam-spin {
-          0% { --angle: 0deg; }
-          100% { --angle: 360deg; }
-        }
-
-        input::placeholder {
-          color: #5ab9af;
-        }
-
-        input:focus::placeholder {
-          color: #7dd9d0;
-        }
-
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-          -webkit-box-shadow: 0 0 0 1000px #2a2a2a inset !important;
-          -webkit-text-fill-color: #fff !important;
-          border: none !important;
-        }
-
-        input:-webkit-autofill::placeholder {
-          -webkit-text-fill-color: #5ab9af !important;
-        }
-
-        input:focus {
-          outline: none;
-          box-shadow: none;
-          border: none;
-        }
-
-        .beam-wrapper {
-          opacity: 0.4;
-          transition: opacity 0.3s ease;
-        }
-
-        .beam-wrapper:has(input:focus) {
-          opacity: 1;
-        }
-
-        #frictionCardsGrid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 12px;
-          margin: 16px 0;
-        }
-
-        #aiFormInputs {
-          display: flex;
-          gap: 10px;
-          flex: 1;
-        }
-
-        .form-input-wrapper {
-          flex: 1;
-          min-width: 0;
-        }
-
-        @media (max-width: 768px) {
-          #frictionCardsGrid {
-            grid-template-columns: 1fr;
-          }
-
-          #aiForm {
-            flex-direction: column;
-            align-items: stretch;
-            width: 100%;
-          }
-
-          #aiFormInputs {
-            flex-direction: column;
-            gap: 12px;
-            flex: unset;
-            width: 100%;
-          }
-
-          .form-input-wrapper {
-            width: 100%;
-            flex: unset;
-          }
-
-          #migrateBtn {
-            width: 100%;
-          }
-        }
-      `}</style>
       <script
         dangerouslySetInnerHTML={{
           __html: `
-            function formatDeployTime(minutes) {
-              if (minutes >= 1440) {
-                const days = Math.floor(minutes / 1440);
-                return '<span>' + days + '</span><span style="font-size: 28px; font-weight: 600; margin-left: 4px;">d</span>';
-              } else if (minutes >= 60) {
-                const hours = Math.floor(minutes / 60);
-                return '<span>' + hours + '</span><span style="font-size: 28px; font-weight: 600; margin-left: 4px;">h</span>';
-              } else {
-                return '<span>' + minutes + '</span><span style="font-size: 28px; font-weight: 600; margin-left: 4px;">min</span>';
-              }
-            }
+(function() {
+  // ── Beam system ──────────────────────────────────────────────
+  const BL = 6, SPEED = 0.18, STAGGER = 110, PAUSE = 900;
+  const PHASES = [
+    { beams: [
+      { fromId:'heroCard', toId:'auditPill0', color:'#2ee5d6' },
+      { fromId:'heroCard', toId:'auditPill1', color:'#5bbfba' },
+      { fromId:'heroCard', toId:'auditPill2', color:'#3dd9cc' },
+      { fromId:'heroCard', toId:'auditPill3', color:'#5bbfba' },
+      { fromId:'heroCard', toId:'auditPill4', color:'#2ee5d6' },
+      { fromId:'heroCard', toId:'auditPill5', color:'#3dd9cc' },
+    ]},
+    { beforeOnly: true, beams: [
+      { fromId:'auditPill0', toId:'blockedNode', color:'rgba(255,120,100,0.8)' },
+      { fromId:'auditPill1', toId:'blockedNode', color:'rgba(255,110,90,0.7)'  },
+      { fromId:'auditPill2', toId:'blockedNode', color:'rgba(255,120,100,0.8)' },
+      { fromId:'auditPill3', toId:'blockedNode', color:'rgba(255,110,90,0.7)'  },
+      { fromId:'auditPill4', toId:'blockedNode', color:'rgba(255,120,100,0.8)' },
+      { fromId:'auditPill5', toId:'blockedNode', color:'rgba(255,110,90,0.7)'  },
+    ]},
+    { afterOnly: true, beams: [
+      { fromId:'auditPill0', toId:'fosLogo', color:'#2ee5d6' },
+      { fromId:'auditPill1', toId:'fosLogo', color:'#5bbfba' },
+      { fromId:'auditPill2', toId:'fosLogo', color:'#2ee5d6' },
+      { fromId:'auditPill3', toId:'fosLogo', color:'#5bbfba' },
+      { fromId:'auditPill4', toId:'fosLogo', color:'#2ee5d6' },
+      { fromId:'auditPill5', toId:'fosLogo', color:'#5bbfba' },
+    ]},
+    { afterOnly: true, beams: [
+      { fromId:'fosLogo', toId:'migrateCta', color:'#2ee5d6' },
+    ]},
+  ];
+  const BEAM_CONFIGS = PHASES.flatMap(p => p.beams);
 
-            document.addEventListener('DOMContentLoaded', function() {
-              // Animate wait counter (0 to 3 days)
-              gsap.to({ value: 0 }, {
-                value: 3,
-                duration: 3,
-                snap: { value: 1 },
-                ease: "power2.out",
-                onUpdate: function() {
-                  document.getElementById('waitCounter').textContent = Math.floor(this.targets()[0].value);
-                }
-              });
+  const BEFORE_TEXTS = ['Designer queue','Dev dependency','Builder lock-in','Every change = a brief','Updates take days','No site ownership'];
+  const AFTER_TEXTS  = ['Edit in minutes','No dev needed','Own your code','Self-serve edits','Same-day updates','Full ownership'];
+  const HOLD_AFTER = 6000;
+  let flipState = 'before';
 
-              // Animate deploy counter (4320 minutes / 3 days down to 10 minutes)
-              gsap.to({ value: 4320 }, {
-                value: 10,
-                duration: 3,
-                snap: { value: 1 },
-                ease: "power2.out",
-                onUpdate: function() {
-                  const minutes = Math.floor(this.targets()[0].value);
-                  document.getElementById('deployCounter').innerHTML = formatDeployTime(minutes);
-                }
-              });
+  function flipPills(toState) {
+    if (flipState === toState) return;
+    flipState = toState;
+    const label = document.getElementById('pillStateLabel');
+    const texts = toState === 'after' ? AFTER_TEXTS : BEFORE_TEXTS;
+    if (toState === 'after') {
+      label.textContent = 'After';
+      label.style.background = 'rgba(46,229,214,0.12)';
+      label.style.borderColor = 'rgba(46,229,214,0.3)';
+      label.style.color = '#2ee5d6';
+    } else {
+      label.textContent = 'Before';
+      label.style.background = 'rgba(255,100,80,0.15)';
+      label.style.borderColor = 'rgba(255,100,80,0.3)';
+      label.style.color = 'rgba(255,130,110,0.9)';
+    }
+    const sb = document.getElementById('cardStatBuilder');
+    const sd = document.getElementById('cardStatDeploy');
+    const sc = document.getElementById('cardStatCost');
+    if (toState === 'after') {
+      if (sb) { sb.textContent = 'Your stack'; sb.style.color = '#2ee5d6'; }
+      if (sd) { sd.textContent = 'Same day';  sd.style.color = '#2ee5d6'; }
+      if (sc) { sc.textContent = 'As needed'; sc.style.color = '#2ee5d6'; }
+    } else {
+      if (sb) { sb.textContent = 'Webflow';  sb.style.color = '#1a1a1a'; }
+      if (sd) { sd.textContent = '3–5 days'; sd.style.color = '#dc2626'; }
+      if (sc) { sc.textContent = '$$/hr';    sc.style.color = '#dc2626'; }
+    }
+    texts.forEach((text, i) => {
+      setTimeout(() => {
+        const pill = document.getElementById('auditPill' + i);
+        if (!pill) return;
+        const span = pill.querySelector('.pill-text');
+        const dot  = pill.querySelector('.pill-dot');
+        span.style.transform = 'translateY(-120%)';
+        span.style.opacity = '0';
+        setTimeout(() => {
+          span.textContent = text;
+          span.style.transition = 'none';
+          span.style.transform = 'translateY(120%)';
+          span.style.opacity = '0';
+          span.getBoundingClientRect();
+          span.style.transition = 'transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease';
+          span.style.transform = 'translateY(0)';
+          span.style.opacity = '1';
+          if (toState === 'after') {
+            dot.classList.replace('pill-dot--before','pill-dot--after');
+            pill.classList.add('is-after');
+          } else {
+            dot.classList.replace('pill-dot--after','pill-dot--before');
+            pill.classList.remove('is-after');
+          }
+        }, 180);
+      }, i * 80);
+    });
+  }
 
-              const form = document.getElementById('aiForm');
-              const changeField = document.getElementById('aiChangeField');
-              const emailField = document.getElementById('aiEmailField');
-              const emailWrapper = document.getElementById('emailWrapper');
-              const aiBlock = document.getElementById('aiBlock');
-              const button = document.getElementById('migrateBtn');
+  let CYCLE = 10000, flipPoint = 5000, logoRevealT = 6000, ctaRevealT = 7500;
 
-              if (form && changeField && emailField && button) {
-                form.addEventListener('submit', async function(e) {
-                  e.preventDefault();
+  function recomputeCycle() {
+    let cursor = 0;
+    PHASES.forEach(phase => {
+      const maxTravel = Math.max(...phase.beams.map(b => (b._total || 200) / SPEED));
+      phase.startMs    = cursor;
+      phase.durationMs = maxTravel + (phase.beams.length - 1) * STAGGER;
+      cursor += phase.durationMs;
+    });
+    flipPoint   = PHASES[1].startMs + PHASES[1].durationMs;
+    logoRevealT = PHASES[2].startMs + (PHASES[2].beams[0]._total || 200) / SPEED;
+    ctaRevealT  = PHASES[3].startMs + (PHASES[3].beams[0]._total || 200) / SPEED;
+    CYCLE       = PHASES[3].startMs + PHASES[3].durationMs + HOLD_AFTER + PAUSE;
+  }
 
-                  const change = changeField.value.trim();
-                  const email = emailField.value.trim();
+  let cycleStart = performance.now(), lastFlipState = '', logoVisible = false, ctaVisible = false;
 
-                  if (!email) {
-                    gsap.to(aiBlock, { x: -10, duration: 0.1, repeat: 3, yoyo: true, ease: "power1.inOut" });
-                    if (emailWrapper) gsap.to(emailWrapper, { x: -8, duration: 0.1, repeat: 5, yoyo: true, ease: "power1.inOut" });
-                    return;
-                  }
+  function setLogoVisible(v) {
+    if (logoVisible === v) return;
+    logoVisible = v;
+    const blocked = document.getElementById('blockedNode');
+    const logo    = document.getElementById('fosLogo');
+    blocked.style.opacity   = v ? '0' : '1';
+    blocked.style.transform = v ? 'scale(0.5)' : 'scale(1)';
+    logo.style.opacity      = v ? '1' : '0';
+    logo.style.transform    = v ? 'scale(1)' : 'scale(0.6)';
+  }
 
-                  button.disabled = true;
-                  button.textContent = 'Sending...';
+  let chatTimers = [];
+  function clearChatTimers() { chatTimers.forEach(clearTimeout); chatTimers = []; }
 
-                  try {
-                    const response = await fetch('/api/contact-insight-report', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                        name: change || 'No message',
-                        email,
-                        company: '${report.company}',
-                        url: window.location.href
-                      })
-                    });
-
-                    if (response.ok) {
-                      button.textContent = '✓ Submitted';
-                      changeField.value = '';
-                      emailField.value = '';
-
-                      // Trigger confetti
-                      if (window.confetti) {
-                        confetti({
-                          particleCount: 100,
-                          spread: 70,
-                          origin: { y: 0.6 }
-                        });
-                      }
-
-                      // Show survey modal after 500ms
-                      setTimeout(() => {
-                        const modal = document.createElement('div');
-                        modal.id = 'surveyModal';
-                        modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;';
-
-                        const modalContent = document.createElement('div');
-                        modalContent.style.cssText = 'background: #fff; border-radius: 12px; padding: 40px; max-width: 400px; text-align: center;';
-
-                        const checkmark = document.createElement('div');
-                        checkmark.style.cssText = 'font-size: 32px; margin-bottom: 16px;';
-                        checkmark.textContent = '✓';
-
-                        const title = document.createElement('h3');
-                        title.style.cssText = 'font-size: 20px; font-weight: 800; margin-bottom: 12px; color: #1a1a1a;';
-                        title.textContent = 'Thanks!';
-
-                        const desc = document.createElement('p');
-                        desc.style.cssText = 'font-size: 14px; color: #666; margin-bottom: 28px; line-height: 1.6;';
-                        desc.textContent = '8 quick questions about your site so we can prep before we start.';
-
-                        const link = document.createElement('a');
-                        link.href = 'https://forms.gle/Xr7CmjGEB1Hsmd6y5';
-                        link.target = '_blank';
-                        link.style.cssText = 'display: inline-block; background: #2ee5d6; color: #1a1a1a; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 14px; cursor: pointer;';
-                        link.textContent = 'Answer Questions →';
-
-                        modalContent.appendChild(checkmark);
-                        modalContent.appendChild(title);
-                        modalContent.appendChild(desc);
-                        modalContent.appendChild(link);
-                        modal.appendChild(modalContent);
-
-                        document.body.appendChild(modal);
-
-                        // Close modal on background click
-                        modal.addEventListener('click', function(e) {
-                          if (e.target === modal) modal.remove();
-                        });
-                      }, 500);
-
-                      setTimeout(() => {
-                        button.disabled = false;
-                        button.textContent = 'Get started';
-                      }, 3000);
-                    } else {
-                      button.textContent = 'Try again';
-                      button.disabled = false;
-                    }
-                  } catch (error) {
-                    console.error('Error:', error);
-                    button.textContent = 'Error - try again';
-                    button.disabled = false;
-                  }
-                });
-
-                emailField.addEventListener('focus', function() {
-                  gsap.killTweensOf(aiBlock);
-                });
-              }
-
-              // CTA form handler
-              const ctaForm = document.getElementById('ctaForm');
-              const ctaEmailField = document.getElementById('ctaEmailField');
-              const ctaBtn = document.getElementById('ctaBtn');
-
-              if (ctaForm && ctaEmailField && ctaBtn) {
-                ctaForm.addEventListener('submit', async function(e) {
-                  e.preventDefault();
-
-                  const email = ctaEmailField.value.trim();
-
-                  if (!email) {
-                    gsap.to(ctaForm, { x: -10, duration: 0.1, repeat: 3, yoyo: true, ease: "power1.inOut" });
-                    return;
-                  }
-
-                  ctaBtn.disabled = true;
-                  ctaBtn.textContent = 'Sending...';
-
-                  try {
-                    const response = await fetch('/api/contact-insight-report', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                        name: 'CTA signup',
-                        email,
-                        company: '${report.company}',
-                        url: window.location.href
-                      })
-                    });
-
-                    if (response.ok) {
-                      ctaBtn.textContent = '✓ Submitted';
-                      ctaEmailField.value = '';
-
-                      // Trigger confetti
-                      if (window.confetti) {
-                        confetti({
-                          particleCount: 100,
-                          spread: 70,
-                          origin: { y: 0.6 }
-                        });
-                      }
-
-                      // Show modal after 500ms
-                      setTimeout(() => {
-                        const modal = document.createElement('div');
-                        modal.id = 'surveyModal';
-                        modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;';
-
-                        const modalContent = document.createElement('div');
-                        modalContent.style.cssText = 'background: #fff; border-radius: 12px; padding: 40px; max-width: 400px; text-align: center;';
-
-                        const checkmark = document.createElement('div');
-                        checkmark.style.cssText = 'font-size: 32px; margin-bottom: 16px;';
-                        checkmark.textContent = '✓';
-
-                        const title = document.createElement('h3');
-                        title.style.cssText = 'font-size: 20px; font-weight: 800; margin-bottom: 12px; color: #1a1a1a;';
-                        title.textContent = 'Thanks!';
-
-                        const desc = document.createElement('p');
-                        desc.style.cssText = 'font-size: 14px; color: #666; margin-bottom: 28px; line-height: 1.6;';
-                        desc.textContent = '8 quick questions about your site so we can prep before we start.';
-
-                        const link = document.createElement('a');
-                        link.href = 'https://forms.gle/Xr7CmjGEB1Hsmd6y5';
-                        link.target = '_blank';
-                        link.style.cssText = 'display: inline-block; background: #2ee5d6; color: #1a1a1a; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 14px; cursor: pointer;';
-                        link.textContent = 'Answer Questions →';
-
-                        modalContent.appendChild(checkmark);
-                        modalContent.appendChild(title);
-                        modalContent.appendChild(desc);
-                        modalContent.appendChild(link);
-                        modal.appendChild(modalContent);
-
-                        document.body.appendChild(modal);
-
-                        // Close modal on background click
-                        modal.addEventListener('click', function(e) {
-                          if (e.target === modal) modal.remove();
-                        });
-                      }, 500);
-
-                      setTimeout(() => {
-                        ctaBtn.disabled = false;
-                        ctaBtn.textContent = 'Start my migration';
-                      }, 3000);
-                    } else {
-                      ctaBtn.textContent = 'Try again';
-                      ctaBtn.disabled = false;
-                    }
-                  } catch (error) {
-                    console.error('Error:', error);
-                    ctaBtn.textContent = 'Error - try again';
-                    ctaBtn.disabled = false;
-                  }
-                });
-              }
+  function setCtaVisible(v) {
+    if (ctaVisible === v) return;
+    ctaVisible = v;
+    const cta = document.getElementById('migrateCta');
+    if (!v) {
+      cta.style.opacity   = '0';
+      cta.style.transform = 'translateX(14px)';
+      clearChatTimers();
+      const typing = document.getElementById('chatTyping');
+      const status = document.getElementById('chatStatus');
+      const btn    = document.getElementById('chatSendBtn');
+      if (typing) typing.textContent = '';
+      if (status) status.innerHTML  = '';
+      if (btn)    btn.style.background = '#e8e8e8';
+      return;
+    }
+    cta.style.opacity   = '1';
+    cta.style.transform = 'translateX(0)';
+    const command  = 'Add a pricing page';
+    const statuses = [
+      { text:'Making changes…',     color:'#888'    },
+      { text:'Updating your site…', color:'#f59e0b' },
+      { text:'Deploying…',          color:'#3b82f6' },
+      { text:'✓ Done',              color:'#2ee5d6' },
+    ];
+    const typingEl = document.getElementById('chatTyping');
+    const statusEl = document.getElementById('chatStatus');
+    const btnEl    = document.getElementById('chatSendBtn');
+    let i = 0;
+    function typeNext() {
+      if (i <= command.length) {
+        if (typingEl) typingEl.textContent = command.slice(0, i);
+        i++;
+        chatTimers.push(setTimeout(typeNext, 60));
+      } else {
+        chatTimers.push(setTimeout(() => {
+          if (btnEl) btnEl.style.background = '#2ee5d6';
+          chatTimers.push(setTimeout(() => {
+            if (typingEl) typingEl.textContent = '';
+            if (btnEl)    btnEl.style.background = '#e8e8e8';
+            statuses.forEach((s, idx) => {
+              chatTimers.push(setTimeout(() => {
+                if (statusEl) statusEl.innerHTML = '<span style="color:' + s.color + ';font-weight:600;">' + s.text + '</span>';
+              }, idx * 700));
             });
+          }, 300));
+        }, 200));
+      }
+    }
+    chatTimers.push(setTimeout(typeNext, 400));
+  }
+
+  function makePath(stroke, sw, da, op, blur) {
+    const svg = document.getElementById('heroSvg');
+    const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('fill','none');
+    p.setAttribute('stroke', stroke);
+    p.setAttribute('stroke-width', sw);
+    p.setAttribute('stroke-linecap','round');
+    if (da) p.setAttribute('stroke-dasharray', da);
+    if (op != null) p.setAttribute('opacity', op);
+    if (blur) p.style.filter = 'blur(' + blur + 'px)';
+    svg.appendChild(p);
+    return p;
+  }
+
+  const isMobile = () => window.innerWidth <= 1100;
+
+  function elCenter(el, heroRect, edge) {
+    const r = el.getBoundingClientRect();
+    if (isMobile()) {
+      return { x: r.left + r.width/2 - heroRect.left, y: (edge==='bottom'?r.bottom:r.top) - heroRect.top };
+    }
+    return { x: (edge==='right'?r.right:r.left) - heroRect.left, y: r.top + r.height/2 - heroRect.top };
+  }
+
+  function bezierD(x1,y1,x2,y2) {
+    if (isMobile()) {
+      const dy = (y2-y1)*0.5;
+      return 'M '+x1+' '+y1+' C '+x1+' '+(y1+dy)+', '+x2+' '+(y2-dy)+', '+x2+' '+y2;
+    }
+    const dx = (x2-x1)*0.5;
+    return 'M '+x1+' '+y1+' C '+(x1+dx)+' '+y1+', '+(x2-dx)+' '+y2+', '+x2+' '+y2;
+  }
+
+  function drawAllBeams() {
+    const svgEl = document.getElementById('heroSvg');
+    const hero = document.getElementById('heroSection');
+    if (!hero || !svgEl) return;
+    const hr = hero.getBoundingClientRect();
+    BEAM_CONFIGS.forEach(b => {
+      const fromEl = document.getElementById(b.fromId);
+      const toEl   = document.getElementById(b.toId);
+      if (!fromEl || !toEl) return;
+      const p1 = elCenter(fromEl, hr, isMobile() ? 'bottom' : 'right');
+      const p2 = elCenter(toEl,   hr, isMobile() ? 'top'    : 'left');
+      const d  = bezierD(p1.x, p1.y, p2.x, p2.y);
+      b.rail.setAttribute('d', d);
+      b.glow.setAttribute('d', d);
+      b.sharp.setAttribute('d', d);
+      const tmp = document.createElementNS('http://www.w3.org/2000/svg','path');
+      tmp.setAttribute('d', d);
+      svgEl.appendChild(tmp);
+      const total = tmp.getTotalLength();
+      svgEl.removeChild(tmp);
+      const da = BL + ' ' + (total + BL*2);
+      b.glow.setAttribute('stroke-dasharray', da);
+      b.sharp.setAttribute('stroke-dasharray', da);
+      b._total = total;
+    });
+    recomputeCycle();
+    cycleStart = performance.now();
+  }
+
+  window.addEventListener('resize', drawAllBeams);
+
+  function animateBeams(now) {
+    const cycleT  = (now - cycleStart) % CYCLE;
+    const isAfter = cycleT >= flipPoint && cycleT < (CYCLE - PAUSE);
+    if (isAfter && lastFlipState !== 'after')  { lastFlipState = 'after';  flipPills('after');  }
+    if (!isAfter && lastFlipState !== 'before') { lastFlipState = 'before'; flipPills('before'); }
+    setLogoVisible(isAfter && cycleT >= logoRevealT);
+    setCtaVisible(isAfter && cycleT >= ctaRevealT);
+    PHASES.forEach(phase => {
+      const skip = (phase.beforeOnly && isAfter) || (phase.afterOnly && !isAfter);
+      phase.beams.forEach((b, i) => {
+        if (!b._total) return;
+        const total     = b._total;
+        const beamStart = phase.startMs + i * STAGGER;
+        const travelTime = total / SPEED;
+        const progress  = (cycleT - beamStart) / travelTime;
+        const hide = skip || progress < 0 || progress > 1;
+        if (hide) {
+          b.glow.setAttribute('stroke-dashoffset',  BL + 1);
+          b.sharp.setAttribute('stroke-dashoffset', BL + 1);
+          b.rail.setAttribute('opacity', skip ? '0' : '0.25');
+        } else {
+          const offset = BL - progress * (total + BL*2);
+          b.glow.setAttribute('stroke-dashoffset',  offset);
+          b.sharp.setAttribute('stroke-dashoffset', offset);
+          b.rail.setAttribute('opacity', '0.25');
+        }
+      });
+    });
+    requestAnimationFrame(animateBeams);
+  }
+  function initBeams() {
+    const svg = document.getElementById('heroSvg');
+    if (!svg) return;
+    BEAM_CONFIGS.forEach(b => {
+      b.rail  = makePath('rgba(180,160,220,0.25)', 1.2, '3 5', null, null);
+      b.glow  = makePath(b.color, 10, null, 0.3, 5);
+      b.sharp = makePath(b.color, 3, null, 1, null);
+    });
+    drawAllBeams();
+    requestAnimationFrame(animateBeams);
+  }
+
+  if (document.readyState === 'complete') {
+    initBeams();
+  } else {
+    window.addEventListener('load', initBeams);
+  }
+
+  // ── Form handler ──────────────────────────────────────────────
+  function showModal() {
+    const modal = document.createElement('div');
+    modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,2,26,0.7);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(4px)';
+    modal.innerHTML = '<div style="background:#fff;border-radius:20px;padding:48px 40px;max-width:420px;text-align:center;margin:20px;"><div style="font-size:36px;margin-bottom:16px;">✓</div><h3 style="font-size:22px;font-weight:800;margin-bottom:10px;color:#1a1a1a;">Thanks!</h3><p style="font-size:14px;color:#666;margin-bottom:28px;line-height:1.6;">8 quick questions about your site so we can prep before we start.</p><a href="https://forms.gle/Xr7CmjGEB1Hsmd6y5" target="_blank" style="display:inline-block;background:#2ee5d6;color:#1a1a1a;padding:13px 28px;border-radius:50px;text-decoration:none;font-weight:800;font-size:14px;">Answer Questions →</a></div>';
+    modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+    document.body.appendChild(modal);
+  }
+
+  async function handleSubmit(email, buttonEl, formEl, company) {
+    if (!email) {
+      formEl.style.animation = 'shake 0.4s ease';
+      setTimeout(() => formEl.style.animation = '', 400);
+      return;
+    }
+    buttonEl.disabled = true;
+    const orig = buttonEl.innerHTML;
+    buttonEl.textContent = 'Sending...';
+    try {
+      const response = await fetch('/api/contact-insight-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: 'Report signup', email, company, url: window.location.href })
+      });
+      if (response.ok) {
+        buttonEl.textContent = '✓ Submitted';
+        if (window.confetti) confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        setTimeout(showModal, 500);
+        setTimeout(() => { buttonEl.disabled = false; buttonEl.innerHTML = orig; }, 3000);
+      } else {
+        buttonEl.textContent = 'Try again';
+        buttonEl.disabled = false;
+      }
+    } catch(e) {
+      buttonEl.textContent = 'Error - try again';
+      buttonEl.disabled = false;
+    }
+  }
+
+  const COMPANY = ${JSON.stringify(report.company)};
+
+  document.getElementById('aiForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const change = document.getElementById('aiChangeField').value.trim();
+    const email  = document.getElementById('aiEmailField').value.trim();
+    handleSubmit(email, document.getElementById('migrateBtn'), this, COMPANY + (change ? ' — ' + change : ''));
+  });
+
+  document.getElementById('ctaForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    handleSubmit(document.getElementById('ctaEmailField').value.trim(), document.getElementById('ctaBtn'), this, COMPANY);
+  });
+
+  // ── GSAP heading animations ───────────────────────────────────
+  window.addEventListener('load', () => {
+    if (!window.gsap) return;
+
+    const heroHeading = document.getElementById('heroHeading');
+    heroHeading.innerHTML = heroHeading.textContent.trim().split(/\\s+/).map(w => '<span style="display:inline-block;">' + w + '</span>').join(' ');
+    const words = heroHeading.querySelectorAll('span');
+    const tl = gsap.timeline();
+    words.forEach((el, i) => {
+      tl.from(el, { duration: 0.8, opacity: 0, scale: i % 2 === 0 ? 0 : 2, force3D: true, ease: 'back.out(1.4)' }, i * 0.08);
+    });
+
+    const ctaHeading = document.getElementById('ctaHeading');
+    ctaHeading.innerHTML = ctaHeading.textContent.trim().split(/\\s+/).map(w => '<span style="display:inline-block;">' + w + '</span>').join(' ');
+
+    function playCtaAnim() {
+      const ws = ctaHeading.querySelectorAll('span');
+      gsap.killTweensOf(ws);
+      const tl2 = gsap.timeline();
+      ws.forEach((el, i) => {
+        tl2.from(el, { duration: 0.8, opacity: 0, scale: i % 2 === 0 ? 0 : 2, force3D: true, ease: 'back.out(1.4)' }, i * 0.08);
+      });
+    }
+
+    document.querySelector('nav a[href="#cta"]').addEventListener('click', function(e) {
+      e.preventDefault();
+      obs.disconnect();
+      document.getElementById('cta').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(playCtaAnim, 750);
+    });
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { playCtaAnim(); obs.disconnect(); } });
+    }, { threshold: 0.8 });
+    obs.observe(ctaHeading);
+  });
+})();
           `,
         }}
       />
