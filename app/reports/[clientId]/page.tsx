@@ -376,7 +376,7 @@ export default async function ReportPage({ params }: Props) {
             <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em", marginBottom: "32px" }}>What full control looks like.</h2>
             <div>
               <div className="brow"><span className="before-col">Update copy → wait on designer → days later</span><span className="arrow-col">→</span><span className="after-col">Edit it yourself, live in minutes</span></div>
-              <div className="brow"><span className="before-col">New landing page → brief → build → approve → weeks</span><span className="arrow-col">→</span><span className="after-col">Describe it to AI → review → ship same day</span></div>
+              <div className="brow"><span className="before-col">New landing page → brief → build → approve → weeks</span><span className="arrow-col">→</span><span className="after-col">Describe it → review → ship same day</span></div>
               <div className="brow"><span className="before-col">Test a new CTA → blocked without dev help</span><span className="arrow-col">→</span><span className="after-col">Try it, revert it, try another — whenever you want</span></div>
               <div className="brow"><span className="before-col">Respond to customer feedback → next sprint</span><span className="arrow-col">→</span><span className="after-col">Change it now, while the insight is fresh</span></div>
               <div className="brow last"><span className="before-col">Current hosting → ${report.hostingCost}/yr and climbing</span><span className="arrow-col">→</span><span className="after-col">Your code to keep forever.</span></div>
@@ -515,7 +515,7 @@ export default async function ReportPage({ params }: Props) {
   const BEAM_CONFIGS = PHASES.flatMap(p => p.beams);
 
   const BEFORE_TEXTS = ['Designer queue','Dev dependency','Builder lock-in','Every change = a brief','Updates take days','No site ownership'];
-  const AFTER_TEXTS  = ['Edit in minutes','No dev needed','Own your code','Self-serve edits','Same-day updates','Full ownership'];
+  const AFTER_TEXTS  = ['Edit in minutes','Ship it yourself','Own your code','Self-serve edits','Same-day updates','Full ownership'];
   const HOLD_AFTER = 6000;
   let flipState = 'before';
 
