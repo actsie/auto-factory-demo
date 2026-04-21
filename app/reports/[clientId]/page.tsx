@@ -693,7 +693,8 @@ export default async function ReportPage({ params }: Props) {
     return 'M '+x1+' '+y1+' C '+(x1+dx)+' '+y1+', '+(x2-dx)+' '+y2+', '+x2+' '+y2;
   }
 
-  function drawAllBeams() {
+  let beamsInitialized = false;
+  function drawAllBeams(resetCycle) {
     const svgEl = document.getElementById('heroSvg');
     const hero = document.getElementById('heroSection');
     if (!hero || !svgEl) return;
@@ -718,11 +719,14 @@ export default async function ReportPage({ params }: Props) {
       b.sharp.setAttribute('stroke-dasharray', da);
       b._total = total;
     });
-    recomputeCycle();
-    cycleStart = performance.now();
+    if (resetCycle || !beamsInitialized) {
+      recomputeCycle();
+      cycleStart = performance.now();
+      beamsInitialized = true;
+    }
   }
 
-  window.addEventListener('resize', drawAllBeams);
+  window.addEventListener('resize', () => drawAllBeams(false));
 
   function animateBeams(now) {
     const cycleT  = (now - cycleStart) % CYCLE;
@@ -762,15 +766,15 @@ export default async function ReportPage({ params }: Props) {
       b.glow  = makePath(b.color, 10, null, 0.3, 5);
       b.sharp = makePath(b.color, 3, null, 1, null);
     });
-    drawAllBeams();
+    drawAllBeams(true);
     requestAnimationFrame(animateBeams);
   }
 
   function safeInitBeams() {
     initBeams();
-    // On mobile, layout may shift after load (fonts, dynamic heights) — redraw once settled
-    setTimeout(drawAllBeams, 300);
-    setTimeout(drawAllBeams, 800);
+    // On mobile, layout may shift after load — redraw paths without restarting the cycle
+    setTimeout(() => drawAllBeams(false), 300);
+    setTimeout(() => drawAllBeams(false), 800);
   }
 
   if (document.readyState === 'complete') {
