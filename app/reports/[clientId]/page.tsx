@@ -165,13 +165,26 @@ export default async function ReportPage({ params }: Props) {
         @media (max-width: 480px) {
           .included-grid { grid-template-columns: 1fr !important; }
         }
+
+        .reveal {
+          opacity: 0;
+          transform: translateY(32px);
+          transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
       `}</style>
 
       {/* NAV */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(20,20,20,0.9)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "14px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <a href="https://fountainofscale.com" style={{ fontSize: "15px", fontWeight: 700, color: "#fff", letterSpacing: "-0.01em", textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <img src="/assets/auto-factory.png" alt="Logo" style={{ width: "28px", height: "28px", borderRadius: "6px" }} />
-          Fountain<span style={{ color: "#2ee5d6" }}>of Scale</span>
+          {"Fountain of Scale"}
         </a>
         <a href="#cta" className="nav-cta">
           Start my migration
@@ -307,7 +320,7 @@ export default async function ReportPage({ params }: Props) {
 
       {/* PROBLEM */}
       <section style={{ background: "#1a1a1a", color: "#fff", padding: "80px 40px" }}>
-        <div className="problem-grid" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
+        <div className="problem-grid reveal" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
           <div>
             <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "16px" }}>The Problem</div>
             <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em" }}>
@@ -332,12 +345,12 @@ export default async function ReportPage({ params }: Props) {
       {/* FRICTION BREAKDOWN */}
       <section style={{ background: "#f5f4f1", padding: "80px 40px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0d9e8e", marginBottom: "12px" }}>The Friction</div>
-          <h2 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#1a1a1a", lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "10px" }}>
+          <div className="reveal" style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0d9e8e", marginBottom: "12px" }}>The Friction</div>
+          <h2 className="reveal reveal-delay-1" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#1a1a1a", lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "10px" }}>
             Every time you want to change something, it becomes a project.
           </h2>
           <p style={{ fontSize: "16px", color: "rgba(26,5,51,0.55)", marginBottom: "36px" }}>Where manual website management slows {report.company} down.</p>
-          <div id="frictionCardsGrid">
+          <div id="frictionCardsGrid" className="reveal">
             {[
               { scenario: "Update homepage hero copy", should: "5 min", actually: "2–5 days", why: "Designer queue" },
               { scenario: "Add a new landing page", should: "1 day", actually: "1–2 weeks", why: "Brief → build → approve" },
@@ -358,7 +371,7 @@ export default async function ReportPage({ params }: Props) {
       {/* AFTER MIGRATION */}
       <section style={{ background: "#f5f4f1", padding: "0 40px 80px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div className="migration-card" style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "20px", padding: "48px", boxShadow: "0 2px 24px rgba(0,0,0,0.05)" }}>
+          <div className="migration-card reveal" style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "20px", padding: "48px", boxShadow: "0 2px 24px rgba(0,0,0,0.05)" }}>
             <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "12px", opacity: 0.5 }}>After Migration</div>
             <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em", marginBottom: "32px" }}>What full control looks like.</h2>
             <div>
@@ -381,7 +394,7 @@ export default async function ReportPage({ params }: Props) {
             <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.6)", maxWidth: "460px", margin: "0 auto" }}>Full control. Change things whenever you want.</p>
           </div>
 
-          <div id="aiBlock" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "20px", padding: "32px", marginBottom: "24px" }}>
+          <div id="aiBlock" className="reveal" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "20px", padding: "32px", marginBottom: "24px" }}>
             <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "16px" }}>How it works for {report.company}</div>
             {[
               { prompt: report.aiExamples.prompt1, result: report.aiExamples.result1 },
@@ -421,7 +434,7 @@ export default async function ReportPage({ params }: Props) {
           <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "12px", opacity: 0.5 }}>What&apos;s Included</div>
           <h2 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em", marginBottom: "10px" }}>Everything in the migration.</h2>
           <p style={{ fontSize: "16px", color: "rgba(26,5,51,0.5)", marginBottom: "40px" }}>First week we&apos;re hands-on. Then it&apos;s yours.</p>
-          <div className="included-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "14px" }}>
+          <div className="included-grid reveal" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "14px" }}>
             {[
               { icon: "fa-magnifying-glass", title: "Full Audit", desc: "We map every page, form, and integration before touching anything." },
               { icon: "fa-wrench", title: "Complete Rebuild", desc: "Same design, same URLs, cleaner code you actually own." },
@@ -848,6 +861,16 @@ export default async function ReportPage({ params }: Props) {
     }, { threshold: 0.8 });
     obs.observe(ctaHeading);
   });
+  // ── Scroll reveal ─────────────────────────────────────────────
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 })();
           `,
         }}
