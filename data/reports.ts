@@ -4264,6 +4264,7 @@ export const reports: Report[] = [
     url: "https://digitalvisionsd.com",
     industry: "Digital Marketing Agency",
     pages: 13,
+    hostingCost: 50,
     waitDays: 3,
     aiExamples: {
       prompt1: "Update the hero to 'San Diego's Digital Marketing Agency For Growth — Get Your Free Strategy Session' and make the CTA say 'Claim Your Free Session'",
