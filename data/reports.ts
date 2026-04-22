@@ -2530,7 +2530,7 @@ export const reports: Report[] = [
   {
     id: "book-society",
     company: "Book Society",
-    logo: "/assets/reports/book-society/logo.svg",
+    logo: "/assets/reports/book-society/logo.jpeg",
     logoNeedsBg: false,
     url: "https://booksociety.social",
     industry: "Hospitality / Experiential Retail",
@@ -2549,7 +2549,7 @@ export const reports: Report[] = [
   {
     id: "brandedstreams",
     company: "BrandedStreams",
-    logo: "/assets/reports/brandedstreams/logo.svg",
+    logo: "/assets/reports/brandedstreams/logo.jpeg",
     logoNeedsBg: false,
     url: "https://brandedstreams.com",
     industry: "Product Placement & Branded Content",
@@ -2587,7 +2587,7 @@ export const reports: Report[] = [
   {
     id: "crux-workplace",
     company: "CRUX Workplace",
-    logo: "/assets/reports/crux-workplace/logo.svg",
+    logo: "/assets/reports/crux-workplace/logo.jpeg",
     logoNeedsBg: false,
     url: "https://crux-workplace.com",
     industry: "Workplace Strategy & CRE Consulting",
