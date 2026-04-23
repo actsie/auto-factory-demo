@@ -379,7 +379,7 @@ export default async function ReportPage({ params }: Props) {
               <div className="brow"><span className="before-col">New landing page → brief → build → approve → weeks</span><span className="arrow-col">→</span><span className="after-col">Describe it → review → ship same day</span></div>
               <div className="brow"><span className="before-col">Test a new CTA → blocked without dev help</span><span className="arrow-col">→</span><span className="after-col">Try it, revert it, try another — whenever you want</span></div>
               <div className="brow"><span className="before-col">Respond to customer feedback → next sprint</span><span className="arrow-col">→</span><span className="after-col">Change it now, while the insight is fresh</span></div>
-              <div className="brow last"><span className="before-col">Current hosting → ${report.hostingCost}/yr and climbing</span><span className="arrow-col">→</span><span className="after-col">Your code to keep forever.</span></div>
+              <div className="brow last"><span className="before-col">Current hosting → ${report.hostingCost}/mo and climbing</span><span className="arrow-col">→</span><span className="after-col">Your code to keep forever.</span></div>
             </div>
           </div>
         </div>
