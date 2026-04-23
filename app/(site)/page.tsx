@@ -195,7 +195,7 @@ export default function HomePage() {
                                         </div>
                                         <div>
                                             <p className="font-urbanist font-bold text-gray-800 text-xl">Website replacement</p>
-                                            <p className="text-zinc-500 text-sm/6 mt-1">Get off Webflow, Squarespace, or Wix. Same design, same URLs — code you own, updates in minutes.</p>
+                                            <p className="text-zinc-500 text-sm/6 mt-1">Your site rebuilt from scratch. Same design, same URLs — code you own, no platform lock-in.</p>
                                         </div>
                                     </Link>
                                 </div>
