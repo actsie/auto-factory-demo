@@ -299,7 +299,7 @@ export default function MiniWebsiteDiagram() {
       id="miniDiagramContainer"
       style={{
         position: "relative",
-        background: "rgba(0,0,0,0.04)",
+        background: "transparent",
         borderRadius: "12px",
         display: "flex",
         justifyContent: "space-between",

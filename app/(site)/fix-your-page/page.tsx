@@ -320,10 +320,7 @@ const { open: navbarModalOpen, closeModal: closeNavbarModal } = useModal();
                                     <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">How it works</h2>
                                     <p className="text-zinc-500 text-base/7 mt-3 max-w-xs">Simple sites. Straightforward process.</p>
                                 </AnimatedContent>
-                                <AnimatedContent className="mt-10 w-full">
-                                    <MiniWebsiteDiagram />
-                                </AnimatedContent>
-                                <AnimatedContent className="p-4 md:p-6 bg-purple-500 w-full rounded-xl mt-6">
+                                <AnimatedContent className="p-4 md:p-6 bg-purple-500 w-full rounded-xl mt-12">
                                     <p className="text-lg text-white">
                                         If it&apos;s been a while since your site got any love, that&apos;s usually a sign it&apos;s ready.
                                     </p>
@@ -350,6 +347,76 @@ const { open: navbarModalOpen, closeModal: closeNavbarModal } = useModal();
                                     <p className="text-sm text-gray-600 mt-2">{step.description}</p>
                                 </AnimatedContent>
                             ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* AI update tool */}
+                <section className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
+                    <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
+                        <div className="p-8 md:p-16">
+                            <AnimatedContent className="text-center mb-12">
+                                <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">After migration</p>
+                                <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Update anything. Just say what you want.</h2>
+                                <p className="text-zinc-500 text-base/7 mt-3 max-w-lg mx-auto">Your migrated site comes with an AI that handles updates for you. No developer, no platform editor, no waiting. You describe the change, it makes it.</p>
+                            </AnimatedContent>
+                            <AnimatedContent className="max-w-4xl mx-auto mb-4 rounded-xl border border-[#edf9f8] bg-[#f9fafb] p-6 flex items-center justify-center">
+                                    <MiniWebsiteDiagram />
+                                </AnimatedContent>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                                {[
+                                    {
+                                        prompt: "The 'Contact us' button isn't getting clicks. Change it to something more specific to what they'll get",
+                                        result: "Button text changed from 'Contact us' to 'Get a free quote' in the hero and nav",
+                                    },
+                                    {
+                                        prompt: "Add a new section after the services section showing our top 3 most recent projects with photos",
+                                        result: "New 'Recent Projects' section added below Services with a 3-column photo grid",
+                                    },
+                                    {
+                                        prompt: "We just added a new service — commercial cleaning. Add it to the services section with the same style as the others",
+                                        result: "'Commercial Cleaning' added to Services section matching existing card layout and styling",
+                                    },
+                                ].map((ex, i) => (
+                                    <AnimatedContent key={i} delay={i * 0.1} className="flex flex-col rounded-xl border border-[#edf9f8] bg-white overflow-hidden shadow-sm">
+                                        {/* Header */}
+                                        <div className="flex items-center gap-2.5 px-4 py-3 border-b border-[#edf9f8] bg-[#f9fafb]">
+                                            <div className="w-6 h-6 rounded-md bg-[#e8e8e8] shrink-0" />
+                                            <div>
+                                                <div className="w-20 h-2 bg-[#ddd] rounded-full mb-1" />
+                                                <div className="w-14 h-1.5 bg-[#eee] rounded-full" />
+                                            </div>
+                                        </div>
+                                        {/* You say */}
+                                        <div className="px-4 pt-3 pb-2 flex flex-col items-end">
+                                            <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-2 self-start">You say</p>
+                                            <div className="bg-[#edf9f8] rounded-2xl rounded-br-none px-3 py-2.5 max-w-[90%]">
+                                                <p className="text-sm text-zinc-700 leading-6">{ex.prompt}</p>
+                                            </div>
+                                        </div>
+                                        <div className="h-px bg-[#edf9f8] mx-4" />
+                                        {/* Result */}
+                                        <div className="px-4 py-3 flex-1">
+                                            <div className="flex items-center gap-1.5 mb-1.5">
+                                                <div className="p-0.5 rounded-full bg-teal-500 shrink-0">
+                                                    <CheckIcon size={10} className="text-white" strokeWidth={3} />
+                                                </div>
+                                                <p className="text-xs font-semibold text-teal-600 uppercase tracking-widest">Result</p>
+                                            </div>
+                                            <p className="text-sm text-zinc-600 leading-6">{ex.result}</p>
+                                        </div>
+                                        {/* Input bar */}
+                                        <div className="flex items-center gap-2 px-3 py-2.5 border-t border-[#edf9f8] bg-[#f9fafb]">
+                                            <div className="flex-1 bg-white border border-[#e8e8e8] rounded-lg px-3 py-1.5 text-xs text-zinc-500 truncate">
+                                                &ldquo;{ex.prompt}&rdquo;
+                                            </div>
+                                            <div className="w-7 h-7 rounded-lg bg-zinc-300 flex items-center justify-center shrink-0">
+                                                <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                            </div>
+                                        </div>
+                                    </AnimatedContent>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </section>
