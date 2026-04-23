@@ -4447,6 +4447,1127 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "airion",
+    company: "AIRION",
+    logo: "/assets/reports/airion/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://airion.dev",
+    industry: "Defense Technology / Aerospace Innovation",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to say we're now available on GSA Schedule — add a direct link to our listing",
+      result1: "✓ Hero updated and GSA link live within minutes, no designer needed",
+      prompt2: "Add a page for Flyairus with its own CTA separate from the main AIRION nav",
+      result2: "✓ Standalone page built and live same day, fully consistent with existing site design",
+      prompt3: "Swap 'Mission Focused Device Development' headline to lead with our austere medical solutions capability instead",
+      result3: "✓ Section reordered and copy updated — no brief, no queue, no waiting"
+    }
+  },
+  {
+    id: "alstar-consulting-group",
+    company: "Alstar Consulting Group",
+    logo: "/assets/reports/alstar-consulting-group/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://alstarconsulting.com",
+    industry: "Healthcare Consulting / Medical Staffing",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change the hero headline to lead with Joint Commission Certification — that's what most prospects are calling about right now",
+      result1: "✓ Hero updated and live within minutes, no designer involved",
+      prompt2: "Add a landing page for medical staffing agency startups with its own consultation booking form",
+      result2: "✓ Page built and live same day with integrated form — no brief, no back-and-forth",
+      prompt3: "Update the CTA from 'Schedule a Free Initial Consultation' to 'Book Your Free 30-Minute Strategy Call' and A/B test the conversion difference",
+      result3: "✓ CTA changed instantly — test it, revert it, try another version whenever you want"
+    }
+  },
+  {
+    id: "anderson-pine",
+    company: "Anderson Pine Corporation",
+    logo: "/assets/reports/anderson-pine/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://andersonpine.net",
+    industry: "Engineering Services / Renewable Energy & Infrastructure",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new entry to the Projects Map for the solar installation we just completed in Nevada",
+      result1: "✓ Project added and live on the map within minutes — no designer, no delay",
+      prompt2: "Update the hero from 'SOLAR' to lead with our full Water-Solar-Land engineering tagline and add a contact prompt",
+      result2: "✓ Hero updated with new headline and CTA — live same day",
+      prompt3: "Add a Careers page with our current open roles and a simple application form",
+      result3: "✓ Careers page built and published same day, form integrated and ready to receive submissions"
+    }
+  },
+  {
+    id: "atriano",
+    company: "Atriano",
+    logo: "/assets/reports/atriano/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://atriano.com",
+    industry: "AI Solutions / Talent & Data Consulting",
+    pages: 4,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Replace 'Discover More' with 'See the AI Aggregator in Action' and link it to the new demo page we just built",
+      result1: "✓ CTA updated and linked within minutes — no designer, no delay",
+      prompt2: "Add a section under 'Build Your Teams' that highlights our new AI staffing workflow with a case study",
+      result2: "✓ New section live same day, content and layout matched to the existing design",
+      prompt3: "Update the 'Unlock the Potential of Your Data' section to reflect our new enterprise data partnership — swap in their logo and updated copy",
+      result3: "✓ Section refreshed and published immediately — no brief, no queue"
+    }
+  },
+  {
+    id: "carbon-origins",
+    company: "Carbon Origins Inc.",
+    logo: "/assets/reports/carbon-origins/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://carbonorigins.com",
+    industry: "Robotics / Industrial Automation",
+    pages: 5,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new application under the Applications section for pipeline inspection — use the same card format as the existing ones",
+      result1: "✓ New application card added and live within minutes, matching the existing design exactly",
+      prompt2: "Update the 'Hire Bobby' CTA to go to a new intake form instead of a generic contact page",
+      result2: "✓ CTA destination updated and intake form built same day — no dev required",
+      prompt3: "Add a Safety First case study — we have a new pilot result from the firefighting deployment we want to feature",
+      result3: "✓ Case study section updated with real pilot data, live before the next customer call"
+    }
+  },
+  {
+    id: "carenami",
+    company: "Carenami",
+    logo: "/assets/reports/carenami/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://carenami.com",
+    industry: "Senior Care / Home Services Marketplace",
+    pages: 6,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change the hero headline to 'Find Trusted Help for Your Loved One — Matched in Minutes' and test if it converts better than the current version",
+      result1: "✓ Headline swapped and live immediately — revert or try another version any time",
+      prompt2: "Add a new service card for transportation assistance alongside the Light Housekeeping and Meal Preparation cards",
+      result2: "✓ New service card built and published same day, consistent with existing layout",
+      prompt3: "Update The Carenami Advantage section to highlight our new background check process — we just upgraded the vetting",
+      result3: "✓ Section updated with new copy and live before the next marketing push"
+    }
+  },
+  {
+    id: "coachlab",
+    company: "CoachLab Consulting",
+    logo: "/assets/reports/coachlab/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://coachlab.space",
+    industry: "Executive Recruiting / AI-Powered Talent Acquisition",
+    pages: 4,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to lead with our average time-to-hire stat — 12 days vs. industry average of 45",
+      result1: "✓ Hero updated with the new stat and live in minutes — no designer, no delay",
+      prompt2: "Add a step to the How it Works section that explains our AI screening layer before the recruiter interview stage",
+      result2: "✓ New process step added and published same day, consistent with existing flow",
+      prompt3: "Change the CTA from 'Contact Us' to 'Start Your Search' and link it to a new intake form",
+      result3: "✓ CTA and destination updated immediately — test the conversion, revert if needed, try another version"
+    }
+  },
+  {
+    id: "communicatemore",
+    company: "CommunicateMore",
+    logo: "/assets/reports/communicatemore/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://communicatemore.biz",
+    industry: "Digital Marketing & Media Strategy",
+    pages: 4,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add our latest campaign results to the View Projects section — three new case studies with before/after metrics",
+      result1: "✓ Case studies added and live within minutes — portfolio stays current without a designer",
+      prompt2: "Update the Digital Marketing section to call out our new TikTok ad offering alongside PPC and CPM",
+      result2: "✓ Section updated and published same day, no brief required",
+      prompt3: "Test a new hero — swap 'We Live & Breathe Creativity' for a direct ROI headline and see which one gets more inquiry clicks",
+      result3: "✓ New headline live immediately — run the test, compare, revert or keep it, all on your own timeline"
+    }
+  },
+  {
+    id: "constellation-immersive",
+    company: "Constellation Immersive",
+    logo: "/assets/reports/constellation-immersive/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://constellationimmersive.com",
+    industry: "Experiential Design / Immersive Storytelling",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add our new Accolades — we just won two awards at the immersive design summit, add them to the awards section",
+      result1: "✓ Accolades updated and live the same day they're announced — no delay, no WordPress queue",
+      prompt2: "Update the 'Journey Further With Us' CTA to link to a new project inquiry form instead of the generic contact page",
+      result2: "✓ CTA destination updated and new form built same day, ready for inbound project inquiries",
+      prompt3: "Add a new team member to 'Our Stellar Team' — photo, bio, and title — she starts Monday",
+      result3: "✓ Team section updated and live before Monday morning — no plugin conflicts, no staging environment needed"
+    }
+  },
+  {
+    id: "corra-health",
+    company: "Corra Health",
+    logo: "/assets/reports/corra-health/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://corra.health",
+    industry: "Digital Health / Chronic Condition Management",
+    pages: 4,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to lead with 'Flare-ups feel random. Corra makes them make sense.' — test if it outperforms the current version",
+      result1: "✓ Hero variant live within minutes — measure it, swap back, or keep it, no designer in the loop",
+      prompt2: "Add a 'Discover Your Triggers' landing page targeting people searching for eczema trigger tracking — separate from the main homepage",
+      result2: "✓ New condition-specific page built and live same day, ready for SEO and paid traffic",
+      prompt3: "Add a press section under 'Flare Prevention Made Easy' to feature the new Health Tech Today feature we just got",
+      result3: "✓ Press mention added and live before the article traffic peaks — no sprint, no queue"
+    }
+  },
+  {
+    id: "criteria-entertainment",
+    company: "Criteria Entertainment",
+    logo: "/assets/reports/criteria-entertainment/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://criteriaentertainment.com",
+    industry: "Latin Music & Entertainment Management",
+    pages: 8,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to say we just signed a new artist — link to the new press release",
+      result1: "✓ Hero updated, linked, and live in under 10 minutes",
+      prompt2: "Add a new Services page section for our brand partnership offering",
+      result2: "✓ New section built and published same day, no designer needed",
+      prompt3: "Change the CTA from 'Follow Us' to 'Book a Consultation' and test it for two weeks",
+      result3: "✓ CTA swapped instantly, reverted or kept — your call, your timeline"
+    }
+  },
+  {
+    id: "curbside-electric",
+    company: "Curbside Electric",
+    logo: "/assets/reports/curbside-electric/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://curbelectric.com",
+    industry: "EV Charging Infrastructure",
+    pages: 4,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add Maryland as a featured market on the homepage with a short description",
+      result1: "✓ New market section live within the hour",
+      prompt2: "Update the hero to 'Electrify the Curb. Now serving 3 states.' and add a Contact Us CTA",
+      result2: "✓ Hero and CTA updated instantly, no Wix editor headaches",
+      prompt3: "Create a simple landing page for our new community partnership program",
+      result3: "✓ Page described, built, and published same day"
+    }
+  },
+  {
+    id: "dalton-bioanalytics",
+    company: "Dalton Bioanalytics",
+    logo: "/assets/reports/dalton-bioanalytics/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://daltonbioanalytics.com",
+    industry: "Bioanalytics / Life Sciences",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new Proteomics Services page under Analytical Services with our updated pricing tiers",
+      result1: "✓ Page built and linked in the nav same day",
+      prompt2: "Update the hero to highlight our one-shot multi-omics profiling and link to the new case study",
+      result2: "✓ Hero updated and case study linked in minutes",
+      prompt3: "Add a 'Request a Quote' CTA to every service page and test click-through for 30 days",
+      result3: "✓ CTA added across all pages at once — no repeating the same task page by page"
+    }
+  },
+  {
+    id: "datavertex",
+    company: "DataVertex",
+    logo: "/assets/reports/datavertex/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://data-vertex.com",
+    industry: "Recruiting Data & Candidate Intelligence",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to 'Smarter Sourcing. Better Candidates. Faster Hires.' and swap the CTA to 'Get a candidate sample'",
+      result1: "✓ Hero and CTA updated and live in under 10 minutes",
+      prompt2: "Add a dedicated landing page for our Candidate API with a short feature list and a demo request form",
+      result2: "✓ Page built, form embedded, and published same day",
+      prompt3: "Test 'See a sample' vs 'Get a candidate sample' on the CTA for two weeks",
+      result3: "✓ CTA variant running immediately — no dev needed, no sprint required"
+    }
+  },
+  {
+    id: "digital-wave-design",
+    company: "Digital Wave Design",
+    logo: "/assets/reports/digital-wave-design/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://digitalwavedesign.com",
+    industry: "Design & Marketing Agency",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add three new portfolio case studies to the Portfolio page with before/after screenshots",
+      result1: "✓ Portfolio updated and published within the hour",
+      prompt2: "Update the hero to 'Make waves, not ripples' and add a 'Book a Discovery Call' CTA",
+      result2: "✓ New CTA live in minutes — test it, swap it, keep it, all on your timeline",
+      prompt3: "Create a new landing page for our Q3 branding package offer with a form and pricing tier",
+      result3: "✓ Page described to AI, built, reviewed, and shipped same day"
+    }
+  },
+  {
+    id: "elevated-influence",
+    company: "Elevated Influence",
+    logo: "/assets/reports/elevated-influence/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://theelevatedinfluence.co",
+    industry: "Influencer Marketing & Creator Partnerships",
+    pages: 4,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new case study to the Brands page — here's the campaign summary and results",
+      result1: "✓ Case study added and live within the hour, no design ticket needed",
+      prompt2: "Update the Creators section CTA from 'For Creators' to 'Apply to Join Our Network'",
+      result2: "✓ CTA text updated instantly — test the new phrasing, revert if it underperforms",
+      prompt3: "Build a campaign inquiry landing page for Q3 brand outreach with a short form",
+      result3: "✓ Page described, built, and published same day — no back-and-forth with a developer"
+    }
+  },
+  {
+    id: "ethos-ink-media",
+    company: "Ethos Ink Media",
+    logo: "/assets/reports/ethos-ink-media/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://ethosinkmedia.com",
+    industry: "Business Growth & Media Strategy",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero from 'Let's Untangle Your Growth Systems' to something sharper — here's the new angle",
+      result1: "✓ Hero rewritten and live in under 10 minutes",
+      prompt2: "Add a new offer page for our quarterly solopreneur intensive with a waitlist form",
+      result2: "✓ Page built and published same day — no Wix template wrestling",
+      prompt3: "Split-test 'Support For Startups' vs 'Get Startup Support' on the homepage CTA",
+      result3: "✓ CTA variant running immediately — see which converts, swap with one edit"
+    }
+  },
+  {
+    id: "evodyne-robotics",
+    company: "Evodyne Robotics",
+    logo: "/assets/reports/evodyne-robotics/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://evodyne.co",
+    industry: "Consumer Robotics / AI Hardware",
+    pages: 7,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to 'Meet EvoDog — the AI robot built for your home' and add a pre-order CTA",
+      result1: "✓ Hero and CTA updated and live in minutes",
+      prompt2: "Add a press coverage section to the homepage with logos and links",
+      result2: "✓ Press section added same day — no Wix block wrestling required",
+      prompt3: "Create a standalone landing page for Evodyne Academy with an enrollment CTA",
+      result3: "✓ Page described, built, and published same day — separate from the main nav if needed"
+    }
+  },
+  {
+    id: "exergy-systems",
+    company: "Exergy Systems",
+    logo: "/assets/reports/exergy-systems/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://exergycorp.com",
+    industry: "Circular Manufacturing / Advanced Recycling Technologies",
+    pages: 7,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new Applications page entry for battery recycling with a one-paragraph description and a consultation CTA",
+      result1: "✓ New entry live same day — no design ticket, no waiting",
+      prompt2: "Update the hero to highlight our newest reuse technology and swap the CTA to 'Book A Consultation Today'",
+      result2: "✓ Hero updated and CTA changed in minutes",
+      prompt3: "Create a landing page for our upcoming partner announcement with an email capture form",
+      result3: "✓ Page built, form embedded, published same day — ready before the announcement goes out"
+    }
+  },
+  {
+    id: "green-hive-spaces",
+    company: "Green Hive Spaces",
+    logo: "/assets/reports/green-hive-spaces/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://greenhivespaces.com",
+    industry: "Coworking & Flexible Workspace",
+    pages: 4,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a limited-time spring membership promo to the homepage with a 'Review Plans' CTA",
+      result1: "✓ Promo live in minutes — remove it just as fast when it's done",
+      prompt2: "Update the Membership Plans page with our new hot desk tier and updated pricing",
+      result2: "✓ New tier added and pricing updated same day, no Wix editor friction",
+      prompt3: "Create a landing page for our meeting room day-pass offer with a booking form",
+      result3: "✓ Page described, built, and published same day — ready to run ads to immediately"
+    }
+  },
+  {
+    id: "gro-creative",
+    company: "Gro Creative",
+    logo: "/assets/reports/gro-creative/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://grocreative.com",
+    industry: "Creative Agency (Branding & Design)",
+    pages: 3,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add our latest Featured Work project to the homepage with the full case study layout",
+      result1: "✓ New portfolio piece live within minutes, matching your existing design system exactly",
+      prompt2: "Update the Contact Us page — add a project intake form with budget range and timeline fields",
+      result2: "✓ Form added, styled to match, submissions routed to your inbox same day",
+      prompt3: "I want to A/B test two different hero headlines for our next campaign pitch",
+      result3: "✓ Both versions built and testable — swap between them whenever you want, no dev needed"
+    }
+  },
+  {
+    id: "groovience",
+    company: "Groovience",
+    logo: "/assets/reports/groovience/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://groovience.com",
+    industry: "Meta Advertising Consulting (eCommerce & DTC)",
+    pages: 2,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to say 'Grow & Scale Your Brand with Meta Advertising' — new subhead focused on DTC brands in Q3",
+      result1: "✓ Hero updated, live in under 10 minutes, no Wix editor required",
+      prompt2: "Add a separate landing page for SenGrowth with its own CTA and contact form for assisted living clients",
+      result2: "✓ New page built matching your existing design, isolated from the main brand, ready to link in ads",
+      prompt3: "Change the discovery call CTA copy — test 'Book Your Free Strategy Session' vs the current version",
+      result3: "✓ Both tested, winner kept — you control the switch without touching a single line of code"
+    }
+  },
+  {
+    id: "haptech-holdings",
+    company: "HapTech Holdings",
+    logo: "/assets/reports/haptech-holdings/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://haptechholdings.com",
+    industry: "Haptic Technology (Health, Wellness & Entertainment)",
+    pages: 7,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the Invest page with our new funding round details and a refreshed data room link",
+      result1: "✓ Page updated immediately — investors see current information every time they visit",
+      prompt2: "Add a new section under HTH Health with our latest clinical results and a 'Request a Demo' CTA",
+      result2: "✓ Section built, styled to match Bio-Haptics brand, demo request form routes to your team directly",
+      prompt3: "The hero needs to lead with wellness outcomes, not just the technology spec — update the copy",
+      result3: "✓ New hero live in minutes, old version saved if you want to revert"
+    }
+  },
+  {
+    id: "jg2-collective",
+    company: "JG2 Collective",
+    logo: "/assets/reports/jg2-collective/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://jg2collective.com",
+    industry: "Event Production & Experiential Design",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add our latest Premiere Events project — here are the photos and a short description of the activation",
+      result1: "✓ New case study live within the hour, formatted to match your existing portfolio layout",
+      prompt2: "Create a dedicated landing page for Corporate Events with a separate inquiry form for brand marketing clients",
+      result2: "✓ Standalone page built, inquiry form routing to the right contact, ready to share in proposals",
+      prompt3: "Update the Experiential section copy — we want to lead with the brand immersion angle for our next pitch deck",
+      result3: "✓ Copy updated same day, no design queue, no back-and-forth"
+    }
+  },
+  {
+    id: "kompanic",
+    company: "Kompanic",
+    logo: "/assets/reports/kompanic/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://kompanic.com",
+    industry: "Business Consulting & Organizational Transformation",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new client testimonial to the Testimonios section — here's the quote and their company name",
+      result1: "✓ Testimonial added and live in minutes, no developer, no GoDaddy editor bottleneck",
+      prompt2: "We're launching a new IT solutions service — add it to the ¿Qué Hacemos? section with its own description and icon",
+      result2: "✓ New service card built to match your existing layout, published same day",
+      prompt3: "Update the hero — we want to lead with the societal impact angle rather than the competitive future framing",
+      result3: "✓ Hero copy updated, both versions saved so you can test and revert freely"
+    }
+  },
+  {
+    id: "labforinvention",
+    company: "Labforinvention",
+    logo: "/assets/reports/labforinvention/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://labforinvention.com",
+    industry: "Nano Thin Film Coating Research & Development",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new section for our Low-E Glass 5G/6G technology with specs and a request-a-sample CTA",
+      result1: "✓ Section built, styled to match your existing lab service layout, CTA form routes to your team immediately",
+      prompt2: "Update Our Clients section — add two new partner logos and remove one that's outdated",
+      result2: "✓ Client logos updated in minutes, no Wix editor, no back-and-forth with a designer",
+      prompt3: "We need a dedicated page for PVD Coating services to improve search visibility for that specific term",
+      result3: "✓ New page created with proper structure, SEO metadata set, URL added to sitemap before launch"
+    }
+  },
+  {
+    id: "luna-cx",
+    company: "Luna CX",
+    logo: "/assets/reports/luna-cx/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://lunacx.world",
+    industry: "Business Process Outsourcing & Customer Experience",
+    pages: 4,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero — lead with 'Teams that take care of business' and add a one-liner about predictive analytics underneath",
+      result1: "✓ Hero updated, live in under 10 minutes, no Wix editor required",
+      prompt2: "Add a dedicated Services page that breaks out supply chain, data science, and digital CX as separate offerings with their own CTAs",
+      result2: "✓ Full services page built to match your brand, each section with its own 'Let's Talk' anchor",
+      prompt3: "The Management page needs updated bios — here are the new headshots and descriptions",
+      result3: "✓ Bios updated, photos optimized and live, no back-and-forth with a designer"
+    }
+  },
+  {
+    id: "mali-and-friends",
+    company: "MALI & Friends",
+    logo: "/assets/reports/mali-and-friends/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://maliandfriends.com",
+    industry: "Brand Strategy & Creative Design",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero subhead to speak directly to founders in the first round of funding",
+      result1: "✓ New subhead live in minutes, tested against the original, reverted or kept at your call",
+      prompt2: "Add a new case study to the Studio section — here's the brand name, the challenge, and what we built",
+      result2: "✓ Case study page built and added to the portfolio in your existing layout, published same day",
+      prompt3: "The Method section needs a redesign — I want to walk through our 4-step process with visuals for each stage",
+      result3: "✓ New Method layout described, built, and reviewed — no design back-and-forth, no WordPress plugin conflicts"
+    }
+  },
+  {
+    id: "metre",
+    company: "Metre",
+    logo: "/assets/reports/metre/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://metre.ai",
+    industry: "Medical Devices & Metabolic Health Technology",
+    pages: 3,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the MetreAce section — add our latest clinical study results under 'Data You Can Trust' with a download link",
+      result1: "✓ Study data added, formatted cleanly, PDF linked — live within minutes, no Wix editor friction",
+      prompt2: "Add a second demo CTA halfway down the page — we're losing visitors who don't scroll to the bottom",
+      result2: "✓ Inline CTA added exactly where you want it, styled to match, tested across devices before launch",
+      prompt3: "We need a standalone landing page for our partnership program — separate from the main site, same visual identity",
+      result3: "✓ Partner page built and published same day, independent URL, inquiry form routing to the right contact"
+    }
+  },
+  {
+    id: "modern-cfo",
+    company: "Modern CFO",
+    logo: "/assets/reports/modern-cfo/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://moderncfoservices.com",
+    industry: "Fractional CFO & Financial Advisory Services",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero — lead with 'Growth Strategy. Financial Clarity. Modern Technology.' and add a line about our fractional model under the subhead",
+      result1: "✓ Hero updated and live in minutes, discovery call CTA stays prominent, no Wix editor required",
+      prompt2: "Add a new service to Our Services section — we're now offering cash flow forecasting as a standalone engagement",
+      result2: "✓ New service card added, styled to match, visible immediately to every visitor",
+      prompt3: "Create a dedicated landing page for startup founders with a tailored pitch and a separate discovery call booking link",
+      result3: "✓ Founder-specific page built and published same day, no overlap with the main services page, tracked separately"
+    }
+  },
+  {
+    id: "multi-hyphen-media",
+    company: "Multi-Hyphen Media",
+    logo: "/assets/reports/multi-hyphen-media/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://multihyphenmedia.com",
+    industry: "Marketing & Media Agency",
+    pages: 4,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the Services page to add our new content strategy offering and reorder the sections",
+      result1: "✓ Done in minutes. No brief, no back-and-forth, no queue.",
+      prompt2: "Add a new Case Studies entry for the campaign we just wrapped — here's the copy and the images",
+      result2: "✓ Live the same day, exactly how you want it — while the win is still fresh.",
+      prompt3: "Change the Tips & Trends page headline and add a newsletter signup form below the latest post",
+      result3: "✓ Form live, headline updated, no dev ticket required."
+    }
+  },
+  {
+    id: "my-learning-labs",
+    company: "My Learning Labs",
+    logo: "/assets/reports/my-learning-labs/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://mylearninglabs.com",
+    industry: "EdTech / Neurodivergent Learning",
+    pages: 11,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the Program page hero to lead with outcomes for parents — add a line about average student improvement after 8 weeks",
+      result1: "✓ Live in minutes. No Wix editor lag, no waiting on anyone.",
+      prompt2: "Add a dedicated Schools page with a separate inquiry form for district administrators",
+      result2: "✓ Page live, form connected, copy tailored — same day.",
+      prompt3: "Rewrite the Parents section intro to address the most common question we get on sales calls",
+      result3: "✓ Updated instantly, right when the feedback is top of mind."
+    }
+  },
+  {
+    id: "nitro-workforce",
+    company: "Nitro Workforce Management",
+    logo: "/assets/reports/nitro-workforce/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://nitrovms.com",
+    industry: "Healthcare Workforce Technology",
+    pages: 9,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the NitroVMS Solutions page to lead with our new AI-enabled scheduling feature — here's the one-liner",
+      result1: "✓ Live in minutes. No queue, no Wix editor bottleneck.",
+      prompt2: "Add a new Insights article to the blog and feature it on the homepage",
+      result2: "✓ Published and surfaced same day — while the topic is still timely.",
+      prompt3: "Change the hero CTA from 'Explore the Platform' to 'Book a Demo' and A/B test the button color",
+      result3: "✓ Done. Reverted. Tested again. No dev ticket required."
+    }
+  },
+  {
+    id: "northstar-solar",
+    company: "NorthStar Solar Inc.",
+    logo: "/assets/reports/northstar-solar/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://gonorthstarsolar.com",
+    industry: "Solar & Roofing Installation",
+    pages: 7,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the Financing page to reflect the new IRA tax credit amounts — here's the updated figure",
+      result1: "✓ Live in minutes. The right number in front of every homeowner who visits today.",
+      prompt2: "Add a seasonal promotion banner to the homepage — 'Free roof inspection with every solar quote this month.'",
+      result2: "✓ Banner up, offer live, no designer required.",
+      prompt3: "Change the hero CTA from 'Get Your Free Quote' to 'See What You'd Save' and test which drives more form fills",
+      result3: "✓ Test it today, read the results, swap it back or keep it — your call, your timeline."
+    }
+  },
+  {
+    id: "novelance",
+    company: "Novelance",
+    logo: "/assets/reports/novelance/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://novelance.com",
+    industry: "NetSuite Consulting & ERP Services",
+    pages: 11,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new Modules page entry for our latest NetSuite customization — here's the one-paragraph description",
+      result1: "✓ Page updated, live in minutes. No brief, no queue, no lag.",
+      prompt2: "Rewrite the Services section intro — we're leading with Integration now, not Implementation",
+      result2: "✓ Updated today, reflects the pivot you made last quarter.",
+      prompt3: "Add a Real-Time Insights case study with the customer results from the segmentation project we just closed",
+      result3: "✓ Live while the outcome is still fresh and the client is still happy to be referenced."
+    }
+  },
+  {
+    id: "nv-media",
+    company: "NV Media Advertising Agency",
+    logo: "/assets/reports/nv-media/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://nv.media",
+    industry: "Digital Marketing & Advertising Agency",
+    pages: 9,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the homepage hero to 'Award-Winning Digital Marketing That Actually Drives Revenue' — and swap the CTA to 'See Our Results.'",
+      result1: "✓ Live in minutes. No WordPress plugin conflict, no dev call required.",
+      prompt2: "Add a dedicated Podcast Studio Rental page with a booking form — we're getting too many inquiries to handle over email",
+      result2: "✓ Page built, form live, inquiries routing — same day.",
+      prompt3: "Add our newest Social Media Marketing case study to the site and feature it on the homepage this week",
+      result3: "✓ Up while the campaign results are still fresh and the client is still celebrating."
+    }
+  },
+  {
+    id: "nyfik",
+    company: "Nyfik",
+    logo: "/assets/reports/nyfik/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://nyfik.com",
+    industry: "Purpose-Driven Software / Community Apps",
+    pages: 3,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update The Basics page to mention our fog-tracking app by name and add a link to the beta waitlist",
+      result1: "✓ Live in minutes. No WordPress dashboard, no plugin conflicts.",
+      prompt2: "Add a new Our Notebook post about why we build for overlooked communities — here's the draft",
+      result2: "✓ Published and live today, while the thinking is fresh.",
+      prompt3: "Change the hero from 'Say Hello' to 'Join the Waitlist' while we're in beta — then switch it back at launch",
+      result3: "✓ Done in two minutes. Switch it back the same way."
+    }
+  },
+  {
+    id: "pacific-business-partners",
+    company: "Pacific Business Partners",
+    logo: "/assets/reports/pacific-business-partners/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://pacificbp.com",
+    industry: "Business Consulting (Accounting, Marketing, Operations, Coaching)",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the Coaching + Mentoring page to lead with our new 90-day business systems sprint — here's the one-paragraph description",
+      result1: "✓ Live in minutes. Clients see the updated offering today.",
+      prompt2: "Add a client testimonial to the homepage under the 'Feeling Lost in the Business Maze?' section — here's what they said",
+      result2: "✓ Up immediately, while the client relationship is warm and the words are fresh.",
+      prompt3: "Change the Strategy Session CTA on every page to say 'Book Your Free 30-Min Call' instead",
+      result3: "✓ Every instance updated across all 8 pages in one pass. No hunting through WordPress templates."
+    }
+  },
+  {
+    id: "parkclear",
+    company: "ParkClear",
+    logo: "/assets/reports/parkclear/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://parkclear.co",
+    industry: "Mobile App / Parking Technology",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the homepage hero to highlight our new image recognition feature — here's the new one-liner",
+      result1: "✓ Live in minutes. Every new visitor sees the updated pitch today.",
+      prompt2: "Add a press mention to the Our Story page — we just got covered by a local news outlet",
+      result2: "✓ Up same day, while the coverage is still driving traffic.",
+      prompt3: "Change the CTA from 'Download App' to 'Park Smarter — Free Download' and see if it lifts installs",
+      result3: "✓ Test it now. Revert it if it doesn't move the number. No ticket required."
+    }
+  },
+  {
+    id: "partnerite",
+    company: "PartneRite",
+    logo: "/assets/reports/partnerite/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://partnerite.com",
+    industry: "B2B SaaS / Partner Ecosystem Management",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the Platform page to highlight our new real-time revenue leakage detection feature — here's the two-sentence description",
+      result1: "✓ Live in minutes. Every demo prospect sees the updated capability before their call.",
+      prompt2: "Add a Consulting page that clearly separates our advisory services from the SaaS product — here's the outline",
+      result2: "✓ New page up the same day, with its own CTA routing to a separate form.",
+      prompt3: "Change the hero CTA from 'Schedule a Demo' to 'See It in Action — Free Demo' and test click-through rate",
+      result3: "✓ Changed, tracked, reverted or kept — on your schedule, not a designer's."
+    }
+  },
+  {
+    id: "personal-magic",
+    company: "Personal Magic",
+    logo: "/assets/reports/personal-magic/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://personalmagic.io",
+    industry: "Music Education / Consumer App",
+    pages: 1,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change 'Now you will know how to play a musical instrument' to something punchier — something about learning your first song in a week",
+      result1: "✓ New hero is live in minutes. No ticket, no wait.",
+      prompt2: "Update the waitlist offer — instead of $100 off, make it early access plus a free lesson",
+      result2: "✓ The page reflects the new offer immediately, right when you need it to.",
+      prompt3: "Add a section above the waitlist form explaining what LOGIE actually does — three short bullet points",
+      result3: "✓ New section added, ordered however makes sense, without touching a single line of code."
+    }
+  },
+  {
+    id: "petcoil",
+    company: "PETcoil",
+    logo: "/assets/reports/petcoil/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://petcoil.com",
+    industry: "Medical Imaging / Life Sciences Hardware",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to lead with clinical accuracy numbers instead of the technology description — something like '40% improvement in lesion detectability.'",
+      result1: "✓ Hero updated immediately. No brief, no queue.",
+      prompt2: "Add a 'Clinical Partners' section after the product overview — we just signed two research institutions",
+      result2: "✓ New section is live same day the announcement goes out.",
+      prompt3: "Change 'Learn More' to 'Request a Demo' and link it to our scheduling form",
+      result3: "✓ CTA updated across the page in minutes, measurable impact on qualified lead flow starting today."
+    }
+  },
+  {
+    id: "pilot-lab",
+    company: "Pilot Lab",
+    logo: "/assets/reports/pilot-lab/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://pilotlab.com",
+    industry: "Digital Experience / Creative Agency",
+    pages: 3,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Replace 'We create exceptional digital experiences' with a headline that names the type of client we work with — B2B SaaS, series A+",
+      result1: "✓ Hero updated and live. The right clients self-select in.",
+      prompt2: "Add a new case study card to the Case Studies section — here's the client name, outcome, and screenshot",
+      result2: "✓ New card added to the grid, same day the project wraps.",
+      prompt3: "Update 'Get in touch' to 'Start a project' and link to our intake form instead of the email address",
+      result3: "✓ CTA and link updated across the site in minutes — no Webflow editor handoff required."
+    }
+  },
+  {
+    id: "prossimo-tech",
+    company: "ProssimoTech",
+    logo: "/assets/reports/prossimo-tech/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://prossimotech.com",
+    industry: "Financial Technology / Working Capital Advisory",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Translate the hero headline into English and rewrite it around ROIC improvement — CFOs need to see the outcome, not the method",
+      result1: "✓ Hero updated in both languages, live within the hour.",
+      prompt2: "Add an Arrow™ product page that walks through how real-time financial data processing works — three steps, one diagram",
+      result2: "✓ New page built and linked from the nav same day.",
+      prompt3: "Change the email sign-up CTA to 'Book a Working Capital Review' and connect it to our Calendly",
+      result3: "✓ CTA updated, form swapped, link tested — done before the next prospect visit."
+    }
+  },
+  {
+    id: "realryder",
+    company: "RealRyder International",
+    logo: "/assets/reports/realryder/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://realryder.com",
+    industry: "Fitness Equipment / Indoor Cycling",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero from 'indoor cycling evolved' to something that leads with the muscle recruitment benefit — we want buyers to feel the difference before they read the specs",
+      result1: "✓ New hero live immediately. A/B test the next version next week.",
+      prompt2: "Add three new gym testimonials to the Testimonials section — here are the quotes and facility names",
+      result2: "✓ Testimonials added and published same day they come in, while the enthusiasm is still fresh.",
+      prompt3: "Add a 'Find a Dealer' page so facility buyers can locate their nearest distributor without emailing us",
+      result3: "✓ New page built, linked in the nav, and live — without a brief, a build queue, or a two-week wait."
+    }
+  },
+  {
+    id: "revolve-practice-transitions",
+    company: "Revolve Practice Transitions",
+    logo: "/assets/reports/revolve-practice-transitions/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://revolvetransitions.com",
+    industry: "Dental Practice Brokerage / Professional Services",
+    pages: 7,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new listing to 'Dental Practices for Sale' — here's the location, practice type, asking price, and contact form",
+      result1: "✓ Listing is live same day it's ready to go to market. No design queue.",
+      prompt2: "Update the 'Selling a Practice' page to address the most common question we hear right now — how long does the process actually take?",
+      result2: "✓ Page updated with a new section, accurate to where your process is today.",
+      prompt3: "Change the CTA from 'Contact Our Experienced Team' to 'Get a Free Practice Valuation' and link it to our intake form",
+      result3: "✓ CTA updated across every page that references it, in minutes, not days."
+    }
+  },
+  {
+    id: "rotate8",
+    company: "Rotate8",
+    logo: "/assets/reports/rotate8/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://rotate8.com",
+    industry: "AgTech / Farm Automation",
+    pages: 7,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to include a specific crop type or use case — something growers immediately recognize",
+      result1: "✓ Hero is updated and live the same day you make the call.",
+      prompt2: "Add a 'Pilot Program' page — who qualifies, what they get, and a form to apply",
+      result2: "✓ New page built and linked from the nav. Pilot applications start flowing in.",
+      prompt3: "Add a 'Smart Farm Automation' section with three short case examples — what the problem was, what Rotate8 did, what changed",
+      result3: "✓ Section live, written in plain language that resonates with working farmers, not just tech buyers."
+    }
+  },
+  {
+    id: "schulman-communications",
+    company: "Schulman Communications Interactive",
+    logo: "/assets/reports/schulman-communications/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://getcoachingfromsci.com",
+    industry: "Executive Coaching / Communications Training",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add my latest podcast interview to the 'Check Out Our Podcast Interviews' section — here's the show name, episode title, and link",
+      result1: "✓ New podcast card live the same day the episode drops. No wait.",
+      prompt2: "Update the hero to rotate between three different headlines — test which one drives more coaching inquiry clicks",
+      result2: "✓ A/B test set up and running. Data in within the week.",
+      prompt3: "Add a dedicated page for corporate sales training — different from the individual coaching page, written for L&D buyers",
+      result3: "✓ New page built, optimized for the right buyer, live before the next enterprise conversation."
+    }
+  },
+  {
+    id: "shalla-nyc",
+    company: "SHALLA NYC",
+    logo: "/assets/reports/shalla-nyc/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://shalla.nyc",
+    industry: "Talent Management / Influencer Marketing / Event Production",
+    pages: 3,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add two new talent profiles to the Talent section — macro influencer in wellness, micro in comedy. Here are their handles, stats, and headshots.",
+      result1: "✓ Both profiles live on the site before the next brand pitch call.",
+      prompt2: "Update the Services section to add 'Content Strategy' — we've been doing it for six months and it's not on the site yet",
+      result2: "✓ New service listed, described, and visible to every brand that lands on the page.",
+      prompt3: "Add a contact button to the homepage — right now there's no clear CTA and people have to scroll to find how to reach us",
+      result3: "✓ CTA added exactly where visitors are looking for it. Done in minutes."
+    }
+  },
+  {
+    id: "soar-optics",
+    company: "Soar Optics",
+    logo: "/assets/reports/soar-optics/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://soaroptics.com",
+    industry: "Environmental Analytics / Microplastics Detection",
+    pages: 7,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the Microplastics section to include the new EPA threshold data that just dropped — here's the summary and source",
+      result1: "✓ Content updated the same day the regulation is published. You're ahead of competitors who have to wait on their dev.",
+      prompt2: "Rewrite the hero from 'Microplastics are a widespread and invisible hazard' to something that names our specific detection capability and who we sell to",
+      result2: "✓ New hero live immediately. A/B test a second version next week.",
+      prompt3: "Add a 'For Regulators' page separate from the main 'Our Value Proposition' — government buyers need a different framing than commercial labs",
+      result3: "✓ New page built with the right language for that buyer. Live and linked before the next RFP conversation."
+    }
+  },
+  {
+    id: "stellation",
+    company: "Stellation",
+    logo: "/assets/reports/stellation/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://stellationcare.com",
+    industry: "Healthcare AI / Provider Intelligence",
+    pages: 3,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Change the hero to 'Stop guessing. Start knowing. Stellation gives health plans real-time provider performance intelligence.'",
+      result1: "✓ Updated live in minutes — no designer, no ticket, no wait",
+      prompt2: "Add a Solutions page for our new network adequacy use case with a Book a Demo CTA",
+      result2: "✓ New page built and live same day, matching your existing design",
+      prompt3: "Add a case study section under The Stellation Platform with a pull quote from our latest health plan client",
+      result3: "✓ Done and published before the prospect meeting"
+    }
+  },
+  {
+    id: "the-legal-billing-group",
+    company: "The Legal Billing Group",
+    logo: "/assets/reports/the-legal-billing-group/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://thelegalbillinggroup.com",
+    industry: "Legal Billing & Financial Services",
+    pages: 14,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to 'Managed Legal Billing & Collections — so your attorneys can focus on the work that matters'",
+      result1: "✓ Live in minutes, no designer involved",
+      prompt2: "Add a new service page for our litigation support billing offering with a contact form at the bottom",
+      result2: "✓ New page built same day with your existing design and branding",
+      prompt3: "Add three new client testimonials to the homepage with their firm name and practice area",
+      result3: "✓ Published immediately — no queue, no ticket"
+    }
+  },
+  {
+    id: "the-travel-mom",
+    company: "The Travel Mom",
+    logo: "/assets/reports/the-travel-mom/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://thetravelmom.com",
+    industry: "Travel Media & Content",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new destination guide page for Bali with sections for hotels, family tips, and points redemption options",
+      result1: "✓ New page live same day, matching your existing layout and brand",
+      prompt2: "Update the homepage hero to feature the current vacation giveaway with a signup CTA",
+      result2: "✓ Done in minutes — no designer, no Wix editor wrestling",
+      prompt3: "Add a Hotel Reviews section to the homepage with a grid of the 4 most recent reviews linking to their pages",
+      result3: "✓ Built and published before your next post goes out"
+    }
+  },
+  {
+    id: "the-wardrobe-essentialist",
+    company: "The Wardrobe Essentialist",
+    logo: "/assets/reports/the-wardrobe-essentialist/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://wardrobeessentialist.com",
+    industry: "Personal Styling / Men's Fashion",
+    pages: 6,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to 'The world's best dress shirts, matched to your measurements. Free. No subscription.'",
+      result1: "✓ Live in minutes — no Webflow editor, no designer, no wait",
+      prompt2: "Add a new brand spotlight page for our latest partner with a featured collection grid and a Get Started Now CTA",
+      result2: "✓ Built same day, matching your existing design and typography",
+      prompt3: "Add a 'How it Works' explainer section to the homepage above the brand logos with 3 steps",
+      result3: "✓ Published immediately — exactly where you want it"
+    }
+  },
+  {
+    id: "toro-neurovascular",
+    company: "Toro Neurovascular",
+    logo: "/assets/reports/toro-neurovascular/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://toroneuro.com",
+    industry: "Medical Devices / Stroke Care Technology",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to reflect our FDA submission milestone — 'Join a new generation of stroke care. MicroFlex™ catheter technology, built for the moments that matter most.'",
+      result1: "✓ Live in minutes — no WordPress login wrestling, no developer ticket",
+      prompt2: "Add a clinical evidence page with our latest study data, a summary section, and a contact form for physician inquiries",
+      result2: "✓ New page built same day, matching your existing design",
+      prompt3: "Add a press section to the homepage with our last 3 coverage mentions and links to the full articles",
+      result3: "✓ Published immediately — no queue, no wait"
+    }
+  },
+  {
+    id: "tricubics",
+    company: "Tricubics",
+    logo: "/assets/reports/tricubics/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://tricubics.com",
+    industry: "AI-Powered Contactless Retail Technology",
+    pages: 4,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to 'The future of shopping is now — frictionless, cashierless, and built for where people already are'",
+      result1: "✓ Live in minutes — no Webflow editor, no designer, no delay",
+      prompt2: "Add a use case page for apartment complex deployments with a demo request form",
+      result2: "✓ New page built same day, consistent with your existing design",
+      prompt3: "Add a press/recognition section to the homepage featuring recent media coverage and the team page link",
+      result3: "✓ Published immediately — ready before your next investor call"
+    }
+  },
+  {
+    id: "uct-mobility",
+    company: "UCT Mobility",
+    logo: "/assets/reports/uct-mobility/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://uctmobility.com",
+    industry: "Automotive Infotainment R&D & Testing",
+    pages: 9,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a homepage banner announcing UCIVART's Top 10 Infotainment Solution recognition for 2026 with a Discuss A Pilot CTA",
+      result1: "✓ Live in minutes — no Wix editor, no designer, no delay",
+      prompt2: "Create a dedicated UCIVART landing page for our pilot conversations with OEMs — product overview, key differentiators, and a contact form",
+      result2: "✓ New page built same day, consistent with your current design",
+      prompt3: "Update the Infotainment Testing section with our latest verification and validation methodology and a case study teaser",
+      result3: "✓ Published immediately, ready before the next prospect call"
+    }
+  },
+  {
+    id: "vice3d",
+    company: "Vice3D",
+    logo: "/assets/reports/vice3d/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://viceddd.com",
+    industry: "3D CGI & VFX Creative Studio",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add the Samsung Galaxy Z Fold 7 campaign as a case study under Customers with a video embed and a brief us CTA",
+      result1: "✓ Live same day — no Wix workaround, no designer queue",
+      prompt2: "Update the homepage hero to 'Vice3D. Community-powered. Brand-focused. Now with AI-integrated production.'",
+      result2: "✓ Done in minutes — exactly the way you want it to read",
+      prompt3: "Add an Immersive Solutions section to the services page with 3 capabilities and a showreel link",
+      result3: "✓ Published immediately, ready for your next pitch"
+    }
+  },
+  {
+    id: "vitribiome",
+    company: "VitriBiome",
+    logo: "/assets/reports/vitribiome/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://vitribiome.com",
+    industry: "Microbial Biotechnology / Microbiome Health",
+    pages: 3,
+    hostingCost: 50,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to 'Powering the Future of Microbial Innovation — science-driven solutions for the microbiome age'",
+      result1: "✓ Live in minutes — no Wix editor friction, no designer wait",
+      prompt2: "Add a Retail Innovation page that outlines our consumer product pipeline and includes an Inquire CTA",
+      result2: "✓ New page built same day, consistent with your current design and tone",
+      prompt3: "Add a Science section to the homepage with a summary of our microbiome research approach and a link to published data",
+      result3: "✓ Published immediately — ready for your next investor or partner meeting"
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
