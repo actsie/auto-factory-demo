@@ -24,7 +24,7 @@ function getSheets() {
 
 export async function POST(req: NextRequest) {
     const body = await req.json();
-    const { name, email, business, website, businessType, notes, qrMenu, source } = body;
+    const { email, website, frustration, timeline, source } = body;
 
     // 1. Submit to Formspree
     const formspreeRes = await fetch(FORMSPREE_URL, {
@@ -53,10 +53,10 @@ export async function POST(req: NextRequest) {
         if (!isDuplicate) {
             await sheets.spreadsheets.values.append({
                 spreadsheetId: sheetId,
-                range: `${SHEET_NAME}!A:I`,
+                range: `${SHEET_NAME}!A:F`,
                 valueInputOption: "USER_ENTERED",
                 requestBody: {
-                    values: [[email, timestamp, name, business, website ?? "", businessType ?? "", qrMenu ? "Yes" : "No", notes ?? "", source ?? ""]],
+                    values: [[email, timestamp, website ?? "", frustration ?? "", timeline ?? "", source ?? ""]],
                 },
             });
         }
@@ -67,19 +67,16 @@ export async function POST(req: NextRequest) {
 
         const divider = "━━━━━━━━━━━━━━━━━━━━━";
         const header = isDuplicate
-            ? `⚠️ DUPLICATE — Page Rebuild Request${source ? ` · via ${source}` : ""}`
-            : `🏠 New Page Rebuild Request #${totalCount}${source ? ` · via ${source}` : ""}`;
+            ? `⚠️ DUPLICATE — Site Migration Request${source ? ` · via ${source}` : ""}`
+            : `🖥️ New Site Migration Request #${totalCount}${source ? ` · via ${source}` : ""}`;
 
         const lines = [
             header,
             divider,
             `📧 Email: ${email}${isDuplicate ? " *(already in sheet)*" : ""}`,
-            `👤 Name: ${name}`,
-            `🏢 Business: ${business}`,
-            website ? `Website: ${website}` : null,
-            businessType ? `Business type: ${businessType}` : null,
-            qrMenu ? `Add-on: ✅ QR Menu + Smart Table Ordering` : null,
-            notes ? `Notes: ${notes}` : null,
+            website ? `🌐 Website: ${website}` : null,
+            frustration ? `😤 Frustration: ${frustration}` : null,
+            timeline ? `📅 Timeline: ${timeline}` : null,
             `⏰ Time: ${timestamp}`,
             `📊 Total Requests: ${totalCount}`,
             divider,

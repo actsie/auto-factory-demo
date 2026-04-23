@@ -1,7 +1,7 @@
 "use client";
 import { links } from "@/data/links";
 import { ILink } from "@/types";
-import { MenuIcon, XIcon, ChevronDownIcon, HomeIcon, ThermometerIcon, HammerIcon, UtensilsIcon, Building2Icon, CupSodaIcon, TrendingUpIcon, ArrowUpRightIcon } from "lucide-react";
+import { MenuIcon, XIcon, ChevronDownIcon, HomeIcon, ThermometerIcon, HammerIcon, UtensilsIcon, Building2Icon, CupSodaIcon, MonitorIcon, ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
@@ -13,14 +13,14 @@ import { useIndieModal } from "@/contexts/indie-modal-context";
 
 const AI_ROUTES = ["/", "/ai-automation", "/contractors", "/restaurant", "/beverage"];
 
-const industries = [
-    { name: "Real estate agents", href: "/real-estate", icon: HomeIcon, color: "text-purple-500", bg: "bg-purple-50", hoverColor: "#f5f3ff", iconHex: "#a855f7", desc: "Follow-up system for every inquiry" },
+const solutions = [
+    { name: "Website replacement", href: "/fix-your-page", icon: MonitorIcon, color: "text-purple-500", bg: "bg-purple-50", hoverColor: "#f5f3ff", iconHex: "#a855f7", desc: "Fresh site, custom code, no lock-in" },
+    { name: "Property managers", href: "/review-reply", icon: Building2Icon, color: "text-blue-500", bg: "bg-blue-50", hoverColor: "#eff6ff", iconHex: "#3b82f6", desc: "Automated review replies" },
     { name: "HVAC contractors", href: "/hvac", icon: ThermometerIcon, color: "text-teal-600", bg: "bg-teal-50", hoverColor: "#f0fdfa", iconHex: "#0d9488", desc: "Estimate & job follow-ups" },
     { name: "Home service contractors", href: "/contractors", icon: HammerIcon, color: "text-orange-500", bg: "bg-orange-50", hoverColor: "#fff7ed", iconHex: "#f97316", desc: "24/7 lead capture" },
+    { name: "Real estate agents", href: "/real-estate", icon: HomeIcon, color: "text-purple-500", bg: "bg-purple-50", hoverColor: "#f5f3ff", iconHex: "#a855f7", desc: "Follow-up system for every inquiry" },
     { name: "Restaurants", href: "/restaurant", icon: UtensilsIcon, color: "text-amber-600", bg: "bg-amber-50", hoverColor: "#fffbeb", iconHex: "#d97706", desc: "AI inquiry handling" },
-    { name: "Property managers", href: "/review-reply", icon: Building2Icon, color: "text-blue-500", bg: "bg-blue-50", hoverColor: "#eff6ff", iconHex: "#3b82f6", desc: "Automated review replies" },
     { name: "Beverage shops", href: "/beverage", icon: CupSodaIcon, color: "text-yellow-600", bg: "bg-yellow-50", hoverColor: "#fefce8", iconHex: "#ca8a04", desc: "Inventory management" },
-    { name: "Sales teams", href: "/sdr", icon: TrendingUpIcon, color: "text-green-600", bg: "bg-green-50", hoverColor: "#f0fdf4", iconHex: "#16a34a", desc: "SDR workflow automation" },
 ];
 
 export default function Navbar() {
@@ -34,7 +34,9 @@ export default function Navbar() {
     const { openIndieModal } = useIndieModal();
     const isAiPage = AI_ROUTES.some(r => r === "/" ? pathname === "/" : pathname.startsWith(r));
     const isIndiePage = pathname.startsWith("/indie-hackers");
+    const isMigratePage = pathname.startsWith("/fix-your-page");
     const handleBookCall = () => isIndiePage ? openIndieModal("Indie Hackers — Navbar") : openAiModal("Navbar");
+    const navbarCtaLabel = isIndiePage ? "Apply for free setup" : isMigratePage ? "Migrate my site" : "Get started for free";
 
     function openSolutions() {
         if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -54,7 +56,7 @@ export default function Navbar() {
                             <span className="font-urbanist font-semibold text-gray-800 text-sm">Fountain of Scale</span>
                         </Link>
 
-                        <div className="hidden md:flex gap-1 bg-white/50 backdrop-blur border border-[#edf9f8] rounded-full px-2 py-1.5">
+                        <div className="hidden nav-wide:flex gap-1 bg-white/50 backdrop-blur border border-[#edf9f8] rounded-full px-2 py-1.5">
                             {links.filter(l => !(isIndiePage && l.name === "Pricing")).map((link: ILink) => (
                                 <Link key={link.name} href={link.href} className="py-1 px-4 rounded-full hover:bg-white/70 transition-colors text-gray-700 text-sm">
                                     {link.name}
@@ -88,7 +90,7 @@ export default function Navbar() {
                                         .icon-spring { animation: icon-spring 0.45s ease forwards; }
                                     `}</style>
                                     <div className="p-4 grid grid-cols-2 gap-2">
-                                        {industries.map((item) => {
+                                        {solutions.map((item) => {
                                             const isHovered = hoveredIndustry === item.href;
                                             return (
                                                 <Link
@@ -119,13 +121,13 @@ export default function Navbar() {
                             </div>
                         </div>
 
-                        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <button className="nav-wide:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             <MenuIcon className="size-6.5" />
                         </button>
 
                         {!pathname.startsWith("/review-reply") && (
-                            <button onClick={handleBookCall} className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-purple-500 text-white rounded-full text-sm">
-                                {isIndiePage ? "Apply for free setup" : "Get started for free"}
+                            <button onClick={handleBookCall} className="hidden nav-wide:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-purple-500 text-white rounded-full text-sm">
+                                {navbarCtaLabel}
                             </button>
                         )}
                     </div>
@@ -148,7 +150,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <p className="py-1 px-3 text-sm font-medium text-gray-500">Solutions</p>
-                    {industries.map(item => (
+                    {solutions.map(item => (
                         <Link key={item.href} href={item.href} className="flex items-center gap-2 py-1 px-3" onClick={() => setIsMenuOpen(false)}>
                             <div className={`w-6 h-6 rounded-md ${item.bg} flex items-center justify-center shrink-0`}>
                                 <item.icon size={13} className={item.color} />
@@ -158,7 +160,7 @@ export default function Navbar() {
                     ))}
                     {!pathname.startsWith("/review-reply") && (
                         <button onClick={() => { handleBookCall(); setIsMenuOpen(false); }} className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full">
-                            {isIndiePage ? "Apply for free setup" : "Get started for free"}
+                            {navbarCtaLabel}
                         </button>
                     )}
                 </div>

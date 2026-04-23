@@ -1,45 +1,39 @@
 "use client";
 import AnimatedContent from "@/components/animated-content";
 import FypModal from "@/components/fyp-modal";
-import { ArrowUpRightIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, ClipboardIcon, LinkedinIcon, PencilIcon, RocketIcon } from "lucide-react";
+import MiniWebsiteDiagram from "@/components/mini-website-diagram";
+import { ArrowUpRightIcon, CheckIcon, ChevronUpIcon, ClipboardIcon, LinkedinIcon, PencilIcon, RocketIcon } from "lucide-react";
 import Image from "next/image";
 import { useModal } from "@/contexts/modal-context";
 import { useEffect, useRef, useState } from "react";
 
-const qrImages = [
-    { src: "/assets/menu.png", alt: "Interactive QR menu" },
-    { src: "/assets/add-to-order.png", alt: "Add to order flow" },
-    { src: "/assets/ask-waiter.png", alt: "Ask waiter requests" },
-    { src: "/assets/outstanding-req2.png", alt: "Staff dashboard overview" },
-    { src: "/assets/outstanding-req.png", alt: "Table order details" },
-];
 
 const whatsIncluded = [
-    "A layout that builds trust within the first few seconds",
-    "Sections ordered around how visitors actually make decisions",
-    "One clear, obvious next step — no guessing where to go",
-    "Built to work on any device — phone, tablet, desktop",
+    "A small edit takes minutes — not a ticket, not a dev, not three days",
+    "No more breaking changes — it's your code, it does exactly what you tell it",
+    "Same design, same URLs — your SEO and your visitors stay untouched",
+    "No platform lock-in — the code is yours, so you're never stuck",
 ];
 
 const steps = [
     {
         icon: ClipboardIcon,
-        title: "Send us your site",
-        description: "Share your URL and a bit about your business. That's all we need to get started.",
+        title: "Share your site",
+        description: "Send us the URL. We take a look and let you know if it's a good fit.",
         iconBg: "bg-purple-500",
         cardBg: "bg-[#dbd2ff]/40",
     },
     {
         icon: PencilIcon,
-        title: "We rebuild in one day",
-        description: "We rebuild the layout from scratch around what converts — right order, right emphasis, one clear action. By end of day, it's done.",
+        title: "We rebuild it",
+        description: "Same look, same URLs. Clean custom code — no platform in the middle.",
         iconBg: "bg-[#5bbfba]",
         cardBg: "bg-[#edf9f8]/40",
     },
     {
         icon: RocketIcon,
-        title: "You get the new page",
-        description: "Tech-savvy? We hand it over and you integrate it however you like. Prefer to just have it work? We host it under your domain for $20/mo.",
+        title: "You own it",
+        description: "We hand over the files or host it under your domain for $20/mo. Either way, the code is yours.",
         iconBg: "bg-[#c98dc0]",
         cardBg: "bg-[#ede8f6]/40",
     },
@@ -49,10 +43,6 @@ export default function FixYourPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSource, setModalSource] = useState("");
     const [modalQrMenu, setModalQrMenu] = useState(false);
-    const [carouselIndex, setCarouselIndex] = useState(0);
-    const [carouselTransition, setCarouselTransition] = useState(true);
-    const [carouselHovered, setCarouselHovered] = useState(false);
-    const carouselPaused = useRef(false);
     const [lightboxCol, setLightboxCol] = useState<number | null>(null);
     const [lightboxIdx, setLightboxIdx] = useState(0);
     const [hoveredCol, setHoveredCol] = useState<number | null>(null);
@@ -139,35 +129,7 @@ export default function FixYourPage() {
     }, [lightboxCol]);
 
 
-    useEffect(() => {
-        carouselPaused.current = carouselHovered;
-    }, [carouselHovered]);
-
-    useEffect(() => {
-        const id = setInterval(() => {
-            if (!carouselPaused.current) {
-                setCarouselIndex(i => i + 1); // advances into clone at qrImages.length
-            }
-        }, 3500);
-        return () => clearInterval(id);
-    }, []);
-
-    // After landing on the clone, snap back to real index 0 without animation
-    function handleCarouselTransitionEnd() {
-        if (carouselIndex === qrImages.length) {
-            setCarouselTransition(false);
-            setCarouselIndex(0);
-        }
-    }
-
-    useEffect(() => {
-        if (!carouselTransition) {
-            const id = setTimeout(() => setCarouselTransition(true), 20);
-            return () => clearTimeout(id);
-        }
-    }, [carouselTransition]);
-
-    const { open: navbarModalOpen, closeModal: closeNavbarModal } = useModal();
+const { open: navbarModalOpen, closeModal: closeNavbarModal } = useModal();
 
     useEffect(() => {
         if (navbarModalOpen) {
@@ -189,24 +151,17 @@ export default function FixYourPage() {
                 {/* Hero */}
                 <section className="bg-[url('/assets/hero-gradient-bg.png')] bg-cover bg-center bg-no-repeat px-4 md:px-16 lg:px-24 xl:px-32">
                     <div className="max-w-7xl mx-auto flex flex-col items-center justify-center h-screen">
-                        <AnimatedContent reverse distance={30} className="flex items-center gap-2 bg-white/50 backdrop-blur px-4 py-1.5 rounded-full text-sm text-gray-600">
-                            <span className="size-2 rounded-full bg-green-500 inline-block" />
-                            One-Day Page Rebuild · $150
-                        </AnimatedContent>
-
                         <AnimatedContent distance={30} delay={0.1}>
                             <h1 className="text-center font-urbanist text-5xl/15 md:text-6xl/18 mt-4 font-bold max-w-2xl">
-                                <span style={{ color: "#eef9f8" }}>Your business is good.</span>
+                                <span style={{ color: "#eef9f8" }}>A fresh site.</span>
                                 <br />
-                                <span className="text-gray-800">Your page should<br /><span className="underline decoration-2 underline-offset-4">show it.</span></span>
+                                <span className="text-gray-800">Without the <span className="underline decoration-2 underline-offset-4">headache.</span></span>
                             </h1>
                         </AnimatedContent>
 
                         <AnimatedContent distance={30} delay={0.2}>
                             <p className="text-center text-base/7 text-zinc-700 max-w-xl mt-4">
-                                Most visitors decide in seconds whether to book or keep scrolling. We rebuild your page so those first few seconds build confidence and point them exactly where you want them to go.
-                                <br /><br />
-                                One day. Live and ready.
+                                Most site owners tell us the same thing: every update is a headache, and the bill keeps going up. We migrate your site to custom code — same design, same URLs, no platform in the middle.
                             </p>
                         </AnimatedContent>
 
@@ -215,7 +170,7 @@ export default function FixYourPage() {
                                 onClick={() => openModal("Fix Your Page — Hero")}
                                 className="flex items-center justify-center gap-1.5 py-3 md:py-2.5 w-full md:w-auto px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
                             >
-                                Fix my page
+                                Migrate my site
                                 <ArrowUpRightIcon size={16} />
                             </button>
                             <a
@@ -234,10 +189,10 @@ export default function FixYourPage() {
                         <div className="p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <AnimatedContent>
                                 <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">
-                                    Everything your page needs. Nothing it doesn&apos;t.
+                                    The same site. None of the baggage.
                                 </h2>
                                 <p className="text-zinc-500 text-base/7 mt-4">
-                                    Great pages aren&apos;t built on great copy alone — they&apos;re built on structure. We give yours the layout, flow, and clarity it needs to turn visitors into bookings.
+                                    Your visitors see the same page. You stop dreading every time something needs to change.
                                 </p>
                             </AnimatedContent>
                             <AnimatedContent className="flex flex-col gap-4">
@@ -260,7 +215,7 @@ export default function FixYourPage() {
                         <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Our Work</p>
                         <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Pages we&apos;ve built</h2>
                         <p className="text-zinc-500 text-base mt-3 max-w-sm mx-auto leading-relaxed">
-                            A few examples across different industries — all done in one day.
+                            A few examples across different industries — same design, custom code.
                         </p>
                     </div>
 
@@ -363,11 +318,14 @@ export default function FixYourPage() {
                             <div className="p-4 pt-16 md:p-16 flex flex-col items-start md:sticky md:top-26">
                                 <AnimatedContent>
                                     <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">How it works</h2>
-                                    <p className="text-zinc-500 text-base/7 mt-3 max-w-xs">Three steps. One day. Done.</p>
+                                    <p className="text-zinc-500 text-base/7 mt-3 max-w-xs">Simple sites. Straightforward process.</p>
                                 </AnimatedContent>
-                                <AnimatedContent className="p-4 md:p-6 bg-purple-500 w-full rounded-xl mt-12">
+                                <AnimatedContent className="mt-10 w-full">
+                                    <MiniWebsiteDiagram />
+                                </AnimatedContent>
+                                <AnimatedContent className="p-4 md:p-6 bg-purple-500 w-full rounded-xl mt-6">
                                     <p className="text-lg text-white">
-                                        You may not need new content. You may just need a page that guides people better.
+                                        If it&apos;s been a while since your site got any love, that&apos;s usually a sign it&apos;s ready.
                                     </p>
                                     <a
                                         href="#pricing"
@@ -402,7 +360,7 @@ export default function FixYourPage() {
                         <div className="p-8 md:p-16">
                             <AnimatedContent className="text-center mb-12">
                                 <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">Simple pricing</h2>
-                                <p className="text-zinc-500 text-base/7 mt-3 max-w-md mx-auto">One-time rebuild, or we host it and keep it running for you.</p>
+                                <p className="text-zinc-500 text-base/7 mt-3 max-w-md mx-auto">Pay once to get off the platform — or let us host it too.</p>
                             </AnimatedContent>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                                 {/* One-time */}
@@ -412,7 +370,7 @@ export default function FixYourPage() {
                                         <span className="font-urbanist font-bold text-4xl text-gray-800">$150</span>
                                         <span className="text-zinc-400 text-sm mb-1.5">one-time</span>
                                     </div>
-                                    <p className="text-zinc-500 text-sm/6 mt-3">We build your new page and deploy it. You point your domain to it — we walk you through the setup. Takes about 10 minutes.</p>
+                                    <p className="text-zinc-500 text-sm/6 mt-3">We migrate your site to custom code and hand you the files. You point your domain — we walk you through it. Takes about 10 minutes.</p>
                                     <ul className="mt-6 flex flex-col gap-3 flex-1">
                                         {["Same-day delivery", "Hosted on a fast, reliable server", "Clear path to booking", "Mobile-friendly"].map((f, i) => (
                                             <li key={i} className="flex items-center gap-2 text-sm text-zinc-600">
@@ -439,7 +397,7 @@ export default function FixYourPage() {
                                         <span className="font-urbanist font-bold text-4xl">$150</span>
                                         <span className="text-purple-200 text-sm mb-1.5">+ $20/mo</span>
                                     </div>
-                                    <p className="text-purple-100 text-sm/6 mt-3">We build it, host it, and keep it running under your domain. Something needs updating? Just text us.</p>
+                                    <p className="text-purple-100 text-sm/6 mt-3">We migrate it, host it, and keep it running under your domain. Need a change? Just message us — no tickets, no platform editor.</p>
                                     <ul className="mt-6 flex flex-col gap-3 flex-1">
                                         {["Everything in The Fix", "Hosted under your domain", "Small updates included", "We handle the tech, you run your business"].map((f, i) => (
                                             <li key={i} className="flex items-center gap-2 text-sm text-purple-100">
@@ -459,78 +417,6 @@ export default function FixYourPage() {
                                     </button>
                                 </AnimatedContent>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* QR Menu + Table Service Upgrade */}
-                <section className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
-                    <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
-                        <div className="p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                            <AnimatedContent>
-                                <p className="text-xs font-medium text-zinc-400 uppercase tracking-widest mb-3">Experience Upgrade</p>
-                                <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">
-                                    Interactive QR Menu +<br />Table Service Upgrade
-                                </h2>
-                                <p className="text-zinc-500 text-base/7 mt-4">
-                                    Turn your menu into an interactive QR experience customers can browse on their phone — with photos, descriptions, and item reviews. Optional self-ordering and in-app waiter requests like water, check, or order modifications.
-                                </p>
-                                <p className="text-zinc-500 text-base/7 mt-3">
-                                    Includes a staff dashboard so your team can see table requests and orders faster — reducing wait time, mistakes, and service delays.
-                                </p>
-                                <button
-                                    onClick={() => openModal("Fix Your Page — QR Menu Add-on", true)}
-                                    className="flex items-center gap-1.5 mt-8 py-2.5 px-6 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full text-sm"
-                                >
-                                    Add this to my page
-                                    <ArrowUpRightIcon size={14} />
-                                </button>
-                            </AnimatedContent>
-
-                            {/* Carousel */}
-                            <AnimatedContent className="relative group" onMouseEnter={() => setCarouselHovered(true)} onMouseLeave={() => setCarouselHovered(false)}>
-                                <div className="relative overflow-hidden rounded-2xl border border-[#edf9f8] bg-[#f7fcfb] aspect-[4/3]">
-                                    {/* Sliding strip — includes clone of first image at end for seamless loop */}
-                                    <div
-                                        className={`flex h-full ${carouselTransition ? "transition-transform duration-500 ease-in-out" : ""}`}
-                                        style={{ transform: `translateX(-${carouselIndex * 100}%)` }}
-                                        onTransitionEnd={handleCarouselTransitionEnd}
-                                    >
-                                        {[...qrImages, qrImages[0]].map((img, i) => (
-                                            <div key={i} className="relative shrink-0 w-full h-full">
-                                                <Image src={img.src} alt={img.alt} fill className="object-contain p-4" />
-                                            </div>
-                                        ))}
-                                    </div>
-                                    {/* Prev */}
-                                    <button
-                                        onClick={() => setCarouselIndex(i => i === 0 ? qrImages.length - 1 : i - 1)}
-                                        className="absolute left-6 top-1/2 -translate-y-1/2 p-2 bg-white/80 backdrop-blur rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity"
-                                        aria-label="Previous"
-                                    >
-                                        <ChevronLeftIcon size={16} className="text-gray-600" />
-                                    </button>
-                                    {/* Next */}
-                                    <button
-                                        onClick={() => setCarouselIndex(i => i + 1)}
-                                        className="absolute right-6 top-1/2 -translate-y-1/2 p-2 bg-white/80 backdrop-blur rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity"
-                                        aria-label="Next"
-                                    >
-                                        <ChevronRightIcon size={16} className="text-gray-600" />
-                                    </button>
-                                </div>
-                                {/* Dots */}
-                                <div className="flex justify-center gap-1.5 mt-4">
-                                    {qrImages.map((_, i) => (
-                                        <button
-                                            key={i}
-                                            onClick={() => setCarouselIndex(i)}
-                                            className={`size-1.5 rounded-full transition-colors ${i === carouselIndex % qrImages.length ? "bg-purple-500" : "bg-zinc-300"}`}
-                                            aria-label={`Go to slide ${i + 1}`}
-                                        />
-                                    ))}
-                                </div>
-                            </AnimatedContent>
                         </div>
                     </div>
                 </section>
@@ -559,6 +445,13 @@ export default function FixYourPage() {
                                         linkedin: "https://www.linkedin.com/in/intenex/",
                                         bio: "Thiel Fellow, Harvard dropout, and co-founder of Stream, which raised $20M from investors including Pantera Capital. He's spent years as a backend and full-stack engineer at YC-backed startups before moving into operations — he brings both technical depth and practical business judgment to what a company needs online.",
                                     },
+                                    {
+                                        name: "Stacy",
+                                        image: "/assets/stacy.jpg",
+                                        role: "Head of Marketing & Customer Success",
+                                        linkedin: "https://www.linkedin.com/in/stacydonnaj/",
+                                        bio: "Stacy began her career in Customer Success and quickly rose through the ranks to become CS Manager, then expanded her scope to social media and marketing. Her talent and work ethic propelled her to Head of Marketing at a Silicon Valley startup, where she drove growth and brand presence across multiple channels.",
+                                    },
                                 ].map((person, i) => (
                                     <AnimatedContent key={i} delay={i * 0.15} className="flex flex-col max-w-xs">
                                         <img src={person.image} alt={person.name} className="w-52 h-64 object-cover rounded-lg" />
@@ -583,17 +476,17 @@ export default function FixYourPage() {
                         <div className="p-8 md:p-16 pb-24 md:pb-32 flex flex-col items-center text-center">
                             <AnimatedContent>
                                 <h2 className="font-urbanist font-bold text-4xl md:text-5xl text-gray-800 max-w-xl">
-                                    Ready to make your page easier to book from?
+                                    Still fighting your platform for every small change?
                                 </h2>
                                 <p className="text-zinc-500 text-base/7 mt-4 max-w-md mx-auto">
-                                    No layers, no long timelines. Just a clean rebuild that helps your page convert better.
+                                    One rebuild. The code is yours. No platform lock-in.
                                 </p>
                                 <div className="flex items-center justify-center mt-8">
                                     <button
                                         onClick={() => openModal("Fix Your Page — Final CTA")}
                                         className="flex items-center justify-center gap-1.5 py-3 px-8 border border-purple-200 bg-linear-to-tl from-purple-600 to-purple-500 text-white rounded-full"
                                     >
-                                        Send us your page
+                                        Migrate my site
                                         <ArrowUpRightIcon size={16} />
                                     </button>
                                 </div>

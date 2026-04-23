@@ -1,6 +1,7 @@
 "use client";
 import AnimatedContent from "@/components/animated-content";
 import { ArrowUpRightIcon, HomeIcon, ThermometerIcon, HammerIcon, UtensilsIcon, Building2Icon, CupSodaIcon, MonitorIcon } from "lucide-react";
+import MiniWebsiteDiagram from "@/components/mini-website-diagram";
 import { useAiModal } from "@/contexts/ai-modal-context";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -133,12 +134,12 @@ export default function HomePage() {
                             <div className="od-g3-shape-3" style={{position:"absolute",width:150,height:150,borderRadius:"50%",border:"2px dashed #5bbfba",left:100,top:10}} />
                         </div>
                         <AnimatedContent className="mb-10 relative" style={{zIndex:1}}>
-                            <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Who we work with</p>
+                            <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">What we build</p>
                             <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">
-                                Find your industry
+                                Solutions
                             </h2>
                             <p className="text-zinc-500 text-base/7 mt-3 max-w-md">
-                                Seven types of businesses. Pick yours to see exactly what we do.
+                                Pick yours to see exactly what we do.
                             </p>
                         </AnimatedContent>
 
@@ -188,11 +189,12 @@ export default function HomePage() {
                         <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] gap-3">
                             <AnimatedContent delay={0} className="col-span-2 row-span-2">
                                 <div className="bento-card bento-purple" style={{ animationDuration: "14s" }}>
-                                    <Link href="/fix-your-page" className="bento-card-inner group flex flex-col justify-between p-6 bg-[#f9fafb] hover:bg-purple-50 transition-all">
+                                    <Link href="/fix-your-page" className="bento-card-inner group flex flex-col gap-3 p-6 bg-[#f9fafb] hover:bg-purple-50 transition-all">
                                         <div className="flex items-start justify-between">
                                             <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center"><MonitorIcon size={20} className="text-purple-500 bento-icon" /></div>
                                             <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-purple-500 transition-colors" />
                                         </div>
+                                        <MiniWebsiteDiagram />
                                         <div>
                                             <p className="font-urbanist font-bold text-gray-800 text-xl">Website replacement</p>
                                             <p className="text-zinc-500 text-sm/6 mt-1">Your site rebuilt from scratch. Same design, same URLs — code you own, no platform lock-in.</p>
@@ -207,7 +209,7 @@ export default function HomePage() {
                                         <div className="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center shrink-0"><Building2Icon size={20} className="text-teal-600 bento-icon" /></div>
                                         <div className="flex-1 min-w-0">
                                             <p className="font-urbanist font-semibold text-gray-800">Property managers</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">88% of renters choose properties that respond to reviews. Most managers never reply.</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Automated review replies that keep your rating up and renewals coming.</p>
                                         </div>
                                     </Link>
                                 </div>
@@ -221,7 +223,7 @@ export default function HomePage() {
                                         </div>
                                         <div>
                                             <p className="font-urbanist font-semibold text-gray-800 text-sm">HVAC contractors</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Crews are on-site. Phones go unanswered. Customers call the next contractor.</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Every missed call followed up before they call someone else.</p>
                                         </div>
                                     </Link>
                                 </div>
@@ -235,7 +237,7 @@ export default function HomePage() {
                                         </div>
                                         <div>
                                             <p className="font-urbanist font-semibold text-gray-800 text-sm">Home service</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Every missed call is a job that went to a competitor.</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">24/7 lead capture so no job goes to a competitor.</p>
                                         </div>
                                     </Link>
                                 </div>
@@ -247,7 +249,7 @@ export default function HomePage() {
                                         <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0"><HomeIcon size={20} className="text-blue-500 bento-icon" /></div>
                                         <div className="flex-1 min-w-0">
                                             <p className="font-urbanist font-semibold text-gray-800">Real estate agents</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Follow-up system that responds to every inquiry, re-engages cold leads, and confirms viewings — automatically.</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Every inquiry answered, every viewing confirmed — without lifting a finger.</p>
                                         </div>
                                     </Link>
                                 </div>
@@ -261,7 +263,7 @@ export default function HomePage() {
                                         </div>
                                         <div>
                                             <p className="font-urbanist font-semibold text-gray-800 text-sm">Restaurants</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Calls and DMs go unanswered while you&apos;re running service.</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Inquiries handled automatically while you run the floor.</p>
                                         </div>
                                     </Link>
                                 </div>
@@ -275,7 +277,7 @@ export default function HomePage() {
                                         </div>
                                         <div>
                                             <p className="font-urbanist font-semibold text-gray-800 text-sm">Beverage shops</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Inventory tracked in spreadsheets and memory. Waste is constant.</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Inventory tracked automatically. No spreadsheets, no surprises.</p>
                                         </div>
                                     </Link>
                                 </div>

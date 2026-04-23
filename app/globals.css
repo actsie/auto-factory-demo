@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@custom-variant nav-wide (@media (width >= 960px));
+
 html {
   scroll-behavior: smooth;
 }
