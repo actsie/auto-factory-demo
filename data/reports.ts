@@ -5568,6 +5568,25 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "john-sanders",
+    company: "John Sanders Management Consulting",
+    logo: "/assets/reports/john-sanders/logo.png",
+    logoNeedsBg: false,
+    url: "https://www.johnsanders.com",
+    industry: "Management Consulting / Investment Banking / Technology Advisory",
+    pages: 8,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero from 'Business Consultant, Investor and Technology Advocate' — I want to lead with the entrepreneur focus and add a direct intake CTA",
+      result1: "✓ New headline live in minutes, no Webflow editor, no waiting on anyone.",
+      prompt2: "Add a new article to the Articles section — I just published something on emerging growth strategy and it needs to be on the site today",
+      result2: "✓ Article page added, styled to match, live the same day — not next week.",
+      prompt3: "The Parables for Entrepreneurs section needs a better intro — the current one buries the value. Let me rewrite it and push it live.",
+      result3: "✓ Copy updated instantly. Test the new version, revert if needed, no designer in the loop."
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
