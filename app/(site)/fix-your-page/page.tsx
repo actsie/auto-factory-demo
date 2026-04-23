@@ -488,12 +488,12 @@ const { open: navbarModalOpen, closeModal: closeNavbarModal } = useModal();
                 </section>
 
                 {/* Who's building it */}
-                <section className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
+                <section id="team" className="border-b border-[#edf9f8] px-4 md:px-16 lg:px-24 xl:px-32">
                     <div className="max-w-7xl mx-auto border-x border-[#edf9f8]">
                         <div className="p-8 md:p-16">
                             <AnimatedContent className="text-center mb-16">
                                 <h2 className="font-urbanist font-semibold text-3xl md:text-4xl text-gray-800">You&apos;re working with us directly</h2>
-                                <p className="text-zinc-500 text-base/7 mt-3 max-w-md mx-auto">No account managers. No handoffs. We build your page and we&apos;re the ones you text when something needs updating.</p>
+                                <p className="text-zinc-500 text-base/7 mt-3 max-w-md mx-auto">No account managers. No handoffs. We handle the migration and we&apos;re the ones you reach out to if anything comes up.</p>
                             </AnimatedContent>
                             <div className="flex flex-wrap justify-center gap-12 md:gap-20">
                                 {[
