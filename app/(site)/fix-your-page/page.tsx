@@ -432,14 +432,14 @@ const { open: navbarModalOpen, closeModal: closeNavbarModal } = useModal();
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                                 {/* One-time */}
                                 <AnimatedContent className="flex flex-col border border-[#edf9f8] rounded-xl p-8 bg-[#f7fcfb]">
-                                    <p className="text-sm font-medium text-zinc-500 uppercase tracking-wide">The Fix</p>
-                                    <div className="mt-4 flex items-end gap-1">
+                                    <p className="text-sm font-medium text-zinc-500 uppercase tracking-wide">One-time</p>
+                                    <div className="mt-4 flex flex-col gap-0.5">
+                                        <span className="text-zinc-400 text-xs">Starting from</span>
                                         <span className="font-urbanist font-bold text-4xl text-gray-800">$150</span>
-                                        <span className="text-zinc-400 text-sm mb-1.5">one-time</span>
                                     </div>
-                                    <p className="text-zinc-500 text-sm/6 mt-3">We migrate your site to custom code and hand you the files. You point your domain — we walk you through it. Takes about 10 minutes.</p>
+                                    <p className="text-zinc-500 text-sm/6 mt-3">We migrate your site to custom code and hand you the files. You point your domain and you&apos;re live.</p>
                                     <ul className="mt-6 flex flex-col gap-3 flex-1">
-                                        {["Same-day delivery", "Hosted on a fast, reliable server", "Clear path to booking", "Mobile-friendly"].map((f, i) => (
+                                        {["Same design, same URLs", "Code you own outright", "1-week AI update tool trial", "Email support included"].map((f, i) => (
                                             <li key={i} className="flex items-center gap-2 text-sm text-zinc-600">
                                                 <div className="p-0.5 rounded-full bg-purple-500 shrink-0">
                                                     <CheckIcon size={10} className="text-white" strokeWidth={3} />
@@ -459,14 +459,13 @@ const { open: navbarModalOpen, closeModal: closeNavbarModal } = useModal();
 
                                 {/* Hosted */}
                                 <AnimatedContent className="flex flex-col border border-purple-200 rounded-xl p-8 bg-purple-500 text-white">
-                                    <p className="text-sm font-medium text-purple-200 uppercase tracking-wide">The Fix + Host</p>
+                                    <p className="text-sm font-medium text-purple-200 uppercase tracking-wide">Hosted</p>
                                     <div className="mt-4 flex items-end gap-1">
-                                        <span className="font-urbanist font-bold text-4xl">$150</span>
-                                        <span className="text-purple-200 text-sm mb-1.5">+ $20/mo</span>
+                                        <span className="font-urbanist font-bold text-4xl">Get a quote</span>
                                     </div>
-                                    <p className="text-purple-100 text-sm/6 mt-3">We migrate it, host it, and keep it running under your domain. Need a change? Just message us — no tickets, no platform editor.</p>
+                                    <p className="text-purple-100 text-sm/6 mt-3">We migrate it, host it under your domain, and hand you the AI tool to make updates yourself — anytime, no waiting.</p>
                                     <ul className="mt-6 flex flex-col gap-3 flex-1">
-                                        {["Everything in The Fix", "Hosted under your domain", "Small updates included", "We handle the tech, you run your business"].map((f, i) => (
+                                        {["Everything in one-time", "Hosted under your domain", "AI update tool included", "Priority support if anything goes wrong"].map((f, i) => (
                                             <li key={i} className="flex items-center gap-2 text-sm text-purple-100">
                                                 <div className="p-0.5 rounded-full bg-white/30 shrink-0">
                                                     <CheckIcon size={10} className="text-white" strokeWidth={3} />
