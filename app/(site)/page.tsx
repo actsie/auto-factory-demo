@@ -364,7 +364,7 @@ export default function HomePage() {
                                 Get started for free <ArrowUpRightIcon size={16} />
                             </button>
                             <a href="#who-we-help" className="flex items-center justify-center py-3 px-8 bg-white border border-[#edf9f8] text-gray-600 rounded-full">
-                                Browse industries
+                                Browse solutions
                             </a>
                         </div>
                     </AnimatedContent>
