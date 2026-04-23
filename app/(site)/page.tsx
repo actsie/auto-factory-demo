@@ -1,6 +1,6 @@
 "use client";
 import AnimatedContent from "@/components/animated-content";
-import { ArrowUpRightIcon, HomeIcon, ThermometerIcon, HammerIcon, UtensilsIcon, Building2Icon, CupSodaIcon, TrendingUpIcon } from "lucide-react";
+import { ArrowUpRightIcon, HomeIcon, ThermometerIcon, HammerIcon, UtensilsIcon, Building2Icon, CupSodaIcon, MonitorIcon } from "lucide-react";
 import { useAiModal } from "@/contexts/ai-modal-context";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -8,13 +8,13 @@ import Link from "next/link";
 import OurTeamSection from "@/sections/our-team";
 
 const verticals = [
-    { industry: "Real estate agents", href: "/real-estate", emoji: "🏡", cta: "Follow-up system for agents" },
+    { industry: "Website replacement", href: "/fix-your-page", emoji: "🖥️", cta: "Site rebuild you own forever" },
+    { industry: "Property managers", href: "/review-reply", emoji: "🏢", cta: "Automated review replies" },
     { industry: "HVAC contractors", href: "/hvac", emoji: "🔧", cta: "Estimate & job follow-ups" },
     { industry: "Home service contractors", href: "/contractors", emoji: "🏠", cta: "24/7 lead capture" },
+    { industry: "Real estate agents", href: "/real-estate", emoji: "🏡", cta: "Follow-up system for agents" },
     { industry: "Restaurants", href: "/restaurant", emoji: "🍽️", cta: "AI inquiry handling" },
-    { industry: "Property managers", href: "/review-reply", emoji: "🏢", cta: "Automated review replies" },
     { industry: "Beverage shops", href: "/beverage", emoji: "☕", cta: "Inventory management" },
-    { industry: "Sales teams", href: "/sdr", emoji: "📈", cta: "SDR workflow automation" },
 ];
 
 export default function HomePage() {
@@ -188,36 +188,50 @@ export default function HomePage() {
                         <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] gap-3">
                             <AnimatedContent delay={0} className="col-span-2 row-span-2">
                                 <div className="bento-card bento-purple" style={{ animationDuration: "14s" }}>
-                                    <Link href="/real-estate" className="bento-card-inner group flex flex-col justify-between p-6 bg-[#f9fafb] hover:bg-purple-50 transition-all">
+                                    <Link href="/fix-your-page" className="bento-card-inner group flex flex-col justify-between p-6 bg-[#f9fafb] hover:bg-purple-50 transition-all">
                                         <div className="flex items-start justify-between">
-                                            <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center"><HomeIcon size={20} className="text-purple-500 bento-icon" /></div>
+                                            <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center"><MonitorIcon size={20} className="text-purple-500 bento-icon" /></div>
                                             <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-purple-500 transition-colors" />
                                         </div>
                                         <div>
-                                            <p className="font-urbanist font-bold text-gray-800 text-xl">Real estate agents</p>
-                                            <p className="text-zinc-500 text-sm/6 mt-1">Follow-up system that responds to every inquiry, re-engages cold leads, and confirms viewings — automatically.</p>
+                                            <p className="font-urbanist font-bold text-gray-800 text-xl">Website replacement</p>
+                                            <p className="text-zinc-500 text-sm/6 mt-1">Get off Webflow, Squarespace, or Wix. Same design, same URLs — code you own, updates in minutes.</p>
                                         </div>
                                     </Link>
                                 </div>
                             </AnimatedContent>
                             <AnimatedContent delay={0.05} className="col-span-2 row-span-1">
                                 <div className="bento-card bento-teal" style={{ animationDuration: "20s", animationDelay: "-7s" }}>
-                                    <Link href="/hvac" className="bento-card-inner group flex items-center gap-4 px-6 py-5 bg-[#f9fafb] hover:bg-teal-50 transition-all">
+                                    <Link href="/review-reply" className="bento-card-inner group flex items-center gap-4 px-6 py-5 bg-[#f9fafb] hover:bg-teal-50 transition-all">
                                         <ArrowUpRightIcon size={16} className="absolute top-4 right-4 text-zinc-300 group-hover:text-teal-600 transition-colors" />
-                                        <div className="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center shrink-0"><ThermometerIcon size={20} className="text-teal-600 bento-icon" /></div>
+                                        <div className="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center shrink-0"><Building2Icon size={20} className="text-teal-600 bento-icon" /></div>
                                         <div className="flex-1 min-w-0">
-                                            <p className="font-urbanist font-semibold text-gray-800">HVAC contractors</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Crews are on-site. Phones go unanswered. Customers call the next contractor on the list.</p>
+                                            <p className="font-urbanist font-semibold text-gray-800">Property managers</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">88% of renters choose properties that respond to reviews. Most managers never reply.</p>
                                         </div>
                                     </Link>
                                 </div>
                             </AnimatedContent>
                             <AnimatedContent delay={0.1} className="col-span-1 row-span-1">
                                 <div className="bento-card bento-orange" style={{ animationDuration: "17s", animationDelay: "-4s" }}>
-                                    <Link href="/contractors" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-orange-50 transition-all">
+                                    <Link href="/hvac" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-orange-50 transition-all">
                                         <div className="flex items-start justify-between">
-                                            <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center"><HammerIcon size={20} className="text-orange-500 bento-icon" /></div>
+                                            <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center"><ThermometerIcon size={20} className="text-orange-500 bento-icon" /></div>
                                             <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-orange-500 transition-colors" />
+                                        </div>
+                                        <div>
+                                            <p className="font-urbanist font-semibold text-gray-800 text-sm">HVAC contractors</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Crews are on-site. Phones go unanswered. Customers call the next contractor.</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </AnimatedContent>
+                            <AnimatedContent delay={0.15} className="col-span-1 row-span-1">
+                                <div className="bento-card bento-amber" style={{ animationDuration: "23s", animationDelay: "-12s" }}>
+                                    <Link href="/contractors" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-amber-50 transition-all">
+                                        <div className="flex items-start justify-between">
+                                            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center"><HammerIcon size={20} className="text-amber-600 bento-icon" /></div>
+                                            <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-amber-600 transition-colors" />
                                         </div>
                                         <div>
                                             <p className="font-urbanist font-semibold text-gray-800 text-sm">Home service</p>
@@ -226,12 +240,24 @@ export default function HomePage() {
                                     </Link>
                                 </div>
                             </AnimatedContent>
-                            <AnimatedContent delay={0.15} className="col-span-1 row-span-1">
-                                <div className="bento-card bento-amber" style={{ animationDuration: "23s", animationDelay: "-12s" }}>
-                                    <Link href="/restaurant" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-amber-50 transition-all">
+                            <AnimatedContent delay={0.2} className="col-span-2 row-span-1">
+                                <div className="bento-card bento-blue" style={{ animationDuration: "18s", animationDelay: "-9s" }}>
+                                    <Link href="/real-estate" className="bento-card-inner group flex items-center gap-4 px-6 py-5 bg-[#f9fafb] hover:bg-blue-50 transition-all">
+                                        <ArrowUpRightIcon size={16} className="absolute top-4 right-4 text-zinc-300 group-hover:text-blue-500 transition-colors" />
+                                        <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0"><HomeIcon size={20} className="text-blue-500 bento-icon" /></div>
+                                        <div className="flex-1 min-w-0">
+                                            <p className="font-urbanist font-semibold text-gray-800">Real estate agents</p>
+                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Follow-up system that responds to every inquiry, re-engages cold leads, and confirms viewings — automatically.</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </AnimatedContent>
+                            <AnimatedContent delay={0.25} className="col-span-1 row-span-1">
+                                <div className="bento-card bento-yellow" style={{ animationDuration: "25s", animationDelay: "-3s" }}>
+                                    <Link href="/restaurant" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-yellow-50 transition-all">
                                         <div className="flex items-start justify-between">
-                                            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center"><UtensilsIcon size={20} className="text-amber-600 bento-icon" /></div>
-                                            <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-amber-600 transition-colors" />
+                                            <div className="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center"><UtensilsIcon size={20} className="text-yellow-600 bento-icon" /></div>
+                                            <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-yellow-600 transition-colors" />
                                         </div>
                                         <div>
                                             <p className="font-urbanist font-semibold text-gray-800 text-sm">Restaurants</p>
@@ -240,42 +266,16 @@ export default function HomePage() {
                                     </Link>
                                 </div>
                             </AnimatedContent>
-                            <AnimatedContent delay={0.2} className="col-span-2 row-span-1">
-                                <div className="bento-card bento-blue" style={{ animationDuration: "18s", animationDelay: "-9s" }}>
-                                    <Link href="/review-reply" className="bento-card-inner group flex items-center gap-4 px-6 py-5 bg-[#f9fafb] hover:bg-blue-50 transition-all">
-                                        <ArrowUpRightIcon size={16} className="absolute top-4 right-4 text-zinc-300 group-hover:text-blue-500 transition-colors" />
-                                        <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0"><Building2Icon size={20} className="text-blue-500 bento-icon" /></div>
-                                        <div className="flex-1 min-w-0">
-                                            <p className="font-urbanist font-semibold text-gray-800">Property managers</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">88% of renters choose properties that respond to reviews. Most managers never reply.</p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </AnimatedContent>
-                            <AnimatedContent delay={0.25} className="col-span-1 row-span-1">
-                                <div className="bento-card bento-yellow" style={{ animationDuration: "25s", animationDelay: "-3s" }}>
-                                    <Link href="/beverage" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-yellow-50 transition-all">
+                            <AnimatedContent delay={0.3} className="col-span-1 row-span-1">
+                                <div className="bento-card bento-green" style={{ animationDuration: "21s", animationDelay: "-16s" }}>
+                                    <Link href="/beverage" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-green-50 transition-all">
                                         <div className="flex items-start justify-between">
-                                            <div className="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center"><CupSodaIcon size={20} className="text-yellow-600 bento-icon" /></div>
-                                            <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-yellow-600 transition-colors" />
+                                            <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center"><CupSodaIcon size={20} className="text-green-600 bento-icon" /></div>
+                                            <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-green-600 transition-colors" />
                                         </div>
                                         <div>
                                             <p className="font-urbanist font-semibold text-gray-800 text-sm">Beverage shops</p>
                                             <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">Inventory tracked in spreadsheets and memory. Waste is constant.</p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </AnimatedContent>
-                            <AnimatedContent delay={0.3} className="col-span-1 row-span-1">
-                                <div className="bento-card bento-green" style={{ animationDuration: "21s", animationDelay: "-16s" }}>
-                                    <Link href="/sdr" className="bento-card-inner group flex flex-col justify-between p-3 md:p-5 bg-[#f9fafb] hover:bg-green-50 transition-all">
-                                        <div className="flex items-start justify-between">
-                                            <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center"><TrendingUpIcon size={20} className="text-green-600 bento-icon" /></div>
-                                            <ArrowUpRightIcon size={16} className="text-zinc-300 group-hover:text-green-600 transition-colors" />
-                                        </div>
-                                        <div>
-                                            <p className="font-urbanist font-semibold text-gray-800 text-sm">Sales teams</p>
-                                            <p className="text-zinc-500 text-xs mt-0.5 leading-relaxed">SDRs spend more time on admin than actual selling.</p>
                                         </div>
                                     </Link>
                                 </div>
