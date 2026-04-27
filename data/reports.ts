@@ -6,7 +6,7 @@ export interface Report {
   url: string;
   industry: string;
   pages: number;
-  hostingCost: number;
+  hostingCost?: number;
   waitDays: number;
   aiExamples: {
     prompt1: string;
