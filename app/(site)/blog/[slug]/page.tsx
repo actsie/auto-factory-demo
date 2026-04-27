@@ -19,9 +19,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const { slug } = await params;
     const result = await getBlogPost(slug);
     if (!result) return {};
+    const { post } = result;
+    const url = `https://fountainofscale.com/blog/${post.slug}`;
     return {
-        title: `${result.post.title} | Fountain of Scale`,
-        description: result.post.description,
+        title: `${post.title} | Fountain of Scale`,
+        description: post.description,
+        alternates: {
+            canonical: url,
+        },
+        openGraph: {
+            title: post.title,
+            description: post.description,
+            url,
+            type: "article",
+            publishedTime: post.published,
+            tags: post.tags,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.description,
+        },
     };
 }
 
