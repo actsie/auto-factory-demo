@@ -19,14 +19,16 @@ export const metadata: Metadata = {
         template: "%s | Fountain of Scale",
     },
     description:
-        "Automate the repeatable parts of the role before you hire. We review what you're hiring for, build the automatable layer in 30 days, and hand it off.",
+        "Fountain of Scale builds and runs done-for-you automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more. Free to start.",
     keywords: [
-        "AI automation",
-        "hire automation",
-        "workflow automation",
-        "automate before hiring",
-        "SDR automation",
-        "ops automation",
+        "small business automation",
+        "done-for-you automation",
+        "lead capture automation",
+        "review reply automation",
+        "appointment reminders",
+        "website migration",
+        "follow-up automation",
+        "AI automation for small business",
     ],
     authors: [{ name: "Fountain of Scale" }],
     creator: "Fountain of Scale",
@@ -37,16 +39,16 @@ export const metadata: Metadata = {
         statusBarStyle: "default",
     },
     openGraph: {
-        title: "Fountain of Scale – Automate the role before you hire",
+        title: "Fountain of Scale – Done-for-you automation for small businesses",
         description:
-            "The role you're hiring for has real judgment work at the center. Around it is prep, cleanup, and repetition. We automate that layer in 30 days.",
+            "Fountain of Scale builds and runs automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more. Free to start.",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Fountain of Scale – Automate the role before you hire",
+        title: "Fountain of Scale – Done-for-you automation for small businesses",
         description:
-            "Faster ramp. Tighter execution. Less busywork.",
+            "Fountain of Scale builds and runs automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more. Free to start.",
     },
 };
 export default function RootLayout({
