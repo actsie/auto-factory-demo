@@ -6326,6 +6326,25 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "avg-partners",
+    company: "AVG Partners",
+    logo: "/assets/reports/avg-partners/logo.webp",
+    logoNeedsBg: false,
+    url: "https://avgpartners.com",
+    industry: "Commercial Real Estate Investment",
+    pages: 5,
+    hostingCost: 23,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero — '1997' as the lead feels dated, I want to lead with the portfolio size and what we look for in a deal instead.",
+      result1: "✓ New hero live in minutes. No Squarespace editor, no layout drift, no waiting on anyone.",
+      prompt2: "Add a new property to Portfolio & Tenants — we just closed on a retail center in Dallas and I want it up before we start marketing it.",
+      result2: "✓ New property page live same day, consistent with the existing site design.",
+      prompt3: "The Investment Criteria page hasn't been touched in years — I want to update the deal size range and add a note about the markets we're targeting now.",
+      result3: "✓ Updated and live before your next investor call. No brief, no approval loop."
+    }
+  },
+  {
     id: "heartland-international",
     company: "Heartland International",
     logo: "/assets/reports/heartland-international/logo.jpeg",
