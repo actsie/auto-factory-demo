@@ -1,5 +1,4 @@
 import { getBlogPosts } from "@/lib/notion";
-import { reports } from "@/data/reports";
 import type { MetadataRoute } from "next";
 
 const BASE_URL = "https://fountainofscale.com";
@@ -16,14 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE_URL}/sdr`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     ];
 
-    const reportRoutes: MetadataRoute.Sitemap = reports.map((report) => ({
-        url: `${BASE_URL}/reports/${report.id}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.8,
-    }));
-
-    const posts = await getBlogPosts().catch(() => []);
+const posts = await getBlogPosts().catch(() => []);
     const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
         url: `${BASE_URL}/blog/${post.slug}`,
         lastModified: post.published ? new Date(post.published) : new Date(),
@@ -31,5 +23,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.6,
     }));
 
-    return [...staticRoutes, ...reportRoutes, ...blogRoutes];
+    return [...staticRoutes, ...blogRoutes];
 }

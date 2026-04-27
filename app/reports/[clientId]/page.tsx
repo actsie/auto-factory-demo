@@ -15,12 +15,9 @@ export async function generateMetadata({ params }: Props) {
   const { clientId } = await params;
   const report = reports.find((r) => r.id === clientId);
   if (!report) return {};
-  const url = `https://fountainofscale.com/reports/${report.id}`;
   return {
     title: `Website Insight Report — ${report.company}`,
-    description: `Discover how ${report.company} can migrate from their current website to a faster, more flexible stack they own forever.`,
-    alternates: { canonical: url },
-    openGraph: { title: `Website Insight Report — ${report.company}`, url },
+    robots: { index: false, follow: false },
   };
 }
 
