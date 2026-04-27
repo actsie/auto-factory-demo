@@ -5587,6 +5587,25 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "pathloom",
+    company: "Pathloom",
+    logo: "/assets/reports/pathloom/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://pathloom.com",
+    industry: "Outdoor / Backpacking App",
+    pages: 5,
+    hostingCost: 16,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero — 'Your Ultimate Trip Planning App For Backpacking' is too broad now that we're leaning into the permit angle. Lead with that.",
+      result1: "✓ New headline live in minutes. Test it against the original, revert if needed — no Wix editor, no waiting on anyone.",
+      prompt2: "Add a new section for the media logos — we just got covered by Backpacker Magazine and Outside and I want it front and center.",
+      result2: "✓ New press section added same day, styled to match the existing layout, live before the coverage goes cold.",
+      prompt3: "The 'Become a Trailblazer' CTA has been the same since launch — I want to test 'Get Your Free Permit Guide' and see if it converts better.",
+      result3: "✓ New CTA live in minutes. Run it, measure it, swap it back if you want — no one else in the loop."
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
