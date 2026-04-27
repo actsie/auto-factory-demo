@@ -5606,6 +5606,196 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "tmp-metals-group",
+    company: "TMP Metals Group",
+    logo: "/assets/reports/tmp-metals-group/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://tmpmetalsgroup.com",
+    industry: "Metals Trading, Refining & Distribution",
+    pages: 7,
+    hostingCost: 25,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update our hero to lead with tokenization — move the refining and distribution language below the fold.",
+      result1: "✓ Hero rewritten and live in under 10 minutes, no designer involved.",
+      prompt2: "Add a new section under 'Where our metals are sourced' highlighting our Latin America partnerships.",
+      result2: "✓ New section drafted, reviewed, and published same day.",
+      prompt3: "Change the 'Learn More' CTA on the Industries page to 'See Our Markets' and point it to a new page.",
+      result3: "✓ CTA updated, new page created, linked and tested — done before the end of the day."
+    }
+  },
+  {
+    id: "thruline-networks",
+    company: "Thruline Networks",
+    logo: "/assets/reports/thruline-networks/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://thrulinenetworks.com",
+    industry: "Impact Venture Studio / ClimateTech, DeepTech & SpaceTech",
+    pages: 11,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero subheadline from 'Making Capitalism Work for Everyone' to include our DAF framework and three focus sectors.",
+      result1: "✓ Done in under 10 minutes, live immediately — exactly how you want it, no Webflow designer in the loop.",
+      prompt2: "Add a new Ecosystem Partners page with logos, one-line descriptions, and links for our current partner cohort.",
+      result2: "✓ Full page built same day in your existing design, live before the next Thruline Thursday drops.",
+      prompt3: "Add a 'Join Our Studio' CTA to the Focus Areas section that links to a Contact form pre-tagged by sector.",
+      result3: "✓ Built, tested, and live — no dev ticket, no approval cycle, done while the idea is still fresh."
+    }
+  },
+  {
+    id: "sharpe-alliance",
+    company: "The Sharpe Alliance",
+    logo: "/assets/reports/sharpe-alliance/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://sharpealliance.com",
+    industry: "Marketing, Branding & Sponsorship / Strategic Partnerships",
+    pages: 8,
+    hostingCost: 16,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero headline to 'Create Connections. Accelerate Business. $30MM+ in Results.' and add a client logo row below it.",
+      result1: "✓ Done in under 10 minutes, live immediately — no Wix editor wrestling required.",
+      prompt2: "Add a new OUR WORK case study page for our latest branded entertainment campaign with results and visuals.",
+      result2: "✓ Full page built same day in your existing design, published before the client announcement goes cold.",
+      prompt3: "Change the 'Get Started' CTA to 'See Our Work' on the homepage and test which drives more inquiries.",
+      result3: "✓ Try it now, revert it if needed, try another — no dev required, no request filed."
+    }
+  },
+  {
+    id: "air-show-network",
+    company: "The Air Show Network",
+    logo: "/assets/reports/air-show-network/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://airshownetwork.com",
+    industry: "Air Show Production & Live Event Entertainment",
+    pages: 13,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add the 2026 air show schedule to the Air Show Schedule page with dates, locations, and links.",
+      result1: "✓ Updated and live same day — no dev ticket, no waiting on the Webflow editor to cooperate.",
+      prompt2: "Create a new landing page for the Air Show VIP Experience℠ with pricing tiers and a contact form.",
+      result2: "✓ Full page built in your existing design, tested, and published before the next event cycle.",
+      prompt3: "Update the hero subheadline from 'The Recognized Leader in Air Show Entertainment' to include our 1,500+ shows stat.",
+      result3: "✓ Live in 10 minutes, exactly how you want it worded — no back-and-forth with a designer."
+    }
+  },
+  {
+    id: "tenth-floor",
+    company: "Tenth Floor",
+    logo: "/assets/reports/tenth-floor/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://tenthfloor.co",
+    industry: "Digital Marketing & Fan Engagement / Music & Entertainment",
+    pages: 1,
+    hostingCost: 16,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to lead with 'Fan Engagement That Converts' above the agency description.",
+      result1: "✓ Done in under 10 minutes, live immediately — no Wix editor fumbling required.",
+      prompt2: "Add a new case study section under 'Our Work' for our latest artist campaign with stats and visuals.",
+      result2: "✓ New section built same day, matched to your existing design, shipped before the campaign cools.",
+      prompt3: "Swap the 'Request Our Deck' CTA to 'See Our Work' and A/B test which drives more clicks.",
+      result3: "✓ Try it, measure it, revert it — all without touching a dev or filing a request."
+    }
+  },
+  {
+    id: "watermark-worldwide",
+    company: "Watermark Worldwide",
+    logo: "/assets/reports/watermark-worldwide/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://watermarkww.com",
+    industry: "Entertainment, Esports & Brand Partnership Marketing",
+    pages: 5,
+    hostingCost: 25,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to call out our esports and video game specialization more directly — right now it's buried below 'WE CONNECT ENTERTAINMENT PROPERTIES AND BRANDS.'",
+      result1: "✓ Hero rewritten and repositioned, live in minutes — no WordPress editor handoff.",
+      prompt2: "Add a case study page for a recent brand partnership — we need something we can send prospects before a pitch call.",
+      result2: "✓ Case study page built, linked from navigation, published same day.",
+      prompt3: "Replace the footer 'Contact Us' link with a proper inquiry form — we want to capture lead info, not just open an email client.",
+      result3: "✓ Form added, tested, integrated — done before your next call."
+    }
+  },
+  {
+    id: "vasquez-arbor-care",
+    company: "Vasquez Arbor Care",
+    logo: "/assets/reports/vasquez-arbor-care/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://vasquezarbor.com",
+    industry: "Tree Care & Arborist Services",
+    pages: 16,
+    hostingCost: 25,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the hero to lead with our Defensible Space service before fire season — push the general welcome message down.",
+      result1: "✓ Hero swapped and live before the day is over, no WordPress login handoff needed.",
+      prompt2: "Add a new landing page for emergency storm response — we get a surge of calls after big rain events and need somewhere to send paid ads.",
+      result2: "✓ Landing page built, reviewed, and live same day — ready for the next campaign.",
+      prompt3: "Change 'Contact us today to schedule a consultation or request a quote' to two separate buttons — one for consultations, one for quotes.",
+      result3: "✓ CTAs split, both tested and working, done in minutes."
+    }
+  },
+  {
+    id: "uwc-private-equity",
+    company: "UWC Private Equity Group",
+    logo: "/assets/reports/uwc-private-equity/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://uwcpeg.com",
+    industry: "Private Equity, Real Estate & Investment Management",
+    pages: 13,
+    hostingCost: 16,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Rewrite the hero to lead with a single clear line — something like 'Strategic Capital. Delivered.' — instead of listing all seven business lines.",
+      result1: "✓ Hero rewritten and live in minutes, no Wix editor session needed.",
+      prompt2: "Add a dedicated page for our AI Lead Gen offering under OUR MISSION — it deserves its own section, not just a line item in the hero.",
+      result2: "✓ New page built, linked from navigation, published same day.",
+      prompt3: "Update the 'Contact Us' link to a proper contact form — right now it opens an email client, which loses leads.",
+      result3: "✓ Contact form added, tested, and live — no developer required."
+    }
+  },
+  {
+    id: "unleashed-music",
+    company: "Unleashed Music",
+    logo: "/assets/reports/unleashed-music/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://unleashedmusic.com",
+    industry: "Music Promotion & Marketing",
+    pages: 4,
+    hostingCost: 16,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the submission form CTA from 'Fill out our submission form HERE' to 'Submit Your Band for Consideration' and make it more prominent on the homepage.",
+      result1: "✓ CTA rewritten, repositioned, and live — no Wix editor wrestling required.",
+      prompt2: "Add a new section under SERVICES highlighting our digital PR package for independent artists.",
+      result2: "✓ New section drafted, designed to match your current layout, published same day.",
+      prompt3: "Update the PARTNERS section — add three new label logos and remove the two outdated ones.",
+      result3: "✓ Partner logos swapped out in minutes, layout stays clean."
+    }
+  },
+  {
+    id: "true-pedigree",
+    company: "True Pedigree",
+    logo: "/assets/reports/true-pedigree/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://truepedigree.com",
+    industry: "Product Authentication Technology",
+    pages: 11,
+    hostingCost: 60,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Rewrite the hero to lead with 'Authenticate Any Product. Anywhere. Instantly.' in larger type and add a sub-headline about GenuScan's scan speed.",
+      result1: "✓ Hero updated and live within minutes — no Webflow editor handoff needed.",
+      prompt2: "Add a comparison table to the 'Why GenuScan is Different' section showing us vs. QR-only solutions.",
+      result2: "✓ Table drafted, styled to match the page, published same day.",
+      prompt3: "Change 'CONTACT US TODAY' to 'Request a GenuScan Demo' and route it to a dedicated demo request page.",
+      result3: "✓ CTA copy updated, new page built, form connected — done before your next sales call."
+    }
+  },
+  {
     id: "19y-advisors",
     company: "19Y Advisors",
     logo: "/assets/reports/19y-advisors/logo.jpeg",
