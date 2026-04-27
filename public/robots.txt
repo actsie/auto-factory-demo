@@ -5,4 +5,4 @@ Disallow: /_next/static/
 Disallow: /_next/image/
 Disallow: /api/
 
-Sitemap: https://www.fountainofscale.com/sitemap.xml
+Sitemap: https://fountainofscale.com/sitemap.xml
