@@ -1,0 +1,15 @@
+# Fountain of Scale
+> Done-for-you automation systems for small businesses.
+
+Fountain of Scale builds and runs automation systems so small business owners stop losing revenue to manual work: follow-ups, lead capture, review replies, appointment reminders, and website replacement. Free to start.
+
+## Key Pages
+- Homepage: https://fountainofscale.com/
+- Website replacement: https://fountainofscale.com/fix-your-page
+- Review reply automation: https://fountainofscale.com/review-reply
+- HVAC contractor automation: https://fountainofscale.com/hvac
+- Home service contractor automation: https://fountainofscale.com/contractors
+- Real estate agent automation: https://fountainofscale.com/real-estate
+- Restaurant automation: https://fountainofscale.com/restaurant
+- Beverage shop automation: https://fountainofscale.com/beverage
+- Blog: https://fountainofscale.com/blog

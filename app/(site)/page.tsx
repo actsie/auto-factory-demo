@@ -10,6 +10,35 @@ export const metadata: Metadata = {
     },
 };
 
+const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Fountain of Scale",
+    url: "https://fountainofscale.com",
+    logo: "https://fountainofscale.com/assets/auto-factory.png",
+    description: "Done-for-you automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, and website replacement.",
+    sameAs: ["https://www.linkedin.com/company/fountain-of-scale/"],
+};
+
+const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Fountain of Scale",
+    url: "https://fountainofscale.com",
+};
+
 export default function HomePage() {
-    return <HomeClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+            />
+            <HomeClient />
+        </>
+    );
 }
