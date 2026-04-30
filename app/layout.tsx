@@ -14,6 +14,7 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://fountainofscale.com"),
     title: {
         default: "Fountain of Scale",
         template: "%s | Fountain of Scale",
@@ -42,6 +43,7 @@ export const metadata: Metadata = {
         title: "Fountain of Scale – Done-for-you automation for small businesses",
         description:
             "Fountain of Scale builds and runs automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more. Free to start.",
+        url: "https://fountainofscale.com",
         type: "website",
     },
     twitter: {
