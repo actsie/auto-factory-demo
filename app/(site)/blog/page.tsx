@@ -1,8 +1,16 @@
 import { getBlogPosts } from "@/lib/notion";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
+import { Metadata } from "next";
 
-export const revalidate = 3600; // re-fetch every hour
+export const revalidate = 3600;
+
+export const metadata: Metadata = {
+    title: "Blog — Automation for Small Businesses | Fountain of Scale",
+    description: "Practical guides on automating follow-ups, lead capture, review replies, and more for small business owners.",
+    alternates: { canonical: "https://fountainofscale.com/blog" },
+    openGraph: { url: "https://fountainofscale.com/blog" },
+};
 
 export default async function BlogPage() {
     const posts = await getBlogPosts().catch(() => []);

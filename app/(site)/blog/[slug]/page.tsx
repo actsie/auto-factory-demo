@@ -49,9 +49,37 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     if (!result) notFound();
 
     const { post, markdown } = result;
+    const url = `https://fountainofscale.com/blog/${post.slug}`;
+
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: post.title,
+        description: post.description,
+        url,
+        datePublished: post.published,
+        author: {
+            "@type": "Organization",
+            name: "Fountain of Scale",
+            url: "https://fountainofscale.com",
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "Fountain of Scale",
+            url: "https://fountainofscale.com",
+            logo: {
+                "@type": "ImageObject",
+                url: "https://fountainofscale.com/assets/auto-factory.png",
+            },
+        },
+    };
 
     return (
         <main>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+            />
             <section className="px-4 md:px-16 lg:px-24 xl:px-32 pt-32 pb-16 border-b border-[#edf9f8]">
                 <div className="max-w-3xl mx-auto">
                     <Link href="/blog" className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-purple-500 transition-colors mb-8">
