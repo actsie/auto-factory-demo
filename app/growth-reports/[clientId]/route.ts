@@ -91,6 +91,7 @@ function buildHTML(r: GrowthReport): string {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>Growth Insight Report: ${esc(r.company)}</title>
+<script src="https://app.cal.com/embed/embed.js" async></script>
 <style>
   :root {
     --ink:#0f1117; --ink-2:#374151; --ink-3:#6b7280; --ink-4:#9ca3af;
@@ -105,6 +106,7 @@ function buildHTML(r: GrowthReport): string {
     --radius:10px; --radius-sm:6px;
   }
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  button{font-family:inherit;font-size:inherit;border:none;cursor:pointer;background:none}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--canvas);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
   nav{background:var(--canvas);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
   .nav-brand{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-0.2px}
@@ -246,7 +248,7 @@ function buildHTML(r: GrowthReport): string {
 <body>
 <nav>
   <div class="nav-brand">growth<span>audit</span> / ${esc(r.company)}</div>
-  <a href="#book" class="nav-cta">Schedule a call</a>
+  <button data-cal-link="schedule.fos/30min" data-cal-config='{"layout":"month_view"}' class="nav-cta">Schedule a call</button>
 </nav>
 <div class="doc-header">
   <div class="doc-label">Growth Insight Report</div>
@@ -309,7 +311,7 @@ function buildHTML(r: GrowthReport): string {
     <div class="exp-unlock">
       <div class="exp-unlock-title">${esc(r.experimentsUnlockTitle)}</div>
       <div class="exp-unlock-sub">${esc(r.experimentsUnlockSub)}</div>
-      <a href="mailto:mai@fountainofscale.com" class="exp-unlock-btn">Schedule a call</a>
+      <button data-cal-link="schedule.fos/30min" data-cal-config='{"layout":"month_view"}' class="exp-unlock-btn">Schedule a call</button>
     </div>
   </div>
   <div class="divider"></div>
@@ -328,7 +330,7 @@ function buildHTML(r: GrowthReport): string {
     <div class="cta-eyebrow">Let's chat</div>
     <div class="cta-title">${esc(r.ctaTitle)}</div>
     <div class="cta-sub">${esc(r.ctaSub)}</div>
-    <a href="mailto:mai@fountainofscale.com" class="cta-btn">Schedule a strategy call →</a>
+    <button data-cal-link="schedule.fos/30min" data-cal-config='{"layout":"month_view"}' class="cta-btn">Schedule a strategy call →</button>
   </div>
 </main>
 <footer>
@@ -366,6 +368,8 @@ function buildHTML(r: GrowthReport): string {
       requestAnimationFrame(()=>{ripple.style.transition='';});
     });
   }
+  (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"&&(cal.ns[namespace]=api)&&p(api,ar);return}p(cal,ar)};"object"!==typeof C.Cal.ns&&(C.Cal.ns={});const api=C.Cal.ns["schedule-fos"]=function(){p(api,arguments)};api.q=[];p(api,["init","schedule.fos/30min",{origin:"https://cal.com"}])})(window,"https://app.cal.com/embed/embed.js","init");
+  Cal.ns["schedule-fos"]("ui",{"hideEventTypeDetails":false,"layout":"month_view"});
   document.querySelectorAll('.nav-cta').forEach(b=>setupRipple(b,'#d97706'));
   document.querySelectorAll('.exp-unlock-btn').forEach(b=>setupRipple(b,'#0f1117'));
   document.querySelectorAll('.cta-btn').forEach(b=>setupRipple(b,'#d97706'));
