@@ -7843,6 +7843,510 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "aligned-yoga",
+    company: "Aligned Yoga",
+    logo: "/assets/reports/aligned-yoga/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://alignedyoga.com",
+    industry: "Online Yoga Education",
+    pages: 12,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the 'CHOOSE YOUR PROGRAM' CTA to reflect the new Thailand 2026 deposit deadline",
+      result1: "✓ Done in 2 minutes — no designer needed",
+      prompt2: "Add a new section under 'OUR PROGRAMS' for a limited-time early-bird offer",
+      result2: "✓ New section live same day, exactly where you want it",
+      prompt3: "Rewrite the 'WHY CHOOSE US?' copy to highlight your Yoga Alliance registration",
+      result3: "✓ Edit directly, publish immediately — no brief, no queue"
+    }
+  },
+  {
+    id: "all-that-housing",
+    company: "All That Housing",
+    logo: "/assets/reports/all-that-housing/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://allthathousing.com",
+    industry: "Furnished Home Rentals",
+    pages: 8,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Customized Solutions Nationwide' to list three new markets you just expanded into",
+      result1: "✓ Edit the copy yourself, publish in minutes",
+      prompt2: "Add a new section under 'Full-Service Experience' highlighting your corporate relocation package",
+      result2: "✓ New section live same day",
+      prompt3: "Change the 'Find Out More' CTA to a direct booking form with your new intake questions",
+      result3: "✓ Form updated and live without a developer"
+    }
+  },
+  {
+    id: "antares-professional-solutions",
+    company: "Antares Professional Solutions",
+    logo: "/assets/reports/antares-professional-solutions/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://antaresps.com",
+    industry: "Executive Recruiting",
+    pages: 5,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Industries We Serve' to add a new vertical you just landed a contract in",
+      result1: "✓ Live in minutes, not after a designer's next available slot",
+      prompt2: "Add a new case study under 'Expect Success!™' from a recent placement",
+      result2: "✓ New content published the same day you write it",
+      prompt3: "Swap the 'Looking to HIRE?' CTA button to a calendar booking link for your new intake process",
+      result3: "✓ Change the CTA yourself, no developer needed"
+    }
+  },
+  {
+    id: "ai-talent-agency",
+    company: "Artificial Intelligence Talent Agency",
+    logo: "/assets/reports/ai-talent-agency/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://aita.co",
+    industry: "AI Talent Recruiting",
+    pages: 13,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Why Tech Leaders Choose Us' with a new client win and placement stat",
+      result1: "✓ Edit and publish the same day — no Webflow developer needed",
+      prompt2: "Add a new role category under 'Our Impact by the Numbers' as you expand beyond software engineers",
+      result2: "✓ New section live same day",
+      prompt3: "Change 'Start Hiring Now' to route directly to a new intake form you're testing",
+      result3: "✓ CTA updated in minutes, revert anytime"
+    }
+  },
+  {
+    id: "betrue-group",
+    company: "beTRUE Group",
+    logo: "/assets/reports/betrue-group/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://betruegrp.com",
+    industry: "Creative Studio Space",
+    pages: 6,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new studio package under 'What We Offer' for your podcast suite",
+      result1: "✓ New section live the same day you decide to promote it",
+      prompt2: "Update the 'Events' section with your upcoming brand activation calendar",
+      result2: "✓ Edit it yourself — no brief, no turnaround time",
+      prompt3: "Change the homepage hero from 'Welcome To beTRUE' to your current seasonal hook",
+      result3: "✓ Hero copy updated in under 5 minutes"
+    }
+  },
+  {
+    id: "beyond-admissions",
+    company: "BeyondAdmissions",
+    logo: "/assets/reports/beyond-admissions/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://beyondadmissions.com",
+    industry: "College & Career Coaching",
+    pages: 8,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'The Complete College Application Process' section to reflect the new 2027 admissions cycle",
+      result1: "✓ Done in minutes without waiting on anyone",
+      prompt2: "Add a new 'Current Students' testimonial from your most recent cohort",
+      result2: "✓ Published the same day you write it",
+      prompt3: "Change 'College Prep Coaching' CTA to a limited-enrollment workshop with a deadline",
+      result3: "✓ Urgency copy live immediately — revert when seats fill"
+    }
+  },
+  {
+    id: "bizzy-bee",
+    company: "Bizzy Bee Supervised Visits",
+    logo: "/assets/reports/bizzy-bee/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://bizzybeesupervisedvisits.com",
+    industry: "Supervised Visitation Services",
+    pages: 8,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Book A Service' to show new county coverage you just expanded into",
+      result1: "✓ Change the copy yourself — live in minutes",
+      prompt2: "Add a new FAQ under 'Our Mission' addressing a question you hear repeatedly from new clients",
+      result2: "✓ Content published same day",
+      prompt3: "Change the 'Book Now!' CTA to your updated scheduling tool link after switching platforms",
+      result3: "✓ URL updated instantly — no developer needed"
+    }
+  },
+  {
+    id: "empoweryu",
+    company: "EmPowerYu",
+    logo: "/assets/reports/empoweryu/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://empoweryu.com",
+    industry: "Remote Patient Monitoring / Digital Health",
+    pages: 7,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'What We Do' to reflect a new clinical use case you just validated",
+      result1: "✓ Edit directly — no brief, no queue",
+      prompt2: "Add a new 'Design Principles' callout about your latest sensor integration",
+      result2: "✓ New content live same day",
+      prompt3: "Rewrite the homepage hero to lead with 'Healthcare vs sickcare' as your primary positioning",
+      result3: "✓ Hero updated in minutes, test it immediately"
+    }
+  },
+  {
+    id: "fisher-marketing",
+    company: "Fisher Marketing Services",
+    logo: "/assets/reports/fisher-marketing/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://fisher-marketing.com",
+    industry: "Fractional CMO / Marketing Consulting",
+    pages: 9,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'UNLOCK SCALABLE GROWTH WITH A FRACTIONAL CMO' to lead with a new client vertical you just added",
+      result1: "✓ Headline live in minutes — no designer loop",
+      prompt2: "Add a new case study to 'EXPERT FRACTIONAL MARKETING GUIDANCE FOR GROWTH'",
+      result2: "✓ Published same day you write it",
+      prompt3: "A/B test a new 'BOOK A TIME' CTA against 'Get Your Free Strategy Session'",
+      result3: "✓ Change it yourself, revert anytime"
+    }
+  },
+  {
+    id: "genetria",
+    company: "Genetria",
+    logo: "/assets/reports/genetria/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://genetria.mx",
+    industry: "Health Tech / AI Wellness",
+    pages: 7,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Longevity OS™ Marketplace' to add a new partner integration you just launched",
+      result1: "✓ Published the same day — no Webflow developer needed",
+      prompt2: "Add a new pricing tier under 'Modelos de Negocio' for enterprise clients",
+      result2: "✓ New section live same day",
+      prompt3: "Rewrite 'Componentes Clave' to feature your latest AI diagnostic module",
+      result3: "✓ Edit directly, publish immediately"
+    }
+  },
+  {
+    id: "indie-rights",
+    company: "Indie Rights",
+    logo: "/assets/reports/indie-rights/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://indierights.com",
+    industry: "Independent Film Distribution",
+    pages: 6,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new title to 'ACTION & ADVENTURE' the week it's acquired",
+      result1: "✓ Live same day — no designer needed",
+      prompt2: "Update 'License our content' CTA with a new direct inquiry form after changing your intake process",
+      result2: "✓ Form updated in minutes",
+      prompt3: "Add a 'New Arrivals' section above 'OUR MOVIES' for seasonal promotions",
+      result3: "✓ New section live the same day you decide to run it"
+    }
+  },
+  {
+    id: "league-of-originals",
+    company: "League of Originals",
+    logo: "/assets/reports/league-of-originals/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://leagueoforiginals.com",
+    industry: "Brand Builder Community / Events",
+    pages: 11,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Originals Summit' page with a newly confirmed speaker and date",
+      result1: "✓ Live the same day it's confirmed — no developer needed",
+      prompt2: "Add a new event under 'Events, Workshops, and Advantage Club' for the next quarter",
+      result2: "✓ Published immediately — no brief, no build",
+      prompt3: "Change 'Secure Your Ticket' CTA to a waitlist form when seats sell out",
+      result3: "✓ Swap the CTA yourself in minutes"
+    }
+  },
+  {
+    id: "moonstone-management",
+    company: "Moonstone Management",
+    logo: "/assets/reports/moonstone-management/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://moonstonemc.com",
+    industry: "HOA Management & Consulting",
+    pages: 11,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Comprehensive Management' to include a new service tier you just rolled out",
+      result1: "✓ Edit directly — live in minutes",
+      prompt2: "Add a new community FAQ to 'Why Choose Us?' based on questions you're fielding right now",
+      result2: "✓ Published same day",
+      prompt3: "Change 'Contact Us' CTA to a direct proposal request form for new HOA clients",
+      result3: "✓ Form live immediately — no developer"
+    }
+  },
+  {
+    id: "nexidet",
+    company: "NexiDet",
+    logo: "/assets/reports/nexidet/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://nexidet.com",
+    industry: "Mental Health Billing Services",
+    pages: 6,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Working Together' with a new service description after adding a new billing specialty",
+      result1: "✓ Live in minutes — no designer queue",
+      prompt2: "Add a new practitioner testimonial to build trust with new visitors",
+      result2: "✓ Published the same day you get it",
+      prompt3: "Replace the generic 'Read More' CTA with a direct intake form for new clients",
+      result3: "✓ Form updated instantly, no developer needed"
+    }
+  },
+  {
+    id: "pear-inc",
+    company: "Pear Inc",
+    logo: "/assets/reports/pear-inc/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://pearincorp.com",
+    industry: "Residential Property Management",
+    pages: 5,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'What We Do' when you add a new property type or market area",
+      result1: "✓ Live in minutes — no designer",
+      prompt2: "Add a current property owner testimonial under 'Why Pick Us'",
+      result2: "✓ Published the same day you receive it",
+      prompt3: "Update the 'Vacancy' section to reflect current availability without relying on anyone else",
+      result3: "✓ Edit directly, publish immediately"
+    }
+  },
+  {
+    id: "play-with-asl",
+    company: "Play With ASL",
+    logo: "/assets/reports/play-with-asl/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://playwithasl.com",
+    industry: "ASL EdTech / Educational Games",
+    pages: 5,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the 'TILT!' section with new gameplay features from your latest release",
+      result1: "✓ Live the same day the update ships",
+      prompt2: "Add a new School Edition case study from a district that just adopted the platform",
+      result2: "✓ Published the same day you get sign-off",
+      prompt3: "Change 'Download Now' to a dual CTA linking to both App Store and School Edition demo",
+      result3: "✓ Updated in minutes, no developer"
+    }
+  },
+  {
+    id: "revival-health",
+    company: "Revival Health",
+    logo: "/assets/reports/revival-health/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://revival.care",
+    industry: "Digital Health / Remote Monitoring",
+    pages: 9,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'The power of threes' section when a new product tier goes live",
+      result1: "✓ Edit directly — live in minutes",
+      prompt2: "Add a new clinical outcome stat to 'Deep Learning for predictive health outcomes'",
+      result2: "✓ Published same day the data is ready",
+      prompt3: "A/B test 'Download the app today' against a 'Request a Demo' CTA for enterprise buyers",
+      result3: "✓ Swap the CTA yourself, revert anytime"
+    }
+  },
+  {
+    id: "revolve-recovery",
+    company: "Revolve Recovery",
+    logo: "/assets/reports/revolve-recovery/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://revolverecovery.com",
+    industry: "Addiction Treatment / IOP",
+    pages: 5,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the TARILA program description when clinical protocols are revised",
+      result1: "✓ Live the same day it changes — no designer",
+      prompt2: "Add a new 'Why Revolve?' testimonial from a recent program graduate",
+      result2: "✓ Published the same day you have it",
+      prompt3: "Change 'Learn More' CTA to a direct intake inquiry form during high-volume periods",
+      result3: "✓ Updated in minutes, revert when volume normalizes"
+    }
+  },
+  {
+    id: "richuel",
+    company: "Richuel",
+    logo: "/assets/reports/richuel/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://richuel.com",
+    industry: "Financial Planning / Career Transition FinTech",
+    pages: 6,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'THE 5-STEP FINANCIAL TREATMENT PLAN' copy when a new feature ships",
+      result1: "✓ Live the same day — no designer queue",
+      prompt2: "Add a new trust signal to 'TRUST BY DESIGN' based on user feedback you just got",
+      result2: "✓ Published immediately",
+      prompt3: "Test a new hero headline variant alongside 'Laid off. Burnt out.' to see what converts better",
+      result3: "✓ Swap it yourself, revert in minutes"
+    }
+  },
+  {
+    id: "sankari-studios",
+    company: "Sankari Studios",
+    logo: "/assets/reports/sankari-studios/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://sankaristudios.com",
+    industry: "Impact Gaming",
+    pages: 8,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'PLAYING FOR OUR FUTURE' with a new impact stat from your latest player data",
+      result1: "✓ Live the same day you have the number",
+      prompt2: "Add a new 'JOIN THE MOVEMENT' partner logo when a new org signs on",
+      result2: "✓ Published same day — no designer",
+      prompt3: "Change 'Download' CTA to a pre-registration link when your next title is in early access",
+      result3: "✓ Swap in minutes, revert when launch goes live"
+    }
+  },
+  {
+    id: "socialtyze",
+    company: "Socialtyze",
+    logo: "/assets/reports/socialtyze/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://socialtyze.com",
+    industry: "Influencer & Performance Marketing",
+    pages: 6,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new client campaign to 'OUR WORK' the week it wraps",
+      result1: "✓ Live same day — no developer needed",
+      prompt2: "Update 'Services' with a new offering after you formalize a new capability",
+      result2: "✓ Published immediately",
+      prompt3: "Change 'Let's Connect' CTA to a campaign brief intake form during a new business push",
+      result3: "✓ Updated in minutes, revert anytime"
+    }
+  },
+  {
+    id: "sundae-electronics",
+    company: "Sundae Electronics",
+    logo: "/assets/reports/sundae-electronics/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://sundaelectronics.com",
+    industry: "Consumer Software & Apps",
+    pages: 8,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update the Owl VIP section with new features from the latest release",
+      result1: "✓ Live same day the app ships — no designer",
+      prompt2: "Add SoundBrake to the main product listing when it exits beta",
+      result2: "✓ Published the day it goes live",
+      prompt3: "Change the hero headline from 'Take Control of Gmail Notifications' to your new flagship product when priorities shift",
+      result3: "✓ Swap in minutes, test it immediately"
+    }
+  },
+  {
+    id: "swidia",
+    company: "SWIDIA",
+    logo: "/assets/reports/swidia/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://swidia.com",
+    industry: "Growth Marketing for Startups",
+    pages: 6,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new client result to 'The results of deep collaboration' the week it closes",
+      result1: "✓ Live same day — no developer needed",
+      prompt2: "Update 'What we do' when you formalize a new channel or service offering",
+      result2: "✓ Published immediately",
+      prompt3: "Test a new 'Get a free growth plan' CTA hook against a 'See our results first' variant",
+      result3: "✓ Swap it yourself, revert in minutes"
+    }
+  },
+  {
+    id: "synthhaven",
+    company: "Synthhaven",
+    logo: "/assets/reports/synthhaven/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://synthhaven.com",
+    industry: "AI Media Creation Platform",
+    pages: 5,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'Create your storyboard' copy when a major new capability ships",
+      result1: "✓ Live the same day — no designer",
+      prompt2: "Add a new use case under 'Agentic Integration for All Media' as integrations go live",
+      result2: "✓ Published immediately",
+      prompt3: "Change 'Apply to join the Beta' CTA to a public launch page when you exit beta",
+      result3: "✓ Swap in minutes, no developer needed"
+    }
+  },
+  {
+    id: "taikyomedia",
+    company: "TaiKyo Media",
+    logo: "/assets/reports/taikyomedia/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://taikyomedia.com",
+    industry: "Influencer Marketing",
+    pages: 5,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new brand campaign result to your News section the week it goes live",
+      result1: "✓ Published same day — no designer queue",
+      prompt2: "Update your services description when you add a new campaign format or channel",
+      result2: "✓ Edit directly, live in minutes",
+      prompt3: "Replace the generic 'Contact' CTA with a campaign brief intake form during a new business push",
+      result3: "✓ Updated immediately, revert anytime"
+    }
+  },
+  {
+    id: "tangelo-ai",
+    company: "Tangelo.ai",
+    logo: "/assets/reports/tangelo-ai/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://tangelo.ai",
+    industry: "AI Sales Enablement / GTM SaaS",
+    pages: 10,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'One System. Fully Connected.' with a new integration you just shipped",
+      result1: "✓ Live same day — no Webflow developer",
+      prompt2: "Add a new customer result to your social proof section when a deal closes",
+      result2: "✓ Published immediately",
+      prompt3: "A/B test 'See It In Action' against 'Talk to an Expert' CTA for enterprise buyers",
+      result3: "✓ Swap it yourself in minutes, revert anytime"
+    }
+  },
+  {
+    id: "vida-luna-housing",
+    company: "VIDA LUNA HOUSING",
+    logo: "/assets/reports/vida-luna-housing/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://vidalunahousing.com",
+    industry: "Temporary Housing / Insurance Claims",
+    pages: 6,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Update 'What We Do' when you add a new housing type or service area",
+      result1: "✓ Live in minutes — no designer",
+      prompt2: "Add a new step to 'Insurance Claim Lifecycle' after refining your process",
+      result2: "✓ Published same day",
+      prompt3: "Change 'Request Housing' CTA to link to a new intake form after switching platforms",
+      result3: "✓ Updated instantly — no developer needed"
+    }
+  },
+  {
+    id: "zeno-semiconductor",
+    company: "Zeno Semiconductor",
+    logo: "/assets/reports/zeno-semiconductor/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://zenosemi.com",
+    industry: "Semiconductor Technology / IP Licensing",
+    pages: 5,
+    waitDays: 3,
+    aiExamples: {
+      prompt1: "Add a new press mention or publication to the News section the week it drops",
+      result1: "✓ Live same day — no designer needed",
+      prompt2: "Update 'Memory Technology' or 'Logic Technology' pages when a new breakthrough is ready to share",
+      result2: "✓ Published immediately",
+      prompt3: "Add a new Team member to the 'Team' page when a key hire joins",
+      result3: "✓ Live in minutes — no developer"
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
