@@ -368,8 +368,8 @@ function buildHTML(r: GrowthReport): string {
       requestAnimationFrame(()=>{ripple.style.transition='';});
     });
   }
-  (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"&&(cal.ns[namespace]=api)&&p(api,ar);return}p(cal,ar)};"object"!==typeof C.Cal.ns&&(C.Cal.ns={});const api=C.Cal.ns["schedule-fos"]=function(){p(api,arguments)};api.q=[];p(api,["init","schedule.fos/30min",{origin:"https://cal.com"}])})(window,"https://app.cal.com/embed/embed.js","init");
-  Cal.ns["schedule-fos"]("ui",{"hideEventTypeDetails":false,"layout":"month_view"});
+  (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"&&(cal.ns[namespace]=api)&&p(api,ar);return}p(cal,ar)};"object"!==typeof C.Cal.ns&&(C.Cal.ns={});const api=C.Cal.ns[""]=C.Cal;api.q=[];p(api,["init",{origin:"https://cal.com"}])})(window,"https://app.cal.com/embed/embed.js","init");
+  Cal("ui",{"hideEventTypeDetails":false,"layout":"month_view"});
   document.querySelectorAll('.nav-cta').forEach(b=>setupRipple(b,'#d97706'));
   document.querySelectorAll('.exp-unlock-btn').forEach(b=>setupRipple(b,'#0f1117'));
   document.querySelectorAll('.cta-btn').forEach(b=>setupRipple(b,'#d97706'));
