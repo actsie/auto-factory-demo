@@ -8378,7 +8378,7 @@ export const reports: Report[] = [
   {
     id: "tamart",
     company: "TAMART",
-    logo: "/assets/reports/tamart/logo.svg",
+    logo: "/assets/reports/tamart/logo.jpeg",
     logoNeedsBg: false,
     url: "https://www.tamartads.com",
     industry: "AI Video Ad Production",
@@ -8388,7 +8388,7 @@ export const reports: Report[] = [
     opportunityFindings: [
       {
         label: "Generic page title",
-        body: "Right now, the page title shows 'Home | TAMART' in Google search results — which tells nobody searching for AI video production what the company does. For a brand new studio entirely dependent on organic discovery, that's the difference between getting clicked and getting skipped. It's a two-minute fix, but on Wix making it stick the right way keeps getting put off.",
+        body: "Right now, the page title shows 'TAMART: Home' in Google search results — which tells nobody searching for AI video production what the company does. Any founder who finds the site through search sees a generic label before they ever click. It's a two-minute fix, but on Wix making it stick the right way keeps getting put off.",
       },
       {
         label: "Site depth vs. business depth",
