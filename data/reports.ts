@@ -7879,14 +7879,25 @@ export const reports: Report[] = [
     url: "https://alignedyoga.com",
     industry: "Online Yoga Education",
     pages: 12,
+    hostingCost: 72,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "Right now, Google can't pull structured information about Aligned Yoga's programs into search results — no schema markup means no rich results for the training programs, pricing, or teacher certification details. A student searching '200 hour yoga teacher training online' gets a plain link where a structured result with program details and pricing could be the deciding click. It's a 20-minute fix, but on Webflow it requires a developer every time.",
+      },
+      {
+        label: "Enrollment windows are finite",
+        body: "Aligned Yoga runs 200HR and 300HR teacher training programs across online and in-person tracks — and students comparing yoga teacher training programs are making decisions based on what they see on the site before they ever reach out. When an enrollment window closes, a Thailand retreat date goes live, or a new online cohort opens, the site needs to reflect it that day. A student who lands on the site during an enrollment window and sees a CTA that doesn't match the current opportunity will question whether the page is current.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update the 'CHOOSE YOUR PROGRAM' CTA to reflect the new Thailand 2026 deposit deadline",
-      result1: "✓ Done in 2 minutes — no designer needed",
-      prompt2: "Add a new section under 'OUR PROGRAMS' for a limited-time early-bird offer",
-      result2: "✓ New section live same day, exactly where you want it",
-      prompt3: "Rewrite the 'WHY CHOOSE US?' copy to highlight your Yoga Alliance registration",
-      result3: "✓ Edit directly, publish immediately — no brief, no queue"
+      prompt1: "Update the CHOOSE YOUR PROGRAM CTA to reflect the new Thailand 2026 deposit deadline — 'Reserve your spot before May 15'",
+      result1: "✓ Done in 2 minutes — students landing during enrollment season see a CTA that matches the actual deadline instead of a generic one",
+      prompt2: "Add schema markup so Google shows Aligned Yoga's 200HR and 300HR programs as structured results in yoga teacher training searches",
+      result2: "✓ Done in one pass — students searching for certification programs see program structure, duration, and format before they even click",
+      prompt3: "Add an early-bird section under OUR PROGRAMS for the upcoming online cohort — include the discount, the deadline, and a direct enrollment link",
+      result3: "✓ New section live same day — students who were on the fence enroll before the discount expires instead of coming back later and finding it gone"
     }
   },
   {
@@ -7897,14 +7908,25 @@ export const reports: Report[] = [
     url: "https://allthathousing.com",
     industry: "Furnished Home Rentals",
     pages: 8,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Market ambiguity costs contracts",
+        body: "All That Housing operates across multiple states and serves clients relocating or on temporary assignment — and HR managers and insurance adjusters who are sourcing housing for their people are making fast, trust-based decisions. A company relocating an employee to Denver who lands on the site and can't confirm Denver coverage will choose a provider that makes it obvious.",
+      },
+      {
+        label: "Corporate accounts decide before they call",
+        body: "By the time a market or service update gets through the Wix queue, the corporate client who was sourcing options has already confirmed with someone whose site gave them what they needed immediately. The difference between winning a corporate account and losing it often comes down to whether the site answers the first question — 'do they cover where I need them?' — before the client has to ask.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Customized Solutions Nationwide' to list three new markets you just expanded into",
-      result1: "✓ Edit the copy yourself, publish in minutes",
-      prompt2: "Add a new section under 'Full-Service Experience' highlighting your corporate relocation package",
-      result2: "✓ New section live same day",
-      prompt3: "Change the 'Find Out More' CTA to a direct booking form with your new intake questions",
-      result3: "✓ Form updated and live without a developer"
+      prompt1: "Update Customized Solutions Nationwide to list the three new markets we expanded into this quarter — with a city-specific contact for each",
+      result1: "✓ Edit done in minutes — corporate clients sourcing in those cities find confirmation instead of calling to ask",
+      prompt2: "Add a new section under Full-Service Experience highlighting the corporate relocation package — include turnaround time and point of contact for HR teams",
+      result2: "✓ New section live same day — HR managers arrive to a page that speaks directly to their workflow and approval process",
+      prompt3: "Update the Find Out More CTA to a direct intake form for corporate housing requests — include fields for move-in date, duration, and city",
+      result3: "✓ Form live without a developer — clients go from interest to inquiry in one step instead of a back-and-forth email thread"
     }
   },
   {
@@ -7915,14 +7937,25 @@ export const reports: Report[] = [
     url: "https://antaresps.com",
     industry: "Executive Recruiting",
     pages: 5,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Track record is the pitch",
+        body: "Antares serves media, tech, and entertainment clients where timing is everything — and companies evaluating executive search firms do quiet due diligence on the firm's own credibility before they hand over a C-suite search. When a new industry vertical opens or a high-profile placement is made, the site needs to reflect it immediately. A media company evaluating three firms will give the most weight to the one whose site looks most actively engaged in the same industry at the same moment.",
+      },
+      {
+        label: "Decisions happen before the first call",
+        body: "By the time a vertical addition or new case study gets through the Wix queue, the client who was comparing options has already made their choice — likely before they ever called. A site that can't show current work leaves the most important part of the conversation to chance.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Industries We Serve' to add a new vertical you just landed a contract in",
-      result1: "✓ Live in minutes, not after a designer's next available slot",
-      prompt2: "Add a new case study under 'Expect Success!™' from a recent placement",
-      result2: "✓ New content published the same day you write it",
-      prompt3: "Swap the 'Looking to HIRE?' CTA button to a calendar booking link for your new intake process",
-      result3: "✓ Change the CTA yourself, no developer needed"
+      prompt1: "Update Industries We Serve to add streaming platforms as a new vertical — include the specific roles Antares places in that space",
+      result1: "✓ Live in minutes — streaming companies searching for executive recruiters see Antares listed as covering their specific industry instead of assuming it doesn't",
+      prompt2: "Add a case study under Expect Success! from a recent VP-level placement — company type, role, time to close",
+      result2: "✓ New content published the same day you get client approval — the proof that closes comparable searches is on the site while the win is still recent",
+      prompt3: "Build a landing page for digital media startups building their first executive team — speak to the pressure of hiring fast without a talent network",
+      result3: "✓ New page live same day — a specific pitch for the segment that has both the urgency and the budget to move quickly"
     }
   },
   {
@@ -7933,14 +7966,25 @@ export const reports: Report[] = [
     url: "https://aita.co",
     industry: "AI Talent Recruiting",
     pages: 13,
+    hostingCost: 72,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Outdated page title signals 'hasn't been updated'",
+        body: "Right now, Google shows '2024 Home' as the page title for aita.co — the most generic and clearly outdated title possible for a specialized recruiting firm. With no schema markup either, search results give technical hiring leaders no structured reason to click. It's a 20-minute fix, but on Webflow it requires a developer every time.",
+      },
+      {
+        label: "Every week without current proof costs placements",
+        body: "AITA competes on a specialized network of 50,000+ AI engineers and positions itself on speed-to-hire — but the companies evaluating AI recruiting partners are also evaluating whether the firm looks credible and current. A technical hiring manager or VP of Engineering who lands on the site and sees '2024 Home' as the page title will question whether they're looking at the right place.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Why Tech Leaders Choose Us' with a new client win and placement stat",
-      result1: "✓ Edit and publish the same day — no Webflow developer needed",
-      prompt2: "Add a new role category under 'Our Impact by the Numbers' as you expand beyond software engineers",
-      result2: "✓ New section live same day",
-      prompt3: "Change 'Start Hiring Now' to route directly to a new intake form you're testing",
-      result3: "✓ CTA updated in minutes, revert anytime"
+      prompt1: "Update Why Tech Leaders Choose Us with the latest placement number — 'Over 400 AI engineers placed at VC-backed startups in the last 12 months'",
+      result1: "✓ Live same day the number is ready — the proof point that closes skeptical VPs of Engineering is on the site while it's still the current figure",
+      prompt2: "Fix the page title to 'Artificial Intelligence Talent Agency | AI Engineering Recruiting' and add schema markup for the recruiting firm's specializations",
+      result2: "✓ Search results now describe AITA correctly and with structure — technical hiring leaders searching for AI recruiting firms see a result that was clearly built for them",
+      prompt3: "Build a landing page for Series B startups building their first AI team — 'You've got the funding. Now find the AI engineers who'll use it.'",
+      result3: "✓ New page live same day — a specific entry point for the highest-urgency hiring stage in the VC-backed startup lifecycle"
     }
   },
   {
@@ -7951,14 +7995,25 @@ export const reports: Report[] = [
     url: "https://betruegrp.com",
     industry: "Creative Studio Space",
     pages: 6,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Freshness is credibility in LA",
+        body: "beTRUE runs a 30,000 sq ft production and event facility in LA — and brands and production companies evaluating studio spaces make fast decisions based on what they see on the site. Studio availability, current packages, and upcoming events need to reflect the real-time state of the business. A site that doesn't reflect current offerings means potential bookings go to the next studio on the list.",
+      },
+      {
+        label: "Production companies confirm fast",
+        body: "By the time a new package or availability update gets through the Wix queue, the production company that was evaluating beTRUE for a two-day shoot has already confirmed with someone else. A site that looks static signals a studio that isn't active, which in LA is the fastest way to fall off the consideration list.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Add a new studio package under 'What We Offer' for your podcast suite",
-      result1: "✓ New section live the same day you decide to promote it",
-      prompt2: "Update the 'Events' section with your upcoming brand activation calendar",
-      result2: "✓ Edit it yourself — no brief, no turnaround time",
-      prompt3: "Change the homepage hero from 'Welcome To beTRUE' to your current seasonal hook",
-      result3: "✓ Hero copy updated in under 5 minutes"
+      prompt1: "Add the new podcast studio package to What We Offer — include the room specs, equipment list, and a booking CTA",
+      result1: "✓ New section live the same day you launch the package — every podcaster searching for a recording studio in Hollywood sees it from day one",
+      prompt2: "Update the Events section with the brand activation dates for Q3 — include a brief description and a contact CTA for each",
+      result2: "✓ Published immediately — brands scouting spaces for the second half of the year see current availability instead of expired listings",
+      prompt3: "Change the homepage hero to 'LA's most flexible creative space — studios, sound stages, and event venues all under one roof'",
+      result3: "✓ Hero updated in under 5 minutes — the pitch that works in every sales conversation is now the first thing every site visitor reads"
     }
   },
   {
@@ -7969,14 +8024,25 @@ export const reports: Report[] = [
     url: "https://beyondadmissions.com",
     industry: "College & Career Coaching",
     pages: 8,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "The academic calendar doesn't wait",
+        body: "BeyondAdmissions runs seasonal coaching programs where timing is critical — families researching college support services are making decisions with real deadlines attached. When admissions deadlines shift, a new workshop opens, or a recent student outcome is worth sharing, the site needs to move the same day. A family that arrives in September for help with Early Decision applications and finds a site that hasn't been updated since spring will question whether the coaching is as current as the process demands.",
+      },
+      {
+        label: "Enrollment windows close before the queue clears",
+        body: "By the time a program update or new student testimonial gets through the Wix queue, the enrollment window when it would have converted the most hesitant families has already closed. For a college coaching practice, the academic calendar doesn't pause — a site that can't reflect current deadlines and current student wins is less useful than the one parents found on the first page of search.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'The Complete College Application Process' section to reflect the new 2027 admissions cycle",
-      result1: "✓ Done in minutes without waiting on anyone",
-      prompt2: "Add a new 'Current Students' testimonial from your most recent cohort",
-      result2: "✓ Published the same day you write it",
-      prompt3: "Change 'College Prep Coaching' CTA to a limited-enrollment workshop with a deadline",
-      result3: "✓ Urgency copy live immediately — revert when seats fill"
+      prompt1: "Update The Complete College Application Process section to reflect the new 2027 admissions cycle deadlines and changes",
+      result1: "✓ Done in minutes before August — every family who arrives during peak season sees guidance that matches the process they're actually navigating",
+      prompt2: "Add a testimonial — 'BeyondAdmissions helped my daughter go from a panic spiral about Common App to an acceptance from her first-choice school in four months'",
+      result2: "✓ Published the same day you get it — the proof point that converts anxious parents is on the site while college acceptance season is still fresh",
+      prompt3: "Change the College Prep Coaching CTA to a limited-enrollment workshop with seats and a deadline",
+      result3: "✓ Urgency copy live immediately — the workshop fills faster because the scarcity signal is visible from the first visit"
     }
   },
   {
@@ -7987,14 +8053,25 @@ export const reports: Report[] = [
     url: "https://bizzybeesupervisedvisits.com",
     industry: "Supervised Visitation Services",
     pages: 8,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Families in urgent situations need immediate clarity",
+        body: "Bizzy Bee serves families across multiple California counties in situations that are already stressful and time-sensitive — when someone arrives on the site looking for supervised visits, they need to immediately know whether Bizzy Bee covers their county, what the process looks like, and whether they can book now. When service areas expand, rates change, or a new service is added, the site needs to reflect that the same day.",
+      },
+      {
+        label: "Unclear coverage sends families to a competitor",
+        body: "A family in Riverside County who can't tell whether Bizzy Bee covers them from the site will call someone who makes it obvious. By the time a coverage area update or service change gets through the Wix designer queue, families with urgent needs have already found another provider. Every unclear signal on the site is a reason to look elsewhere.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Book A Service' to show new county coverage you just expanded into",
-      result1: "✓ Change the copy yourself — live in minutes",
-      prompt2: "Add a new FAQ under 'Our Mission' addressing a question you hear repeatedly from new clients",
-      result2: "✓ Content published same day",
-      prompt3: "Change the 'Book Now!' CTA to your updated scheduling tool link after switching platforms",
-      result3: "✓ URL updated instantly — no developer needed"
+      prompt1: "Update Book A Service to add Riverside County to the covered areas — include the phone number and booking process for that region",
+      result1: "✓ Live in minutes — families in Riverside see clear confirmation that Bizzy Bee covers them instead of having to guess or call",
+      prompt2: "Add a FAQ: 'What do I need to bring to the first supervised visit?' with a plain-language checklist",
+      result2: "✓ Published the same day you write it — the anxiety of a first visit gets reduced before a family ever calls, not during",
+      prompt3: "Update the Book Now CTA link to the new scheduling platform",
+      result3: "✓ Updated instantly — zero families hit a broken booking experience during what's already a stressful process"
     }
   },
   {
@@ -8005,14 +8082,25 @@ export const reports: Report[] = [
     url: "https://empoweryu.com",
     industry: "Remote Patient Monitoring / Digital Health",
     pages: 7,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Wrong page title, no meta description",
+        body: "Right now, Google shows 'HOME | empyu' as the page title — a generic title using the wrong company name abbreviation — with no meta description at all. A provider searching 'remote patient monitoring platform home health' sees nothing that explains what EmPowerYu does or who it's built for. It's a one-paragraph fix, but on Wix it keeps getting deprioritized.",
+      },
+      {
+        label: "Clinical use cases that aren't on the site don't close",
+        body: "EmPowerYu is positioning remote monitoring at the intersection of aging care and home health — and the providers and health systems evaluating the platform are doing careful due diligence. When messaging shifts around a new use case or a new sensor integration validates, the site needs to reflect it immediately. A home health director who lands on the site and sees messaging that doesn't match what they heard in a sales conversation will start doubting the whole conversation.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'What We Do' to reflect a new clinical use case you just validated",
-      result1: "✓ Edit directly — no brief, no queue",
-      prompt2: "Add a new 'Design Principles' callout about your latest sensor integration",
-      result2: "✓ New content live same day",
-      prompt3: "Rewrite the homepage hero to lead with 'Healthcare vs sickcare' as your primary positioning",
-      result3: "✓ Hero updated in minutes, test it immediately"
+      prompt1: "Update What We Do to reflect the new post-acute care use case we validated with our last hospital partner",
+      result1: "✓ Live immediately — health system evaluators see the use case they care about without having to ask if you cover it",
+      prompt2: "Add a meta description: 'EmPowerYu provides remote patient monitoring for aging adults and home health patients — continuous biometric tracking, care team alerts, and AI-driven health insights. Built for providers who believe in healthcare, not sickcare.'",
+      result2: "✓ Search results now explain the platform before anyone clicks — providers arrive oriented instead of landing on a title that says 'HOME | empyu'",
+      prompt3: "Update the homepage hero to lead with 'Healthcare vs. sickcare — the difference is when you intervene' as the primary positioning",
+      result3: "✓ Live in minutes — the framing that resonates in every sales conversation is now the first thing every visitor sees"
     }
   },
   {
@@ -8023,14 +8111,25 @@ export const reports: Report[] = [
     url: "https://fisher-marketing.com",
     industry: "Fractional CMO / Marketing Consulting",
     pages: 9,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "The site is the pitch — and it's behind the work",
+        body: "Fisher Marketing positions itself on speed and strategic agility for law firms and SMBs — and the managing partners and business owners evaluating fractional CMO options do quiet due diligence on the consultant's own marketing before they trust them with theirs. A fractional CMO whose site can't be updated without a designer's queue is a credibility gap that sophisticated buyers will notice, even if they don't say so.",
+      },
+      {
+        label: "Specificity closes law firm clients",
+        body: "By the time a new client result or a positioning update gets through the Wix queue, the managing partner who was evaluating three options has already made their choice — and it was partly based on which CMO's site looked most current and intentional. The law firm that hired the fractional CMO whose site showed they understood exactly how law firm marketing is different is gone before the queue clears.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'UNLOCK SCALABLE GROWTH WITH A FRACTIONAL CMO' to lead with a new client vertical you just added",
-      result1: "✓ Headline live in minutes — no designer loop",
-      prompt2: "Add a new case study to 'EXPERT FRACTIONAL MARKETING GUIDANCE FOR GROWTH'",
-      result2: "✓ Published same day you write it",
-      prompt3: "A/B test a new 'BOOK A TIME' CTA against 'Get Your Free Strategy Session'",
-      result3: "✓ Change it yourself, revert anytime"
+      prompt1: "Update UNLOCK SCALABLE GROWTH WITH A FRACTIONAL CMO to lead with law firm-specific language — 'Marketing that works for law firms, without the politics of a full-time hire'",
+      result1: "✓ Headline live in minutes — law firm partners land on a page that sounds like it was written for them, not adapted from a generic consulting template",
+      prompt2: "Add a case study to EXPERT FRACTIONAL MARKETING GUIDANCE FOR GROWTH — law firm increased qualified consultations by 34% in 6 months",
+      result2: "✓ Published same day you get client approval — the proof that closes comparable law firms is on the site while the result is still recent",
+      prompt3: "Build a landing page for law firms too big for in-house marketing but not ready for a full-time CMO — 'Strategic marketing leadership for the $3M–$20M firm'",
+      result3: "✓ New page live same day — a specific entry point for the exact stage where a fractional CMO is the obvious answer"
     }
   },
   {
@@ -8041,14 +8140,25 @@ export const reports: Report[] = [
     url: "https://genetria.mx",
     industry: "Health Tech / AI Wellness",
     pages: 7,
+    hostingCost: 72,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "One-word page title, no meta description",
+        body: "Right now, Google shows 'Genetria' — just the company name — as the page title, with no meta description at all. A healthcare investor or enterprise buyer in Mexico searching 'AI salud longevidad plataforma' or 'AI health infrastructure Latin America' gets a blank listing with a one-word title that tells them nothing. It's a one-paragraph fix, but on Webflow it requires a developer every time.",
+      },
+      {
+        label: "A static site signals a platform that isn't scaling",
+        body: "Genetria is building AI health infrastructure across Latin America, and the enterprise buyers and providers evaluating the platform are making trust decisions based on what they see on the site. When a new Longevity OS™ Marketplace partner comes online, a new solution goes live, or the platform expands to a new market, the site needs to reflect it immediately. In a category that's still establishing credibility, a site that looks static signals a platform that isn't growing.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Longevity OS™ Marketplace' to add a new partner integration you just launched",
-      result1: "✓ Published the same day — no Webflow developer needed",
-      prompt2: "Add a new pricing tier under 'Modelos de Negocio' for enterprise clients",
-      result2: "✓ New section live same day",
-      prompt3: "Rewrite 'Componentes Clave' to feature your latest AI diagnostic module",
-      result3: "✓ Edit directly, publish immediately"
+      prompt1: "Add the new Longevity OS Marketplace partner — their logo, one-line description, and what health category they cover",
+      result1: "✓ Published the same day they launch — enterprise buyers see an ecosystem that's actively growing, not a platform with a single partner tier",
+      prompt2: "Add a meta description in both Spanish and English: 'Genetria builds AI-powered health and longevity infrastructure for Latin America — provider networks, marketplace integrations, and personalized wellness at scale'",
+      result2: "✓ Search results now describe the platform before anyone clicks — investors and enterprise buyers arrive oriented instead of guessing from a one-word title",
+      prompt3: "Update Componentes Clave to feature the new AI diagnostic module — explain what it analyzes and who it's built for",
+      result3: "✓ Live immediately — enterprise evaluations now include the current capability picture instead of asking what's changed since the last update"
     }
   },
   {
@@ -8059,14 +8169,25 @@ export const reports: Report[] = [
     url: "https://indierights.com",
     industry: "Independent Film Distribution",
     pages: 6,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "A static catalog signals an inactive distributor",
+        body: "Indie Rights licenses and distributes independent films continuously — filmmakers submitting their work and platform buyers browsing for content are both making decisions based on what they see on the site. A catalog that looks like it hasn't grown since the last update signals a distributor that isn't actively acquiring. Every week a new title isn't on the site is a week that title isn't generating licensing interest.",
+      },
+      {
+        label: "Platform buyers build their lists fast",
+        body: "By the time a new acquisition gets through the Wix queue, the platform buyer who would have included it in their next content pull is already building their list without it. For a content distributor, the catalog is the product — and a catalog that looks static tells buyers and filmmakers that the pipeline isn't active.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Add a new title to 'ACTION & ADVENTURE' the week it's acquired",
-      result1: "✓ Live same day — no designer needed",
-      prompt2: "Update 'License our content' CTA with a new direct inquiry form after changing your intake process",
-      result2: "✓ Form updated in minutes",
-      prompt3: "Add a 'New Arrivals' section above 'OUR MOVIES' for seasonal promotions",
-      result3: "✓ New section live the same day you decide to run it"
+      prompt1: "Add the new action thriller to ACTION & ADVENTURE — include the title, director, run time, and a one-line pitch to buyers",
+      result1: "✓ Live same day it's acquired — platform buyers searching the catalog find it while their content list is still being assembled",
+      prompt2: "Update the License our content CTA to route to the new intake form after switching platforms",
+      result2: "✓ Updated in minutes — buyers trying to reach Indie Rights go to the right place instead of a dead end",
+      prompt3: "Add a New Arrivals section above OUR MOVIES for the festival season — feature the five most recent acquisitions",
+      result3: "✓ New section live the same day you decide to run the feature — peak acquisition season has a dedicated showcase instead of nothing"
     }
   },
   {
@@ -8077,14 +8198,25 @@ export const reports: Report[] = [
     url: "https://leagueoforiginals.com",
     industry: "Brand Builder Community / Events",
     pages: 11,
+    hostingCost: 72,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Generic page title loses DTC founders in search",
+        body: "Right now, search results show 'Home' as the page title for leagueoforiginals.com — the most generic possible title for a community whose strength is in its specificity. A DTC brand founder searching 'brand builder community' or 'retail brand community membership' sees a plain result titled 'Home' where a descriptive title explaining the community and who it's for could be driving clicks. It's a two-minute fix, but on Webflow it requires developer access every time.",
+      },
+      {
+        label: "Community sites live and die on energy and recency",
+        body: "League of Originals runs summits, workshops, and community programming for DTC and retail brand leaders — and the founders and CMOs evaluating whether to join or attend are checking the site for signs of an active, current community. A speaker lineup that's already happened, a summit date that's passed, or a membership page that hasn't been updated signals a community that's coasting.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Originals Summit' page with a newly confirmed speaker and date",
-      result1: "✓ Live the same day it's confirmed — no developer needed",
-      prompt2: "Add a new event under 'Events, Workshops, and Advantage Club' for the next quarter",
-      result2: "✓ Published immediately — no brief, no build",
-      prompt3: "Change 'Secure Your Ticket' CTA to a waitlist form when seats sell out",
-      result3: "✓ Swap the CTA yourself in minutes"
+      prompt1: "Update the Originals Summit page with the newly confirmed speaker — their name, brand, and a one-line hook",
+      result1: "✓ Live the same day it's confirmed — every brand founder who checks the site after the announcement sees a lineup that's growing, not standing still",
+      prompt2: "Fix the page title to 'League of Originals | Brand Builder Community for DTC & Retail Leaders' and add a meta description that explains the tiers",
+      result2: "✓ Search results now explain who the League is for before anyone clicks — DTC founders searching for community land on a result that feels like it was written for them",
+      prompt3: "Change the Secure Your Ticket CTA to a waitlist form when seats sell out — 'Sold out. Join the waitlist for the next summit.'",
+      result3: "✓ Swapped in minutes — the scarcity signal that drives urgency for the next event is captured instead of lost"
     }
   },
   {
@@ -8095,14 +8227,25 @@ export const reports: Report[] = [
     url: "https://moonstonemc.com",
     industry: "HOA Management & Consulting",
     pages: 11,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Generic listing, no meta description",
+        body: "Right now, Google shows 'Home | Moonstone' where the page title should explain what Moonstone actually does — and with no meta description, search results give boards no reason to click. A board member searching 'HOA management company Chula Vista' or 'HOA management San Diego' sees just a generic site name with no context. It's a one-paragraph fix, but on Wix it keeps getting deprioritized.",
+      },
+      {
+        label: "A static site signals a firm that isn't keeping pace",
+        body: "Moonstone manages HOA communities where trust and professionalism are the entire value proposition — and HOA boards evaluating management companies do thorough research before making a switch. They're looking for evidence that the company is actively engaged, current with compliance requirements, and experienced with their specific type of community. A site that can't quickly reflect a new service or a recent community win signals a management company that isn't keeping pace.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Comprehensive Management' to include a new service tier you just rolled out",
-      result1: "✓ Edit directly — live in minutes",
-      prompt2: "Add a new community FAQ to 'Why Choose Us?' based on questions you're fielding right now",
-      result2: "✓ Published same day",
-      prompt3: "Change 'Contact Us' CTA to a direct proposal request form for new HOA clients",
-      result3: "✓ Form live immediately — no developer"
+      prompt1: "Update Comprehensive Management to include the new financial reporting tier we added this year",
+      result1: "✓ Live in minutes — boards evaluating vendors see the full current scope of services, not last year's",
+      prompt2: "Add a meta description: 'Moonstone Management & Consulting provides professional HOA management across Southern California — community governance, financial oversight, compliance, and vendor coordination handled with care'",
+      result2: "✓ Search results now explain what Moonstone does before anyone clicks — boards arrive oriented instead of guessing from a generic site name",
+      prompt3: "Add a community FAQ — 'What happens to our existing vendor contracts when we switch management companies?'",
+      result3: "✓ Published same day — the question that stalls most switches gets answered before it becomes a reason to stay put"
     }
   },
   {
@@ -8113,14 +8256,25 @@ export const reports: Report[] = [
     url: "https://nexidet.com",
     industry: "Mental Health Billing Services",
     pages: 6,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Generic title, no meta description",
+        body: "Right now, Google shows 'Home | nexidet' where the page title should be telling the whole story — with no meta description either, a practitioner searching 'mental health billing service' sees a blank listing with a generic title that doesn't explain who NexiDet serves or what they handle. It's a one-paragraph fix, but on Wix it keeps getting deprioritized.",
+      },
+      {
+        label: "Practitioners need immediate reassurance",
+        body: "NexiDet promises peace of mind to practitioners who are stressed by insurance billing — and mental health practitioners researching billing partners are doing quiet, careful due diligence before they hand over the administrative side of their practice. A therapist in California who lands on the site and can't tell whether NexiDet handles their specific insurers will go to a provider who makes it obvious.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Working Together' with a new service description after adding a new billing specialty",
-      result1: "✓ Live in minutes — no designer queue",
-      prompt2: "Add a new practitioner testimonial to build trust with new visitors",
-      result2: "✓ Published the same day you get it",
-      prompt3: "Replace the generic 'Read More' CTA with a direct intake form for new clients",
-      result3: "✓ Form updated instantly, no developer needed"
+      prompt1: "Update Working Together to include the new billing specialty we added for telehealth-only practices",
+      result1: "✓ Live in minutes — therapists with that specific setup land on a page that explicitly addresses their situation instead of having to ask",
+      prompt2: "Add a practitioner testimonial — 'NexiDet handles everything. I haven't thought about billing in six months.'",
+      result2: "✓ Published the same day you receive it — the trust signal that converts skeptical therapists is on the site while it's still fresh",
+      prompt3: "Add a meta description: 'NexiDet handles mental health billing for therapists and group practices — insurance credentialing, claims, follow-up, and collections. You focus on clients. We handle the rest.'",
+      result3: "✓ Search results now explain what NexiDet does before anyone clicks — practitioners arrive already oriented instead of guessing from a generic title"
     }
   },
   {
@@ -8131,14 +8285,25 @@ export const reports: Report[] = [
     url: "https://pearincorp.com",
     industry: "Residential Property Management",
     pages: 5,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Outdated proof starts the relationship with doubt",
+        body: "Pear Inc manages residential properties in Irvine and Orange County on a foundation of simplicity and transparency — and property owners doing research before signing a management contract check the site for exactly that: current services, current market coverage, and current social proof. When a new property type is added, a fee structure changes, or a recent owner leaves a testimonial, that should live on the site the same day.",
+      },
+      {
+        label: "Owners comparing firms decide before they call",
+        body: "By the time a service update or new testimonial gets through the Wix queue, the property owner who was comparing three firms has already made their decision. For a property management firm, the site is the first handshake — and an owner who sees outdated information starts the relationship with doubt, not confidence.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'What We Do' when you add a new property type or market area",
-      result1: "✓ Live in minutes — no designer",
-      prompt2: "Add a current property owner testimonial under 'Why Pick Us'",
-      result2: "✓ Published the same day you receive it",
-      prompt3: "Update the 'Vacancy' section to reflect current availability without relying on anyone else",
-      result3: "✓ Edit directly, publish immediately"
+      prompt1: "Update What We Do to include the new commercial unit management service we added this quarter",
+      result1: "✓ Live in minutes — property owners searching for that service no longer land on a page that doesn't mention it",
+      prompt2: "Add the testimonial from the Irvine owner who's had zero vacancy for 18 months",
+      result2: "✓ Published the same day you receive it — the specific proof point that closes fence-sitters is on the site while it's still worth sharing",
+      prompt3: "Update the Vacancy section to show current availability and a seasonal CTA for property owners evaluating managers now",
+      result3: "✓ Edit directly — no queue, no wait, and owners who are ready to sign see a page that's actively courting them"
     }
   },
   {
@@ -8149,14 +8314,25 @@ export const reports: Report[] = [
     url: "https://playwithasl.com",
     industry: "ASL EdTech / Educational Games",
     pages: 5,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "District evaluations are measured in days",
+        body: "Play With ASL is growing through a deaf-owned, gamified ASL learning platform that's getting school edition adoption and consumer downloads at the same time — both audiences are making trust decisions based on what they see on the site. Teachers evaluating ed tools for classroom use check the site specifically for signs of active development and current district relationships.",
+      },
+      {
+        label: "Looking static during evaluation costs adoptions",
+        body: "By the time a new feature or school partnership gets through the Wix designer queue, the educator who was evaluating the platform this week has moved to their next vendor call. For an EdTech platform targeting both consumer and institutional markets, the window to capture a district evaluation is measured in days — a site that can't show current school adoption signals a product that hasn't scaled.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update the 'TILT!' section with new gameplay features from your latest release",
-      result1: "✓ Live the same day the update ships",
-      prompt2: "Add a new School Edition case study from a district that just adopted the platform",
-      result2: "✓ Published the same day you get sign-off",
-      prompt3: "Change 'Download Now' to a dual CTA linking to both App Store and School Edition demo",
-      result3: "✓ Updated in minutes, no developer"
+      prompt1: "Update the TILT! section with the new gameplay features from the latest release — mention the co-op mode and the score replay",
+      result1: "✓ Live the same week the update ships — app store visitors who check the site see a platform that's actively improving, not one frozen in the launch version",
+      prompt2: "Add a School Edition case study — district in Texas adopted the platform for three classrooms, 80 students now learning ASL",
+      result2: "✓ Published same day the district approves it — teachers evaluating the platform see real adoption proof instead of having to take your word for it",
+      prompt3: "Build a landing page for special education teachers — explain how the gamified format supports students with diverse communication needs",
+      result3: "✓ New page live same day — a specific entry point for the segment with the most urgency and the clearest use case"
     }
   },
   {
@@ -8167,14 +8343,25 @@ export const reports: Report[] = [
     url: "https://revival.care",
     industry: "Digital Health / Remote Monitoring",
     pages: 9,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No meta description is a blank first impression",
+        body: "Right now, Google has no description for revival.care in search results — the meta description is completely missing, so search results show either nothing or a random pulled fragment. For a company trying to reach CIOs, health system administrators, and self-directed health optimizers through organic search, showing up with a blank listing is a first impression problem. It's a one-paragraph fix, but on Wix it keeps getting deprioritized.",
+      },
+      {
+        label: "A site that can't show current progress signals a product that isn't moving",
+        body: "Revival Health runs biometric kits, telehealth, and AI health monitoring — 'Healthcare is broken' is a strong opening, but the case for disruption only lands if the site itself looks like it's actively building the replacement. Enterprise health buyers doing vendor evaluation check the site specifically for recent proof points — and a page that can't quickly update with new outcomes or new product capabilities signals a company that isn't moving.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'The power of threes' section when a new product tier goes live",
-      result1: "✓ Edit directly — live in minutes",
-      prompt2: "Add a new clinical outcome stat to 'Deep Learning for predictive health outcomes'",
-      result2: "✓ Published same day the data is ready",
-      prompt3: "A/B test 'Download the app today' against a 'Request a Demo' CTA for enterprise buyers",
-      result3: "✓ Swap the CTA yourself, revert anytime"
+      prompt1: "Add a meta description: 'Revival Health combines biometric kits, AI health monitoring, and telehealth to deliver proactive care anywhere, anytime. Built for providers and individuals who are done waiting for the system to catch up.'",
+      result1: "✓ Search results now explain the product before anyone clicks — every organic visit arrives with context instead of a blank first impression",
+      prompt2: "Update the power of threes section with the new product tier that went live last month",
+      result2: "✓ Live immediately — inbound visitors see current pricing, not last quarter's, and enterprise evaluators don't have to ask",
+      prompt3: "Build a landing page for home health agencies exploring remote monitoring for their patient populations",
+      result3: "✓ New page live same day — a specific entry point for the B2B segment with the most urgency and the clearest ROI story"
     }
   },
   {
@@ -8185,14 +8372,25 @@ export const reports: Report[] = [
     url: "https://revolverecovery.com",
     industry: "Addiction Treatment / IOP",
     pages: 5,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "People in crisis decide fast — and need accurate information",
+        body: "Revolve Recovery runs two specialized trauma programs in Marina Del Rey — and the families and individuals landing on the site are often making the most consequential decision of their lives in a compressed window. When admissions criteria change, a program detail updates, or intake availability shifts, the site needs to reflect that the same day. A family searching for a trauma-focused IOP in LA who lands on a site with outdated program descriptions will question whether the information is current enough to trust.",
+      },
+      {
+        label: "The next search result is one click away",
+        body: "By the time an admissions update gets through the Wix queue, the family who needed that specific clarity has already called a facility whose site gave them what they needed immediately. For an addiction treatment center, the person who lands on the site is often at the point where they've decided to ask for help — and a site that can't clearly confirm your programs match what they need sends them to the next search result.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update the TARILA program description when clinical protocols are revised",
-      result1: "✓ Live the same day it changes — no designer",
-      prompt2: "Add a new 'Why Revolve?' testimonial from a recent program graduate",
-      result2: "✓ Published the same day you have it",
-      prompt3: "Change 'Learn More' CTA to a direct intake inquiry form during high-volume periods",
-      result3: "✓ Updated in minutes, revert when volume normalizes"
+      prompt1: "Update the TARILA program description with the revised protocol — new session frequency, updated eligibility, and the specific trauma framework it's built on",
+      result1: "✓ Live the same day clinical changes — families reading the page get an accurate picture of what they're choosing, which is the only way the first call goes well",
+      prompt2: "Add an alumni testimonial — 'Marina Del Rey felt like the right place the moment I called. The TARILA program gave me tools I use every day.'",
+      result2: "✓ Published the same day — a real story from someone who came out the other side is the most powerful thing on the page for a family that's still afraid",
+      prompt3: "Change the Learn More CTA to a direct intake inquiry form with three questions — name, preferred start date, and insurance type",
+      result3: "✓ Updated in minutes — people who are ready to take the step go from the site to the intake conversation in one move instead of a generic contact form"
     }
   },
   {
@@ -8203,14 +8401,25 @@ export const reports: Report[] = [
     url: "https://richuel.com",
     industry: "Financial Planning / Career Transition FinTech",
     pages: 6,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "The window to capture laid-off users is short",
+        body: "Richuel is targeting people in active career transitions where the emotional urgency is real and the window to capture them is short — 'Laid off. Burnt out. Ready to start what's next.' is a hook that lands hardest when the rest of the page matches that energy. When a new product feature ships or the job market news shifts, the messaging needs to respond, not wait a week.",
+      },
+      {
+        label: "Messaging that can't keep pace with the moment loses signups",
+        body: "By the time a copy update or new feature announcement gets through the Wix queue, the user who was primed by that exact moment is already somewhere else. For a product that catches people at the most stressful financial moment of their career, the page that isn't responsive to the moment costs signups every day it's behind.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'THE 5-STEP FINANCIAL TREATMENT PLAN' copy when a new feature ships",
-      result1: "✓ Live the same day — no designer queue",
-      prompt2: "Add a new trust signal to 'TRUST BY DESIGN' based on user feedback you just got",
-      result2: "✓ Published immediately",
-      prompt3: "Test a new hero headline variant alongside 'Laid off. Burnt out.' to see what converts better",
-      result3: "✓ Swap it yourself, revert in minutes"
+      prompt1: "Update THE 5-STEP FINANCIAL TREATMENT PLAN section to reflect the new income stability feature that just shipped",
+      result1: "✓ Live the same day — users who are mid-funnel see a product that's actively getting better, not one that's frozen in time",
+      prompt2: "Add a trust signal to TRUST BY DESIGN — 'Bank-level encryption, read-only access, and zero storage of credentials'",
+      result2: "✓ Published immediately — the anxiety that kills signups at the security question gets addressed before it can take hold",
+      prompt3: "Test a new hero variant: 'Your money shouldn't pause when your career does' alongside the current 'Laid off. Burnt out.' line",
+      result3: "✓ Swap it yourself, live in minutes — you'll know within a week which framing converts the people who need Richuel most"
     }
   },
   {
@@ -8221,14 +8430,25 @@ export const reports: Report[] = [
     url: "https://sankaristudios.com",
     industry: "Impact Gaming",
     pages: 8,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Missed milestones lose their moment",
+        body: "Sankari Studios builds games around climate and social impact — the community and the press who follow the work expect the site to reflect the latest player data, the newest partnership logos, and the current state of KATOA. When Apple features your game as 'Best New Game,' that milestone needs to be on the site immediately. Every day it isn't is a day that new visitors are arriving to a site that doesn't match the story being told everywhere else.",
+      },
+      {
+        label: "A mission-driven site that looks static signals a movement that isn't moving",
+        body: "By the time a new impact stat, partner logo, or game update gets through the Wix queue, the moment when it would have driven the most community energy has already passed. For a mission-driven studio, the community expects the site to reflect the mission in motion — and a site that can't update quickly signals a movement that isn't moving.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'PLAYING FOR OUR FUTURE' with a new impact stat from your latest player data",
-      result1: "✓ Live the same day you have the number",
-      prompt2: "Add a new 'JOIN THE MOVEMENT' partner logo when a new org signs on",
-      result2: "✓ Published same day — no designer",
-      prompt3: "Change 'Download' CTA to a pre-registration link when your next title is in early access",
-      result3: "✓ Swap in minutes, revert when launch goes live"
+      prompt1: "Update PLAYING FOR OUR FUTURE with the new quarterly impact stat — X million learning interactions powered",
+      result1: "✓ Live the same day you have the number — every new visitor, press mention, and partner intro arrives to a site that reflects current impact",
+      prompt2: "Add the new partner org logo to JOIN THE MOVEMENT the day the partnership is announced",
+      result2: "✓ Published same day — the community sees the ecosystem growing in real time instead of catching up weeks later",
+      prompt3: "Build a landing page for schools and educators — explain KATOA's curriculum alignment and how to get it into a classroom",
+      result3: "✓ New page live same day — a specific entry point for the institutional channel that's the highest-leverage growth path for the mission"
     }
   },
   {
@@ -8239,14 +8459,25 @@ export const reports: Report[] = [
     url: "https://socialtyze.com",
     industry: "Influencer & Performance Marketing",
     pages: 6,
+    hostingCost: 72,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup means invisible proof in search",
+        body: "Right now, Google can't pull structured information about Socialtyze's services into search results — no schema markup means no rich results for the agency's campaign capabilities or specializations. A brand marketing manager searching 'influencer marketing agency' gets a plain link where a structured result with proof and context could be. It's a 20-minute fix, but on Webflow it requires a developer every time.",
+      },
+      {
+        label: "A portfolio that hasn't moved signals an agency that isn't winning",
+        body: "Socialtyze pitches brands on breakthrough ideas and performance-driven campaigns — but every week the site doesn't reflect a new client win or a fresh approach is a week the site is telling a story that's already behind the work. Brands evaluating agencies make their initial cut based on what they see online before a single conversation happens.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Add a new client campaign to 'OUR WORK' the week it wraps",
-      result1: "✓ Live same day — no developer needed",
-      prompt2: "Update 'Services' with a new offering after you formalize a new capability",
-      result2: "✓ Published immediately",
-      prompt3: "Change 'Let's Connect' CTA to a campaign brief intake form during a new business push",
-      result3: "✓ Updated in minutes, revert anytime"
+      prompt1: "Add the new client campaign to OUR WORK — brand name, platform, reach, and the one result that tells the story",
+      result1: "✓ Live same day the client approves it — the proof point that wins the next comparable pitch is on the site while the numbers are still impressive",
+      prompt2: "Add schema markup so Google shows Socialtyze's influencer and performance capabilities as structured results in agency searches",
+      result2: "✓ Done in one pass — brand marketing managers searching for agency partners see Socialtyze with context instead of a generic listing",
+      prompt3: "Build a landing page for CPG brands running influencer-led product launches — speak to the conversion challenge they're solving, not just the awareness play",
+      result3: "✓ New page live same day — a specific entry point for the segment that has both the budget and the urgency to move fast"
     }
   },
   {
@@ -8257,14 +8488,25 @@ export const reports: Report[] = [
     url: "https://sundaelectronics.com",
     industry: "Consumer Software & Apps",
     pages: 8,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Early-adopter windows close fast",
+        body: "Sundae Electronics ships multiple consumer apps and books — when Owl VIP gets a new feature, a game launches on a new platform, or SoundBrake exits beta, the site needs to reflect it the same day. App store visitors who check the developer's website to decide whether to trust the product are making that decision based on what they see. A site that looks out of date signals a company that isn't actively maintaining its products.",
+      },
+      {
+        label: "An outdated product page loses conversions it should own",
+        body: "By the time a new app feature or product launch gets through the Wix designer queue, the early-adopter window when it would have driven the most downloads has already closed. For a consumer app portfolio, the product page is often the deciding factor between a download and a pass — and a page that can't reflect the current feature set is actively losing conversions.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update the Owl VIP section with new features from the latest release",
-      result1: "✓ Live same day the app ships — no designer",
-      prompt2: "Add SoundBrake to the main product listing when it exits beta",
-      result2: "✓ Published the day it goes live",
-      prompt3: "Change the hero headline from 'Take Control of Gmail Notifications' to your new flagship product when priorities shift",
-      result3: "✓ Swap in minutes, test it immediately"
+      prompt1: "Update the Owl VIP section with the new notification filtering features from the latest release",
+      result1: "✓ Live the same day the app ships — no Wix queue, no stale copy, no confused visitors wondering if the app is still being developed",
+      prompt2: "Add SoundBrake to the main product listing when it exits beta — include the download link and a one-line pitch",
+      result2: "✓ Published the day it goes live — launch is coherent across the app store and the website at the same moment",
+      prompt3: "Change the hero headline to lead with your strongest current product and what it solves",
+      result3: "✓ Tested immediately — you'll know within days which framing actually drives clicks down the page"
     }
   },
   {
@@ -8275,14 +8517,25 @@ export const reports: Report[] = [
     url: "https://swidia.com",
     industry: "Growth Marketing for Startups",
     pages: 6,
+    hostingCost: 72,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup means invisible proof in search",
+        body: "Right now, Google can't pull structured information about SWIDIA's services into search results — no schema markup means no rich results for the agency's growth specializations, client results, or methodology. A seed-stage founder searching 'growth marketing agency for startups' gets a plain link where a structured result with proof and context could be. It's a 20-minute fix, but on Webflow it requires a developer every time.",
+      },
+      {
+        label: "A site that can't show current results signals a practice that isn't growing",
+        body: "SWIDIA promises 40% CAC reduction and $350M+ in revenue generated — that's a bold claim, and it lands hardest when the site is actively showing the current state of the results, not the state from the last time a developer had a free day. Startup founders evaluating growth agencies compare fast and compare many at the same time.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Add a new client result to 'The results of deep collaboration' the week it closes",
-      result1: "✓ Live same day — no developer needed",
-      prompt2: "Update 'What we do' when you formalize a new channel or service offering",
-      result2: "✓ Published immediately",
-      prompt3: "Test a new 'Get a free growth plan' CTA hook against a 'See our results first' variant",
-      result3: "✓ Swap it yourself, revert in minutes"
+      prompt1: "Add a new client result to 'The results of deep collaboration' — 44% CAC reduction for a B2B SaaS startup in 90 days",
+      result1: "✓ Live same day the client approves it — the proof point that moves a skeptical founder from evaluation to call is on the site while it still has teeth",
+      prompt2: "Add schema markup so Google shows SWIDIA's growth services and startup specialization as structured results in agency searches",
+      result2: "✓ Done in one pass — 'growth marketing agency startups' searches now return SWIDIA with the context that earns a click over a generic agency listing",
+      prompt3: "Build a landing page for Series A startups scaling from $1M to $5M ARR — speak directly to the CAC pressure they're already feeling",
+      result3: "✓ New page live same day — specific enough to rank and convert the founder who's past 'do I need a growth agency' and is now evaluating who to trust"
     }
   },
   {
@@ -8293,14 +8546,25 @@ export const reports: Report[] = [
     url: "https://synthhaven.com",
     industry: "AI Media Creation Platform",
     pages: 5,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No meta description loses signups before they arrive",
+        body: "Right now, Google has no description for Synthhaven in search results — the meta description is completely missing, so search results show either nothing or a random page fragment. For a platform entirely dependent on organic discovery and word of mouth to fill the beta waitlist, showing up in search with a blank listing is a conversion problem that starts before anyone ever clicks. It's a one-paragraph fix, but on Wix it keeps getting deprioritized.",
+      },
+      {
+        label: "AI tool comparisons get rewritten weekly",
+        body: "Synthhaven is competing in a market where AI media tools are launching every week and the comparison articles that drive early signups get rewritten constantly. Every week the site can't reflect a new capability or sharpen the messaging around what Synthhaven actually does is a week that better-positioned competitors are capturing the beta waitlist.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'Create your storyboard' copy when a major new capability ships",
-      result1: "✓ Live the same day — no designer",
-      prompt2: "Add a new use case under 'Agentic Integration for All Media' as integrations go live",
-      result2: "✓ Published immediately",
-      prompt3: "Change 'Apply to join the Beta' CTA to a public launch page when you exit beta",
-      result3: "✓ Swap in minutes, no developer needed"
+      prompt1: "Add the meta description — 'Synthhaven is an AI storyboarding and media creation platform. What if creating AI media was as easy as using Cursor? Apply for the beta.'",
+      result1: "✓ Search results now explain what Synthhaven does before anyone clicks — every organic visit arrives with context instead of confusion",
+      prompt2: "Update 'Create your storyboard' to lead with the agentic integration capability now that it's the sharpest differentiator",
+      result2: "✓ Live the same day the feature is ready to talk about — the pitch and the product are in sync for the first time",
+      prompt3: "Change 'Apply to join the Beta' to a public signup page when the product goes live",
+      result3: "✓ Swapped in minutes when the moment comes — no developer, no deploy, no delay on launch day"
     }
   },
   {
@@ -8311,14 +8575,25 @@ export const reports: Report[] = [
     url: "https://taikyomedia.com",
     industry: "Influencer Marketing",
     pages: 5,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Recency is the entire competitive advantage",
+        body: "TaiKyo's best proof of value is current results — brands evaluating influencer agencies want to see recent campaigns, not a portfolio that hasn't moved since last quarter. The window to show momentum is short, and the agency that updates its site fastest after a campaign closes looks the most active.",
+      },
+      {
+        label: "Brands choose before the first conversation",
+        body: "By the time a new campaign result or brand partnership gets through the Wix designer queue, the brand that was evaluating three agencies has already made a choice. For an influencer agency, recency is everything — the brand that sees a campaign result from last week trusts the agency more than one showing work from six months ago.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Add a new brand campaign result to your News section the week it goes live",
-      result1: "✓ Published same day — no designer queue",
-      prompt2: "Update your services description when you add a new campaign format or channel",
-      result2: "✓ Edit directly, live in minutes",
-      prompt3: "Replace the generic 'Contact' CTA with a campaign brief intake form during a new business push",
-      result3: "✓ Updated immediately, revert anytime"
+      prompt1: "Add the new brand campaign result — include the brand name, reach numbers, and a one-line outcome",
+      result1: "✓ Published same day — the freshest proof point is live before the next inbound lead lands on the site",
+      prompt2: "Update the services description to add the new DTC brand partnership channel",
+      result2: "✓ Live in minutes — every new business conversation includes the full current picture",
+      prompt3: "Replace the 'Contact' CTA with a campaign brief intake form during a new business push",
+      result3: "✓ Updated immediately — prospects go from interest to brief in one step instead of an email thread"
     }
   },
   {
@@ -8329,14 +8604,25 @@ export const reports: Report[] = [
     url: "https://tangelo.ai",
     industry: "AI Sales Enablement / GTM SaaS",
     pages: 10,
+    hostingCost: 72,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup means invisible product structure in search",
+        body: "Right now, Google can't pull structured information about Tangelo's product into search results — no schema markup means no rich results for the platform's AI agents, use cases, or integrations. A VP of Sales searching 'AI sales enablement platform' gets a plain link where a structured result with feature context could be. It's a 20-minute fix, but on Webflow it requires a developer every time.",
+      },
+      {
+        label: "Enterprise buyers evaluate in days, not weeks",
+        body: "Tangelo sells AI-first enablement to teams that are already moving fast — the credibility gap is when the site that's supposed to prove momentum can't reflect a new integration or a fresh customer win until a developer has a free day. Enterprise buyers evaluating multiple tools do it fast and compare everything in the same week.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'One System. Fully Connected.' with a new integration you just shipped",
-      result1: "✓ Live same day — no Webflow developer",
-      prompt2: "Add a new customer result to your social proof section when a deal closes",
-      result2: "✓ Published immediately",
-      prompt3: "A/B test 'See It In Action' against 'Talk to an Expert' CTA for enterprise buyers",
-      result3: "✓ Swap it yourself in minutes, revert anytime"
+      prompt1: "Update 'One System. Fully Connected.' with the new Salesforce integration we just shipped",
+      result1: "✓ Live the same day it ships — every enterprise demo that week includes the integration before the buyer asks",
+      prompt2: "Add schema markup so Google shows Tangelo's AI agent capabilities and use cases as structured results in enablement searches",
+      result2: "✓ Done in one pass — 'AI sales enablement' searches now return Tangelo with the product context that earns a demo request instead of a bounce",
+      prompt3: "Add a customer result to the social proof section — GTM team reduced ramp time by 40% in the first cohort",
+      result3: "✓ Live the same day the customer approves it — the proof point that closes skeptical VPs of Sales is on the site while it's still fresh"
     }
   },
   {
@@ -8347,14 +8633,25 @@ export const reports: Report[] = [
     url: "https://vidalunahousing.com",
     industry: "Temporary Housing / Insurance Claims",
     pages: 6,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Generic listing in a trust-critical situation",
+        body: "Right now, Google shows 'Home | Vida Luna Housing' with no meta description at all — a family or adjuster searching 'temporary housing insurance claim' or 'displacement housing California' sees just a generic title with no explanation of what VIDA LUNA does or who they serve. It's a one-paragraph fix, but on Wix it keeps getting deprioritized.",
+      },
+      {
+        label: "Adjusters and displaced families decide in minutes",
+        body: "VIDA LUNA HOUSING serves displaced families navigating the insurance claim lifecycle — and the adjusters and families landing on the site are under real time pressure. When service areas expand, housing types change, or the intake process updates, the site needs to reflect that immediately. An adjuster sourcing housing for a family in a new coverage area who can't tell from the site whether VIDA LUNA serves that location will move to a provider that makes it obvious.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Update 'What We Do' when you add a new housing type or service area",
-      result1: "✓ Live in minutes — no designer",
-      prompt2: "Add a new step to 'Insurance Claim Lifecycle' after refining your process",
-      result2: "✓ Published same day",
-      prompt3: "Change 'Request Housing' CTA to link to a new intake form after switching platforms",
-      result3: "✓ Updated instantly — no developer needed"
+      prompt1: "Add a meta description: 'VIDA LUNA HOUSING provides temporary housing for displaced families navigating insurance claims — furnished homes and apartments across California, available immediately for short and long-term stays'",
+      result1: "✓ Search results now explain what VIDA LUNA does before anyone clicks — adjusters and families arrive oriented instead of guessing from a generic title",
+      prompt2: "Update What We Do to include the new extended-stay housing option — include a one-sentence description and who it's right for",
+      result2: "✓ Live in minutes — adjusters placing families on longer claims see the option that fits their situation without having to ask",
+      prompt3: "Add a step to Insurance Claim Lifecycle: 'Step 1: Adjuster submits placement request → We respond within 2 hours with available options'",
+      result3: "✓ Published same day — adjusters following the process know exactly how to engage and what to expect, which is the fastest way to become a preferred vendor"
     }
   },
   {
@@ -8365,14 +8662,25 @@ export const reports: Report[] = [
     url: "https://zenosemi.com",
     industry: "Semiconductor Technology / IP Licensing",
     pages: 5,
+    hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "The site is the due diligence document",
+        body: "Investors and potential licensees doing diligence on Zeno check the site specifically to see what's moved recently — a News section that hasn't updated in weeks, or a Technology page that doesn't reflect the current state of the IP, signals a company that isn't moving. The IP licensing window is narrow, and every week the site doesn't reflect the latest milestone is a week that credibility is being built somewhere else.",
+      },
+      {
+        label: "Licensing conversations need current proof",
+        body: "By the time a new publication, partnership, or team update gets through the Wix designer queue, the conversation that would have been strengthened by it has already happened without it. For an IP licensing company, the site is the due diligence document — and a site that doesn't reflect the current state of the technology undercuts every conversation it supports.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Add a new press mention or publication to the News section the week it drops",
-      result1: "✓ Live same day — no designer needed",
-      prompt2: "Update 'Memory Technology' or 'Logic Technology' pages when a new breakthrough is ready to share",
-      result2: "✓ Published immediately",
-      prompt3: "Add a new Team member to the 'Team' page when a key hire joins",
-      result3: "✓ Live in minutes — no developer"
+      prompt1: "Add the new publication to the News section — include the journal name, date, and a one-sentence summary",
+      result1: "✓ Live the same week the paper drops — investors doing diligence see an active research timeline, not a static snapshot",
+      prompt2: "Update the Memory Technology page with the new performance benchmark data",
+      result2: "✓ Published immediately — the licensing conversation now starts with current numbers instead of last year's",
+      prompt3: "Add the new VP of Business Development to the Team page — photo, bio, and previous company",
+      result3: "✓ Live before the next investor call where their name comes up — credibility in place when it's needed"
     }
   },
   {
