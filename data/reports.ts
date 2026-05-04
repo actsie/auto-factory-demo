@@ -8388,7 +8388,7 @@ export const reports: Report[] = [
     opportunityFindings: [
       {
         label: "Generic page title",
-        body: "Right now, the page title shows 'TAMART: Home' in Google search results — which tells nobody searching for AI video production what the company does. Any founder who finds the site through search sees a generic label before they ever click. It's a two-minute fix, but on Wix making it stick the right way keeps getting put off.",
+        body: "Right now, the page title shows 'TAMART: Home' in Google search results — which tells nobody searching for AI video production what the company does. Any founder who finds the site through search sees a generic label before they ever click. It's a two-minute fix on any platform that gives you real control.",
       },
       {
         label: "Site depth vs. business depth",
