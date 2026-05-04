@@ -116,7 +116,7 @@ export default async function ReportPage({ params }: Props) {
         .aiex { background:#F6F4E8; border:1px solid rgba(0,0,0,0.07); border-radius:12px; padding:16px 20px; margin-bottom:10px; }
         .aiex-label { font-size:10px; color:rgba(26,26,26,0.4); margin-bottom:5px; text-transform:uppercase; letter-spacing:0.08em; }
         .aiex-prompt { color:#1a1a1a; font-style:italic; font-size:14px; }
-        .aiex-result { margin-top:10px; font-size:13px; color:#C0E1D2; font-weight:600; }
+        .aiex-result { margin-top:10px; font-size:13px; color:#3d7a6a; font-weight:600; }
 
         .icard { background:#fff; border:1px solid rgba(0,0,0,0.07); border-radius:16px; padding:28px 24px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
         .iicon { font-size:28px; margin-bottom:14px; color:#1a1a1a; }
@@ -173,13 +173,14 @@ export default async function ReportPage({ params }: Props) {
           transform: translateY(32px);
           transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .reveal.visible {
+        .reveal[data-visible] {
           opacity: 1;
           transform: translateY(0);
         }
         .reveal-delay-1 { transition-delay: 0.08s; }
         .reveal-delay-2 { transition-delay: 0.16s; }
         .reveal-delay-3 { transition-delay: 0.24s; }
+
       `}</style>
 
       {/* NAV */}
@@ -352,7 +353,7 @@ export default async function ReportPage({ params }: Props) {
             {[
               { title: "Designer in the loop", desc: "Even a one-line copy change means a brief, a queue, and a wait." },
               { title: "No direct access", desc: "You can see the site. You can't touch it without involving a specialist." },
-              { title: "You know exactly what needs to change.", desc: "You just can't change it." },
+              { title: "The site falls behind twice", desc: "Once because it can't be updated between rebuilds. Again because the rebuild itself keeps getting pushed." },
             ].map((item, idx) => (
               <div key={idx} style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "14px", padding: "22px 24px" }}>
                 <div style={{ fontSize: "16px", fontWeight: 700, marginBottom: "6px", color: "#1a1a1a" }}>{item.title}</div>
@@ -368,7 +369,7 @@ export default async function ReportPage({ params }: Props) {
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div className="reveal" style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#3d7a6a", marginBottom: "12px" }}>The Friction</div>
           <h2 className="reveal reveal-delay-1" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#1a1a1a", lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "10px" }}>
-            Every time you want to change something, it becomes a project.
+            The continuous layer is broken.
           </h2>
           <p style={{ fontSize: "16px", color: "rgba(26,5,51,0.55)", marginBottom: "36px" }}>Where manual website management slows {report.company} down.</p>
           <div id="frictionCardsGrid" className="reveal">
@@ -394,7 +395,7 @@ export default async function ReportPage({ params }: Props) {
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div className="migration-card reveal" style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "20px", padding: "48px", boxShadow: "0 2px 24px rgba(0,0,0,0.05)" }}>
             <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "12px", opacity: 0.5 }}>After Migration</div>
-            <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em", marginBottom: "32px" }}>What full control looks like.</h2>
+            <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em", marginBottom: "32px" }}>What it looks like when the site moves at your speed.</h2>
             <div>
               <div className="brow"><span className="before-col">Update copy → wait on designer → days later</span><span className="arrow-col">→</span><span className="after-col">Edit it yourself, live in minutes</span></div>
               <div className="brow"><span className="before-col">New landing page → brief → build → approve → weeks</span><span className="arrow-col">→</span><span className="after-col">Describe it → review → ship same day</span></div>
@@ -471,7 +472,7 @@ export default async function ReportPage({ params }: Props) {
               </div>
             ))}
           </div>
-          <p style={{ fontSize: "13px", color: "rgba(26,5,51,0.4)", marginTop: "20px", textAlign: "center" }}>Timeline: 1–2 weeks start to finish.</p>
+          <p style={{ fontSize: "13px", color: "rgba(26,5,51,0.4)", marginTop: "20px", textAlign: "center" }}>Timeline: 3–5 days start to finish.</p>
         </div>
       </section>
 
@@ -897,15 +898,14 @@ export default async function ReportPage({ params }: Props) {
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.setAttribute('data-visible', '');
         revealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
-  // defer until after React hydration to avoid className mismatch
-  setTimeout(() => {
+  requestAnimationFrame(() => requestAnimationFrame(() => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-  }, 100);
+  }));
 
   // ── Opportunity label cross-hatch ────────────────────────────
   function applyRoughHatch(label) {
