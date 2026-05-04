@@ -80,7 +80,7 @@ export default function HomePage() {
                     </AnimatedContent>
                     <AnimatedContent distance={30} delay={0.2}>
                         <p className="text-zinc-500 text-base/7 mt-5 max-w-lg">
-                            Fountain of Scale builds and runs done-for-you automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, and more.
+                            The average small business owner spends 15+ hours a week on tasks that don't need them. We automate that layer so you get the hours back and the leads stop falling through.
                         </p>
                     </AnimatedContent>
                     <AnimatedContent className="flex flex-col md:flex-row items-center gap-4 mt-8 w-full md:w-auto" delay={0.3}>
@@ -111,9 +111,9 @@ export default function HomePage() {
                             <div className="od-g1-ring od-g1-ring-3" style={{position:"absolute",width:200,height:200,borderRadius:"50%",border:"3px solid #7c3aed"}} />
                         </div>
                         {[
-                            { title: "We build it", body: "No templates, no platform to log into. We build the system from scratch, tailored to how your business actually works." },
-                            { title: "We run it", body: "Leads get responses. Follow-ups go out. Reviews get replied to. It runs in the background while you do the actual work." },
-                            { title: "We maintain it", body: "If something breaks or needs adjusting, we fix it." },
+                            { title: "We build it", body: "Most automation tools take weeks to configure and still don't fit. We handle the setup, the maintenance, and the adjustments — tailored to how you already work." },
+                            { title: "We run it", body: "Leads get responses. Follow-ups go out on schedule. You stop being the bottleneck." },
+                            { title: "We maintain it", body: "If something breaks or needs adjusting, we're on it. Your job is to use it, not manage it." },
                         ].map((item, i) => (
                             <AnimatedContent key={i} delay={i * 0.1} className="border border-[#edf9f8] rounded-xl p-6 bg-[#f7fcfb]">
                                 <p className="font-urbanist font-semibold text-gray-800 text-lg mb-2">{item.title}</p>
@@ -139,7 +139,7 @@ export default function HomePage() {
                                 Solutions
                             </h2>
                             <p className="text-zinc-500 text-base/7 mt-3 max-w-md">
-                                Pick yours to see exactly what we do.
+                                Pick your industry to see what we'd automate first.
                             </p>
                         </AnimatedContent>
 
