@@ -33,7 +33,7 @@ const steps = [
     {
         icon: RocketIcon,
         title: "You own it",
-        description: "We hand over the files or host it under your domain for $20/mo. Either way, the code is yours.",
+        description: "We hand over the files — or host it under your domain for $20/mo. You own the code either way.",
         iconBg: "bg-[#c98dc0]",
         cardBg: "bg-[#ede8f6]/40",
     },
