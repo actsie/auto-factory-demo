@@ -8405,6 +8405,412 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "asharex",
+    company: "aShareX",
+    logo: "/assets/reports/asharex/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://asharex.com",
+    industry: "Fractional Real Estate Investing",
+    pages: 8,
+    hostingCost: 72,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "Google can't pull structured information about aShareX's investment offerings from the current site. For a platform asking people to trust it with their money, a missing structured data layer means the site looks identical to a generic landing page in search results — no property types, no yield ranges, no investor signals. That's fixable in a single pass."
+      },
+      {
+        label: "Fractional investing is a positioning moment",
+        body: "The 'own a piece of real estate for the price of a coffee' framing is specific and compelling — but it's buried. The site has the right story; it just isn't structured to surface it where buyers are actively comparing options. A custom platform gives you the page depth and keyword targeting to own that comparison."
+      }
+    ],
+    aiExamples: {
+      prompt1: "The homepage hero talks about investing but doesn't say what kind of property or what the minimum is. Update it to say fractional ownership, starting at $50, in premium residential properties",
+      result1: "✓ Hero updated — minimum investment and property type now visible above the fold before a visitor decides whether to scroll",
+      prompt2: "Add schema markup for the investment platform — include the offering type, minimum investment, and property categories",
+      result2: "✓ Schema added — Google can now surface structured property and investment details in rich results",
+      prompt3: "Add a page for first-time investors — explain how fractional ownership works, what the risks are, and what the first step looks like",
+      result3: "✓ New page live same day — specific enough to rank for 'fractional real estate investing for beginners' and convert the curious visitor into a registered user"
+    }
+  },
+  {
+    id: "heathen",
+    company: "Heathen",
+    logo: "/assets/reports/heathen/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://heathen.tech",
+    industry: "Game Development Tools / Unity Toolkits",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "Heathen's toolkits aren't showing up in rich results because there's no structured data telling Google what these products are, what they cost, or what platform they're for. A developer searching 'Unity physics toolkit' sees a plain blue link — not a product card with a price and a platform tag. That's a one-pass fix on a custom platform."
+      },
+      {
+        label: "Dev community moves on short cycles",
+        body: "When a new Unity version drops or a Godot update changes the landscape, the developers who need to know are already in forums and Discord servers within hours. The site has no mechanism to publish fast — every update that takes a week to ship is a week where someone else answers the question first."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Godot 4 support just dropped. Update the supported engines section to include it and add a short note about what changed",
+      result1: "✓ Engines section updated and live before the forum thread moves on — the site reflects the current product",
+      prompt2: "Add schema markup for the toolkit pricing — product name, price, platform, and compatible engine versions",
+      result2: "✓ Schema added — toolkits now eligible to show as structured product results when developers search by platform and feature",
+      prompt3: "Add a dedicated page for the Steam integration — what it does, how to set it up, and a link to the asset store listing",
+      result3: "✓ New page live same day — specific enough to rank for 'Unity Steam integration' and send developers straight to the asset"
+    }
+  },
+  {
+    id: "hipclip-ai",
+    company: "Hipclip.AI",
+    logo: "/assets/reports/hipclip-ai/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://hipclip.ai",
+    industry: "AI Video Editing / Short-Form Content",
+    pages: 15,
+    hostingCost: 72,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "Hipclip's features and pricing aren't surfacing as structured results because there's no schema layer. In an AI tools category where buyers compare 4–5 options before deciding, a plain search listing competes on title alone. Structured data lets Google pull the product type, pricing tier, and platform into the result — before anyone clicks."
+      },
+      {
+        label: "AI tools move fast",
+        body: "The short-form video editing market is shifting every quarter. When Hipclip ships a new feature or a competitor gets acquired, the window to publish comparison content is days, not weeks. A custom platform means that page goes live the same day the news breaks — not after a developer cycle."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a comparison page: Hipclip vs Descript — same format as the others, focus on short-form video and auto-captioning",
+      result1: "✓ Comparison page live same day — positioned where buyers who are already evaluating Descript can find it",
+      prompt2: "Add schema markup for the SaaS product — include product name, pricing tiers, and core feature list",
+      result2: "✓ Schema added — pricing and feature data now eligible to surface in structured search results",
+      prompt3: "The pricing section says 'coming soon' for the Pro tier. Update it with the actual price and what's included",
+      result3: "✓ Pricing updated live in minutes — no more ambiguity for the visitor who's ready to upgrade"
+    }
+  },
+  {
+    id: "leadloft",
+    company: "LeadLoft",
+    logo: "/assets/reports/leadloft/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://leadloft.com",
+    industry: "Sales Engagement / CRM",
+    pages: 14,
+    hostingCost: 72,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "LeadLoft's pricing and feature set aren't structured for Google to surface as a comparison result. Sales tools buyers run multiple tab comparisons — they're looking at review sites, comparison pages, and structured results simultaneously. Without schema, LeadLoft shows up as a plain link while competitors with structured data get the feature and pricing card."
+      },
+      {
+        label: "A sales platform with a slow update cycle",
+        body: "LeadLoft helps sales teams move faster. The irony is that the site itself can't move fast — adding a new use case, a new integration page, or a competitor comparison takes a development cycle. A custom platform closes that gap so the site keeps pace with the product."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a comparison page: LeadLoft vs Apollo — focus on ease of setup, CRM sync, and pricing for solo founders",
+      result1: "✓ Comparison page live same day — positioned for the founder who's already looking at Apollo and needs one more data point",
+      prompt2: "Add schema markup for the SaaS product — pricing tiers, core features, and target user",
+      result2: "✓ Schema added — LeadLoft now eligible to surface as a structured result when buyers search by feature or use case",
+      prompt3: "Add a landing page for founder-led outreach — solo founders running their own sales without a team",
+      result3: "✓ New page live same day — specific enough to rank for 'sales outreach tool for founders' and convert without a demo"
+    }
+  },
+  {
+    id: "moon-boots",
+    company: "Moon Boots",
+    logo: "/assets/reports/moon-boots/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://moonboots.com",
+    industry: "Creator Monetization Platform",
+    pages: 5,
+    hostingCost: 72,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "Moon Boots' platform features and zero-commission model aren't structured for search. A creator comparing monetization platforms is looking at feature tables and review snippets before they ever visit a site. Without schema, the platform shows up as a generic link — the fee structure and core differentiators are invisible at the search result level."
+      },
+      {
+        label: "Creator platform timing",
+        body: "Creator monetization is moving fast — platforms rise and fall on a cycle of fee changes and policy updates. When a competitor raises fees or removes a feature, there's a window where creators are actively looking for alternatives. A custom platform means a comparison page or a dedicated landing page can go live the same day — not after a sprint."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a case study: a creator who moved from Patreon to Moon Boots — what changed in their monthly revenue and what they said about it",
+      result1: "✓ Case study live same day — specific enough to show up when a creator searches 'Patreon alternative' and reads something real",
+      prompt2: "Add schema markup for the platform — zero-commission model, supported content types, and payout frequency",
+      result2: "✓ Schema added — fee structure and platform details now eligible to surface in structured results before a visitor clicks",
+      prompt3: "Add a comparison page: Moon Boots vs Patreon — same layout as the others, focus on fees and payout speed",
+      result3: "✓ Comparison page live same day — positioned where creators who are already considering Patreon can find it"
+    }
+  },
+  {
+    id: "moxie-marketing",
+    company: "Moxie Marketing",
+    logo: "/assets/reports/moxie-marketing/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://moxiemarketingco.com",
+    industry: "Marketing Agency / Nonprofit Specialization",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "Moxie's services aren't structured for search. A nonprofit or small business searching for a marketing partner is comparing agencies on review sites and search results simultaneously. Without schema, the agency listing shows up without service types, specializations, or social proof — just a name and a URL. That's fixable in one pass."
+      },
+      {
+        label: "The work is stronger than the site",
+        body: "The case results — a nonprofit that tripled donations, campaigns that moved real numbers — are the kind of proof that converts. Right now that evidence is harder to surface than it should be. A custom platform makes it straightforward to add a new case study the week a campaign closes, not months later when the momentum is gone."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a case study: nonprofit client that tripled donations after the campaign — what Moxie did, what changed, what they said",
+      result1: "✓ Case study live same day — the proof point that converts a nonprofit board member who's skeptical about marketing spend",
+      prompt2: "Add schema markup for the agency — service types, nonprofit specialization, and location",
+      result2: "✓ Schema added — services and specialization now visible in structured search results before a potential client clicks",
+      prompt3: "Add a landing page for nonprofit fundraising campaigns — what Moxie does differently for mission-driven organizations",
+      result3: "✓ New page live same day — specific enough to rank for 'nonprofit marketing agency' and convert the executive director doing research"
+    }
+  },
+  {
+    id: "ocimatix",
+    company: "OCImatix",
+    logo: "/assets/reports/ocimatix/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://ocimatix.com",
+    industry: "Oracle Cloud / ISV Consulting",
+    pages: 7,
+    hostingCost: 72,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "OCImatix's Oracle expertise and Oracle Marketplace presence aren't structured for search. Enterprise buyers doing due diligence on an ISV run multiple searches before they ever reach out — and without schema, the site competes on title alone. Structured data surfaces the service type, platform specialization, and credibility signals before a buyer clicks."
+      },
+      {
+        label: "The credibility bar with technical buyers is high",
+        body: "An ISV with 50 Oracle enterprise customers and Oracle Marketplace placement has already cleared a bar that most competitors haven't. That signal needs to be on the site in a form that shows up in search, not buried in a paragraph. A custom platform makes it straightforward to add a new customer win or a new Marketplace certification the week it happens."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a case study: ISV that reached 50 Oracle enterprise customers using OCImatix — what the engagement looked like and what changed",
+      result1: "✓ Case study live same day — the proof point for the enterprise buyer who needs to see scale before they schedule a call",
+      prompt2: "Add schema markup for Oracle Marketplace services — service type, platform, and certification status",
+      result2: "✓ Schema added — Oracle specialization now visible as a structured result when buyers search by platform",
+      prompt3: "Add a landing page for SaaS startups entering the Oracle Marketplace — what OCImatix handles and what the timeline looks like",
+      result3: "✓ New page live same day — specific enough to rank for 'Oracle Marketplace ISV consulting' and convert the CTO who's evaluating the option"
+    }
+  },
+  {
+    id: "pink-fins",
+    company: "Pink Fins Brand Management",
+    logo: "/assets/reports/pink-fins/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://pinkfinsbrandmanagement.com",
+    industry: "PR & Brand Management",
+    pages: 14,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "A visibility firm with no structured data is a positioning gap. When a potential client searches for a PR or brand management agency, structured results surface service types, credibility signals, and specializations before anyone clicks. Right now Pink Fins shows up as a plain link — the Forbes contributor work, the brand story, and the specialization are invisible at the search result level."
+      },
+      {
+        label: "The quiet due diligence window",
+        body: "Founders and executives looking for brand management do their research before they ever reach out. That research window — where they're reading, comparing, and forming impressions — is where the site either builds trust or doesn't. A custom platform makes it possible to publish a new case study or a new media placement the week it happens, not after a development cycle."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a case study: the Forbes contributor placement — what the client needed, what the coverage looked like, and what changed for their brand",
+      result1: "✓ Case study live same day — the proof point for the executive who wants to see what 'earned media' actually looks like in practice",
+      prompt2: "Add schema markup for PR and brand management services — service types, specializations, and media placements",
+      result2: "✓ Schema added — service type and media work now eligible to surface as structured results in brand management searches",
+      prompt3: "Add a landing page for women founders — how Pink Fins approaches brand positioning for women-led businesses",
+      result3: "✓ New page live same day — specific enough to rank for 'PR agency for women founders' and convert the founder doing her research"
+    }
+  },
+  {
+    id: "protech-consulting",
+    company: "ProTech Consulting & Engineering",
+    logo: "/assets/reports/protech-consulting/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://protechconsultingengineering.com",
+    industry: "Home Inspection / Engineering Consulting",
+    pages: 8,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Page title shows 'Testing' in search results",
+        body: "Right now, when someone searches for ProTech and finds the site, the page title reads 'Testing' — which looks like a placeholder left over from setup. For a home inspection firm where trust is the whole product, that's the first impression a potential client or referring Realtor sees before they click. It's a one-line fix."
+      },
+      {
+        label: "Referral windows don't wait",
+        body: "A Realtor recommending an inspector makes that call the same week a listing goes live. If the site doesn't have a page that speaks directly to pre-listing inspections or Realtor partnerships, that referral goes to whoever does. A custom platform means a new service page or a Realtor-specific landing page can go live the same day the conversation happens."
+      }
+    ],
+    aiExamples: {
+      prompt1: "The main CTA says 'Contact Us'. Change it to 'Book a Same-Day Inspection' and add a line mentioning that we work with Realtors for pre-listing inspections",
+      result1: "✓ CTA updated live in minutes — visitors now see a specific action and Realtors see themselves in it before they scroll",
+      prompt2: "Add a landing page for Realtor pre-sale inspections — what it includes, the turnaround time, and how to refer a client",
+      result2: "✓ New page live same day — specific enough for a Realtor searching 'home inspector for pre-listing' to find it and send the referral",
+      prompt3: "The page title says 'Testing' — fix it to show the actual company name and what we do",
+      result3: "✓ Page title fixed in one pass — search results and browser tabs now show 'ProTech Consulting & Engineering | Home Inspections' instead of a placeholder"
+    }
+  },
+  {
+    id: "space-bridge-partners",
+    company: "Space Bridge Partners",
+    logo: "/assets/reports/space-bridge-partners/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://spacebridgepartners.com",
+    industry: "Private Capital / Family Office Advisory",
+    pages: 11,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Missing meta description",
+        body: "When Space Bridge Partners shows up in search results, the description underneath the link says 'Home' — which tells a potential capital partner or family office contact nothing about who this is or what they do. That single line is the first thing a qualified prospect reads before deciding whether to click. A custom platform makes it a two-minute fix."
+      },
+      {
+        label: "Private capital is a timing business",
+        body: "Family offices and private capital sources evaluate partners on a narrow window of criteria, and that window opens and closes fast. When the positioning shifts — new focus area, new mandate, new thesis — the site needs to reflect it immediately. Right now, a site update takes a development cycle. That gap is where the wrong impression sticks."
+      }
+    ],
+    aiExamples: {
+      prompt1: "The homepage copy is from last year and doesn't reflect the new focus on impact-aligned capital. Update the hero and mission section to match where we are now",
+      result1: "✓ Homepage updated live in minutes — the site now reflects the current mandate before a partner does their due diligence",
+      prompt2: "Add a meta description that explains what Space Bridge Partners does and who we work with — family offices, impact investors, emerging managers",
+      result2: "✓ Meta description added — search listings now tell the story before a qualified contact decides whether to click",
+      prompt3: "Add a landing page for family office LPs — what Space Bridge does for them specifically, and how to start a conversation",
+      result3: "✓ New page live same day — specific enough to rank for 'family office fund partnerships' and give a warm contact something to send"
+    }
+  },
+  {
+    id: "spellbinder-media",
+    company: "Spellbinder Media",
+    logo: "/assets/reports/spellbinder-media/logo.png",
+    logoNeedsBg: false,
+    url: "https://spellbindermedia.com",
+    industry: "Podcast Production / Audio Branding",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "Spellbinder's podcast production services aren't surfacing as structured results. A brand or founder looking for podcast production runs a comparison search before they ever reach out — and without schema, the site shows up without service types, delivery times, or proof of output. That's a one-pass fix that changes what a qualified prospect sees before they click."
+      },
+      {
+        label: "Trust cracks when the site feels dated",
+        body: "Podcast production is a relationship business — clients are handing over their voice and their brand. The site is the first signal about whether Spellbinder keeps things current. Case studies, episode counts, and client results that are six months old read as stale. A custom platform makes it possible to add a new result the week a show hits a milestone."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a case study: the show that hit 10K downloads — what the client was trying to do, what Spellbinder handled, and what the result was",
+      result1: "✓ Case study live same day — the proof point for the brand that wants to know what working with Spellbinder actually produces",
+      prompt2: "The hero headline is generic. Test a new version: 'Your podcast, produced to sound like you hired a full audio team'",
+      result2: "✓ New headline live in minutes and fully revertible — A/B test running without a developer in the loop",
+      prompt3: "Add schema markup for podcast production services — service type, delivery format, and turnaround",
+      result3: "✓ Schema added — services now eligible to surface in structured results when a brand searches for podcast production"
+    }
+  },
+  {
+    id: "taskon-ecommerce",
+    company: "TaskOn eCommerce",
+    logo: "/assets/reports/taskon-ecommerce/logo.jpeg",
+    logoNeedsBg: false,
+    url: "https://taskonecommerce.com",
+    industry: "eCommerce Email Marketing / Klaviyo",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "TaskOn's Klaviyo specialization isn't visible in search results because there's no structured data layer. eCommerce founders comparing email agencies are looking at feature sets and specializations before they ever visit a site — and without schema, TaskOn shows up as a plain link while competitors with structured data surface their platform expertise and service type."
+      },
+      {
+        label: "eCommerce founders compare fast",
+        body: "A Shopify brand that just hit $1M is evaluating email agencies on a short cycle. When a new case study closes or a new Klaviyo certification lands, that information needs to be on the site the same week — not after a development sprint. Right now, the site can't move at that speed."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a case study: the Klaviyo audit that found $180K in untapped revenue — what we looked at, what we found, and what the client did with it",
+      result1: "✓ Case study live same day — the proof point for the eCommerce founder who wants to know what a Klaviyo audit actually surfaces",
+      prompt2: "Add schema markup for Klaviyo email marketing services — service type, platform specialization, and eCommerce focus",
+      result2: "✓ Schema added — Klaviyo expertise now visible as a structured result when a Shopify brand searches for email marketing help",
+      prompt3: "Add a landing page for Shopify brands at $3M+ — what email strategy looks like at that stage and what TaskOn handles",
+      result3: "✓ New page live same day — specific enough to rank for 'Klaviyo agency for Shopify' and convert the founder who's ready to hand this off"
+    }
+  },
+  {
+    id: "competitive-edge-group",
+    company: "The Competitive Edge Group",
+    logo: "/assets/reports/competitive-edge-group/logo.png",
+    logoNeedsBg: false,
+    url: "https://thecompetitiveedgegroup.com",
+    industry: "Business Coaching / Profit Growth",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Missing meta description",
+        body: "When The Competitive Edge Group shows up in search, the description field is blank — Google pulls in whatever it finds first, which is often a navigation label or a fragment of body text. The $100K cash flow guarantee, the profit-first positioning, and the specific client outcomes are invisible at the search result level. A custom platform makes that a two-minute fix."
+      },
+      {
+        label: "The pipeline should be fuller than it is",
+        body: "A business coaching firm with a $100K guarantee and verifiable client results should have a site that converts warm referrals without a follow-up call. Right now the proof points exist but they're not structured to do that work. A custom platform makes it possible to add a new case study the week a client hits a milestone — not six months later."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Add a meta description: lead with the $100K cash flow guarantee and what kind of business owner we work with",
+      result1: "✓ Meta description added — search listings now lead with the guarantee before a potential client decides whether to click",
+      prompt2: "Add a case study: the client who improved cash flow and what the guarantee looked like in practice",
+      result2: "✓ Case study live same day — the proof point for the business owner who needs to see the guarantee backed by a real result",
+      prompt3: "Add a landing page for family-owned businesses — the specific pressures they face and how The Competitive Edge Group approaches them",
+      result3: "✓ New page live same day — specific enough to rank for 'business coaching for family-owned businesses' and convert the owner doing research"
+    }
+  },
+  {
+    id: "pivotal-group",
+    company: "The Pivotal Group",
+    logo: "/assets/reports/pivotal-group/logo.avif",
+    logoNeedsBg: false,
+    url: "https://thepivotalgroup.org",
+    industry: "Executive Coaching / Nonprofit Leadership",
+    pages: 6,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "No schema markup",
+        body: "The Pivotal Group's coaching services and speaking engagements aren't structured for search. An executive or nonprofit board searching for a leadership coach is running due diligence before they ever reach out — and without schema, the site shows up without service types, credentials, or speaking history. That's a one-pass fix that changes what a qualified prospect sees."
+      },
+      {
+        label: "Trust compounds through freshness",
+        body: "Leadership coaching is a credibility business. The GUTZY Movement, the speaking circuit, the nonprofit board work — these signal active presence in the community. When that information is six months out of date on the site, it undercuts the impression. A custom platform means a new engagement, a new testimonial, or a new program can go live the week it happens."
+      }
+    ],
+    aiExamples: {
+      prompt1: "Update the speaking section with this quarter's engagements — add the conference names, dates, and topics",
+      result1: "✓ Speaking section updated live in minutes — the site now reflects active presence instead of last year's calendar",
+      prompt2: "Add a testimonial from the GUTZY Movement — what the collaboration looked like and what participants said",
+      result2: "✓ Testimonial live same day — social proof from a recognizable community partner that signals real-world credibility",
+      prompt3: "Add a landing page for nonprofit executives in career transition — what coaching looks like for someone moving from program director to ED",
+      result3: "✓ New page live same day — specific enough to rank for 'executive coaching for nonprofit leaders' and convert the director doing her research"
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
