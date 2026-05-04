@@ -8,7 +8,7 @@ export interface Report {
   pages: number;
   hostingCost?: number;
   waitDays: number;
-  opportunityText?: string;
+  opportunityFindings?: { label: string; body: string }[];
   aiExamples: {
     prompt1: string;
     result1: string;
@@ -7852,7 +7852,16 @@ export const reports: Report[] = [
     industry: "Revenue Automation / Growth Agency",
     pages: 8,
     waitDays: 3,
-    opportunityText: "You're selling automation — but the site itself isn't easy to change without touching code. \"Automate the work that costs you revenue\" is a strong hook. But every time that message needs to evolve — a new service, a new offer, a new CTA test — someone has to go into the codebase to do it. There's also no schema markup on the site, which means Google can't pull structured info about what Fountain of Scale does into search results. That's a 20-minute fix — but on a custom Next.js build, adding it requires a developer every time.",
+    opportunityFindings: [
+      {
+        label: "SEO quick win",
+        body: "Right now, Google can't fully read what Fountain of Scale does — the site is missing a small piece of code that tells search engines exactly what services you offer. It's a 20-minute fix, but on a custom Next.js build it keeps getting deprioritized. We'd knock it out as part of the rebuild.",
+      },
+      {
+        label: "Site speed",
+        body: "\"Automate the work that costs you revenue\" is exactly the right message. The next step is making sure the site can move as fast as the business does — so when a new offer launches or the messaging shifts, it's live the same day, not after a developer's queue.",
+      },
+    ],
     aiExamples: {
       prompt1: "Change 'Automate the work that costs you revenue' to lead with our new service launch",
       result1: "✓ Hero updated and live in minutes — no developer, no deploy",

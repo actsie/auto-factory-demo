@@ -32,6 +32,8 @@ export default async function ReportPage({ params }: Props) {
     <>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
 
       <style>{`
@@ -58,20 +60,20 @@ export default async function ReportPage({ params }: Props) {
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #1a1a1a; color: #fff; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #F6F4E8; color: #1a1a1a; }
 
-        input::placeholder { color: rgba(46,229,214,0.45); }
+        input::placeholder { color: rgba(26,26,26,0.4); }
         input:focus { outline: none; box-shadow: none; }
-        #ctaEmailField:focus { border: 1px solid #2ee5d6 !important; }
+        #ctaEmailField:focus { border: 1px solid #C0E1D2 !important; }
         input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus {
-          -webkit-box-shadow: 0 0 0 1000px #2a2a2a inset !important;
-          -webkit-text-fill-color: #fff !important;
+          -webkit-box-shadow: 0 0 0 1000px #F6F4E8 inset !important;
+          -webkit-text-fill-color: #1a1a1a !important;
         }
 
         .nav-cta {
-          background: #2ee5d6; color: #1a1a1a;
+          background: #C0E1D2; color: #1a1a1a;
           font-size: 13px; font-weight: 800;
           padding: 9px 22px; border-radius: 50px;
           text-decoration: none;
@@ -83,7 +85,7 @@ export default async function ReportPage({ params }: Props) {
 
         .cta-btn {
           margin-top: 12px; width: 100%;
-          background: #2ee5d6; color: #1a1a1a;
+          background: #C0E1D2; color: #1a1a1a;
           font-size: 15px; font-weight: 800;
           padding: 14px 28px; border-radius: 50px;
           border: none; cursor: pointer;
@@ -102,19 +104,19 @@ export default async function ReportPage({ params }: Props) {
         .frow { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid #f5f5f5; font-size:13px; }
         .frow.last { border-bottom:none; }
         .flabel { color:#999; }
-        .fgood { font-weight:600; color:#0d9e8e; }
+        .fgood { font-weight:600; color:#3d7a6a; }
         .fbad { font-weight:600; color:#dc2626; }
 
         .brow { display:grid; grid-template-columns:1fr 32px 1fr; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #f0eeea; font-size:14px; }
         .brow.last { border-bottom:none; }
         .before-col { color:#aaa; text-decoration:line-through; text-decoration-color:#ddd; }
         .arrow-col { color:#ccc; text-align:center; font-size:18px; }
-        .after-col { color:#0d9e8e; font-weight:600; }
+        .after-col { color:#3d7a6a; font-weight:600; }
 
-        .aiex { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px 20px; margin-bottom:10px; }
-        .aiex-label { font-size:10px; color:rgba(255,255,255,0.4); margin-bottom:5px; text-transform:uppercase; letter-spacing:0.08em; }
-        .aiex-prompt { color:#e5e7eb; font-style:italic; font-size:14px; }
-        .aiex-result { margin-top:10px; font-size:13px; color:#2ee5d6; font-weight:600; }
+        .aiex { background:#F6F4E8; border:1px solid rgba(0,0,0,0.07); border-radius:12px; padding:16px 20px; margin-bottom:10px; }
+        .aiex-label { font-size:10px; color:rgba(26,26,26,0.4); margin-bottom:5px; text-transform:uppercase; letter-spacing:0.08em; }
+        .aiex-prompt { color:#1a1a1a; font-style:italic; font-size:14px; }
+        .aiex-result { margin-top:10px; font-size:13px; color:#C0E1D2; font-weight:600; }
 
         .icard { background:#fff; border:1px solid rgba(0,0,0,0.07); border-radius:16px; padding:28px 24px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
         .iicon { font-size:28px; margin-bottom:14px; color:#1a1a1a; }
@@ -123,16 +125,16 @@ export default async function ReportPage({ params }: Props) {
 
         .audit-pill {
           display: inline-flex; align-items: center; gap: 7px;
-          background: rgba(30,30,30,0.85); border: 1px solid rgba(255,255,255,0.12);
+          background: rgba(255,255,255,0.75); border: 1px solid rgba(0,0,0,0.1);
           border-radius: 50px; padding: 8px 14px;
-          font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.85);
+          font-size: 12px; font-weight: 500; color: rgba(26,26,26,0.85);
           backdrop-filter: blur(4px); white-space: nowrap; overflow: hidden; width: 100%;
         }
         .pill-text { display: block; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease; }
         .pill-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex-shrink: 0; transition: background 0.4s ease; }
         .pill-dot--before { background: rgba(255,110,90,0.8); }
-        .pill-dot--after  { background: #2ee5d6; }
-        .audit-pill.is-after { border-color: rgba(46,229,214,0.25); background: rgba(20,60,60,0.6); }
+        .pill-dot--after  { background: #C0E1D2; }
+        .audit-pill.is-after { border-color: rgba(61,122,106,0.3); background: rgba(192,225,210,0.5); }
 
         @media (max-width: 1100px) {
           .hero-diagram { flex-direction: column !important; align-items: center !important; gap: 24px !important; padding-bottom: 48px !important; }
@@ -181,8 +183,8 @@ export default async function ReportPage({ params }: Props) {
       `}</style>
 
       {/* NAV */}
-      <nav style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(20,20,20,0.9)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "14px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <a href="https://fountainofscale.com" style={{ fontSize: "15px", fontWeight: 700, color: "#fff", letterSpacing: "-0.01em", textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+      <nav style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(246,244,232,0.92)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderBottom: "1px solid rgba(0,0,0,0.08)", padding: "14px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <a href="https://fountainofscale.com" style={{ fontSize: "15px", fontWeight: 700, color: "#1a1a1a", letterSpacing: "-0.01em", textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <img src="/assets/auto-factory.png" alt="Logo" style={{ width: "28px", height: "28px", borderRadius: "6px" }} />
           {"Fountain of Scale"}
         </a>
@@ -195,10 +197,10 @@ export default async function ReportPage({ params }: Props) {
       </nav>
 
       {/* HERO */}
-      <section id="heroSection" style={{ position: "relative", background: "#1a1a1a", backgroundImage: "linear-gradient(0deg, rgba(30,30,30,0) 40%, rgba(30,30,30,0.9) 100%), radial-gradient(ellipse 60% 50% at 85% 20%, rgba(46,229,214,0.18) 0%, rgba(46,229,214,0) 70%)", color: "#fff", padding: "80px 80px 0", minHeight: "88vh", display: "flex", flexDirection: "column" }}>
+      <section id="heroSection" style={{ position: "relative", background: "#F6F4E8", backgroundImage: "radial-gradient(ellipse 60% 50% at 85% 20%, rgba(192,225,210,0.45) 0%, rgba(229,238,228,0) 70%)", color: "#1a1a1a", padding: "80px 80px 0", minHeight: "88vh", display: "flex", flexDirection: "column" }}>
         {/* Glow blobs */}
-        <div style={{ position: "absolute", top: "60px", right: "80px", width: "320px", height: "320px", borderRadius: "50%", background: "radial-gradient(circle,rgba(46,229,214,0.2),rgba(46,229,214,0))", pointerEvents: "none", filter: "blur(40px)" }}></div>
-        <div style={{ position: "absolute", top: "40px", right: "40px", width: "200px", height: "200px", borderRadius: "50%", background: "radial-gradient(circle at 30% 25%,rgba(46,229,214,0.3),rgba(46,229,214,0))", pointerEvents: "none", filter: "blur(30px)" }}></div>
+        <div style={{ position: "absolute", top: "60px", right: "80px", width: "320px", height: "320px", borderRadius: "50%", background: "radial-gradient(circle,rgba(192,225,210,0.22),rgba(192,225,210,0))", pointerEvents: "none", filter: "blur(40px)" }}></div>
+        <div style={{ position: "absolute", top: "40px", right: "40px", width: "200px", height: "200px", borderRadius: "50%", background: "radial-gradient(circle at 30% 25%,rgba(229,238,228,0.28),rgba(229,238,228,0))", pointerEvents: "none", filter: "blur(30px)" }}></div>
 
         {/* Sparkle */}
         <div id="heroSparkle" style={{ position: "absolute", top: "88px", right: "200px", width: "32px", height: "32px", pointerEvents: "none", animation: "twinkle 5s ease-in-out infinite" }}>
@@ -209,38 +211,38 @@ export default async function ReportPage({ params }: Props) {
 
         {/* Hero content */}
         <div style={{ maxWidth: "560px", position: "relative", zIndex: 2 }}>
-          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "20px" }}>
+          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#3d7a6a", marginBottom: "20px" }}>
             Website Insight Report
           </div>
           <h1 id="heroHeading" style={{ fontSize: "clamp(40px,5vw,68px)", fontWeight: 800, lineHeight: 1.06, marginBottom: "20px", letterSpacing: "-0.02em" }}>
             Here's where you're losing time.
           </h1>
-          <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.72)", lineHeight: 1.6, maxWidth: "460px", marginBottom: "36px" }}>
+          <p style={{ fontSize: "18px", color: "rgba(26,26,26,0.65)", lineHeight: 1.6, maxWidth: "460px", marginBottom: "36px" }}>
             We analyzed {report.company}&apos;s site. Here&apos;s what we&apos;d fix first — and how fast it can change.
           </p>
 
           {/* Company badge */}
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "14px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "12px", padding: "14px 20px", marginBottom: "36px" }}>
-            <div style={{ width: "40px", height: "40px", borderRadius: "8px", background: report.logoNeedsBg ? "#fff" : "rgba(46,229,214,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: report.logoNeedsBg ? "4px" : "0" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "14px", background: "#fff", border: "1px solid rgba(0,0,0,0.09)", borderRadius: "12px", padding: "14px 20px", marginBottom: "36px" }}>
+            <div style={{ width: "40px", height: "40px", borderRadius: "8px", background: report.logoNeedsBg ? "#fff" : "rgba(192,225,210,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: report.logoNeedsBg ? "4px" : "0" }}>
               <img src={report.logo} alt={report.company} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
             </div>
             <div>
-              <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "2px" }}>Insight Report for</div>
+              <div style={{ fontSize: "10px", color: "rgba(26,26,26,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "2px" }}>Insight Report for</div>
               <div style={{ fontSize: "15px", fontWeight: 700 }}>{report.company}</div>
             </div>
-            <div style={{ width: "1px", height: "32px", background: "rgba(255,255,255,0.1)", margin: "0 6px" }}></div>
-            <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>{report.url.replace("https://", "")}</div>
+            <div style={{ width: "1px", height: "32px", background: "rgba(0,0,0,0.1)", margin: "0 6px" }}></div>
+            <div style={{ fontSize: "12px", color: "rgba(26,26,26,0.45)" }}>{report.url.replace("https://", "")}</div>
           </div>
         </div>
 
         {/* Hero diagram */}
-        <svg id="heroSvg" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 2, overflow: "visible" }}></svg>
+        <svg id="heroSvg" dangerouslySetInnerHTML={{ __html: "" }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 2, overflow: "visible" }} />
 
         <div className="hero-diagram" style={{ position: "relative", zIndex: 3, marginTop: "48px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 0, paddingBottom: "72px" }}>
 
           {/* Col 1: Company card */}
           <div id="heroCard" style={{ position: "relative", flexShrink: 0, width: "200px" }}>
-            <div style={{ position: "absolute", inset: "-12px", borderRadius: "22px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}></div>
+            <div style={{ position: "absolute", inset: "-12px", borderRadius: "22px", background: "rgba(255,255,255,0.6)", border: "1px solid rgba(0,0,0,0.08)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}></div>
             <div style={{ position: "relative", background: "#fff", borderRadius: "14px", padding: "16px 18px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
                 <div style={{ width: "30px", height: "30px", borderRadius: "6px", background: report.logoNeedsBg ? "#fff" : "rgba(26,26,26,0.08)", border: report.logoNeedsBg ? "1px solid #eee" : "none", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: "3px" }}>
@@ -263,7 +265,7 @@ export default async function ReportPage({ params }: Props) {
 
           {/* Col 2: Pills */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "10px", flexShrink: 0 }}>
-            <div id="pillStateLabel" style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px", background: "rgba(255,100,80,0.15)", border: "1px solid rgba(255,100,80,0.3)", color: "rgba(255,130,110,0.9)", transition: "all 0.4s ease" }}>Before</div>
+            <div id="pillStateLabel" style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px", background: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.25)", color: "rgba(180,30,30,0.9)", transition: "all 0.4s ease" }}>Before</div>
             <div id="pillsCol" style={{ display: "flex", flexDirection: "column", gap: "8px", width: "220px" }}>
               <div className="audit-pill" id="auditPill0"><span className="pill-dot pill-dot--before"></span><span className="pill-text">Designer queue</span></div>
               <div className="audit-pill" id="auditPill1"><span className="pill-dot pill-dot--before"></span><span className="pill-text">Dev dependency</span></div>
@@ -276,21 +278,21 @@ export default async function ReportPage({ params }: Props) {
 
           {/* Col 3: Node */}
           <div style={{ flexShrink: 0, position: "relative", width: "56px", height: "56px" }}>
-            <div id="blockedNode" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(60,10,10,0.6)", border: "2px solid rgba(255,80,60,0.35)", display: "flex", alignItems: "center", justifyContent: "center", transition: "opacity 0.4s ease,transform 0.4s ease" }}>
+            <div id="blockedNode" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(255,235,230,0.85)", border: "2px solid rgba(220,80,60,0.3)", display: "flex", alignItems: "center", justifyContent: "center", transition: "opacity 0.4s ease,transform 0.4s ease" }}>
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
                 <circle cx="11" cy="11" r="8" stroke="rgba(255,90,70,0.5)" strokeWidth="1.5"/>
                 <line x1="7" y1="7" x2="15" y2="15" stroke="rgba(255,100,80,0.8)" strokeWidth="1.8" strokeLinecap="round"/>
                 <line x1="15" y1="7" x2="7" y2="15" stroke="rgba(255,100,80,0.8)" strokeWidth="1.8" strokeLinecap="round"/>
               </svg>
             </div>
-            <div id="fosLogo" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "linear-gradient(135deg,#2a2a2a,#111)", border: "2px solid rgba(46,229,214,0.4)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 24px rgba(46,229,214,0.2)", opacity: 0, transform: "scale(0.6)", transition: "opacity 0.5s ease,transform 0.5s cubic-bezier(0.34,1.56,0.64,1)" }}>
+            <div id="fosLogo" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "linear-gradient(135deg,#E5EEE4,#d4e8d0)", border: "2px solid rgba(61,122,106,0.25)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 24px rgba(61,122,106,0.15)", opacity: 0, transform: "scale(0.6)", transition: "opacity 0.5s ease,transform 0.5s cubic-bezier(0.34,1.56,0.64,1)" }}>
               <img src="/assets/auto-factory.png" alt="FoS" style={{ width: "28px", height: "28px", borderRadius: "4px" }} />
             </div>
           </div>
 
           {/* Col 4: Mini chat card */}
           <div id="migrateCta" style={{ flexShrink: 0, opacity: 0, transform: "translateX(14px)", transition: "opacity 0.5s ease,transform 0.5s cubic-bezier(0.34,1.56,0.64,1)", position: "relative" }}>
-            <div style={{ position: "absolute", inset: "-12px", borderRadius: "22px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}></div>
+            <div style={{ position: "absolute", inset: "-12px", borderRadius: "22px", background: "rgba(255,255,255,0.6)", border: "1px solid rgba(0,0,0,0.08)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}></div>
             <div style={{ position: "relative", background: "#fff", borderRadius: "14px", width: "188px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.12)" }}>
               <div style={{ padding: "10px 14px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "7px" }}>
                 <div style={{ width: "24px", height: "24px", borderRadius: "5px", background: report.logoNeedsBg ? "#fff" : "#f5f5f5", border: "1px solid #eee", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: "3px" }}>
@@ -306,7 +308,7 @@ export default async function ReportPage({ params }: Props) {
               </div>
               <div style={{ padding: "8px 10px", borderTop: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "6px", background: "#fafafa" }}>
                 <div style={{ flex: 1, background: "#fff", border: "1px solid #e8e8e8", borderRadius: "6px", padding: "5px 8px", fontSize: "10px", color: "#1a1a1a", height: "22px", display: "flex", alignItems: "center", overflow: "hidden" }}>
-                  <span id="chatTyping" style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}></span><span id="chatCursor" style={{ display: "inline-block", width: "1px", height: "10px", background: "#1a1a1a", marginLeft: "1px", flexShrink: 0, animation: "blink 0.8s step-end infinite" }}></span>
+                  <span id="chatTyping" style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}></span><span id="chatCursor" style={{ display: "inline-block", width: "1px", height: "10px", background: "#F6F4E8", marginLeft: "1px", flexShrink: 0, animation: "blink 0.8s step-end infinite" }}></span>
                 </div>
                 <div id="chatSendBtn" style={{ width: "22px", height: "22px", borderRadius: "5px", background: "#e8e8e8", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "background 0.3s ease" }}>
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="#aaa" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" id="chatSendIcon"/></svg>
@@ -319,33 +321,30 @@ export default async function ReportPage({ params }: Props) {
       </section>
 
       {/* IMMEDIATE OPPORTUNITY */}
-      {report.opportunityText && (
-        <section style={{ background: "#fff", padding: "72px 40px" }}>
+      {report.opportunityFindings && report.opportunityFindings.length > 0 && (
+        <section style={{ background: "linear-gradient(180deg, #F6F4E8 0%, #E5EEE4 100%)", padding: "72px 40px" }}>
           <div className="reveal" style={{ maxWidth: "1100px", margin: "0 auto" }}>
-            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0d9e8e", marginBottom: "16px" }}>Immediate Opportunity</div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: "60px", alignItems: "start" }}>
-              <p style={{ fontSize: "clamp(16px,1.8vw,20px)", color: "#1a1a1a", lineHeight: 1.7, margin: 0 }}>{report.opportunityText}</p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <div style={{ background: "#f5f4f1", borderRadius: "16px", padding: "28px 24px", textAlign: "center" }}>
-                  <div style={{ fontSize: "clamp(40px,5vw,60px)", fontWeight: 900, color: "#dc2626", letterSpacing: "-0.03em", lineHeight: 1 }}>{report.waitDays}</div>
-                  <div style={{ fontSize: "13px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>days average wait time<br />per website change</div>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#3d7a6a", marginBottom: "32px" }}>Immediate Opportunity</div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px" }}>
+              {report.opportunityFindings.map((finding, idx) => (
+                <div key={idx} style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "20px", padding: "36px 32px" }}>
+                  <div style={{ position: "relative", display: "inline-block", marginBottom: "12px" }}>
+                    <span className="opp-label" style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#3d7a6a", position: "relative", zIndex: 1 }}>{finding.label}</span>
+                  </div>
+                  <p style={{ fontSize: "16px", color: "#1a1a1a", lineHeight: 1.7, margin: 0 }}>{finding.body}</p>
                 </div>
-                <div style={{ background: "#f5f4f1", borderRadius: "16px", padding: "28px 24px", textAlign: "center" }}>
-                  <div style={{ fontSize: "clamp(40px,5vw,60px)", fontWeight: 900, color: "#0d9e8e", letterSpacing: "-0.03em", lineHeight: 1 }}>10<span style={{ fontSize: "0.5em", fontWeight: 700 }}>min</span></div>
-                  <div style={{ fontSize: "13px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>from {report.waitDays} days down to<br />10 min after migration</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
       )}
 
       {/* PROBLEM */}
-      <section style={{ background: "#1a1a1a", color: "#fff", padding: "80px 40px" }}>
+      <section style={{ background: "linear-gradient(180deg, #E5EEE4 0%, #F6F4E8 100%)", padding: "80px 40px" }}>
         <div className="problem-grid reveal" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
           <div>
-            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "16px" }}>The Problem</div>
-            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(26,26,26,0.45)", marginBottom: "16px" }}>The Problem</div>
+            <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#1a1a1a" }}>
               Every change to your site goes through someone else first.
             </h2>
           </div>
@@ -355,9 +354,9 @@ export default async function ReportPage({ params }: Props) {
               { title: "No direct access", desc: "You can see the site. You can't touch it without involving a specialist." },
               { title: "You know exactly what needs to change.", desc: "You just can't change it." },
             ].map((item, idx) => (
-              <div key={idx} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: "14px", padding: "22px 24px" }}>
-                <div style={{ fontSize: "16px", fontWeight: 700, marginBottom: "6px" }}>{item.title}</div>
-                <div style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>{item.desc}</div>
+              <div key={idx} style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "14px", padding: "22px 24px" }}>
+                <div style={{ fontSize: "16px", fontWeight: 700, marginBottom: "6px", color: "#1a1a1a" }}>{item.title}</div>
+                <div style={{ fontSize: "14px", color: "rgba(26,26,26,0.55)", lineHeight: 1.5 }}>{item.desc}</div>
               </div>
             ))}
           </div>
@@ -365,9 +364,9 @@ export default async function ReportPage({ params }: Props) {
       </section>
 
       {/* FRICTION BREAKDOWN */}
-      <section style={{ background: "#f5f4f1", padding: "80px 40px" }}>
+      <section style={{ background: "#F6F4E8", padding: "80px 40px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div className="reveal" style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0d9e8e", marginBottom: "12px" }}>The Friction</div>
+          <div className="reveal" style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#3d7a6a", marginBottom: "12px" }}>The Friction</div>
           <h2 className="reveal reveal-delay-1" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#1a1a1a", lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "10px" }}>
             Every time you want to change something, it becomes a project.
           </h2>
@@ -391,7 +390,7 @@ export default async function ReportPage({ params }: Props) {
       </section>
 
       {/* AFTER MIGRATION */}
-      <section style={{ background: "#f5f4f1", padding: "0 40px 80px" }}>
+      <section style={{ background: "#F6F4E8", padding: "0 40px 80px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div className="migration-card reveal" style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "20px", padding: "48px", boxShadow: "0 2px 24px rgba(0,0,0,0.05)" }}>
             <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "12px", opacity: 0.5 }}>After Migration</div>
@@ -408,16 +407,16 @@ export default async function ReportPage({ params }: Props) {
       </section>
 
       {/* AI SECTION */}
-      <section style={{ background: "#1a1a1a", backgroundImage: "radial-gradient(ellipse 80% 60% at 50% 100%,rgba(46,229,214,0.2) 0%,rgba(30,30,30,0.3) 45%,rgba(26,26,26,0) 80%)", padding: "80px 40px", color: "#fff" }}>
+      <section style={{ background: "#F6F4E8", padding: "80px 40px" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "14px" }}>AI-Powered</div>
-            <h2 style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "14px" }}>Make updates whenever inspiration strikes.</h2>
-            <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.6)", maxWidth: "460px", margin: "0 auto" }}>Full control. Change things whenever you want.</p>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#3d7a6a", marginBottom: "14px" }}>AI-Powered</div>
+            <h2 style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "14px", color: "#1a1a1a" }}>Make updates whenever inspiration strikes.</h2>
+            <p style={{ fontSize: "16px", color: "rgba(26,26,26,0.55)", maxWidth: "460px", margin: "0 auto" }}>Full control. Change things whenever you want.</p>
           </div>
 
-          <div id="aiBlock" className="reveal" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "20px", padding: "32px", marginBottom: "24px" }}>
-            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "16px" }}>How it works for {report.company}</div>
+          <div id="aiBlock" className="reveal" style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.08)", borderRadius: "20px", padding: "32px", marginBottom: "24px" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#C0E1D2", marginBottom: "16px" }}>How it works for {report.company}</div>
             {[
               { prompt: report.aiExamples.prompt1, result: report.aiExamples.result1 },
               { prompt: report.aiExamples.prompt2, result: report.aiExamples.result2 },
@@ -432,11 +431,11 @@ export default async function ReportPage({ params }: Props) {
 
             <form id="aiForm" style={{ marginTop: "24px" }}>
               <div id="aiFormInputs">
-                <div className="beam-wrapper" style={{ position: "relative", background: "conic-gradient(from var(--angle),transparent 65%,#2ee5d6 79%,#b0f4f8 86%,transparent 93%)", borderRadius: "10px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
-                  <input type="text" id="aiChangeField" placeholder="What do you want changed on your website?" style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "100%", background: "#2a2a2a", color: "#fff" }} />
+                <div className="beam-wrapper" style={{ position: "relative", background: "conic-gradient(from var(--angle),transparent 65%,#C0E1D2 79%,#3d7a6a 86%,transparent 93%)", borderRadius: "10px", padding: "2px", animation: "beam-spin 4s linear infinite" }}>
+                  <input type="text" id="aiChangeField" placeholder="What do you want changed on your website?" style={{ padding: "14px 18px", borderRadius: "8px", border: "none", fontSize: "15px", width: "100%", background: "#E5EEE4", color: "#1a1a1a" }} />
                 </div>
-                <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: "10px", border: "1px solid rgba(255,255,255,0.1)", marginTop: "10px" }} id="emailWrapper">
-                  <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "10px", border: "none", fontSize: "15px", width: "100%", background: "transparent", color: "#fff" }} />
+                <div style={{ background: "#F6F4E8", borderRadius: "10px", border: "1px solid rgba(0,0,0,0.09)", marginTop: "10px" }} id="emailWrapper">
+                  <input type="email" id="aiEmailField" placeholder="Your email" style={{ padding: "14px 18px", borderRadius: "10px", border: "none", fontSize: "15px", width: "100%", background: "transparent", color: "#1a1a1a" }} />
                 </div>
               </div>
               <button id="migrateBtn" type="submit" className="cta-btn">
@@ -451,7 +450,7 @@ export default async function ReportPage({ params }: Props) {
       </section>
 
       {/* WHAT'S INCLUDED */}
-      <section style={{ background: "#f5f4f1", padding: "80px 40px" }}>
+      <section style={{ background: "linear-gradient(180deg, #E5EEE4 0%, #F6F4E8 100%)", padding: "80px 40px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "12px", opacity: 0.5 }}>What&apos;s Included</div>
           <h2 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#1a1a1a", letterSpacing: "-0.02em", marginBottom: "10px" }}>Everything in the migration.</h2>
@@ -477,12 +476,12 @@ export default async function ReportPage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section id="cta" style={{ background: "#1a1a1a", backgroundImage: "radial-gradient(ellipse 70% 60% at 50% 100%,rgba(46,229,214,0.15) 0%,rgba(30,30,30,0.2) 50%,rgba(26,26,26,0) 80%)", padding: "100px 40px", textAlign: "center", color: "#fff" }}>
+      <section id="cta" style={{ background: "linear-gradient(180deg, #F6F4E8 0%, #E5EEE4 100%)", padding: "100px 40px", textAlign: "center", color: "#1a1a1a" }}>
         <div style={{ maxWidth: "560px", margin: "0 auto" }}>
-          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#2ee5d6", marginBottom: "16px" }}>Website Migration · Your Code to Keep</div>
+          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#C0E1D2", marginBottom: "16px" }}>Website Migration · Your Code to Keep</div>
           <h2 id="ctaHeading" style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "48px" }}>Ready to own your website?</h2>
           <form id="ctaForm" style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginBottom: "20px" }}>
-            <input id="ctaEmailField" type="email" placeholder="Your email" required style={{ padding: "14px 20px", borderRadius: "50px", border: "1px solid rgba(255,255,255,0.15)", fontSize: "15px", width: "260px", background: "rgba(255,255,255,0.07)", color: "#fff", outline: "none", transition: "border-color 0.2s ease" }} />
+            <input id="ctaEmailField" type="email" placeholder="Your email" required style={{ padding: "14px 20px", borderRadius: "50px", border: "1px solid rgba(0,0,0,0.15)", fontSize: "15px", width: "260px", background: "#fff", color: "#1a1a1a", outline: "none", transition: "border-color 0.2s ease" }} />
             <button id="ctaBtn" type="submit" className="cta-btn" style={{ width: "auto", marginTop: 0 }}>
               Start my migration
               <svg className="cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -490,12 +489,12 @@ export default async function ReportPage({ params }: Props) {
               </svg>
             </button>
           </form>
-          <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", lineHeight: 1.6 }}>After submitting, we&apos;ll ask you a few quick questions about your site. We use your answers to prep before we start.</div>
+          <div style={{ fontSize: "12px", color: "rgba(26,26,26,0.45)", lineHeight: 1.6 }}>After submitting, we&apos;ll ask you a few quick questions about your site. We use your answers to prep before we start.</div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <div style={{ background: "#1a1a1a", textAlign: "center", padding: "24px", fontSize: "12px", color: "rgba(255,255,255,0.25)" }}>
+      <div style={{ background: "#E5EEE4", textAlign: "center", padding: "24px", fontSize: "12px", color: "rgba(26,26,26,0.4)" }}>
         Data based on site audit of {report.url} · Report prepared by Fountain of Scale
       </div>
 
@@ -507,11 +506,11 @@ export default async function ReportPage({ params }: Props) {
   const BL = 6, SPEED = 0.18, STAGGER = 110, PAUSE = 900;
   const PHASES = [
     { beams: [
-      { fromId:'heroCard', toId:'auditPill0', color:'#2ee5d6' },
+      { fromId:'heroCard', toId:'auditPill0', color:'#C0E1D2' },
       { fromId:'heroCard', toId:'auditPill1', color:'#5bbfba' },
       { fromId:'heroCard', toId:'auditPill2', color:'#3dd9cc' },
       { fromId:'heroCard', toId:'auditPill3', color:'#5bbfba' },
-      { fromId:'heroCard', toId:'auditPill4', color:'#2ee5d6' },
+      { fromId:'heroCard', toId:'auditPill4', color:'#C0E1D2' },
       { fromId:'heroCard', toId:'auditPill5', color:'#3dd9cc' },
     ]},
     { beforeOnly: true, beams: [
@@ -523,15 +522,15 @@ export default async function ReportPage({ params }: Props) {
       { fromId:'auditPill5', toId:'blockedNode', color:'rgba(255,110,90,0.7)'  },
     ]},
     { afterOnly: true, beams: [
-      { fromId:'auditPill0', toId:'fosLogo', color:'#2ee5d6' },
+      { fromId:'auditPill0', toId:'fosLogo', color:'#C0E1D2' },
       { fromId:'auditPill1', toId:'fosLogo', color:'#5bbfba' },
-      { fromId:'auditPill2', toId:'fosLogo', color:'#2ee5d6' },
+      { fromId:'auditPill2', toId:'fosLogo', color:'#C0E1D2' },
       { fromId:'auditPill3', toId:'fosLogo', color:'#5bbfba' },
-      { fromId:'auditPill4', toId:'fosLogo', color:'#2ee5d6' },
+      { fromId:'auditPill4', toId:'fosLogo', color:'#C0E1D2' },
       { fromId:'auditPill5', toId:'fosLogo', color:'#5bbfba' },
     ]},
     { afterOnly: true, beams: [
-      { fromId:'fosLogo', toId:'migrateCta', color:'#2ee5d6' },
+      { fromId:'fosLogo', toId:'migrateCta', color:'#C0E1D2' },
     ]},
   ];
   const BEAM_CONFIGS = PHASES.flatMap(p => p.beams);
@@ -548,9 +547,9 @@ export default async function ReportPage({ params }: Props) {
     const texts = toState === 'after' ? AFTER_TEXTS : BEFORE_TEXTS;
     if (toState === 'after') {
       label.textContent = 'After';
-      label.style.background = 'rgba(46,229,214,0.12)';
-      label.style.borderColor = 'rgba(46,229,214,0.3)';
-      label.style.color = '#2ee5d6';
+      label.style.background = 'rgba(61,122,106,0.12)';
+      label.style.borderColor = 'rgba(61,122,106,0.3)';
+      label.style.color = '#3d7a6a';
     } else {
       label.textContent = 'Before';
       label.style.background = 'rgba(255,100,80,0.15)';
@@ -561,9 +560,9 @@ export default async function ReportPage({ params }: Props) {
     const sd = document.getElementById('cardStatDeploy');
     const sc = document.getElementById('cardStatCost');
     if (toState === 'after') {
-      if (sb) { sb.textContent = 'Your stack'; sb.style.color = '#2ee5d6'; }
-      if (sd) { sd.textContent = 'Same day';  sd.style.color = '#2ee5d6'; }
-      if (sc) { sc.textContent = 'As needed'; sc.style.color = '#2ee5d6'; }
+      if (sb) { sb.textContent = 'Your stack'; sb.style.color = '#C0E1D2'; }
+      if (sd) { sd.textContent = 'Same day';  sd.style.color = '#C0E1D2'; }
+      if (sc) { sc.textContent = 'As needed'; sc.style.color = '#C0E1D2'; }
     } else {
       if (sb) { sb.textContent = 'Webflow';  sb.style.color = '#1a1a1a'; }
       if (sd) { sd.textContent = '3–5 days'; sd.style.color = '#dc2626'; }
@@ -653,7 +652,7 @@ export default async function ReportPage({ params }: Props) {
       { text:'Making changes…',     color:'#888'    },
       { text:'Updating your site…', color:'#f59e0b' },
       { text:'Deploying…',          color:'#3b82f6' },
-      { text:'✓ Done',              color:'#2ee5d6' },
+      { text:'✓ Done',              color:'#C0E1D2' },
     ];
     const typingEl = document.getElementById('chatTyping');
     const statusEl = document.getElementById('chatStatus');
@@ -666,7 +665,7 @@ export default async function ReportPage({ params }: Props) {
         chatTimers.push(setTimeout(typeNext, 60));
       } else {
         chatTimers.push(setTimeout(() => {
-          if (btnEl) btnEl.style.background = '#2ee5d6';
+          if (btnEl) btnEl.style.background = '#C0E1D2';
           chatTimers.push(setTimeout(() => {
             if (typingEl) typingEl.textContent = '';
             if (btnEl)    btnEl.style.background = '#e8e8e8';
@@ -809,7 +808,7 @@ export default async function ReportPage({ params }: Props) {
   function showModal() {
     const modal = document.createElement('div');
     modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,2,26,0.7);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(4px)';
-    modal.innerHTML = '<div style="background:#fff;border-radius:20px;padding:48px 40px;max-width:420px;text-align:center;margin:20px;"><div style="font-size:36px;margin-bottom:16px;">✓</div><h3 style="font-size:22px;font-weight:800;margin-bottom:10px;color:#1a1a1a;">Thanks!</h3><p style="font-size:14px;color:#666;margin-bottom:28px;line-height:1.6;">8 quick questions about your site so we can prep before we start.</p><a href="https://forms.gle/Xr7CmjGEB1Hsmd6y5" target="_blank" style="display:inline-block;background:#2ee5d6;color:#1a1a1a;padding:13px 28px;border-radius:50px;text-decoration:none;font-weight:800;font-size:14px;">Answer Questions →</a></div>';
+    modal.innerHTML = '<div style="background:#fff;border-radius:20px;padding:48px 40px;max-width:420px;text-align:center;margin:20px;"><div style="font-size:36px;margin-bottom:16px;">✓</div><h3 style="font-size:22px;font-weight:800;margin-bottom:10px;color:#1a1a1a;">Thanks!</h3><p style="font-size:14px;color:#666;margin-bottom:28px;line-height:1.6;">8 quick questions about your site so we can prep before we start.</p><a href="https://forms.gle/Xr7CmjGEB1Hsmd6y5" target="_blank" style="display:inline-block;background:#C0E1D2;color:#1a1a1a;padding:13px 28px;border-radius:50px;text-decoration:none;font-weight:800;font-size:14px;">Answer Questions →</a></div>';
     modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
     document.body.appendChild(modal);
   }
@@ -903,7 +902,67 @@ export default async function ReportPage({ params }: Props) {
       }
     });
   }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  // defer until after React hydration to avoid className mismatch
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  }, 100);
+
+  // ── Opportunity label cross-hatch ────────────────────────────
+  function applyRoughHatch(label) {
+    // Remove any existing SVG on this label
+    const prev = label.parentElement.querySelector('svg.opp-hatch');
+    if (prev) prev.remove();
+
+    const r  = label.getBoundingClientRect();
+    const px = 16, py = 10;
+    const rx = r.width  / 2 + px;
+    const ry = r.height / 2 + py;
+    const W  = rx * 2 + 4;
+    const H  = ry * 2 + 4;
+    const cx = W / 2;
+    const cy = H / 2;
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('class', 'opp-hatch');
+    svg.setAttribute('width',  W);
+    svg.setAttribute('height', H);
+    Object.assign(svg.style, {
+      position: 'absolute',
+      top:  '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      pointerEvents: 'none',
+      overflow: 'visible',
+      zIndex: '0',
+    });
+    label.parentElement.appendChild(svg);
+
+    const rc   = rough.svg(svg);
+    const node = rc.rectangle(2, cy - r.height / 2 - 2, W - 4, r.height + 4, {
+      stroke: 'none',
+      fill: '#F6F4E8',
+      fillStyle: 'cross-hatch',
+      fillWeight: 1.2,
+      hachureGap: 5,
+      roughness: 1.5,
+      seed: 42,
+    });
+    svg.insertBefore(node, svg.firstChild);
+  }
+
+  function initRoughCircle() {
+    if (!window.rough) return;
+    document.querySelectorAll('.opp-label').forEach(applyRoughHatch);
+    window.addEventListener('resize', initRoughCircle, { once: true });
+  }
+
+  // run after scripts are ready — handles both fresh load and client-side nav
+  if (document.readyState === 'complete') {
+    setTimeout(initRoughCircle, 50);
+  } else {
+    window.addEventListener('load', () => setTimeout(initRoughCircle, 50));
+  }
 })();
           `,
         }}
