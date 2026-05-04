@@ -8376,6 +8376,35 @@ export const reports: Report[] = [
     }
   },
   {
+    id: "tamart",
+    company: "TAMART",
+    logo: "/assets/reports/tamart/logo.svg",
+    logoNeedsBg: false,
+    url: "https://www.tamartads.com",
+    industry: "AI Video Ad Production",
+    pages: 5,
+    hostingCost: 50,
+    waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "Generic page title",
+        body: "Right now, the page title shows 'Home | TAMART' in Google search results — which tells nobody searching for AI video production what the company does. For a brand new studio entirely dependent on organic discovery, that's the difference between getting clicked and getting skipped. It's a two-minute fix, but on Wix making it stick the right way keeps getting put off.",
+      },
+      {
+        label: "Site depth vs. business depth",
+        body: "TAMART has 20 years of marketing experience behind it and a genuinely differentiated product — but right now the site is 239 words and a single page, and none of that depth shows up anywhere a new client would look. The window to establish category authority in AI video ads is open right now, and every week the site doesn't grow is a week a better-funded competitor fills that space.",
+      },
+    ],
+    aiExamples: {
+      prompt1: "Update the page title to 'AI Video Ads for Startups & Brands | TAMART' and fix the hero to mention we're based in Silicon Valley",
+      result1: "✓ Live in minutes — search results now tell the story before anyone clicks, and the first impression matches the product",
+      prompt2: "Add a page for product launch video ads — show three examples, explain the process, add a CTA to book a discovery call",
+      result2: "✓ New page live same day — specific enough to rank for 'AI product launch video' and convert the founder who's actively looking",
+      prompt3: "Add a case study: startup ran TAMART's AI ad vs. their old studio ad — here's the engagement difference",
+      result3: "✓ Live same day — the proof point that turns a curious visitor into a booked call is on the site while the result is still fresh"
+    }
+  },
+  {
     id: "capix",
     company: "Capix",
     logo: "/assets/reports/capix/logo.jpeg",
