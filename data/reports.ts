@@ -4077,13 +4077,23 @@ export const reports: Report[] = [
     pages: 7,
     hostingCost: 50,
     waitDays: 3,
+    opportunityFindings: [
+      {
+        label: "The academic calendar doesn't wait",
+        body: "BeyondAdmissions runs seasonal coaching programs where timing is critical — families researching college support services are making decisions with real deadlines attached. When admissions deadlines shift, a new workshop opens, or a recent student outcome is worth sharing, the site needs to move the same day. A family that arrives in September for Early Decision help and finds a site that hasn't been updated since spring will question whether the coaching is as current as the process demands.",
+      },
+      {
+        label: "Enrollment windows close before the queue clears",
+        body: "By the time a program update or new student testimonial gets through the Wix queue, the enrollment window when it would have converted the most hesitant families has already closed. For a college coaching practice, the academic calendar doesn't pause — a site that can't reflect current deadlines and current student wins is less useful than the one parents found on the first page of search.",
+      },
+    ],
     aiExamples: {
-      prompt1: "Add a new Virtual Workshop for June — 'Navigating Financial Aid' — with a sign-up button.",
-      result1: "✓ New workshop page under Workshops nav, with a registration CTA, live same day.",
-      prompt2: "Update the hero from 'Work smart to transform your aspirations into reality!' to speak directly to parents of high school juniors during application season.",
-      result2: "✓ Seasonal hero copy live immediately — revert or swap anytime without touching a designer.",
-      prompt3: "Add an International Students landing page under Higher Ed Coaching with a separate contact form.",
-      result3: "✓ Dedicated page built, properly linked in the Higher Ed sub-nav, with its own intake form — same day."
+      prompt1: "Update The Complete College Application Process section to reflect the new 2027 admissions cycle deadlines and changes",
+      result1: "✓ Done in minutes before August — every family who arrives during peak season sees guidance that matches the process they're actually navigating",
+      prompt2: "Add a testimonial — 'BeyondAdmissions helped my daughter go from a panic spiral about Common App to an acceptance from her first-choice school in four months'",
+      result2: "✓ Published the same day you get it — the proof point that converts anxious parents is on the site while college acceptance season is still fresh",
+      prompt3: "Change the College Prep Coaching CTA to a limited-enrollment workshop with seats and a deadline",
+      result3: "✓ Urgency copy live immediately — the workshop fills faster because the scarcity signal is visible from the first visit"
     }
   },
   {
