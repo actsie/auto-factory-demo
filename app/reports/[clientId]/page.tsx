@@ -318,6 +318,28 @@ export default async function ReportPage({ params }: Props) {
         </div>
       </section>
 
+      {/* IMMEDIATE OPPORTUNITY */}
+      {report.opportunityText && (
+        <section style={{ background: "#fff", padding: "72px 40px" }}>
+          <div className="reveal" style={{ maxWidth: "1100px", margin: "0 auto" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0d9e8e", marginBottom: "16px" }}>Immediate Opportunity</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: "60px", alignItems: "start" }}>
+              <p style={{ fontSize: "clamp(16px,1.8vw,20px)", color: "#1a1a1a", lineHeight: 1.7, margin: 0 }}>{report.opportunityText}</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div style={{ background: "#f5f4f1", borderRadius: "16px", padding: "28px 24px", textAlign: "center" }}>
+                  <div style={{ fontSize: "clamp(40px,5vw,60px)", fontWeight: 900, color: "#dc2626", letterSpacing: "-0.03em", lineHeight: 1 }}>{report.waitDays}</div>
+                  <div style={{ fontSize: "13px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>days average wait time<br />per website change</div>
+                </div>
+                <div style={{ background: "#f5f4f1", borderRadius: "16px", padding: "28px 24px", textAlign: "center" }}>
+                  <div style={{ fontSize: "clamp(40px,5vw,60px)", fontWeight: 900, color: "#0d9e8e", letterSpacing: "-0.03em", lineHeight: 1 }}>10<span style={{ fontSize: "0.5em", fontWeight: 700 }}>min</span></div>
+                  <div style={{ fontSize: "13px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>from {report.waitDays} days down to<br />10 min after migration</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* PROBLEM */}
       <section style={{ background: "#1a1a1a", color: "#fff", padding: "80px 40px" }}>
         <div className="problem-grid reveal" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>

@@ -8,6 +8,7 @@ export interface Report {
   pages: number;
   hostingCost?: number;
   waitDays: number;
+  opportunityText?: string;
   aiExamples: {
     prompt1: string;
     result1: string;
@@ -7840,6 +7841,25 @@ export const reports: Report[] = [
       result2: "✓ Comparison section built and live — no developer needed, no back-and-forth.",
       prompt3: "Change the hero headline from 'Bringing Life To Your Nest' to something that leads with our concierge approach.",
       result3: "✓ New headline is live in under 10 minutes — test it, swap it back, try another version."
+    }
+  },
+  {
+    id: "fountain-of-scale",
+    company: "Fountain of Scale",
+    logo: "/assets/reports/fountain-of-scale/logo.svg",
+    logoNeedsBg: false,
+    url: "https://fountainofscale.com",
+    industry: "Revenue Automation / Growth Agency",
+    pages: 8,
+    waitDays: 3,
+    opportunityText: "You're selling automation — but the site itself isn't easy to change without touching code. \"Automate the work that costs you revenue\" is a strong hook. But every time that message needs to evolve — a new service, a new offer, a new CTA test — someone has to go into the codebase to do it. There's also no schema markup on the site, which means Google can't pull structured info about what Fountain of Scale does into search results. That's a 20-minute fix — but on a custom Next.js build, adding it requires a developer every time.",
+    aiExamples: {
+      prompt1: "Change 'Automate the work that costs you revenue' to lead with our new service launch",
+      result1: "✓ Hero updated and live in minutes — no developer, no deploy",
+      prompt2: "Add a new section between 'We build it' and 'We run it' for our new onboarding package",
+      result2: "✓ New section live same day, exactly where you want it",
+      prompt3: "Add schema markup so Google can show our services as rich results",
+      result3: "✓ Schema added in one pass — no developer needed"
     }
   },
   {
