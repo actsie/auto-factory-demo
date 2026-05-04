@@ -91,27 +91,29 @@ function buildHTML(r: GrowthReport): string {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>Growth Insight Report: ${esc(r.company)}</title>
+<link rel="icon" href="/icon.png" type="image/png">
 <script src="https://app.cal.com/embed/embed.js" async></script>
 <style>
   :root {
-    --ink:#0f1117; --ink-2:#374151; --ink-3:#6b7280; --ink-4:#9ca3af;
-    --canvas:#f4f0e8; --surface:#f9f7f2; --surface-up:#ffffff;
-    --border:rgba(0,0,0,0.07); --border-soft:rgba(0,0,0,0.04); --border-hard:rgba(0,0,0,0.12);
+    --ink:#064420; --ink-2:#2d4a35; --ink-3:#6b7280; --ink-4:#9ca3af;
+    --canvas:#FAF1E6; --surface:#FDFAF6; --surface-up:#FDFAF6;
+    --sage:#E4EFE7;
+    --border:rgba(6,68,32,0.08); --border-soft:rgba(6,68,32,0.05); --border-hard:rgba(6,68,32,0.14);
     --amber:#92400e; --amber-mid:#d97706; --amber-bg:#fef3c7; --amber-line:#fde68a;
     --blue:#1d4ed8; --blue-bg:#eff6ff; --blue-line:#bfdbfe;
-    --green:#166534; --green-bg:#f0fdf4; --green-line:#bbf7d0;
+    --green:#064420; --green-bg:#E4EFE7; --green-line:#c2d9c8;
     --red:#991b1b; --red-bg:#fef2f2;
-    --shadow-card:0 0 0 0.5px rgba(0,0,0,0.05),0 1px 2px rgba(0,0,0,0.05),0 2px 4px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);
-    --shadow-soft:0 0 0 0.5px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.04),0 2px 6px rgba(0,0,0,0.02);
+    --shadow-card:0 0 0 0.5px rgba(6,68,32,0.05),0 1px 2px rgba(6,68,32,0.05),0 2px 4px rgba(6,68,32,0.04),0 4px 12px rgba(6,68,32,0.03);
+    --shadow-soft:0 0 0 0.5px rgba(6,68,32,0.04),0 1px 3px rgba(6,68,32,0.04),0 2px 6px rgba(6,68,32,0.02);
     --radius:10px; --radius-sm:6px;
   }
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   button{font-family:inherit;font-size:inherit;border:none;cursor:pointer;background:none}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--canvas);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-  nav{background:var(--canvas);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:linear-gradient(180deg,var(--canvas) 0%,var(--surface) 40%,var(--sage) 100%);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  nav{background:rgba(253,250,246,0.85);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
   .nav-brand{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-0.2px}
   .nav-brand span{color:var(--ink-3);font-weight:400}
-  .nav-cta{background:var(--ink);color:#fff;padding:7px 16px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;text-decoration:none;letter-spacing:-0.1px;transition:opacity 0.15s ease;position:relative;overflow:hidden}
+  .nav-cta{background:#064420;color:#fff;padding:7px 16px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;text-decoration:none;letter-spacing:-0.1px;transition:opacity 0.15s ease;position:relative;overflow:hidden}
   .doc-header{max-width:860px;margin:0 auto;padding:56px 40px 40px;border-bottom:1px solid var(--border)}
   .doc-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--ink-4);margin-bottom:20px}
   .doc-company{font-size:38px;font-weight:700;letter-spacing:-1.2px;line-height:1.05;color:var(--ink);margin-bottom:10px}
@@ -121,7 +123,7 @@ function buildHTML(r: GrowthReport): string {
   .doc-meta-item{font-size:12px;color:var(--ink-4)}
   .doc-meta-item strong{color:var(--ink-2);font-weight:600}
   .headline-stats{max-width:860px;margin:0 auto;padding:36px 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
-  .hl-stat{background:var(--canvas);padding:28px 32px}
+  .hl-stat{background:var(--surface);padding:28px 32px}
   .hl-number{font-size:48px;font-weight:700;letter-spacing:-2px;line-height:1;margin-bottom:8px;font-variant-numeric:tabular-nums}
   .hl-number.amber{color:var(--amber-mid)} .hl-number.blue{color:var(--blue)} .hl-number.ink{color:var(--ink)}
   .hl-label{font-size:13px;color:var(--ink-3);line-height:1.4;max-width:160px}
@@ -176,7 +178,7 @@ function buildHTML(r: GrowthReport): string {
   .comp-header{display:grid;grid-template-columns:140px 1fr 1fr;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--ink-4);gap:16px}
   .comp-row{display:grid;grid-template-columns:140px 1fr 1fr;padding:14px 20px;border-bottom:1px solid var(--border-soft);gap:16px;align-items:start;font-size:13px}
   .comp-row:last-child{border-bottom:none}
-  .comp-row.opportunity{background:var(--green-bg);border-top:1px solid var(--green-line)}
+  .comp-row.opportunity{background:var(--sage);border-top:1px solid var(--green-line)}
   .comp-name{font-weight:600;color:var(--ink)}
   .comp-doing{color:var(--ink-2)}
   .comp-doing .check{color:#16a34a}
@@ -186,7 +188,7 @@ function buildHTML(r: GrowthReport): string {
   .comp-row.opportunity .comp-doing{color:#166534;font-weight:500}
   .comp-row.opportunity .comp-gap{color:var(--green);font-weight:600;font-size:12px}
   .exp-card{background:var(--surface-up);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;margin-bottom:10px;display:grid;grid-template-columns:44px 1fr auto;gap:18px;align-items:start;box-shadow:var(--shadow-card)}
-  .exp-num{width:44px;height:44px;background:var(--ink);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;letter-spacing:-0.5px;flex-shrink:0;font-variant-numeric:tabular-nums}
+  .exp-num{width:44px;height:44px;background:#064420;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;letter-spacing:-0.5px;flex-shrink:0;font-variant-numeric:tabular-nums}
   .exp-title{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-0.2px}
   .exp-desc{font-size:13px;color:var(--ink-2);line-height:1.6;margin-bottom:10px}
   .exp-tags{display:flex;gap:6px;flex-wrap:wrap}
@@ -206,7 +208,7 @@ function buildHTML(r: GrowthReport): string {
   .kw.blurred{filter:blur(4px);user-select:none;pointer-events:none;opacity:0.7}
   .kw-legend{display:flex;gap:20px;margin-top:12px;font-size:11px;color:var(--ink-4);align-items:center}
   .kw-legend-dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:5px}
-  .cta-section{background:var(--ink);border-radius:14px;padding:48px 44px;text-align:center;margin-top:48px}
+  .cta-section{background:#064420;border-radius:14px;padding:48px 44px;text-align:center;margin-top:48px}
   .cta-eyebrow{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber-mid);margin-bottom:16px}
   .cta-title{font-size:28px;font-weight:700;color:#fff;letter-spacing:-0.7px;line-height:1.2;margin-bottom:12px}
   .cta-sub{font-size:15px;color:#94a3b8;margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.6}
@@ -224,20 +226,22 @@ function buildHTML(r: GrowthReport): string {
     nav{padding:12px 20px}
     .doc-header{padding:36px 20px 28px}
     .doc-company{font-size:28px}
-    .headline-stats{padding:0;grid-template-columns:repeat(3,1fr);gap:0}
-    .hl-stat{padding:16px 12px}
-    .hl-number{font-size:28px;letter-spacing:-1px}
-    .hl-label{font-size:11px;max-width:100%}
+    .headline-stats{padding:0;grid-template-columns:1fr;gap:0}
+    .hl-stat{padding:20px 20px;border-bottom:1px solid var(--border)}
+    .hl-number{font-size:36px;letter-spacing:-1px}
+    .hl-label{font-size:13px;max-width:100%}
     main{padding:36px 20px 60px}
     .stat-row{grid-template-columns:1fr}
-    .ct-header,.ct-row{grid-template-columns:1fr 52px 52px}
+    .ct-header,.ct-row{grid-template-columns:1fr 72px 52px}
     .ct-row .bar-wrap{display:none}
     .ct-header>div:nth-child(3){display:none}
     .ch-header,.ch-row{grid-template-columns:1fr 90px}
-    .ch-score{display:none}
-    .comp-header,.comp-row{grid-template-columns:90px 1fr}
-    .comp-gap{display:none}
-    .comp-header>div:nth-child(3){display:none}
+    .ch-score{display:none!important}
+    .comp-header{display:none}
+    .comp-row{grid-template-columns:1fr;gap:8px;padding:16px 20px}
+    .comp-name{font-size:14px;font-weight:700;padding-bottom:4px;border-bottom:1px solid var(--border-soft)}
+    .comp-doing{font-size:12px}
+    .comp-gap{display:block;font-size:12px}
     .exp-card{grid-template-columns:38px 1fr}
     .exp-signal{display:none}
     .cta-section{padding:36px 20px}

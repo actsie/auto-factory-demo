@@ -125,8 +125,8 @@ export const growthReports: GrowthReport[] = [
         signal: "Compounds",
       },
     ],
-    experimentsUnlockTitle: "We'd test all three and see what actually works for Lifeguard.",
-    experimentsUnlockSub: "For experiments 2 and 3, the call would mostly be about figuring out the right order, the messaging, and what we should measure so we're not just guessing.",
+    experimentsUnlockTitle: "You leave this call knowing exactly which channel to run first and what to measure — no guessing.",
+    experimentsUnlockSub: "One focused session replaces weeks of trying to figure out where to start. We'll sequence the three, pick the first, and set a 30-day measure so you know if it's working.",
     keywordsDesc: "The exact phrases Lifeguard's buyers use when they're in pain. Monitor these weekly on Reddit, LinkedIn, and X.",
     keywords: [
       { text: "just got a fraud alert", type: "trigger" },
@@ -149,8 +149,8 @@ export const growthReports: GrowthReport[] = [
       { text: "family digital safety app", type: "blurred" },
       { text: "cancel data broker subscriptions", type: "blurred" },
     ],
-    ctaTitle: "Let's figure out the best place to start.",
-    ctaSub: "I'll walk you through the channel I'd prioritize for Lifeguard and the first 30 days of tests I'd run.",
+    ctaTitle: "Walk away with a channel and a 30-day plan.",
+    ctaSub: "One call. You'll know which channel to run first, what the first 30 days look like, and what winning actually looks like for Lifeguard.",
   },
   {
     id: "lifeguard-v2",
@@ -210,8 +210,8 @@ export const growthReports: GrowthReport[] = [
         signal: "High signal",
       },
     ],
-    experimentsUnlockTitle: "We'd sequence these and measure what actually moves signups.",
-    experimentsUnlockSub: "The call would mostly be about figuring out the right order, the messaging at each step, and what to measure so we're not guessing.",
+    experimentsUnlockTitle: "You leave this call knowing exactly which channel to run first and what to measure — no guessing.",
+    experimentsUnlockSub: "One focused session replaces weeks of trying to figure out where to start. We'll sequence the three, pick the first, and set a 30-day measure so you know if it's working.",
     keywordsDesc: "The exact phrases Lifeguard's buyers search when they're in pain — and the queries that are wide open from an SEO standpoint right now.",
     keywords: [
       { text: "my mom almost got scammed", type: "pain" },
@@ -235,7 +235,7 @@ export const growthReports: GrowthReport[] = [
       { text: "family digital safety app", type: "blurred" },
       { text: "data broker removal", type: "blurred" },
     ],
-    ctaTitle: "Let's talk about where to start.",
-    ctaSub: "I'll walk you through the channel I'd prioritize for Lifeguard — and the first 30 days of tests I'd run to find out what actually converts.",
+    ctaTitle: "Walk away with a channel and a 30-day plan.",
+    ctaSub: "One call. You'll know which channel to run first, what the first 30 days look like, and what winning actually looks like for Lifeguard.",
   },
 ];
