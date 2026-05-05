@@ -3317,13 +3317,17 @@ export const reports: Report[] = [
     pages: 19,
     hostingCost: 50,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the hero headline from 'ONE PLATFORM TO SCALE AND DRIVE REVENUE GROWTH' to lead with a specific outcome — like 'More Leads. Less Guesswork. One Platform.'",
-      result1: "✓ Live in minutes — test it against the current version without a single design request",
-      prompt2: "Add customer logos or a stat callout under the CONVERT section to give the traffic conversion claim more weight.",
-      result2: "✓ New content placed exactly where you want it, same day",
-      prompt3: "Build a dedicated landing page for the DISCOVER feature to use in paid campaigns.",
-      result3: "✓ Described, reviewed, shipped same day — ready before the campaign goes live"
+    opportunityFindings: [
+      { label: 'Platform speed claim contradicted by site', body: 'Your platform sells speed. Your website can\'t move fast enough to prove it. OnePortal\'s value prop is real-time AI-driven optimization for 1.5B+ users — but adding a landing page, updating hero copy, or testing a CTA still runs through a designer queue or platform lock-in.' },
+      { label: 'Discover capability needs its own page', body: 'OnePortal\'s value prop is real-time AI-driven optimization for 1.5B+ users — but every capability needs its own conversion path. Without dedicated landing pages per feature, paid campaigns can\'t be targeted and conversion data stays blended.' },
+    ],
+        aiExamples: {
+      prompt1: 'Change the hero to \'ONE PLATFORM TO SCALE AND DRIVE REVENUE GROWTH\' — lead with a specific outcome, not just the platform name.',
+      result1: '✓ Live in minutes, no ticket filed, no designer pinged.',
+      prompt2: 'Add a landing page for our Discover capability — brand awareness, engagement, and analytics for our 1.5B user base.',
+      result2: '✓ Page is live same day, tailored copy, right audience, no back-and-forth.',
+      prompt3: 'Swap \'CONTACT US\' for \'See It In Action\' and point it to the demo request form.',
+      result3: '✓ CTA updated, tested, and live before your next call — no dev dependency.'
     }
   },
   {
@@ -3507,13 +3511,17 @@ export const reports: Report[] = [
     pages: 5,
     hostingCost: 72,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new sector to 'We have deep networks across the following sectors' — include Climate Tech.",
-      result1: "✓ Sector added, styled to match existing list, live in minutes — no Webflow queue",
-      prompt2: "Update the Bespoke Service section with a new client stat and freshen the copy.",
-      result2: "✓ Section updated, live same day — no brief, no build cycle, no approval back-and-forth",
-      prompt3: "Test leading with 'Our network is unmatched. End. Stop.' as the hero headline instead.",
-      result3: "✓ Variant live in 10 minutes — see if it converts better, revert instantly if not"
+    opportunityFindings: [
+      { label: 'Bespoke model undermined by slow site updates', body: 'Recruiting is relationship-driven. Your website positioning needs to move with the market. Shine Talent\'s bespoke service model is the differentiator — but when you\'re competing against larger executive search firms, every day the site doesn\'t reflect your current sector coverage or latest placements is a day someone else wins the call.' },
+      { label: 'Sector coverage list needs real-time accuracy', body: 'Shine Talent\'s bespoke service model is the differentiator — but when you\'re competing against larger executive search firms, your sector list needs to be accurate and current. Right now adding or updating a sector requires Webflow editor access and a designer.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add \'Chief of Staff\' and \'Head of People\' to the list of functions we place — they\'re coming up in every brief right now.',
+      result1: '✓ Functions list updated immediately — no Webflow editor access required.',
+      prompt2: 'Update the hero to lead with \'Bespoke Executive Search for Private Equity-Backed Companies\' — that\'s our strongest segment.',
+      result2: '✓ Hero copy live in minutes, properly formatted and on-brand.',
+      prompt3: 'Create a new page for our EXECUTIVE RECRUITING service with a separate CTA from the general contact form.',
+      result3: '✓ Page built and linked from the main nav same day.'
     }
   },
   {
@@ -5645,13 +5653,17 @@ export const reports: Report[] = [
     pages: 11,
     hostingCost: 60,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the hero subheadline from 'Making Capitalism Work for Everyone' to include our DAF framework and three focus sectors.",
-      result1: "✓ Done in under 10 minutes, live immediately — exactly how you want it, no Webflow designer in the loop.",
-      prompt2: "Add a new Ecosystem Partners page with logos, one-line descriptions, and links for our current partner cohort.",
-      result2: "✓ Full page built same day in your existing design, live before the next Thruline Thursday drops.",
-      prompt3: "Add a 'Join Our Studio' CTA to the Focus Areas section that links to a Contact form pre-tagged by sector.",
-      result3: "✓ Built, tested, and live — no dev ticket, no approval cycle, done while the idea is still fresh."
+    opportunityFindings: [
+      { label: '4th Sector claim needs fast site execution', body: 'Building the 4th Sector Economy is a bold claim — your site needs to move fast enough to back it up. Thruline Networks operates across ClimateTech, DeepTech, and SpaceTech, with a mission that evolves as the portfolio grows. When positioning shifts or a new partner cohort joins, the site needs to reflect it immediately.' },
+      { label: 'Ecosystem partners page missing entirely', body: 'Thruline Networks operates across ClimateTech, DeepTech, and SpaceTech, with a mission that evolves as the portfolio grows. Right now there\'s no dedicated Ecosystem Partners page — a gap that makes the network look smaller than it is to potential founders and capital partners.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero subheadline from \'Making Capitalism Work for Everyone\' to include our DAF framework and three focus sectors.',
+      result1: '✓ Done in under 10 minutes, live immediately — exactly how you want it, no Webflow designer in the loop.',
+      prompt2: 'Add a new Ecosystem Partners page with logos, one-line descriptions, and links for our current partner cohort.',
+      result2: '✓ Full page built same day in your existing design, live before the next Thruline Thursday drops.',
+      prompt3: 'Add a \'Join Our Studio\' CTA to the Focus Areas section that links to a Contact form pre-tagged by sector.',
+      result3: '✓ Built, tested, and live — no dev ticket, no approval cycle, done while the idea is still fresh.'
     }
   },
   {
@@ -5702,13 +5714,17 @@ export const reports: Report[] = [
     pages: 1,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the hero to lead with 'Fan Engagement That Converts' above the agency description.",
-      result1: "✓ Done in under 10 minutes, live immediately — no Wix editor fumbling required.",
-      prompt2: "Add a new case study section under 'Our Work' for our latest artist campaign with stats and visuals.",
-      result2: "✓ New section built same day, matched to your existing design, shipped before the campaign cools.",
-      prompt3: "Swap the 'Request Our Deck' CTA to 'See Our Work' and A/B test which drives more clicks.",
-      result3: "✓ Try it, measure it, revert it — all without touching a dev or filing a request."
+    opportunityFindings: [
+      { label: 'Content agency can\'t wait days to update site', body: 'An agency that sells speed and content expertise shouldn\'t be slow to update its own site. TENTH FLOOR empowers musicians, talent, and brands through social media, content strategy, and digital marketing — but when a new artist campaign wraps or a new client signs, updating the site still requires a Wix editor and time.' },
+      { label: 'Case studies need same-day publishing capability', body: 'TENTH FLOOR empowers musicians, talent, and brands through social media, content strategy, and digital marketing. When a campaign delivers results worth showcasing, that window to capitalize on the momentum is short — and a site that can\'t be updated same-day lets it close.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to lead with \'Fan Engagement That Converts\' above the agency description.',
+      result1: '✓ Done in under 10 minutes, live immediately — no Wix editor fumbling required.',
+      prompt2: 'Add a new case study section under \'Our Work\' for our latest artist campaign with stats and visuals.',
+      result2: '✓ New section built same day, matched to your existing design, shipped before the campaign cools.',
+      prompt3: 'Swap the \'Request Our Deck\' CTA to \'See Our Work\' and A/B test which drives more clicks.',
+      result3: '✓ Try it, measure it, revert it — all without touching a dev or filing a request.'
     }
   },
   {
@@ -5740,13 +5756,17 @@ export const reports: Report[] = [
     pages: 16,
     hostingCost: 25,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the hero to lead with our Defensible Space service before fire season — push the general welcome message down.",
-      result1: "✓ Hero swapped and live before the day is over, no WordPress login handoff needed.",
-      prompt2: "Add a new landing page for emergency storm response — we get a surge of calls after big rain events and need somewhere to send paid ads.",
-      result2: "✓ Landing page built, reviewed, and live same day — ready for the next campaign.",
-      prompt3: "Change 'Contact us today to schedule a consultation or request a quote' to two separate buttons — one for consultations, one for quotes.",
-      result3: "✓ CTAs split, both tested and working, done in minutes."
+    opportunityFindings: [
+      { label: 'Seasonal demand spikes need instant site response', body: 'You\'re the Bay Area\'s most trusted tree service — your site should move as fast as the seasons change. Defensible space work spikes before fire season. Storm damage calls flood in after rain events. Right now capitalizing on either surge requires a WordPress developer and a waiting period.' },
+      { label: 'Emergency storm response needs its own landing page', body: 'Defensible space work spikes before fire season. Storm damage calls flood in after rain events. Without a dedicated landing page for each surge, paid ads have nowhere targeted to send traffic — and conversion data stays blended across the general site.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to lead with our Defensible Space service before fire season — push the general welcome message down.',
+      result1: '✓ Hero swapped and live before the day is over, no WordPress login handoff needed.',
+      prompt2: 'Add a new landing page for emergency storm response — we get a surge of calls after big rain events and need somewhere to send paid ads.',
+      result2: '✓ Landing page built, reviewed, and live same day — ready for the next campaign.',
+      prompt3: 'Change \'Contact us today to schedule a consultation or request a quote\' to two separate buttons — one for consultations, one for quotes.',
+      result3: '✓ CTAs split, both tested and working, done in minutes.'
     }
   },
   {
@@ -5778,13 +5798,17 @@ export const reports: Report[] = [
     pages: 4,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the submission form CTA from 'Fill out our submission form HERE' to 'Submit Your Band for Consideration' and make it more prominent on the homepage.",
-      result1: "✓ CTA rewritten, repositioned, and live — no Wix editor wrestling required.",
-      prompt2: "Add a new section under SERVICES highlighting our digital PR package for independent artists.",
-      result2: "✓ New section drafted, designed to match your current layout, published same day.",
-      prompt3: "Update the PARTNERS section — add three new label logos and remove the two outdated ones.",
-      result3: "✓ Partner logos swapped out in minutes, layout stays clean."
+    opportunityFindings: [
+      { label: 'Music cycles demand real-time site changes', body: 'You break bands for a living — your site shouldn\'t be the thing holding your own momentum back. Music moves on cycles: a track drops, a tour gets announced, a submission window opens. Every one of those moments needs a site update — and right now each one waits on Wix.' },
+      { label: 'Submission CTA misses its conversion window', body: 'Music moves on cycles: a track drops, a tour gets announced, a submission window opens. The submission form CTA is the most important conversion point on the site — but if the copy feels generic or outdated, artists don\'t fill it out.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the submission form CTA from \'Fill out our submission form\' to something that speaks to emerging artists in hip hop and R&B.',
+      result1: '✓ CTA rewritten, repositioned, and live — no Wix editor wrestling required.',
+      prompt2: 'Add a new section under SERVICES highlighting our digital PR and playlist pitching capabilities.',
+      result2: '✓ New section drafted, designed to match your current layout, published same session.',
+      prompt3: 'Update the PARTNERS section — add three new label logos and remove the ones we no longer work with.',
+      result3: '✓ Partner logos swapped out in minutes, layout stays clean.'
     }
   },
   {
@@ -5797,13 +5821,17 @@ export const reports: Report[] = [
     pages: 11,
     hostingCost: 60,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Rewrite the hero to lead with 'Authenticate Any Product. Anywhere. Instantly.' in larger type and add a sub-headline about GenuScan's scan speed.",
-      result1: "✓ Hero updated and live within minutes — no Webflow editor handoff needed.",
-      prompt2: "Add a comparison table to the 'Why GenuScan is Different' section showing us vs. QR-only solutions.",
-      result2: "✓ Table drafted, styled to match the page, published same day.",
-      prompt3: "Change 'CONTACT US TODAY' to 'Request a GenuScan Demo' and route it to a dedicated demo request page.",
-      result3: "✓ CTA copy updated, new page built, form connected — done before your next sales call."
+    opportunityFindings: [
+      { label: 'Authentication firm site can\'t lag behind product', body: 'You\'re selling instant authentication — your site shouldn\'t make prospects wait to understand it. GenuScan promises real-time verification anywhere. But when a prospect asks a question the site doesn\'t answer, or a new use case needs its own page, the update still waits on a developer or Webflow queue.' },
+      { label: 'No comparison content vs QR-only competitors', body: 'GenuScan promises real-time verification anywhere. But the \'Why GenuScan is Different\' section has no comparison table or competitive framing — making it harder for buyers evaluating multiple authentication options to see the advantage clearly.' },
+    ],
+        aiExamples: {
+      prompt1: 'Rewrite the hero to lead with \'Authenticate Any Product. Anywhere. Instantly.\' in larger type and add a sub-headline about GenuScan\'s scan speed.',
+      result1: '✓ Hero updated and live within minutes — no Webflow editor handoff needed.',
+      prompt2: 'Add a comparison table to the \'Why GenuScan is Different\' section showing us vs. QR-only solutions.',
+      result2: '✓ Table drafted, styled to match the page, published same day.',
+      prompt3: 'Change \'CONTACT US TODAY\' to \'Request a GenuScan Demo\' and route it to a dedicated demo request page.',
+      result3: '✓ CTA copy updated, new page built, form connected — done before your next sales call.'
     }
   },
   {
@@ -6496,13 +6524,17 @@ export const reports: Report[] = [
     pages: 3,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add PGA Tour Superstore to the Sponsored Collaborations section — here's the video link.",
-      result1: "✓ Added, linked, and live before the brand even checks your site.",
-      prompt2: "I want a separate page just for @frontporchdad with its own media kit download.",
-      result2: "✓ New page built, linked from Brand Portfolio, PDF upload included.",
-      prompt3: "Change 'CONTACT ME' to 'Get My Media Kit' — I want to test if that converts better for brand inquiries.",
-      result3: "✓ Updated in minutes. Revert anytime."
+    opportunityFindings: [
+      { label: 'Slow site hurts brand pitches', body: 'You\'re pitching brands on your reach. Your site shouldn\'t slow that pitch down. Jarry Media has 1.4M+ combined followers and a portfolio of brand work with Gillette, Hyundai, and Google TV — but adding a new sponsor, updating a case study, or swapping a CTA still takes longer than it should on Wix.' },
+      { label: 'Missing meta description costs visibility', body: 'On search: Without a meta description, Google writes its own snippet for search results — often pulling generic page text rather than the firm\'s actual positioning or services.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add PGA Tour Superstore to the Sponsored Collaborations section — here\'s the video link.',
+      result1: '✓ Added, linked, and live before the brand even checks your site.',
+      prompt2: 'I want a separate page just for @frontporchdad with its own media kit download.',
+      result2: '✓ New page built, linked from Brand Portfolio, PDF upload included.',
+      prompt3: 'Change \'CONTACT ME\' to \'Get My Media Kit\' — I want to test if that converts better for brand inquiries.',
+      result3: '✓ Updated in minutes. Revert anytime.'
     }
   },
   {
@@ -6515,13 +6547,17 @@ export const reports: Report[] = [
     pages: 4,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new partner logo to the Partners section — we just signed someone and want them visible today.",
-      result1: "✓ Logo uploaded, section updated, live within the hour.",
-      prompt2: "We want to add Athlete Relations as a callout service on the homepage — it's buried in the Services page right now.",
-      result2: "✓ Surface it on the homepage, keep it on the Services page too. Done in one session.",
-      prompt3: "Test 'LET'S TALK' instead of 'LET'S WORK TOGETHER' as the main CTA — just want to see which one gets more clicks.",
-      result3: "✓ Swap it, track it, decide. No approval chain required."
+    opportunityFindings: [
+      { label: 'Agency narrative lags behind client work', body: 'A PR agency that controls every client\'s narrative — but not its own website. JDK Comms has 14+ years building brand exposure for clients across sports, music, and culture. Every word they put out for clients is deliberate and fast. The same should be true for their own site.' },
+      { label: 'Missing meta description misrepresents firm', body: 'On search: Without a meta description, Google writes its own snippet for search results, which may not accurately represent this communications consulting firm to potential clients.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add a new partner logo to the Partners section — we just signed someone and want them visible today.',
+      result1: '✓ Logo uploaded, section updated, live within the hour.',
+      prompt2: 'We want to add Athlete Relations as a callout service on the homepage — it\'s buried in the Services page right now.',
+      result2: '✓ Surface it on the homepage, keep it on the Services page too. Done in one session.',
+      prompt3: 'Test \'LET\'S TALK\' instead of \'LET\'S WORK TOGETHER\' as the main CTA — just want to see which one gets more clicks.',
+      result3: '✓ Swap it, track it, decide. No approval chain required.'
     }
   },
   {
@@ -6534,13 +6570,17 @@ export const reports: Report[] = [
     pages: 5,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new listing to the 'Leasing Now' section — 2,400 sq ft ground floor retail, available immediately.",
-      result1: "✓ Listed, formatted, live before the tenant tour.",
-      prompt2: "Update the 'Discover San Pedro' CTA to link to the new West Harbor project page we want to build.",
-      result2: "✓ New page created, CTA linked, existing design matched exactly.",
-      prompt3: "We want to add a section about our Denver LoDo properties — same card format as Featured Projects.",
-      result3: "✓ Section built, copy dropped in, published same session."
+    opportunityFindings: [
+      { label: 'Waterfront district needs live leasing updates', body: 'A 42-acre waterfront district deserves a site that moves as fast as the leasing market. Jerico is actively leasing West Harbor and managing historic commercial properties — but adding a new listing, updating a CTA, or launching a project page still requires a designer or platform expertise.' },
+      { label: 'Slow updates lose tenant opportunities', body: 'Jerico is actively leasing West Harbor and managing historic commercial properties in Los Angeles and Denver. When a prospective tenant is evaluating space, every day the site doesn\'t reflect current availability is a day that prospect might move on.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add a new listing to the \'Leasing Now\' section — 2,400 sq ft ground floor retail, available immediately.',
+      result1: '✓ Listed, formatted, live before the tenant tour.',
+      prompt2: 'Update the \'Discover San Pedro\' CTA to link to the new West Harbor project page we want to build.',
+      result2: '✓ New page created, CTA linked, existing design matched exactly.',
+      prompt3: 'We want to add a section about our Denver LoDo properties — same card format as Featured Projects.',
+      result3: '✓ Section built, copy dropped in, published same session.'
     }
   },
   {
@@ -6743,13 +6783,17 @@ export const reports: Report[] = [
     pages: 7,
     hostingCost: 60,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the hero to lead with the stat — '61% of EV drivers pay more for hotels with fast charging'.",
-      result1: "✓ Hero updated and live before your next property owner pitch, no design ticket.",
-      prompt2: "Add a page for multi-family properties — different value prop than hotels, same equity partnership model.",
-      result2: "✓ New page live same day, written to the right audience, indexed by Google within the week.",
-      prompt3: "Change 'Schedule a Consultation' to 'See If Your Property Qualifies' and link to the intake form.",
-      result3: "✓ CTA live in minutes — lower friction, more qualified leads through the door."
+    opportunityFindings: [
+      { label: 'EV market speed demands real-time site updates', body: 'The EV market moves fast. Your site shouldn\'t need a sprint to keep up. Oodles Energy is pitching hotel and multi-family property owners on a time-sensitive opportunity — but when rates shift, new verticals open, or a CTA needs testing, the site can\'t keep up without a developer.' },
+      { label: 'Multi-family vs hotel audiences need separate pages', body: 'Oodles Energy is pitching hotel and multi-family property owners on a time-sensitive opportunity. These are two distinct buyer personas with different objections and ROI calculations — but right now they\'re sharing the same page and the same message.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to lead with the stat — \'61% of EV drivers prefer hotels with charging\' — above the current headline.',
+      result1: '✓ Hero updated and live before your next property owner pitch.',
+      prompt2: 'Add a page for multi-family properties — different value prop, different objections, different CTA than the hotel audience.',
+      result2: '✓ New page live same day, written to the right audience, indexed immediately.',
+      prompt3: 'Change \'Schedule a Consultation\' to \'See If Your Property Qualifies\' — lower friction for first contact.',
+      result3: '✓ CTA live in minutes — lower friction, more qualified leads.'
     }
   },
   {
@@ -6762,13 +6806,17 @@ export const reports: Report[] = [
     pages: 7,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update 'Uncompromising Service. Superior Installation.' to lead with multi-regional coverage.",
-      result1: "✓ Hero updated in minutes — the right message lands before a prospect clicks away.",
-      prompt2: "Add a new member company to the Our Members section with their logo and service region.",
-      result2: "✓ Member profile live same day, no design request, no back-and-forth.",
-      prompt3: "Add a page for audiovisual integration — separate from the main services page, with a 'Request a Quote' form.",
-      result3: "✓ New capability page live and indexed, capturing leads you're currently missing."
+    opportunityFindings: [
+      { label: 'Single-point pitch weakened by slow updates', body: 'You\'re selling \'single point of contact\' — but your site makes prospects work to understand it. Pacific Modular Alliance\'s entire pitch is simplicity: one partner, multi-region capability. But when a new member joins or a capability expands, the site can\'t reflect it without a designer.' },
+      { label: 'New members need instant web visibility', body: 'Pacific Modular Alliance\'s entire pitch is simplicity: one partner, multi-region capability. When a new member company joins the network, every day that partner isn\'t listed on the site is a day the alliance looks smaller than it is to prospective clients.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update \'Uncompromising Service. Superior Installation.\' to lead with the multi-region capability and partner network size.',
+      result1: '✓ Hero updated in minutes — the right message lands before any follow-up is needed.',
+      prompt2: 'Add a new member company to the Our Members section with their logo, region, and specialty.',
+      result2: '✓ Member profile live same day, no design request, no back-and-forth.',
+      prompt3: 'Add a page for audiovisual integration — separate from the main services list, with its own CTA.',
+      result3: '✓ New capability page live and indexed, capturing leads you\'d otherwise miss.'
     }
   },
   {
@@ -6781,13 +6829,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 60,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the hero to 'Turning clicks into customers — for outdoor, cycling, and sports brands'.",
-      result1: "✓ Niche positioning live in minutes, speaks directly to your best-fit clients.",
-      prompt2: "Add a case study page for Woom showing the analytics setup and results.",
-      result2: "✓ New page live same day — social proof that converts better than a services list.",
-      prompt3: "Change 'Get started' to 'See how we do it' and link to the automated reporting section.",
-      result3: "✓ Lower-friction entry point tested and live without touching a single line of Webflow code."
+    opportunityFindings: [
+      { label: 'Data firm needs fast, credible site updates', body: 'You help clients make fact-based decisions — your own site shouldn\'t need a designer to make one. PAZ\'s pitch is turning data into action fast. But every time market positioning shifts or a new case study needs publishing, it waits on someone else\'s schedule.' },
+      { label: 'Niche positioning requires rapid copy iteration', body: 'PAZ\'s positioning is strong: turning clicks into customers for outdoor brands. But that niche positioning only works if the site reflects it precisely — and right now, any copy update requires going back through a platform or designer.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to \'Turning clicks into customers — for outdoor brands who can\'t afford guesswork.\'',
+      result1: '✓ Niche positioning live in minutes, speaks directly to your best buyers.',
+      prompt2: 'Add a case study page for Woom showing the analytics setup and measurable results.',
+      result2: '✓ New page live same day — social proof that converts better than a general services list.',
+      prompt3: 'Change \'Get started\' to \'See how we do it\' and link to the analytics process overview.',
+      result3: '✓ Lower-friction entry point tested and live without touching a developer.'
     }
   },
   {
@@ -6799,13 +6851,17 @@ export const reports: Report[] = [
     industry: "Pay-Per-Call & Lead Generation / Digital Marketing",
     pages: 4,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the hero to lead with '17 years scaling customer acquisition for Fortune 500 partners'.",
-      result1: "✓ Credibility front and center, live in minutes, no designer needed.",
-      prompt2: "Add a dedicated page for our Medicare vertical — separate pitch, separate compliance notes, separate lead form.",
-      result2: "✓ Vertical page live same day, indexed, capturing leads that the homepage can't close.",
-      prompt3: "Add a media buyers section to the nav with a direct application form.",
-      result3: "✓ Recruitment funnel live and working before your next campaign kicks off."
+    opportunityFindings: [
+      { label: 'Multi-vertical firm needs fast page launches', body: 'You\'re in a compliance-heavy, results-driven business — your site needs to move at acquisition speed. Profit XL operates across Medicare, Mortgage Refi, Final Expense, and Debt Settlement. Each vertical has different buyers, different compliance angles, and different conversion paths — but right now they all share one site with no dedicated landing pages.' },
+      { label: '17-year track record buried in slow site', body: 'Profit XL operates across Medicare, Mortgage Refi, Final Expense, and Debt Settlement. With 17 years of performance history, the credibility is there — but it\'s not front and center, and updating it still requires a designer or platform workaround.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to lead with \'17 years scaling customer acquisition across Medicare, Mortgage Refi, and Final Expense.\'',
+      result1: '✓ Credibility front and center, live in minutes, no designer queue.',
+      prompt2: 'Add a dedicated page for our Medicare vertical — separate pitch, separate compliance language, separate CTA.',
+      result2: '✓ Vertical page live same day, indexed, capturing leads that convert at higher rates.',
+      prompt3: 'Add a media buyers section to the nav with a direct application form for performance-based partnerships.',
+      result3: '✓ Recruitment funnel live and working before your next campaign launch.'
     }
   },
   {
@@ -6818,13 +6874,17 @@ export const reports: Report[] = [
     pages: 13,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a private celebrity chef dinner page — full description, photo gallery, and a 'Book Your Next Event Here' button.",
-      result1: "✓ New experience page live same day, capturing leads for your highest-margin offering.",
-      prompt2: "Update the hero to 'MAKE YOUR CLIENTS SAY WOW — Tailgate events, luxury suites, and private dinners for enterprise teams'.",
-      result2: "✓ Hero sharpened and live before your next outbound push, no design ticket required.",
-      prompt3: "Add BNY Mellon and Fortinet to the client logo section after their events wrapped.",
-      result3: "✓ Social proof updated in minutes — while the relationship is still warm."
+    opportunityFindings: [
+      { label: 'Enterprise clients expect current experience pages', body: 'You\'re selling \'wow\' — your site needs to move fast enough to keep up with what\'s new. RedJet\'s roster includes Dell, ServiceNow, Adobe, and Palo Alto Networks. Those clients expect current, specific experience pages — not a static portfolio that hasn\'t been updated since the last event.' },
+      { label: 'New client logos need same-day site updates', body: 'RedJet\'s roster includes Dell, ServiceNow, Adobe, and Palo Alto Networks. Every new client win is a credibility signal — but if adding their logo to the site takes days through a designer, the social proof arrives late and the momentum is gone.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add a private celebrity chef dinner page — full description, pricing tier, and a \'Plan Your Event\' CTA.',
+      result1: '✓ New experience page live same day, capturing leads for your highest-margin offering.',
+      prompt2: 'Update the hero to \'MAKE YOUR CLIENTS SAY WOW — Tailgate events, chef dinners, and luxury experiences for enterprise teams.\'',
+      result2: '✓ Hero sharpened and live before your next outbound push, no design ticket.',
+      prompt3: 'Add BNY Mellon and Fortinet to the client logo section after signing them last quarter.',
+      result3: '✓ Social proof updated in minutes — while the relationship is still fresh.'
     }
   },
   {
@@ -6875,13 +6935,17 @@ export const reports: Report[] = [
     pages: 14,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the Schedule Tour button to open a new intake form for the spring open house.",
-      result1: "✓ Button linked to new form, live in minutes, no platform expertise needed.",
-      prompt2: "Add a new section under Our Learning Approach with a quote from a current family.",
-      result2: "✓ Testimonial section added same day, formatted to match the existing design.",
-      prompt3: "Refresh the hero to highlight our mission statement more prominently above the fold.",
-      result3: "✓ Hero text updated and repositioned immediately — no brief, no back-and-forth."
+    opportunityFindings: [
+      { label: 'Enrollment decisions require real-time site updates', body: 'Enrollment decisions happen fast. Your site needs to move just as quickly. Saint Brigid Academy\'s 4:1 student-teacher ratio is a standout differentiator — but when a prospective family tours the campus, the site still needs to reflect current programs, updated testimonials, and the right CTAs.' },
+      { label: 'Low ratio advantage needs prominent placement', body: 'Saint Brigid Academy\'s 4:1 student-teacher ratio is a standout differentiator — but right now it\'s not leading the page. In a crowded private school market, that number needs to be the first thing a prospective parent reads, not buried below the fold.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the Schedule Tour button to open a new intake form for prospective families — not just a generic contact page.',
+      result1: '✓ Button linked to new form, live in minutes, no platform expertise required.',
+      prompt2: 'Add a new section under Our Learning Approach with a quote from a current parent about the student-teacher ratio.',
+      result2: '✓ Testimonial section added same day, formatted to match the existing design.',
+      prompt3: 'Refresh the hero to highlight our mission statement more prominently — it\'s the first thing families ask about.',
+      result3: '✓ Hero text updated and repositioned immediately — no brief, no build cycle, no waiting.'
     }
   },
   {
@@ -6894,13 +6958,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 23,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Change the hero headline to 'The Most Advanced AI Advertising Platform for Amazon Sellers' and update the subhead to match our Q2 messaging.",
-      result1: "✓ Hero updated live in minutes — no Squarespace editor, no waiting on design.",
-      prompt2: "Create a dedicated landing page for our 'Start Your 30-Day Free Trial' campaign with a single CTA and no nav.",
-      result2: "✓ Campaign page built and live same day, optimized for conversion.",
-      prompt3: "Test replacing 'Unparalleled Automation' section header with 'Set It Once. Let Astra Run It.'",
-      result3: "✓ Section copy swapped instantly — run the test, check the data, update again."
+    opportunityFindings: [
+      { label: 'AI platform messaging must stay current', body: 'You\'re selling an AI platform that moves fast. Your marketing site should too. Sellrbox\'s Astra product is built around speed — \'Propel your Amazon advertising performance\' — but updating the hero, launching a campaign page, or testing a CTA still runs through the Squarespace editor and its limitations.' },
+      { label: 'Trial CTA needs dedicated conversion page', body: 'Sellrbox\'s Astra product is built around speed — \'Propel your Amazon advertising performance.\' But the 30-day free trial offer — potentially the highest-converting entry point — doesn\'t have its own dedicated landing page, which means paid traffic and outbound leads hit a generic homepage.' },
+    ],
+        aiExamples: {
+      prompt1: 'Change the hero headline to \'The Most Advanced AI Advertising Platform for Amazon Sellers\' and test it against the current version.',
+      result1: '✓ Hero updated live in minutes — no Squarespace editor, no waiting.',
+      prompt2: 'Create a dedicated landing page for our \'Start Your 30-Day Free Trial\' offer — optimize it for paid traffic.',
+      result2: '✓ Campaign page built and live same day, optimized for conversion.',
+      prompt3: 'Test replacing \'Unparalleled Automation\' section header with \'Set It. Forget It. Grow.\' and see if it increases scroll depth.',
+      result3: '✓ Section copy swapped instantly — run the test, check the data, decide.'
     }
   },
   {
@@ -6932,13 +7000,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add our most recent portfolio company to the Portfolio page with their logo, description, and investment stage.",
-      result1: "✓ New portfolio entry live in minutes — no Wix editor, no designer approval.",
-      prompt2: "Update the team page to add a new partner and remove a departed member.",
-      result2: "✓ Team page updated same day — accurate roster ready for your next LP meeting.",
-      prompt3: "Change the hero from generic VC language to something that leads with our 30-year track record.",
-      result3: "✓ Hero updated in under 10 minutes — sharper positioning for founders and co-investors."
+    opportunityFindings: [
+      { label: 'CXO advisory firm needs agile site presence', body: 'A firm that helps CXOs move fast shouldn\'t have a website that moves slow. You help executives \'accelerate breakthroughs\' — but every time your own site needs a new case study, updated copy, or a different CTA, it waits on Wix and a designer.' },
+      { label: 'Case study pipeline can\'t wait on design queue', body: 'You help executives \'accelerate breakthroughs\' — but every time your own site needs a new case study, updated copy, or a different CTA, it waits on Wix and a designer. Case studies are the primary sales tool for advisory firms, and a slow publish cycle means the window for relevance closes.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero headline to \'Strategic clarity for CEOs navigating transformation — without the 90-day consulting runway.\'',
+      result1: '✓ Hero updated and live in minutes — no Wix editor, no designer, no delay.',
+      prompt2: 'Add a new case study page under \'Case Studies\' for a recent CXO engagement — here\'s the brief.',
+      result2: '✓ Page built to match the existing layout, reviewed, and published same day.',
+      prompt3: 'Change the \'Learn more\' CTA to \'See How We Work\' and see if it drives more inquiry form completions.',
+      result3: '✓ Updated instantly. Test a second variation tomorrow if you want.'
     }
   },
   {
@@ -6951,13 +7023,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 60,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new portfolio company — B2B SaaS, Series A, fintech vertical — to the Portfolio page.",
-      result1: "✓ New company entry live same day — logo, description, and stage formatted consistently.",
-      prompt2: "Update the thesis section to reflect our current focus on AI-native B2B tools.",
-      result2: "✓ Thesis page refreshed in under 10 minutes — no Webflow editor, no dev required.",
-      prompt3: "Add a 'Pitch Us' page with a short intake form — stage, sector, brief description.",
-      result3: "✓ New page built and live — form submissions go straight to your inbox."
+    opportunityFindings: [
+      { label: 'Venture builder blocked from own site updates', body: 'A venture builder that launches businesses for others shouldn\'t be blocked from updating its own. You help experienced professionals build side businesses — the whole model is about speed and independence. But when the site needs a new portfolio entry or updated copy, it still waits on a Webflow editor.' },
+      { label: 'Portfolio entries need same-day publishing', body: 'You help experienced professionals build side businesses — the whole model is about speed and independence. When a new venture launches, that portfolio entry should be live the same day — not delayed a week while a designer is briefed and a revision cycle runs.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to \'We build businesses — and we\'ll help you build yours. Side ventures for experienced professionals who want more.\'',
+      result1: '✓ Hero updated and live in minutes — no Webflow editor access required.',
+      prompt2: 'Add a new portfolio entry under \'Our Portfolio\' for a recent venture — here\'s the description and logo.',
+      result2: '✓ New entry added matching the existing card layout, reviewed, and published same day.',
+      prompt3: 'Change the \'Build a Side Business\' CTA to \'Discuss an Idea\' and test if it reduces friction for first contact.',
+      result3: '✓ Done instantly. Swap back or test a third version tomorrow.'
     }
   },
   {
@@ -6989,13 +7065,17 @@ export const reports: Report[] = [
     pages: 8,
     hostingCost: 60,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new case study to the Results page — client name, platform, follower growth, and timeframe.",
-      result1: "✓ Case study live same day — proof point ready before your next sales call.",
-      prompt2: "Update the Services page to add our new LinkedIn growth package with pricing and CTA.",
-      result2: "✓ New service section built and live in under 10 minutes — no Webflow editor needed.",
-      prompt3: "Change the hero CTA from 'Get Started' to 'See How We'd Grow Your Account' and link to a new audit page.",
-      result3: "✓ Hero CTA updated and audit page scaffolded same day — stronger conversion path."
+    opportunityFindings: [
+      { label: 'Course program needs live student proof updates', body: 'A program that teaches 1,200+ students to build systems for passive income should have a site that runs the same way. You\'ve built a production pipeline for YouTube. Your website copy, CTAs, and landing pages should update just as fast — but right now every change waits on whoever manages the platform.' },
+      { label: 'Testimonials and social proof need rapid publishing', body: 'You\'ve built a production pipeline for YouTube. Your website copy, CTAs, and landing pages should update just as fast. When a student posts a new revenue screenshot or a review comes in, that social proof should be on the site within the hour — not the next time someone gets platform access.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to \'Build a YouTube Channel That Pays You Every Month — even if you\'ve never posted before.\' Add our latest student count.',
+      result1: '✓ Hero updated with fresh social proof in under 10 minutes — no platform access required.',
+      prompt2: 'Add a new section to \'Real Students. Real Revenue. Real Reviews.\' — here are three new student screenshots and quotes.',
+      result2: '✓ Testimonials added matching the existing card layout, live before the day ends.',
+      prompt3: 'Change \'Book a Strategy Call →\' to \'See The System →\' and A/B test which one books more calls.',
+      result3: '✓ Updated instantly. Swap variants, track results, iterate — all without touching a developer.'
     }
   },
   {
@@ -7008,13 +7088,17 @@ export const reports: Report[] = [
     pages: 8,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the Services page to add our new leadership coaching program with a 'Book a Discovery Call' CTA.",
-      result1: "✓ New program section live in minutes — consistent with the rest of the page, no designer queue.",
-      prompt2: "Add a client testimonial to the homepage from our most recent engagement.",
-      result2: "✓ Testimonial added and live same day — social proof visible before the next prospect visits.",
-      prompt3: "Change the hero to lead with the problem we solve: 'High turnover costs companies millions. We fix that.'",
-      result3: "✓ Hero updated in under 10 minutes — sharper hook for HR decision-makers."
+    opportunityFindings: [
+      { label: 'Right-fit brand undermined by static site', body: 'A firm built on finding the right fit shouldn\'t be stuck with the wrong website setup. You match candidates to roles by looking beyond the resume — but every time your site needs a new case study, updated sector focus, or different CTA, it waits on a platform or designer.' },
+      { label: 'Client success stories need fast publishing cycle', body: 'You match candidates to roles by looking beyond the resume — but every time your site needs a new case study, updated sector focus, or different CTA, it waits on a platform or designer. New placements are the strongest proof the firm works — and that proof has a short shelf life.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to \'Your Partner in Finding The Right Fit — for the roles that matter most.\' — and add a subhead about our sector depth.',
+      result1: '✓ Hero updated with your key differentiator live in minutes — no brief required.',
+      prompt2: 'Add a new Client Success Story under \'Client Success Stories\' — here\'s the placement summary.',
+      result2: '✓ New case study added matching the existing layout and published same day.',
+      prompt3: 'Change \'Get in Touch\' to \'Find Your Fit\' and test if that resonates better with senior candidates.',
+      result3: '✓ Done instantly. Try a variation for employers tomorrow — full flexibility.'
     }
   },
   {
@@ -7027,13 +7111,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new active job opening for a Senior Cloud Engineer — role, requirements, and an 'Apply Now' link.",
-      result1: "✓ Job posting live in minutes — candidates can apply immediately, no dev needed.",
-      prompt2: "Update the hero to lead with our specialization in cloud and DevOps talent instead of generic staffing language.",
-      result2: "✓ Hero updated same day — clearer positioning for the tech clients you're targeting.",
-      prompt3: "Add a 'Client Success' section with two or three recent placements and outcomes.",
-      result3: "✓ Success section built and live in under 10 minutes — proof points ready for your next pitch."
+    opportunityFindings: [
+      { label: 'Shipping expertise needs fast positioning updates', body: 'Your shipping expertise is sharp. Your site\'s ability to reflect it in real time is not. BridgeSource wins clients on credibility and speed — but every time carrier rates shift, a new capability launches, or a CTA needs testing, it waits on whoever manages the site.' },
+      { label: 'Parcel savings claim needs proof on the page', body: 'BridgeSource wins clients on credibility and speed — but every time carrier rates shift, a new capability launches, or a CTA needs testing, it waits on whoever manages the site. The \'stop overpaying on parcel shipping\' message is the hook — but without data or a case example on the page, it doesn\'t convert as well as it could.' },
+    ],
+        aiExamples: {
+      prompt1: 'Change the hero to say \'Stop Overpaying on Parcel Shipping\' with a sub-line about average savings we deliver.',
+      result1: '✓ Done in under 10 minutes — no ticket, no designer, no waiting.',
+      prompt2: 'Add a section under \'What\' for our new Ecommerce fulfillment advisory offering — same structure as existing service cards.',
+      result2: '✓ New section live same day, matching the existing design, no developer required.',
+      prompt3: 'Update the \'Get The Best Now\' CTA to test \'See What You\'re Overpaying\' — lower friction, higher intent.',
+      result3: '✓ Change made, tested, and reverted or kept — without touching a developer.'
     }
   },
   {
@@ -7046,13 +7134,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 23,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the Services page to add our new operational efficiency assessment offering with a 'Request a Scope' CTA.",
-      result1: "✓ New service live in minutes — formatted consistently, ready for the next prospect.",
-      prompt2: "Add a case study callout to the homepage — industry, challenge, and result.",
-      result2: "✓ Case study section built same day — social proof on the first page prospects see.",
-      prompt3: "Change the hero headline to something that leads with ROI — 'We Find the Margin You're Leaving on the Table'.",
-      result3: "✓ Hero updated in under 10 minutes — sharper positioning for operations buyers."
+    opportunityFindings: [
+      { label: '$920M track record needs live site to match', body: '$920M raised and a 36-year track record — that story deserves a site that can keep pace with new wins. When you close a new deal or refine the Equity Raise Triad™ pitch, that update should be live the same day. Right now it waits on whoever manages the platform.' },
+      { label: 'Equity Raise Triad needs its own explanation page', body: 'When you close a new deal or refine the Equity Raise Triad™ pitch, that update should be live the same day. Right now the Triad framework — the firm\'s core IP — doesn\'t have a dedicated page explaining how it works, which means prospects are left to infer it from the homepage.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero stat to add our latest raise milestone under the $920M number — here\'s the exact figure.',
+      result1: '✓ Live in minutes — the social proof that closes deals stays current.',
+      prompt2: 'Add a new page explaining The Equity Raise Triad™ framework — here\'s the overview doc.',
+      result2: '✓ New page built and live same day — AI drafts it from your brief, you approve.',
+      prompt3: 'The \'Entrepreneurs\' CTA path feels buried — I want to test leading with it instead of the \'Investors\' path.',
+      result3: '✓ Rearranged, tested, reverted or kept — no dev dependency, no sprint.'
     }
   },
   {
@@ -7103,13 +7195,17 @@ export const reports: Report[] = [
     pages: 4,
     hostingCost: 25,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new market entry case study for a recent LATAM or APAC engagement — sector, challenge, outcome.",
-      result1: "✓ Case study live same day — proof point ready for the next international prospect.",
-      prompt2: "Update the Services page to add our new market intelligence subscription offering.",
-      result2: "✓ New service section built and live in under 10 minutes — no dev, no designer.",
-      prompt3: "Change the hero to lead with speed: 'Enter New Markets in 90 Days — Not 18 Months'.",
-      result3: "✓ Hero updated in minutes — stronger hook for executives evaluating expansion timelines."
+    opportunityFindings: [
+      { label: 'Investment firm credibility requires live portfolio', body: 'An investment firm\'s site is its first signal of credibility — it needs to reflect the portfolio in real time. CCIX Global operates at the intersection of technology, fintech, and global digital transformation. When a new company joins the portfolio, that addition needs to be live before the announcement goes public.' },
+      { label: 'No dedicated Approach page for investor evaluation', body: 'CCIX Global operates at the intersection of technology, fintech, and global digital transformation. Right now there\'s no dedicated page explaining how the firm evaluates opportunities — a gap that matters when sophisticated investors or co-investors are doing diligence on the firm itself.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add a new portfolio company logo to the grid — we just closed the deal and want it live before the announcement.',
+      result1: '✓ Logo added and live in minutes — portfolio stays current without a designer.',
+      prompt2: 'Update the hero from \'Empowered Investments in the Global Digital Economy\' to lead with our current focus sectors.',
+      result2: '✓ Hero copy updated same day — the message matches wherever prospects find you.',
+      prompt3: 'Add a dedicated \'Approach\' page that explains how we evaluate deals and what we look for in founders.',
+      result3: '✓ New page built and live same day — describe it in plain language, AI structures it.'
     }
   },
   {
@@ -7122,13 +7218,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new case study for a recent enterprise network deployment — client type, scope, and outcome.",
-      result1: "✓ Case study live in minutes — proof point ready before your next sales meeting.",
-      prompt2: "Update the Services page to add our new managed SD-WAN offering with a 'Request a Quote' CTA.",
-      result2: "✓ New service section built same day — formatted consistently with existing services.",
-      prompt3: "Change the hero headline to lead with uptime and reliability: 'Networks That Don't Go Down'.",
-      result3: "✓ Hero updated in under 10 minutes — sharper hook for IT directors and CIOs."
+    opportunityFindings: [
+      { label: 'Health collaboration firm needs current messaging', body: 'A firm built on making health organizations collaborate better shouldn\'t have a website that can\'t keep up with its own work. Connectivity LLC\'s credibility rests on 30+ years of executive experience and a track record of multi-stakeholder alignment — but when positioning evolves or a new service needs surfacing, the site lags behind.' },
+      { label: '30-year track record buried in static copy', body: 'Connectivity LLC\'s credibility rests on 30+ years of executive experience and a track record of multi-stakeholder alignment — but when positioning evolves or a new service needs surfacing, the site lags behind. That depth of experience should be the first thing a health system leader reads.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero from \'When Health Companies Collaborate, Everyone Wins\' to lead with a specific outcome we\'ve delivered.',
+      result1: '✓ Hero updated in minutes — test a new framing without committing to a full redesign.',
+      prompt2: 'Add a new service under \'Visioning & Strategic Planning\' for our health system integration advisory work.',
+      result2: '✓ New service listed same day, matching existing layout and formatting.',
+      prompt3: 'The \'Awareness Building & Brand Development\' section needs a case study callout — here\'s the summary.',
+      result3: '✓ Case study added as a callout block, no extra pages needed.'
     }
   },
   {
@@ -7179,13 +7279,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new client outcome to the homepage — industry, data challenge, and measurable result.",
-      result1: "✓ Outcome callout live in minutes — proof point visible on first visit.",
-      prompt2: "Update the Services page to add our new real-time dashboard offering for operations teams.",
-      result2: "✓ New service section built same day — formatted to match existing entries.",
-      prompt3: "Change the hero from 'Data-Driven Decisions' to something that leads with what changes for the client.",
-      result3: "✓ Hero updated in under 10 minutes — sharper hook for operations and finance buyers."
+    opportunityFindings: [
+      { label: 'Market research firm credibility requires fast updates', body: 'Market research firms live and die on credibility — and a site that can\'t be updated fast undermines both. Datum\'s positioning is strong: \'Gathering Data, Creating Advantage\' with a \'quick turnaround promise.\' But if the site itself can\'t update quickly, that promise rings hollow to any client who visits.' },
+      { label: 'New work entries need same-day publishing', body: 'Datum\'s positioning is strong: \'Gathering Data, Creating Advantage\' with a \'quick turnaround promise.\' But the Work section hasn\'t been updated to reflect recent engagements — and in market research, current proof of capability matters more than credentials alone.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero tagline to \'Sharpening your competitive edge — one insight at a time.\' and add our turnaround time as a sub-stat.',
+      result1: '✓ Hero updated live in minutes, no designer queue, no ticket filed.',
+      prompt2: 'Add a new service card for \'Competitive Intelligence\' under the Services section — same structure as existing cards.',
+      result2: '✓ New service live same day, matching the existing layout exactly.',
+      prompt3: 'The Work section needs a new case study — add a card for our most recent retail analytics engagement.',
+      result3: '✓ New work entry added without touching code, published the same day it closed.'
     }
   },
   {
@@ -7236,13 +7340,17 @@ export const reports: Report[] = [
     pages: 11,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new service to the Services page for our school consultation program with a 'Contact Us' CTA.",
-      result1: "✓ New service section live in minutes — formatted consistently, no designer required.",
-      prompt2: "Update the homepage hero to lead with the families we help, not the certifications we hold.",
-      result2: "✓ Hero updated same day — warmer, more direct messaging for parents seeking support.",
-      prompt3: "Add a FAQ section to the Services page covering insurance, process, and what to expect.",
-      result3: "✓ FAQ section built and live in under 10 minutes — reduces friction before the first call."
+    opportunityFindings: [
+      { label: 'TMS clinic space evolves faster than static sites', body: 'TMS is a fast-moving clinical space — new technology, new regulations, new competitors. Doolittle Consulting\'s positioning is specific and credible: \'Empowering Your TMS Clinic\'s Growth.\' But when the Nexstim partnership updates or a new service area opens, the site needs to reflect it immediately — not at the next designer check-in.' },
+      { label: 'Financial insights section missing from site', body: 'Doolittle Consulting\'s positioning is specific and credible: \'Empowering Your TMS Clinic\'s Growth.\' But right now there\'s no dedicated Financial Insights page — a gap that matters when clinic operators are evaluating the full scope of consulting support available.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to \'Launch and grow your TMS clinic with the only consulting firm built specifically for this space.\'',
+      result1: '✓ Hero updated live in minutes, CTA and layout unchanged.',
+      prompt2: 'Add a new page for Financial Insights — same structure as the existing service pages, here\'s the content brief.',
+      result2: '✓ New page built and live same day, matching the existing section design.',
+      prompt3: 'The Nexstim case study section needs an updated intro — they just announced a new product line we want to reference.',
+      result3: '✓ Section updated now, while the news is fresh, not in the next sprint.'
     }
   },
   {
@@ -7255,13 +7363,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new portfolio company to the Portfolio page — sector, stage, and a one-line description.",
-      result1: "✓ Portfolio entry live in minutes — track record updated before your next LP meeting.",
-      prompt2: "Update the thesis section to reflect our current focus on indoor farming and grid-edge technologies.",
-      result2: "✓ Thesis updated same day — accurate positioning for founders and co-investors.",
-      prompt3: "Add a 'Pitch Us' page with a short intake form for founders — sector, stage, and one-line pitch.",
-      result3: "✓ New page built and live in under 10 minutes — better funnel for inbound deal flow."
+    opportunityFindings: [
+      { label: 'Exit advisory trust built on up-to-date presence', body: 'When you\'re selling trust to business owners ready to exit, a site you can\'t update fast undermines the pitch. Advisory firms live and die by positioning. If your messaging needs to shift after a market conversation or a new service area opens, the site should reflect it the same day — not a week later.' },
+      { label: 'Value acceleration strategy needs dedicated page', body: 'Advisory firms live and die by positioning. If your messaging needs to shift after a market conversation or a new service area opens, the site should reflect it the same day. Right now the Value Acceleration Strategy — the firm\'s core differentiator — doesn\'t have a dedicated explanation page.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the Solutions page to lead with Value Acceleration Strategy — it\'s what we\'re closing deals on right now.',
+      result1: '✓ Live in minutes — no designer, no ticket, no wait.',
+      prompt2: 'Add a landing page for Capital Sourcing that speaks directly to owners who want to recapitalize before a full exit.',
+      result2: '✓ AI drafts it from your brief, you review and approve, ships same day.',
+      prompt3: 'Change the \'Get Started\' CTA to \'Book a Discovery Call\' across the site — it\'s more specific.',
+      result3: '✓ Done site-wide in one edit — no hunting through Wix panels.'
     }
   },
   {
@@ -7348,15 +7460,19 @@ export const reports: Report[] = [
     url: "https://eviaservices.com",
     industry: "Environmental & Infrastructure Consulting",
     pages: 8,
-    hostingCost: 25,
+    hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new completed project to the Projects page — site type, scope, and environmental outcome.",
-      result1: "✓ Project entry live in minutes — portfolio updated before your next client proposal.",
-      prompt2: "Update the Services page to add our new brownfield redevelopment consulting offering.",
-      result2: "✓ New service section built same day — no WordPress editor, no developer required.",
-      prompt3: "Change the hero CTA from 'Contact Us' to 'Request a Site Assessment' and link to an intake form.",
-      result3: "✓ CTA updated and form live in under 10 minutes — stronger conversion path from first visit."
+    opportunityFindings: [
+      { label: 'AI automation firm needs a fast-updating site', body: 'A firm that sells AI automation and digital growth solutions should be running a site that proves the point. EVIA helps clients build smarter systems and scale faster — but if your own website can\'t be updated same day, the gap between what you sell and how you operate becomes visible to every prospect who visits.' },
+      { label: 'Fund pillar has no dedicated landing page', body: 'EVIA helps clients build smarter systems and scale faster. But right now the Fund pillar — a distinct audience and service offering — doesn\'t have its own landing page. Small business clients and investors are landing on the same general homepage with no targeted conversion path.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add a landing page for the Fund pillar targeting small business owners looking for growth capital — separate from the main site.',
+      result1: '✓ Page live same day — no dev ticket, no waiting.',
+      prompt2: 'Update the Innovate page to lead with AI & Automation Solutions — it\'s our strongest close right now.',
+      result2: '✓ Reordered and updated in minutes.',
+      prompt3: 'Add two new client testimonials to the homepage and a recent case study summary in the Work section.',
+      result3: '✓ Both live before end of day — no designer involved.'
     }
   },
   {
@@ -7369,13 +7485,17 @@ export const reports: Report[] = [
     pages: 4,
     hostingCost: 25,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new property to the Portfolio page — market, unit count, and investment thesis.",
-      result1: "✓ Property entry live in minutes — track record updated before the next investor conversation.",
-      prompt2: "Update the hero to lead with our acquisition focus: 'We Acquire and Operate Senior Housing Across the Sun Belt'.",
-      result2: "✓ Hero updated same day — clearer positioning for operators, brokers, and capital partners.",
-      prompt3: "Add a 'Partner With Us' page with a short intake form for operators and brokers.",
-      result3: "✓ New page built and live in under 10 minutes — better inbound path for deal flow."
+    opportunityFindings: [
+      { label: 'Capital relationships require current site presence', body: 'Senior housing developers can\'t afford a slow website when capital relationships move fast. When an investor or operator lands on your site, they\'re making a read in seconds. If the Prior Projects page is outdated or a new development isn\'t listed, the opportunity to validate credibility in that moment is gone.' },
+      { label: 'Prior projects page needs same-day updates', body: 'When an investor or operator lands on your site, they\'re making a read in seconds. If the Prior Projects page is outdated or a new development isn\'t listed, the opportunity to validate credibility in that moment is gone. Right now adding a new project requires navigating the platform and waiting on whoever has access.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to say \'Building Dynamic Communities Across Senior Housing — from development to operations.\'',
+      result1: '✓ Live in minutes — no designer ticket, no waiting.',
+      prompt2: 'Add a section under Providing Capital Solutions that outlines our preferred deal structure and minimum investment size.',
+      result2: '✓ New section built and published same day, ready for your next investor conversation.',
+      prompt3: 'The Prior Projects page needs a new development — add the name, location, unit count, and completion date.',
+      result3: '✓ Content added directly, no CMS training required, no back-and-forth.'
     }
   },
   {
@@ -7407,13 +7527,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add our most recent contract award to the homepage — agency name, contract type, and value range.",
-      result1: "✓ Contract award callout live in minutes — credibility signal ready for the next procurement meeting.",
-      prompt2: "Update the Services page to add our 8(a) certification support offering with a 'Schedule a Consultation' CTA.",
-      result2: "✓ New service section built same day — formatted consistently with existing entries.",
-      prompt3: "Add a 'Past Performance' section to the About page with three agency client callouts.",
-      result3: "✓ Past performance section live in under 10 minutes — ready for your next proposal."
+    opportunityFindings: [
+      { label: 'Education consultants need responsive site presence', body: 'Education consultants are constantly in the field — your site should work for you while you\'re there. When a district leader or superintendent looks you up between meetings, your site is the pitch. If it doesn\'t reflect your most recent district work or your current service areas, you\'re leaving credibility on the table.' },
+      { label: 'West Kern Consolidated win needs to be on the site', body: 'When a district leader or superintendent looks you up between meetings, your site is the pitch. If it doesn\'t reflect your most recent district work or your current service areas, you\'re leaving credibility on the table. Right now adding a new district reference or updating a service description requires Wix access and a designer.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero to mention our work with the West Kern Consolidated USD — that\'s the kind of district-level credibility that opens doors.',
+      result1: '✓ Hero updated and live in minutes, no Wix login or editor required.',
+      prompt2: 'Add a new section under Improvement that describes our data-driven coaching model for instructional leaders.',
+      result2: '✓ New section built to match your existing layout, published same session.',
+      prompt3: 'Our learn-by-doing approach description needs a refresh — here\'s the updated language we use in proposals.',
+      result3: '✓ Copy swapped in immediately, no back-and-forth with a developer.'
     }
   },
   {
@@ -7445,13 +7569,17 @@ export const reports: Report[] = [
     pages: 5,
     hostingCost: 60,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the Services page to add our new executive threat assessment offering with a 'Request a Briefing' CTA.",
-      result1: "✓ New service section live same day — ready for the next corporate security inquiry.",
-      prompt2: "Add a capabilities section to the homepage highlighting our geopolitical risk analysis work.",
-      result2: "✓ Section built and live in under 10 minutes — no Webflow editor, no developer.",
-      prompt3: "Change the hero headline to lead with what clients get: 'Intelligence That Protects Decisions, Not Just Assets'.",
-      result3: "✓ Hero updated in minutes — sharper positioning for C-suite and security buyers."
+    opportunityFindings: [
+      { label: 'GTM consultants need a fast-updating GTM site', body: 'Go-to-market consultants can\'t have a go-to-market problem with their own website. When a potential client checks you out after a referral or a LinkedIn outreach, the site is the first proof point. If it doesn\'t reflect your current focus or latest service offering, the credibility gap is immediate.' },
+      { label: 'Revenue operations advisory needs its own page', body: 'When a potential client checks you out after a referral or a LinkedIn outreach, the site is the first proof point. Right now there\'s no dedicated page for the revenue operations advisory offering — which means it competes for attention on the homepage instead of converting on its own.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the homepage headline to better reflect our new focus on revenue operations and enterprise GTM strategy.',
+      result1: '✓ Headline updated live in minutes — no Webflow login, no designer brief.',
+      prompt2: 'Add a new service page for our revenue operations advisory offering — here\'s the positioning doc.',
+      result2: '✓ New page built, linked in navigation, and published same day.',
+      prompt3: 'The Contact Us button needs to route to our new intake form — the old one goes to a dead end.',
+      result3: '✓ CTA updated and verified immediately, no developer ticket required.'
     }
   },
   {
@@ -7521,13 +7649,17 @@ export const reports: Report[] = [
     pages: 5,
     hostingCost: 25,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new service offering for succession planning with a 'Schedule a Discovery Call' CTA.",
-      result1: "✓ New service section live in minutes — formatted consistently with existing offerings.",
-      prompt2: "Update the hero to lead with retention outcomes: 'We Help Organizations Keep the People That Drive Growth'.",
-      result2: "✓ Hero updated same day — sharper positioning for CHROs and CEOs facing turnover.",
-      prompt3: "Add a client outcome callout to the homepage — industry, challenge, and measurable result.",
-      result3: "✓ Outcome callout built and live in under 10 minutes — social proof on the first page prospects see."
+    opportunityFindings: [
+      { label: 'Innovation brand needs site that moves with it', body: 'You lead with \'metodologías disruptivas\' — but your website can\'t change without a developer. Human Capital Consulting\'s positioning is built around innovation, continuous improvement, and proximity to the client. But every copy update or new service listing goes through a platform dependency.' },
+      { label: 'New consultant additions delayed by platform access', body: 'Human Capital Consulting\'s positioning is built around innovation, continuous improvement, and proximity to the client. But every copy update or new service listing — including adding a new consultant to the Equipo section — goes through a platform dependency and a wait.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero subheading — I want to lead with \'Proximidad con el cliente\' and add a CTA for new HR advisory inquiries.',
+      result1: '✓ Hero updated and CTA added, live in minutes without touching a developer.',
+      prompt2: 'We added a new consultant to the Equipo section — I need their photo, bio, and specialty listed in the same format.',
+      result2: '✓ New team member added same day, no developer briefing needed.',
+      prompt3: 'Add \'Espacios laborales saludables\' as a standalone service card — here\'s the one-paragraph description.',
+      result3: '✓ New service section live before your next prospect call.'
     }
   },
   {
@@ -7540,13 +7672,17 @@ export const reports: Report[] = [
     pages: 4,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new client success story to the homepage — company stage, role type, and time to fill.",
-      result1: "✓ Success callout live in minutes — proof point ready before your next sales conversation.",
-      prompt2: "Update the hero to lead with speed: 'We Fill Engineering Roles in Half the Time Your Team Can'.",
-      result2: "✓ Hero updated same day — sharper hook for startups that can't afford a slow hire.",
-      prompt3: "Add a 'Start a Search' intake form page with fields for role, stage, and urgency.",
-      result3: "✓ New page built and live in under 10 minutes — better inbound path from first visit to first call."
+    opportunityFindings: [
+      { label: 'AI talent brand contradicted by slow Wix site', body: 'You\'re selling \'the future of talent management\' on a Wix site you can\'t update at the speed your brand promises. Hyper Talent\'s entire brand is built on AI, speed, and being ahead of the curve. But when a new sports client signs or the AI partner list changes, the site lags behind the pitch.' },
+      { label: 'New sports clients need same-day site visibility', body: 'Hyper Talent\'s entire brand is built on AI, speed, and being ahead of the curve. But when a new sports client signs or the AI partner list changes, the site lags behind the pitch. That gap between what you\'re closing and what the site shows costs credibility in a relationship-driven industry.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero from \'Redefining the Future of Talent Management\' to include our AI-driven placement speed as a specific claim.',
+      result1: '✓ Hero copy and supporting section updated live in minutes.',
+      prompt2: 'We just signed a new sports client — add them to a \'Partners\' or \'Clients\' section we can keep current.',
+      result2: '✓ New section built and published same day, fully editable going forward.',
+      prompt3: 'I want to test whether \'Partner\' or \'Work With Us\' converts better as the primary nav CTA.',
+      result3: '✓ Swap it, run it for a week, revert or keep — no developer required.'
     }
   },
   {
@@ -7559,13 +7695,17 @@ export const reports: Report[] = [
     pages: 7,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new event to the Events page — game title, format, and registration link.",
-      result1: "✓ Event listing live in minutes — players can register immediately, no dev needed.",
-      prompt2: "Update the hero to lead with community scale: 'We've Run 500+ Esports Events. Here's What We've Learned'.",
-      result2: "✓ Hero updated same day — credibility-first positioning for brands and sponsors.",
-      prompt3: "Add a sponsor inquiry section to the homepage with a 'Partner With Us' CTA and intake form.",
-      result3: "✓ Sponsorship section built and live in under 10 minutes — better inbound path for brand deals."
+    opportunityFindings: [
+      { label: 'Esports site must match tournament announcement speed', body: 'Esports moves at tournament speed — your site shouldn\'t be stuck waiting on a developer to keep up. Init Esports is built around racing, competition, and community. New programs launch, seasons change, and CTAs go stale fast. Right now every update waits on whoever manages the platform.' },
+      { label: 'Generic hero CTA losing registration momentum', body: 'Init Esports is built around racing, competition, and community. New programs launch, seasons change, and CTAs go stale fast. Right now the primary CTA — \'CLICK TO CHOOSE\' — doesn\'t tell a first-time visitor what they\'re choosing or why they should act now.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero — instead of \'Conquer the world you desire\' lead with \'Join the next racing season\' and tie it to our current program calendar.',
+      result1: '✓ Hero updated and live in minutes, timed to your season launch.',
+      prompt2: 'Add a new program page under \'other program\' for our Moto academy offering — same card format as the existing programs.',
+      result2: '✓ New program page built and published same day, matching your existing design.',
+      prompt3: 'Change the primary CTA from \'CLICK TO CHOOSE\' to something that tells visitors what they\'re signing up for.',
+      result3: '✓ CTA swapped, tested, and live — revert anytime without a developer.'
     }
   },
   {
@@ -7578,13 +7718,17 @@ export const reports: Report[] = [
     pages: 4,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a proper hero headline to the homepage — something like 'We Help Organizations Drive Change Across Strategy, Technology, and Operations' with a clear CTA below it.",
-      result1: "✓ Hero section built and live same day — no developer required, no platform login.",
-      prompt2: "We published a new article — add it to the News & Publications section and put it at the top.",
-      result2: "✓ New publication added and reordered in under 10 minutes, while the news is still current.",
-      prompt3: "Replace the three generic 'MORE' buttons with specific CTAs — 'Meet the Team', 'View Services', 'Read Our Research' — so visitors know exactly where they're going.",
-      result3: "✓ All three CTAs updated across the site in one pass, live immediately."
+    opportunityFindings: [
+      { label: 'Change consultants need a site that models agility', body: 'You help clients drive change — your own website shouldn\'t need a ticket to update. Intelligens Consulting sells strategy, technology, and operational transformation. But there\'s no hero headline, generic CTAs, and new publications that need surfacing — and right now each one waits on whoever manages the platform.' },
+      { label: 'No hero headline undermines first impressions', body: 'Intelligens Consulting sells strategy, technology, and operational transformation. But there\'s no proper hero headline on the homepage — which means a first-time visitor has to work to understand what the firm does and who it serves before they can decide to reach out.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add a proper hero headline to the homepage — something like \'Strategy, Technology, and Transformation — for organizations that can\'t afford to stand still.\'',
+      result1: '✓ Hero section built and live same day, no developer required.',
+      prompt2: 'We published a new article — add it to the News & Publications section with the correct date and link.',
+      result2: '✓ New publication added and reordered in under 10 minutes, while the article is still fresh.',
+      prompt3: 'Replace the three generic \'MORE\' buttons with specific CTAs that match each service area\'s outcome.',
+      result3: '✓ All three CTAs updated across the site in one pass, live immediately.'
     }
   },
   {
@@ -7597,13 +7741,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new client case study — industry, digital transformation challenge, and outcome.",
-      result1: "✓ Case study live same day — proof point ready for the next enterprise prospect.",
-      prompt2: "Update the Services page to add our new cloud migration offering with a 'Request a Scoping Call' CTA.",
-      result2: "✓ New service section built and live in under 10 minutes — no dev, no designer.",
-      prompt3: "Change the hero to lead with speed and certainty: 'We Modernize Enterprise Systems Without the 18-Month Overruns'.",
-      result3: "✓ Hero updated in minutes — sharper positioning for CIOs tired of failed transformation projects."
+    opportunityFindings: [
+      { label: 'Trust-building site undermined by slow content cycle', body: 'When your site\'s job is to earn trust, a slow content update cycle undermines that mission. Interna advises technology companies on execution speed — but when the site itself needs a new service page, updated hero, or CTA test, it waits on Wix and a designer, which is the opposite of the message.' },
+      { label: 'Investment due diligence service has no dedicated page', body: 'Interna advises technology companies on execution speed. Right now there\'s no dedicated page for the due diligence service for investment firms — a high-value offering that deserves its own conversion path rather than competing for attention on the general services list.' },
+    ],
+        aiExamples: {
+      prompt1: 'Change the hero headline from \'Making Product Management and Engineering Work Together\' to something that speaks to tech leadership under pressure.',
+      result1: '✓ Updated live in minutes — no ticket, no queue, no waiting on a Wix designer.',
+      prompt2: 'Add a new page for our due diligence service for investment firms — same structure as existing service pages.',
+      result2: '✓ New page built and live same day, matching your existing design system.',
+      prompt3: 'Replace \'Click here to schedule a free one-hour consultation\' with two separate CTAs — one for tech companies, one for investors.',
+      result3: '✓ Both versions live, switchable anytime — no dev needed, no redesign.'
     }
   },
   {
@@ -7616,13 +7764,17 @@ export const reports: Report[] = [
     pages: 8,
     hostingCost: 25,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new program outcome to the Impact page — population served, challenge, and measurable result.",
-      result1: "✓ Outcome entry live same day — impact story updated before your next grant review.",
-      prompt2: "Update the Services page to add our new organizational capacity-building offering.",
-      result2: "✓ New service section built and live in under 10 minutes — no designer, no queue.",
-      prompt3: "Change the hero to lead with the communities we serve: 'We Help Nonprofits Build the Infrastructure to Do More Good'.",
-      result3: "✓ Hero updated in minutes — stronger positioning for foundation partners and program officers."
+    opportunityFindings: [
+      { label: 'Government contracts require current site positioning', body: 'Strategy and equity work moves fast — the site shouldn\'t be the bottleneck. Jeweld Consulting works with government agencies and nonprofits on strategic planning and organizational development. When a new engagement closes or a service area expands, the site needs to reflect it before the next RFP conversation.' },
+      { label: 'Executive coaching offering has no dedicated page', body: 'Jeweld Consulting works with government agencies and nonprofits on strategic planning and organizational development. Right now there\'s no dedicated page for Executive Coaching — a service that deserves its own CTA and intake form separate from the general contact page.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the hero from \'Building an Equitable Future\' — we want to lead with the government agency and nonprofit sectors we serve.',
+      result1: '✓ New copy live in minutes, no brief required.',
+      prompt2: 'Add a new case study under Organizational Development — here\'s the engagement summary and outcomes.',
+      result2: '✓ New case study page built and published same day, matching your existing layout.',
+      prompt3: 'Add a new service section for Executive Coaching — it needs its own page, description, and intake form.',
+      result3: '✓ Page created, form embedded, live before end of day.'
     }
   },
   {
@@ -7711,13 +7863,17 @@ export const reports: Report[] = [
     pages: 1,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a new portfolio company to the homepage — sector, hold period, and a one-line value creation note.",
-      result1: "✓ Portfolio entry live in minutes — track record updated before your next LP or management team meeting.",
-      prompt2: "Update the investment criteria section to reflect our current focus on business services and light manufacturing.",
-      result2: "✓ Criteria updated same day — accurate positioning for intermediaries and sellers.",
-      prompt3: "Add a 'Our Process' section that walks founders and owners through how we approach a deal.",
-      result3: "✓ Process section built and live in under 10 minutes — better first impression for business owners evaluating partners."
+    opportunityFindings: [
+      { label: 'Founder-first VC pitch starts with the site', body: 'A VC firm\'s website is its first pitch — and right now yours can\'t be updated without a designer. Long Run Capital\'s positioning as a founder-first firm should be reflected in a site that moves at founder speed. But adding a portfolio company, updating the thesis, or testing a new hero still waits on Wix.' },
+      { label: 'No portfolio page weakens deal credibility', body: 'Long Run Capital\'s positioning as a founder-first firm should be reflected in a site that moves at founder speed. Right now there\'s no dedicated portfolio page — which means every inbound founder or co-investor has to take the fund\'s word for its track record instead of seeing it.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update our hero to say we focus on early-stage B2B SaaS in North America — that\'s our actual thesis and the one we\'re closing on.',
+      result1: '✓ New hero copy is live in minutes — no designer, no ticket, no wait.',
+      prompt2: 'Add a portfolio page with our current companies and a one-line description of each — here\'s the list.',
+      result2: '✓ New page built and live same day — structured exactly how you describe it.',
+      prompt3: 'Change \'partnering with founders\' to reflect our new thesis language — here\'s how we talk about it in pitches.',
+      result3: '✓ Done in under 10 minutes — consistent across every section of the site.'
     }
   },
   {
@@ -7730,13 +7886,17 @@ export const reports: Report[] = [
     pages: 3,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a recent successful placement to the homepage — industry, title level, and time to fill.",
-      result1: "✓ Placement callout live in minutes — track record updated before the next board conversation.",
-      prompt2: "Update the hero to lead with your specialty: 'We Place C-Suite Leaders Who Stay'.",
-      result2: "✓ Hero updated same day — sharper positioning for boards and CEOs evaluating search partners.",
-      prompt3: "Add a 'Start a Search' page with a short intake form — role, reporting level, and urgency.",
-      result3: "✓ New page built and live in under 10 minutes — better inbound path for retained search inquiries."
+    opportunityFindings: [
+      { label: 'Talent search speed requires same-day site updates', body: 'Exceptional talent doesn\'t wait — and neither should your website when the market shifts. Luxe\'s edge is speed and relationships: discovering candidates that aren\'t on the market. But when a new service line opens or a client win needs publishing, the site still waits on Wix and a designer.' },
+      { label: 'Career coaching offering buried without its own page', body: 'Luxe\'s edge is speed and relationships: discovering candidates that aren\'t on the market. But the Career Advancement Coaching offering — a distinct service from the core search practice — doesn\'t have its own page, which means it can\'t convert independently.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update \'What Sets Us Apart\' to include our new AI Talent Partnerships program — here\'s the one-paragraph description.',
+      result1: '✓ Section updated and live in minutes — no brief, no back-and-forth.',
+      prompt2: 'Add a page for Career Advancement Coaching with a \'Book a Call\' CTA and a short intake form.',
+      result2: '✓ New page built same day — your copy, your structure, goes live when you say so.',
+      prompt3: 'Change the hero headline to lead with our accounting and finance placement track record — that\'s the segment we\'re closing.',
+      result3: '✓ Updated live in under 10 minutes — sharper positioning for your strongest vertical.'
     }
   },
   {
@@ -7747,15 +7907,19 @@ export const reports: Report[] = [
     url: "https://maruassets.com",
     industry: "Alternative Investment Management / EB-5 & Real Estate",
     pages: 6,
-    hostingCost: 10,
+    hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the Trusted Partners section to add our new affiliate and their description.",
-      result1: "✓ Partners section updated live in minutes — no designer, no ticket, ready for your next client meeting.",
-      prompt2: "Add a dedicated page for EB-5 visa sponsorship programs with a 'Contact Us' CTA.",
-      result2: "✓ New page live same day — structured for your international clients, optimized to convert.",
-      prompt3: "Update 'What We Offer' to reflect our current investment products including the new REIT structure.",
-      result3: "✓ Offerings page updated in under 10 minutes — accurate, current, and exactly how you described it."
+    opportunityFindings: [
+      { label: 'HNW clients from Asia expect polished current site', body: 'High-net-worth clients from Asia and South America expect a site that reflects professionalism in real time. Maru\'s brand is built on trust and \'clear, on-point, and practical solutions.\' When a new affiliate joins the Trusted Partners section or an investment offering changes, the site needs to reflect it immediately.' },
+      { label: 'EB-5 program needs dedicated international page', body: 'Maru\'s brand is built on trust and \'clear, on-point, and practical solutions.\' Right now the EB-5 visa sponsorship program — a high-value offering for international clients — doesn\'t have its own dedicated page structured for that audience. That gap means international prospects hit a generic \'What We Offer\' page instead of a targeted conversion path.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the Trusted Partners section to add our new affiliate — here\'s their logo and one-line description.',
+      result1: '✓ Partners section updated live in minutes — no designer, no platform queue.',
+      prompt2: 'Add a dedicated page for EB-5 visa sponsorship programs with structured content for international investors.',
+      result2: '✓ New page live same day — structured for your international client audience.',
+      prompt3: 'Update \'What We Offer\' to reflect our current investment products — two have changed since the page was last updated.',
+      result3: '✓ Offerings page updated in under 10 minutes — accurate, current, no back-and-forth.'
     }
   },
   {
@@ -7768,13 +7932,17 @@ export const reports: Report[] = [
     pages: 6,
     hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Update the 'Be Intentional' section to reflect our updated framework for family wealth governance.",
-      result1: "✓ Section refreshed and live in minutes — aligned with your current methodology, no design queue.",
-      prompt2: "Add a new Insights Center article on navigating wealth transitions across generations.",
-      result2: "✓ New content page live same day — formatted consistently, indexed for search, ready to share.",
-      prompt3: "Split the homepage CTAs so families and financial advisors each have a dedicated path.",
-      result3: "✓ Dual-audience navigation built and live — cleaner experience for both the families you serve and the advisors you train."
+    opportunityFindings: [
+      { label: 'Dual-audience firm needs separate conversion paths', body: 'A firm that helps families be intentional with wealth shouldn\'t be stuck waiting on a designer to update its own site. Meaning Beyond Money speaks to both families and financial advisors — two distinct audiences with different entry points and different questions. Right now they\'re sharing the same homepage with no separate conversion paths.' },
+      { label: 'Insights Center content needs rapid publishing', body: 'Meaning Beyond Money speaks to both families and financial advisors — two distinct audiences with different entry points and different questions. When a new Insights Center article is ready or a new workshop wraps, that content should be live the same day — not waiting on whoever has Wix access.' },
+    ],
+        aiExamples: {
+      prompt1: 'Update the \'Be Intentional\' section to reflect our updated framework — here\'s the revised copy.',
+      result1: '✓ Section refreshed and live in minutes — aligned with your current methodology.',
+      prompt2: 'Add a new Insights Center article on navigating wealth transitions for the next generation.',
+      result2: '✓ New content page live same day — formatted consistently, indexed immediately.',
+      prompt3: 'Split the homepage CTAs so families and financial advisors each have their own entry point.',
+      result3: '✓ Dual-audience navigation built and live — cleaner experience, better conversion.'
     }
   },
   {
@@ -7804,15 +7972,19 @@ export const reports: Report[] = [
     url: "https://michaeldanielinvestments.com",
     industry: "Private Lending & Real Estate Finance",
     pages: 4,
-    hostingCost: 25,
+    hostingCost: 16,
     waitDays: 3,
-    aiExamples: {
-      prompt1: "Add a dedicated landing page for Bail-Out Loans with a 'Call Us Now — Free Consultation' CTA.",
-      result1: "✓ New page live same day — targeting homeowners in foreclosure exactly where they're searching.",
-      prompt2: "Update the hero to lead with 'Private Lending & Creative Financing That Actually Works' and separate the homeowner and investor paths more clearly.",
-      result2: "✓ Updated live in under 10 minutes — two clear paths for two different audiences, no developer required.",
-      prompt3: "Add a new section under Creative Financing for our JV Partnership terms with a contact form.",
-      result3: "✓ New section built and live — investors can inquire directly, deal flow starts immediately."
+    opportunityFindings: [
+      { label: 'Creative financing firm needs fast-moving site', body: 'You\'re not a bank and you don\'t think like one — so why is your website stuck in a static Wix setup? Michael Daniel Investments moves fast on deals. Bridge loans, bail-outs, fix-and-flips — these are time-sensitive products for time-sensitive borrowers. The site needs to match.' },
+      { label: 'Bail-out loan offering needs its own landing page', body: 'Michael Daniel Investments moves fast on deals. Bridge loans, bail-outs, fix-and-flips — these are time-sensitive products for time-sensitive borrowers. But right now there\'s no dedicated landing page for Bail-Out Loans — a distinct product for homeowners facing foreclosure who need a fast answer, not a general contact form.' },
+    ],
+        aiExamples: {
+      prompt1: 'Add a dedicated landing page for Bail-Out Loans with a \'Call Now\' CTA — target homeowners facing foreclosure.',
+      result1: '✓ New page live same day — targeting homeowners in foreclosure with the right message.',
+      prompt2: 'Update the hero to lead with \'Private Lending & Creative Financing\' — two clear paths for two different borrower types.',
+      result2: '✓ Updated live in under 10 minutes — two clear paths for two distinct audiences.',
+      prompt3: 'Add a new section under Creative Financing for our JV Partnership program — here\'s how it works.',
+      result3: '✓ New section built and live — investors can inquire directly from the page.'
     }
   },
   {
