@@ -16,11 +16,11 @@ const urbanist = Urbanist({
 export const metadata: Metadata = {
     metadataBase: new URL("https://fountainofscale.com"),
     title: {
-        default: "Fountain of Scale",
+        default: "Fountain of Scale – Done-for-You Automation for Everyone",
         template: "%s | Fountain of Scale",
     },
     description:
-        "Fountain of Scale builds and runs done-for-you automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more. Free to start.",
+        "Fountain of Scale builds and runs done-for-you automation systems for founders and local businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more.",
     keywords: [
         "small business automation",
         "done-for-you automation",
@@ -40,17 +40,17 @@ export const metadata: Metadata = {
         statusBarStyle: "default",
     },
     openGraph: {
-        title: "Fountain of Scale – Done-for-you automation for small businesses",
+        title: "Fountain of Scale – Done-for-You Automation for Everyone",
         description:
-            "Fountain of Scale builds and runs automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more. Free to start.",
+            "Fountain of Scale builds and runs done-for-you automation systems for founders and local businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more.",
         url: "https://fountainofscale.com",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Fountain of Scale – Done-for-you automation for small businesses",
+        title: "Fountain of Scale – Done-for-You Automation for Everyone",
         description:
-            "Fountain of Scale builds and runs automation systems for small businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more. Free to start.",
+            "Fountain of Scale builds and runs done-for-you automation systems for founders and local businesses: follow-ups, lead capture, review replies, appointment reminders, website replacement, and more.",
     },
 };
 export default function RootLayout({
