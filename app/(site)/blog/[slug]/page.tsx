@@ -51,6 +51,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     const { post, markdown } = result;
     const url = `https://fountainofscale.com/blog/${post.slug}`;
 
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://fountainofscale.com" },
+            { "@type": "ListItem", position: 2, name: "Blog", item: "https://fountainofscale.com/blog" },
+            { "@type": "ListItem", position: 3, name: post.title, item: url },
+        ],
+    };
+
     const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -76,6 +86,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
     return (
         <main>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

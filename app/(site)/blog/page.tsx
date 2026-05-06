@@ -12,11 +12,24 @@ export const metadata: Metadata = {
     openGraph: { url: "https://fountainofscale.com/blog" },
 };
 
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://fountainofscale.com" },
+        { "@type": "ListItem", position: 2, name: "Blog", item: "https://fountainofscale.com/blog" },
+    ],
+};
+
 export default async function BlogPage() {
     const posts = await getBlogPosts().catch(() => []);
 
     return (
         <main className="min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             <section className="px-4 md:px-16 lg:px-24 xl:px-32 pt-32 pb-16 border-b border-[#edf9f8]">
                 <div className="max-w-7xl mx-auto border-x border-[#edf9f8] px-8 md:px-16">
                     <p className="text-purple-500 text-xs font-semibold uppercase tracking-widest mb-3">Blog</p>
